@@ -67,19 +67,19 @@ public class PlanoturGeoCoder implements GeoCoder {
 //				Toast.makeText(this, R.string.no_items, Toast.LENGTH_SHORT).show();
 //				return;
 			}
-			if (results.length() >= 0){
-			JSONObject res = results.getJSONObject(0);
+			for (int i = 0; i< results.length();i++){
+			JSONObject res = results.getJSONObject(i);
 			JSONObject properties = res.getJSONObject("properties");
 			JSONArray coordinates = (JSONArray) (res.getJSONObject("geometry")).get("coordinates");
 //			Ut.dd(coordinates.toString(4));
 //			//Toast.makeText(this, res.getString("titleNoFormatting"), Toast.LENGTH_LONG).show();
 //			final String address = res.getString("addressLines").replace("\"", "").replace("[", "").replace("]", "").replace(",", ", ").replace("  ", " ");
 			final String address = properties.getString("name");
-			locationNames.add(address);
+			locationNames.add("Planotur: "+address);
 			// convert to integer (E6 format)
 			locationLatitudes.add((int) (coordinates.getDouble(1) * 1000000));
 			locationLongitudes.add((int) (coordinates.getDouble(0) * 1000000));
-			locationInfo.add(" ");
+			locationInfo.add(properties.getString("description"));
 //			Toast.makeText(context, address, Toast.LENGTH_LONG).show();
 //			//Toast.makeText(this, ((JSONObject) json.get("addressLines")).toString(), Toast.LENGTH_LONG).show();
 //

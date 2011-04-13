@@ -101,7 +101,7 @@ public class ChooseLocationActivity extends ListActivity {
 				place = (String) ChooseLocationActivity.this.getResources().getText(R.string.unnamed_place);
 			// add location type
 			String info = locationInfo[position];
-			info = info.substring(0,1).toUpperCase()+info.substring(1);
+//			info = info.substring(0,1).toUpperCase()+info.substring(1);
 			// add distance away
 			String distance = 
 				new FormatHelper(getBaseContext()).formatDistanceFuzzy
