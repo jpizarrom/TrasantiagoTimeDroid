@@ -1,0 +1,942 @@
+# Czech translation for opensatnav
+# Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
+# This file is distributed under the same license as the opensatnav package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version:  opensatnav\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2010-11-21 05:15+0100\n"
+"PO-Revision-Date: 2010-11-10 23:20+0000\n"
+"Last-Translator: Guillaume Rosaire <Unknown>\n"
+"Language-Team: Czech <cs@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 1.0dev\n"
+
+msgctxt "app_name"
+msgid "OpenSatNav"
+msgstr "OpenSatNav"
+
+msgctxt "app_desc"
+msgid "A free and open source OpenStreetMap application for Android."
+msgstr "Zdarma a open source OpenStreetMap aplikace pro Android"
+
+msgctxt "yes"
+msgid "Yes"
+msgstr "Ano"
+
+msgctxt "no"
+msgid "No"
+msgstr "Ne"
+
+msgctxt "location_services_disabled"
+msgid ""
+"No location services are enabled. Do you want to change this setting now?"
+" \n"
+"\n"
+"After making the change press the Back button to return to this program."
+msgstr ""
+
+msgctxt "gps_disabled"
+msgid "Location accuracy will be poor because GPS is not enabled."
+msgstr "Přesnost polohy je slabá protože GPS není zapnuta."
+
+msgctxt "network_unavailable"
+msgid "No data connection. Please check your settings and try again."
+msgstr "Žádné datové spojení. Prosím zkontrolujte vaše nastavení a zkuste znovu."
+
+msgctxt "getting_gps_fix"
+msgid "Attempting to find your location using GPS..."
+msgstr "Pokouším se najít polohu pomocí GPS..."
+
+msgctxt "get_directions"
+msgid "Directions"
+msgstr "Trasa"
+
+msgctxt "clear_directions"
+msgid "Clear directions"
+msgstr "Vymyzat trasu"
+
+msgctxt "navigation_mode"
+msgid "Navigation mode"
+msgstr "Navigační režim"
+
+msgctxt "start_trace_ticker"
+msgid "OpenSatNav starting trace recording..."
+msgstr "OpenSatNav začal se záznamem trasy..."
+
+msgctxt "tracing_notification_text"
+msgid "A trace is being recorded..."
+msgstr "Trasa byla nahrána..."
+
+msgctxt "planning_mode"
+msgid "  Planning mode  "
+msgstr "  Plánovací režim  "
+
+msgctxt "navigation_mode_on"
+msgid "Navigation mode on"
+msgstr "Navigační režim zapnut"
+
+msgctxt "planning_mode_on"
+msgid "Planning mode on"
+msgstr "Plánovací režim zapnut"
+
+msgctxt "start_directions_failed"
+msgid ""
+"Can't get directions because your location is\n"
+"\t\tunknown. Please try again when you have a GPS signal."
+msgstr ""
+"Nemohu získat instrukce, protože Vaše poloha je\n"
+"\t\tneznámá. Prosím zkuste to znovu, když budete mít GPS signál."
+
+msgctxt "unspecified_directions_failed"
+msgid "Getting directions failed, please try again."
+msgstr "Výpočet trasy selhal, prosím zkuste znovu."
+
+msgctxt "place_not_found"
+msgid "Sorry, couldn't find \"%1$s\""
+msgstr "Omlouvám se, nemůžu najít"
+
+msgctxt "unnamed_place"
+msgid "Unnamed"
+msgstr "Bezejmenný"
+
+msgctxt "directions_not_found"
+msgid "Sorry, couldn't get directions"
+msgstr "Omlouvám se, nemohu najít instrukce"
+
+msgctxt "please_wait"
+msgid "Please wait..."
+msgstr "Prosím čekejte..."
+
+msgctxt "searching"
+msgid "Searching"
+msgstr "Vyhledávám"
+
+msgctxt "getting_route"
+msgid "Getting route"
+msgstr "získávám trasu"
+
+msgctxt "enter_destination"
+msgid "Where do you want to go?"
+msgstr "Kde chcete jet?"
+
+msgctxt "transport_type"
+msgid "Mode of transport"
+msgstr "Způsob transportu"
+
+msgctxt "kilometres_abbreviation"
+msgid " km"
+msgstr " km"
+
+msgctxt "metres_abbreviation"
+msgid " m"
+msgstr " m"
+
+msgctxt "miles_abbreviation"
+msgid " mi"
+msgstr ""
+
+msgctxt "yards_abbreviation"
+msgid " yd"
+msgstr ""
+
+msgctxt "kmh_abbreviation"
+msgid " km/h"
+msgstr " km/h"
+
+msgctxt "mph_abbreviation"
+msgid " mph"
+msgstr ""
+
+msgctxt "away"
+msgid "away"
+msgstr "vzdálený"
+
+msgctxt "could_not_find_poi"
+msgid "Could not find any places matching"
+msgstr "Nemu najít shodijící se místo"
+
+msgctxt "car"
+msgid "Car"
+msgstr "Auto"
+
+msgctxt "bicycle"
+msgid "Bicycle"
+msgstr "Kolo"
+
+msgctxt "walking"
+msgid "Walking"
+msgstr "Pěší"
+
+msgctxt "atm"
+msgid "ATM"
+msgstr "Bankomat"
+
+msgctxt "cafe"
+msgid "Café"
+msgstr "Kavárna"
+
+msgctxt "cinema"
+msgid "Cinema"
+msgstr "Kino"
+
+msgctxt "fuel"
+msgid "Fuel"
+msgstr "Čerpací stanice"
+
+msgctxt "hospital"
+msgid "Hospital"
+msgstr "Nemocnice"
+
+msgctxt "hotel"
+msgid "Hotel"
+msgstr "Hotel"
+
+msgctxt "night_club"
+msgid "Night club"
+msgstr "Noční klub"
+
+msgctxt "parking"
+msgid "Parking"
+msgstr "Parkoviště"
+
+msgctxt "police"
+msgid "Police station"
+msgstr "Policejní stanice"
+
+msgctxt "pub"
+msgid "Pub"
+msgstr "Hospoda"
+
+msgctxt "restaurant"
+msgid "Restaurant"
+msgstr "Restaurace"
+
+msgctxt "taxi_rank"
+msgid "Taxi Rank"
+msgstr "Stanoviště taxi"
+
+msgctxt "toilet"
+msgid "Toilet"
+msgstr "WC"
+
+msgctxt "find_nearest"
+msgid "Find nearest..."
+msgstr "Najdi nebližší"
+
+msgctxt "choose_location"
+msgid "Choose location..."
+msgstr "Vyber lokaci..."
+
+msgctxt "touch_screen"
+msgid "Touch screen to continue..."
+msgstr "Dotkni se obrazovky k pokračování..."
+
+msgctxt "preferences"
+msgid "Preferences"
+msgstr "Nastavení"
+
+msgctxt "prefs_general"
+msgid "General"
+msgstr "hlavní"
+
+msgctxt "prefs_units"
+msgid "Unit system"
+msgstr "Jednotky"
+
+msgctxt "prefs_units_metric"
+msgid "Metric"
+msgstr "Metrické"
+
+msgctxt "prefs_units_imperial"
+msgid "Imperial"
+msgstr "Imperiální"
+
+msgctxt "prefs_map_style"
+msgid "Map style"
+msgstr "Syl mapy"
+
+msgctxt "prefs_map_mapnik"
+msgid "Default"
+msgstr "Defaultní"
+
+msgctxt "prefs_map_cyclemap"
+msgid "Cycle Map"
+msgstr "Cyklomapa"
+
+msgctxt "prefs_map_noname"
+msgid "No name (for mappers)"
+msgstr "Bezejmenný (pro mapovače)"
+
+msgctxt "prefs_cache_section"
+msgid "Tiles cache"
+msgstr "Paměť pro dlaždice"
+
+msgctxt "prefs_cache_sdcard"
+msgid "SD Card usage"
+msgstr "Využití SD karyt"
+
+msgctxt "prefs_cache_sdcard_summary"
+msgid "Maximum used size of the SD card to store cached tiles"
+msgstr "Maximální použitá paměť na SD kartě k uložení dlaždic"
+
+msgctxt "prefs_cache_sdcard_dialog"
+msgid "The SD card cache will contain at most the following"
+msgstr "Paměť SD karty obsahuje nejvýše následující"
+
+msgctxt "prefs_cache_sdcard_title"
+msgid "Select size"
+msgstr "Vyber velikost"
+
+msgctxt "prefs_cache_clear"
+msgid "Clear cache"
+msgstr "Vymazat paměť"
+
+msgctxt "prefs_cache_clear_summary"
+msgid "Empty the map tile cache"
+msgstr "Vymyzat pamět čtverců"
+
+msgctxt "prefs_cache_clear_confirm"
+msgid "Are you sure you want to clear the map tile cache?"
+msgstr "Jste si jisti že chcete vymazat paměť na čtverce"
+
+msgctxt "megabytes_abbreviation"
+msgid "Mb"
+msgstr "Mb"
+
+msgctxt "about"
+msgid "About"
+msgstr "O"
+
+msgctxt "about_website_label"
+msgid "OpenSatNav.org"
+msgstr "OpenSatNav.org"
+
+msgctxt "about_website_url"
+msgid "http://www.opensatnav.org/"
+msgstr "http://www.opensatnav.org/"
+
+msgctxt "menu_preferences"
+msgid "Preferences"
+msgstr "Nastavení"
+
+msgctxt "menu_about"
+msgid "About OI About itself"
+msgstr ""
+
+msgctxt "l_leaders"
+msgid "Project Founder"
+msgstr "Zakladatel projektu"
+
+msgctxt "l_authors"
+msgid "Written by"
+msgstr "Napsal"
+
+msgctxt "l_documenters"
+msgid "Documented by"
+msgstr "Zdokumetoval"
+
+msgctxt "l_translators"
+msgid "Translated by"
+msgstr "Přeložil"
+
+msgctxt "l_artists"
+msgid "Artwork by"
+msgstr "Vzhled"
+
+msgctxt "l_credits"
+msgid "Credits"
+msgstr "Titulky"
+
+msgctxt "l_license"
+msgid "License"
+msgstr "Licence"
+
+msgctxt "l_info"
+msgid "General Info"
+msgstr "Hlavní informace"
+
+msgctxt "l_others"
+msgid "Special thanks"
+msgstr "Speciální poděkování"
+
+msgctxt "no_information_available"
+msgid "No information available."
+msgstr "Nejsou dostupné žádné informace"
+
+msgctxt "error_email_message"
+msgid ""
+"Dear All,\n"
+"\n"
+"I encountered the following issue while using OpenSatNav, could you "
+"please have a look at it?\n"
+"\n"
+msgstr ""
+
+msgctxt "error_email_chooser_title"
+msgid "Send Mail via:"
+msgstr "Poslat email pomocí:"
+
+msgctxt "bug_report_mail_address"
+msgid "bug-reports@opensatnav.org"
+msgstr "bug-reports@opensatnav.org"
+
+msgctxt "bug_report_ask_user"
+msgid "An unexpected error just happened. Would you like to send us a bug report?"
+msgstr "Stala se neočekávaná chyba. Chcete nám poslat zprávu o chybě?"
+
+msgctxt "bug_report_not_sent_ask_user"
+msgid ""
+"An unexpected error happened last time you used OpenSatNav. Would you "
+"like to send us a bug report?"
+msgstr ""
+"Při posledním použití OpenSatNav se stala neočekávaná chyba. Chcete nám "
+"poslat zprávu o chybě?"
+
+msgctxt "bug_report_ask_user_title"
+msgid "Unexpected Error"
+msgstr "Neočekávaná chyba"
+
+msgctxt "menu_contribute"
+msgid "Contribute"
+msgstr "Přispět"
+
+msgctxt "contribute_title"
+msgid "Contribute to OSM"
+msgstr "Přispět do OSM"
+
+msgctxt "prefs_contribute_section"
+msgid "Contribute"
+msgstr "Přispět"
+
+msgctxt "prefs_contribute_osm_username"
+msgid "Username"
+msgstr "Uživatelské jméno"
+
+msgctxt "prefs_contribute_osm_username_summary"
+msgid "Please enter your OSM username here"
+msgstr "zde prosím vložte Vaše OSM uživatelské jméno"
+
+msgctxt "prefs_contribute_osm_password"
+msgid "Password"
+msgstr "Heslo"
+
+msgctxt "prefs_contribute_osm_password_summary"
+msgid "Please enter your OSM password here"
+msgstr "Zde prosím vločte Vaše OSM heslo"
+
+msgctxt "pref_username_key"
+msgid "pref_username_key"
+msgstr ""
+
+msgctxt "pref_password_key"
+msgid "pref_password_key"
+msgstr ""
+
+msgctxt "contribute_introduction"
+msgid ""
+"You can help OpenSatNav by contributing GPS traces to the Open Street Map"
+" Project"
+msgstr "Můžete pomoct pomocí OpenSatNav sbíráním GPS tras Open Sreet Map projektu"
+
+msgctxt "contribute_start_recording"
+msgid "Start Recording"
+msgstr "Začít nahrávat"
+
+msgctxt "contribute_stop_recording"
+msgid "Stop Recording"
+msgstr "Ukončit nahrávaní"
+
+msgctxt "contribute_upload"
+msgid "Upload Tracks to OSM"
+msgstr "Nahrát trasu do OSM"
+
+msgctxt "contribute_delete_traces"
+msgid "Delete Traces"
+msgstr "Smazat trasu"
+
+msgctxt "contribute_delete_old_traces"
+msgid "Delete old traces"
+msgstr "Smazat staré trasy"
+
+msgctxt "contribute_new_waypoint"
+msgid "New Waypoint"
+msgstr "Nový bod zájmu"
+
+msgctxt "contribute_dialogue_trace_description"
+msgid "Trace Description"
+msgstr "Popis trasy"
+
+msgctxt "contribute_dialogue_trace_message"
+msgid "Please set a description for this trace"
+msgstr "Vložte prosím popis pro tuto trasu"
+
+msgctxt "contribute_dialogue_new_waypoint"
+msgid "New Waypoint"
+msgstr "Nový bod zájmu"
+
+msgctxt "contribute_dialogue_new_waypoint_message"
+msgid "Please enter waypoint name"
+msgstr "Prosím vložte jméno bodu zájmu"
+
+msgctxt "contribute_username_not_entered"
+msgid "Not yet entered"
+msgstr "Ještě nevložen"
+
+msgctxt "contribute_error_enter_osm_login_details"
+msgid "Please enter your login details first"
+msgstr "Nejdříve prosím vložte přihlašovací údaje"
+
+msgctxt "contribute_gps_on"
+msgid "GPS Tracking turned On"
+msgstr "GPS trasování zapnuto"
+
+msgctxt "contribute_gps_off"
+msgid "GPS Tracking turned Off"
+msgstr "GPS trasování vypnuto"
+
+msgctxt "contribute_track_cleared"
+msgid "Track cleared"
+msgstr "Trasa vymazána"
+
+msgctxt "contribute_error_no_traces"
+msgid "No traces collected yet"
+msgstr ""
+
+msgctxt "contribute_uploading_traces"
+msgid "Uploading traces"
+msgstr "Nahrávám trasu"
+
+msgctxt "contribute_form_name"
+msgid "Track Name"
+msgstr "Název trasy"
+
+msgctxt "contribute_form_visibility"
+msgid "Visibility"
+msgstr "Viditelnost"
+
+msgctxt "contribute_track_uploaded"
+msgid "Track with description \"%1$s\" uploaded to OSM."
+msgstr "Trasa s popisem  \"%1$s\" nahrána na OSM."
+
+msgctxt "contribute_waypoint_added"
+msgid "Waypoint \"%1$s\" added"
+msgstr "Bod zájmu \"%1$s\" přidán"
+
+msgctxt "contribute_track_error_happened"
+msgid "Sorry, an error happened:"
+msgstr "Promiňte, stala se chyba:"
+
+msgctxt "contribute_waypoing_gps_fix_not_good"
+msgid "GPS fix not good enough to add waypoint, try again"
+msgstr "GPS fix není dobrý pro přídání bodu zájmu, zkus znovu"
+
+msgctxt "tracing_paused_notification_text"
+msgid "Recording is paused"
+msgstr "Nahrávání pozastaveno"
+
+msgctxt "menu_show_trip_stats"
+msgid "Trip Stats"
+msgstr ""
+
+msgctxt "close_statistics_view"
+msgid "Show Map"
+msgstr "Ukaž mapu"
+
+msgctxt "reset_trip_statistics"
+msgid "Reset Stats"
+msgstr ""
+
+msgctxt "aver_trip_speed_label"
+msgid "Average Speed:"
+msgstr "Průměrná rychlost"
+
+msgctxt "current_speed_label"
+msgid "Current Speed:"
+msgstr "Aktuální rychlost:"
+
+msgctxt "trip_distance_label"
+msgid "Distance:"
+msgstr "Vzdálenost:"
+
+msgctxt "trip_duration_label"
+msgid "Trip Time:"
+msgstr "Čas cesty"
+
+msgctxt "not_available_string"
+msgid "n/a"
+msgstr ""
+
+msgctxt "namefinder_service_label"
+msgid "Name Finder service"
+msgstr ""
+
+msgctxt "uk_postcode_not_recognised_title"
+msgid "UK Postcode not recognized"
+msgstr ""
+
+msgctxt "uk_postcode_not_recognised"
+msgid ""
+"The postcode is not recognised, the most likely reason for this is that "
+"it has not been entered into the 'Free The Postcode' database "
+"(www.freethepostcode.org).\n"
+"\n"
+" As you are using the Android platform, you can download an open-source "
+"(GPLv3) application from Android Market, it will allow you to easily "
+"submit new postcodes.\n"
+"\n"
+" Would you like to use it?"
+msgstr ""
+
+msgctxt "prefs_map_os"
+msgid "Ordnance Survey (UK only)"
+msgstr ""
+
+msgctxt "error_externalstorage_not_writable"
+msgid "Unable to write to SD card"
+msgstr "Nemohu zapsat na SD kartu"
+
+msgctxt "wplist"
+msgid "Waypoint List"
+msgstr "Seznam bodu zájmů"
+
+msgctxt "wplist_latitude"
+msgid "Latitude:"
+msgstr "Šírka:"
+
+msgctxt "wplist_longitude"
+msgid "Longitude:"
+msgstr "Délka:"
+
+msgctxt "wplist_elevation"
+msgid "Elevation:"
+msgstr ""
+
+msgctxt "wplist_accuracy"
+msgid "Accuracy:"
+msgstr ""
+
+#, python-format
+msgctxt "new_track"
+msgid "Track %d"
+msgstr ""
+
+msgctxt "moving_time_label"
+msgid "Moving Time"
+msgstr "Čas přesunu"
+
+msgctxt "total_time_label"
+msgid "Total Time"
+msgstr "Celkový čas"
+
+msgctxt "time_label"
+msgid "Time"
+msgstr "Čas"
+
+msgctxt "sd_unavail"
+msgid "SD Unavailable"
+msgstr "SD nedostupná"
+
+msgctxt "speed"
+msgid "Speed"
+msgstr "Rychlost"
+
+msgctxt "start_trip"
+msgid "You must start a trip."
+msgstr ""
+
+msgctxt "statistics"
+msgid "Statistics"
+msgstr "Statistika"
+
+msgctxt "total_distance_label"
+msgid "Total Distance"
+msgstr "Celková vzdálenost"
+
+msgctxt "distance_label"
+msgid "Distance"
+msgstr "Vzdálenost"
+
+msgctxt "unknown"
+msgid "-"
+msgstr ""
+
+msgctxt "waiting"
+msgid "Waiting..."
+msgstr "Čekejte..."
+
+msgctxt "hour"
+msgid "hour"
+msgstr "hodina"
+
+msgctxt "hours"
+msgid "hours"
+msgstr "hodiny"
+
+msgctxt "hr"
+msgid "hr"
+msgstr "h"
+
+msgctxt "min"
+msgid "min"
+msgstr "min"
+
+msgctxt "minute"
+msgid "minute"
+msgstr "minuta"
+
+msgctxt "minutes"
+msgid "minutes"
+msgstr "minuty"
+
+msgctxt "second"
+msgid "second"
+msgstr "sekunda"
+
+msgctxt "seconds"
+msgid "seconds"
+msgstr "sekund"
+
+msgctxt "average_speed_label"
+msgid "Average Speed"
+msgstr "Průměrná rychlost"
+
+msgctxt "average_pace_label"
+msgid "Average Pace"
+msgstr "Průměrné tempo"
+
+msgctxt "average_moving_speed_label"
+msgid "Average Moving Speed"
+msgstr "Průměrná rychlost přesunu"
+
+msgctxt "average_moving_pace_label"
+msgid "Average Moving Pace"
+msgstr "Průměrné tempo přesunu"
+
+msgctxt "min_elevation_label"
+msgid "Min Elevation"
+msgstr ""
+
+msgctxt "min_grade_label"
+msgid "Min Grade"
+msgstr ""
+
+msgctxt "min_pace_label"
+msgid "Min Pace"
+msgstr "Minimální tempo"
+
+msgctxt "max_elevation_label"
+msgid "Max Elevation"
+msgstr ""
+
+msgctxt "max_grade_label"
+msgid "Max Grade"
+msgstr ""
+
+msgctxt "max_speed_label"
+msgid "Max Speed"
+msgstr "Maximální rychlost"
+
+msgctxt "elevation_chart_name"
+msgid "Elevation Chart"
+msgstr ""
+
+msgctxt "elevation_gain_label"
+msgid "Elevation Gain"
+msgstr ""
+
+msgctxt "elevation_label"
+msgid "Elevation"
+msgstr ""
+
+msgctxt "latitude_label"
+msgid "Latitude"
+msgstr ""
+
+msgctxt "longitude_label"
+msgid "Longitude"
+msgstr ""
+
+msgctxt "meter"
+msgid "m"
+msgstr "m"
+
+msgctxt "kilometer"
+msgid "km"
+msgstr "km"
+
+msgctxt "kilometers_long"
+msgid "kilometers"
+msgstr "kilometry"
+
+msgctxt "feet"
+msgid "ft"
+msgstr ""
+
+msgctxt "mile"
+msgid "mi"
+msgstr ""
+
+msgctxt "miles_long"
+msgid "miles"
+msgstr "míle"
+
+msgctxt "kilometer_per_hour"
+msgid "km/h"
+msgstr "km/h"
+
+msgctxt "kilometer_per_hour_long"
+msgid "kilometers per hour"
+msgstr "kilometrů v hodině"
+
+msgctxt "min_per_kilometer"
+msgid "min/km"
+msgstr "min/km"
+
+msgctxt "per_kilometer"
+msgid "per kilometer"
+msgstr "za kilometr"
+
+msgctxt "mile_per_hour"
+msgid "mi/h"
+msgstr ""
+
+msgctxt "mile_per_hour_long"
+msgid "miles per hour"
+msgstr "mílí za hodinu"
+
+msgctxt "min_per_mile"
+msgid "min/mi"
+msgstr ""
+
+msgctxt "per_mile"
+msgid "per mile"
+msgstr "za míli"
+
+msgctxt "points"
+msgid "Points"
+msgstr "Body"
+
+msgctxt "recorded_date"
+msgid "Recorded"
+msgstr "Nahráno"
+
+msgctxt "category"
+msgid "Activity type"
+msgstr "Druh aktivity"
+
+msgctxt "waypoint_category"
+msgid "Marker type"
+msgstr ""
+
+#, python-format
+msgctxt "part"
+msgid "(Part %d)"
+msgstr ""
+
+msgctxt "trackdetails_title"
+msgid "Track Details"
+msgstr "Detaily trasy"
+
+msgctxt "trackdetails_name"
+msgid "Track Name"
+msgstr "název trasy"
+
+msgctxt "trackdetails_description"
+msgid "Track Description"
+msgstr "Popis trasy"
+
+msgctxt "trackdetails_category"
+msgid "Activity Type (e.g. hiking, cycling, running, climbing...)"
+msgstr "Typ aktivity  (např. turistika, cyklistika, běhání, lezení...)"
+
+msgctxt "tracklist_show_track"
+msgid "Show"
+msgstr "Ukázat"
+
+msgctxt "tracklist_send_to_osm"
+msgid "Send to OSM..."
+msgstr "Posláno do OSM"
+
+msgctxt "tracklist_delete_track"
+msgid "Delete from phone..."
+msgstr "Smazáno z telefonu..."
+
+msgctxt "tracklist_edit_track"
+msgid "Edit details"
+msgstr "Upravit detaily"
+
+msgctxt "tracklist_write_to_sd"
+msgid "Write to SD card..."
+msgstr "Zapsáno na SD kartu"
+
+msgctxt "tracklist_save_as_gpx"
+msgid "Save a GPX file"
+msgstr "Uložit GPX soubor"
+
+msgctxt "tracklist_save_as_kml"
+msgid "Save a KML file"
+msgstr "Uložit KML soubor"
+
+msgctxt "tracklist_save_as_csv"
+msgid "Save a CSV file"
+msgstr "Uložit CSV soubor"
+
+msgctxt "tracklist_share_track"
+msgid "Share with Friends..."
+msgstr "Sdílet s práteli"
+
+msgctxt "tracklist_share_gpx_file"
+msgid "A GPX file"
+msgstr "GPX soubor"
+
+msgctxt "tracklist_share_kml_file"
+msgid "A KML file"
+msgstr "KMP soubor"
+
+msgctxt "tracklist_share_csv_file"
+msgid "A CSV file"
+msgstr "CSV soubor"
+
+msgctxt "tracklist_clear_map"
+msgid "Clear map"
+msgstr "Vymaž mapu"
+
+msgctxt "tracklist_this_track"
+msgid "This Track"
+msgstr "Tato trasa"
+
+msgctxt "navigate_contextmenu_navigate"
+msgid "Navigate"
+msgstr "Navigovat"
+
+msgctxt "navigate_contextmenu_aroundpoint"
+msgid "What's here?"
+msgstr "Co je zde?"
+
+msgctxt "sendtoosm_private"
+msgid "More Private"
+msgstr "Více soukromí"
+
+msgctxt "sendtoosm_identifiable"
+msgid "Less Private (preferred)"
+msgstr "Méně soukromí (preferováno)"
+
+msgctxt "sendtoosm_title"
+msgid "Upload to OSM"
+msgstr "Nahrát na OSM"
+
+msgctxt "cancel"
+msgid "Cancel"
+msgstr "Zrušit"
+
+msgctxt "sendtoosm_send_now"
+msgid "Upload Now"
+msgstr "Nahrát nyní"
+

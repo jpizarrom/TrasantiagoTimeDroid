@@ -1,0 +1,937 @@
+# Translations template for PROJECT.
+# Copyright (C) 2010 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2010-11-21 05:15+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 1.0dev\n"
+
+msgctxt "app_name"
+msgid "OpenSatNav"
+msgstr ""
+
+msgctxt "app_desc"
+msgid "A free and open source OpenStreetMap application for Android."
+msgstr ""
+
+msgctxt "yes"
+msgid "Yes"
+msgstr ""
+
+msgctxt "no"
+msgid "No"
+msgstr ""
+
+msgctxt "location_services_disabled"
+msgid ""
+"No location services are enabled. Do you want to change this setting now?"
+" \n"
+"\n"
+"After making the change press the Back button to return to this program."
+msgstr ""
+
+msgctxt "gps_disabled"
+msgid "Location accuracy will be poor because GPS is not enabled."
+msgstr ""
+
+msgctxt "network_unavailable"
+msgid "No data connection. Please check your settings and try again."
+msgstr ""
+
+msgctxt "getting_gps_fix"
+msgid "Attempting to find your location using GPS..."
+msgstr ""
+
+msgctxt "get_directions"
+msgid "Directions"
+msgstr ""
+
+msgctxt "clear_directions"
+msgid "Clear directions"
+msgstr ""
+
+msgctxt "navigation_mode"
+msgid "Navigation mode"
+msgstr ""
+
+msgctxt "start_trace_ticker"
+msgid "OpenSatNav starting trace recording..."
+msgstr ""
+
+msgctxt "tracing_notification_text"
+msgid "A trace is being recorded..."
+msgstr ""
+
+msgctxt "planning_mode"
+msgid "  Planning mode  "
+msgstr ""
+
+msgctxt "navigation_mode_on"
+msgid "Navigation mode on"
+msgstr ""
+
+msgctxt "planning_mode_on"
+msgid "Planning mode on"
+msgstr ""
+
+msgctxt "start_directions_failed"
+msgid ""
+"Can't get directions because your location is\n"
+"\t\tunknown. Please try again when you have a GPS signal."
+msgstr ""
+
+msgctxt "unspecified_directions_failed"
+msgid "Getting directions failed, please try again."
+msgstr ""
+
+msgctxt "place_not_found"
+msgid "Sorry, couldn't find \"%1$s\""
+msgstr ""
+
+msgctxt "unnamed_place"
+msgid "Unnamed"
+msgstr ""
+
+msgctxt "directions_not_found"
+msgid "Sorry, couldn't get directions"
+msgstr ""
+
+msgctxt "please_wait"
+msgid "Please wait..."
+msgstr ""
+
+msgctxt "searching"
+msgid "Searching"
+msgstr ""
+
+msgctxt "getting_route"
+msgid "Getting route"
+msgstr ""
+
+msgctxt "enter_destination"
+msgid "Where do you want to go?"
+msgstr ""
+
+msgctxt "transport_type"
+msgid "Mode of transport"
+msgstr ""
+
+msgctxt "kilometres_abbreviation"
+msgid " km"
+msgstr ""
+
+msgctxt "metres_abbreviation"
+msgid " m"
+msgstr ""
+
+msgctxt "miles_abbreviation"
+msgid " mi"
+msgstr ""
+
+msgctxt "yards_abbreviation"
+msgid " yd"
+msgstr ""
+
+msgctxt "kmh_abbreviation"
+msgid " km/h"
+msgstr ""
+
+msgctxt "mph_abbreviation"
+msgid " mph"
+msgstr ""
+
+msgctxt "away"
+msgid "away"
+msgstr ""
+
+msgctxt "could_not_find_poi"
+msgid "Could not find any places matching"
+msgstr ""
+
+msgctxt "car"
+msgid "Car"
+msgstr ""
+
+msgctxt "bicycle"
+msgid "Bicycle"
+msgstr ""
+
+msgctxt "walking"
+msgid "Walking"
+msgstr ""
+
+msgctxt "atm"
+msgid "ATM"
+msgstr ""
+
+msgctxt "cafe"
+msgid "Café"
+msgstr ""
+
+msgctxt "cinema"
+msgid "Cinema"
+msgstr ""
+
+msgctxt "fuel"
+msgid "Fuel"
+msgstr ""
+
+msgctxt "hospital"
+msgid "Hospital"
+msgstr ""
+
+msgctxt "hotel"
+msgid "Hotel"
+msgstr ""
+
+msgctxt "night_club"
+msgid "Night club"
+msgstr ""
+
+msgctxt "parking"
+msgid "Parking"
+msgstr ""
+
+msgctxt "police"
+msgid "Police station"
+msgstr ""
+
+msgctxt "pub"
+msgid "Pub"
+msgstr ""
+
+msgctxt "restaurant"
+msgid "Restaurant"
+msgstr ""
+
+msgctxt "taxi_rank"
+msgid "Taxi Rank"
+msgstr ""
+
+msgctxt "toilet"
+msgid "Toilet"
+msgstr ""
+
+msgctxt "find_nearest"
+msgid "Find nearest..."
+msgstr ""
+
+msgctxt "choose_location"
+msgid "Choose location..."
+msgstr ""
+
+msgctxt "touch_screen"
+msgid "Touch screen to continue..."
+msgstr ""
+
+msgctxt "preferences"
+msgid "Preferences"
+msgstr ""
+
+msgctxt "prefs_general"
+msgid "General"
+msgstr ""
+
+msgctxt "prefs_units"
+msgid "Unit system"
+msgstr ""
+
+msgctxt "prefs_units_metric"
+msgid "Metric"
+msgstr ""
+
+msgctxt "prefs_units_imperial"
+msgid "Imperial"
+msgstr ""
+
+msgctxt "prefs_map_style"
+msgid "Map style"
+msgstr ""
+
+msgctxt "prefs_map_mapnik"
+msgid "Default"
+msgstr ""
+
+msgctxt "prefs_map_cyclemap"
+msgid "Cycle Map"
+msgstr ""
+
+msgctxt "prefs_map_noname"
+msgid "No name (for mappers)"
+msgstr ""
+
+msgctxt "prefs_cache_section"
+msgid "Tiles cache"
+msgstr ""
+
+msgctxt "prefs_cache_sdcard"
+msgid "SD Card usage"
+msgstr ""
+
+msgctxt "prefs_cache_sdcard_summary"
+msgid "Maximum used size of the SD card to store cached tiles"
+msgstr ""
+
+msgctxt "prefs_cache_sdcard_dialog"
+msgid "The SD card cache will contain at most the following"
+msgstr ""
+
+msgctxt "prefs_cache_sdcard_title"
+msgid "Select size"
+msgstr ""
+
+msgctxt "prefs_cache_clear"
+msgid "Clear cache"
+msgstr ""
+
+msgctxt "prefs_cache_clear_summary"
+msgid "Empty the map tile cache"
+msgstr ""
+
+msgctxt "prefs_cache_clear_confirm"
+msgid "Are you sure you want to clear the map tile cache?"
+msgstr ""
+
+msgctxt "megabytes_abbreviation"
+msgid "Mb"
+msgstr ""
+
+msgctxt "about"
+msgid "About"
+msgstr ""
+
+msgctxt "about_website_label"
+msgid "OpenSatNav.org"
+msgstr ""
+
+msgctxt "about_website_url"
+msgid "http://www.opensatnav.org/"
+msgstr ""
+
+msgctxt "menu_preferences"
+msgid "Preferences"
+msgstr ""
+
+msgctxt "menu_about"
+msgid "About OI About itself"
+msgstr ""
+
+msgctxt "l_leaders"
+msgid "Project Founder"
+msgstr ""
+
+msgctxt "l_authors"
+msgid "Written by"
+msgstr ""
+
+msgctxt "l_documenters"
+msgid "Documented by"
+msgstr ""
+
+msgctxt "l_translators"
+msgid "Translated by"
+msgstr ""
+
+msgctxt "l_artists"
+msgid "Artwork by"
+msgstr ""
+
+msgctxt "l_credits"
+msgid "Credits"
+msgstr ""
+
+msgctxt "l_license"
+msgid "License"
+msgstr ""
+
+msgctxt "l_info"
+msgid "General Info"
+msgstr ""
+
+msgctxt "l_others"
+msgid "Special thanks"
+msgstr ""
+
+msgctxt "no_information_available"
+msgid "No information available."
+msgstr ""
+
+msgctxt "error_email_message"
+msgid ""
+"Dear All,\n"
+"\n"
+"I encountered the following issue while using OpenSatNav, could you "
+"please have a look at it?\n"
+"\n"
+msgstr ""
+
+msgctxt "error_email_chooser_title"
+msgid "Send Mail via:"
+msgstr ""
+
+msgctxt "bug_report_mail_address"
+msgid "bug-reports@opensatnav.org"
+msgstr ""
+
+msgctxt "bug_report_ask_user"
+msgid "An unexpected error just happened. Would you like to send us a bug report?"
+msgstr ""
+
+msgctxt "bug_report_not_sent_ask_user"
+msgid ""
+"An unexpected error happened last time you used OpenSatNav. Would you "
+"like to send us a bug report?"
+msgstr ""
+
+msgctxt "bug_report_ask_user_title"
+msgid "Unexpected Error"
+msgstr ""
+
+msgctxt "menu_contribute"
+msgid "Contribute"
+msgstr ""
+
+msgctxt "contribute_title"
+msgid "Contribute to OSM"
+msgstr ""
+
+msgctxt "prefs_contribute_section"
+msgid "Contribute"
+msgstr ""
+
+msgctxt "prefs_contribute_osm_username"
+msgid "Username"
+msgstr ""
+
+msgctxt "prefs_contribute_osm_username_summary"
+msgid "Please enter your OSM username here"
+msgstr ""
+
+msgctxt "prefs_contribute_osm_password"
+msgid "Password"
+msgstr ""
+
+msgctxt "prefs_contribute_osm_password_summary"
+msgid "Please enter your OSM password here"
+msgstr ""
+
+msgctxt "pref_username_key"
+msgid "pref_username_key"
+msgstr ""
+
+msgctxt "pref_password_key"
+msgid "pref_password_key"
+msgstr ""
+
+msgctxt "contribute_introduction"
+msgid ""
+"You can help OpenSatNav by contributing GPS traces to the Open Street Map"
+" Project"
+msgstr ""
+
+msgctxt "contribute_start_recording"
+msgid "Start Recording"
+msgstr ""
+
+msgctxt "contribute_stop_recording"
+msgid "Stop Recording"
+msgstr ""
+
+msgctxt "contribute_upload"
+msgid "Upload Tracks to OSM"
+msgstr ""
+
+msgctxt "contribute_delete_traces"
+msgid "Delete Traces"
+msgstr ""
+
+msgctxt "contribute_delete_old_traces"
+msgid "Delete old traces"
+msgstr ""
+
+msgctxt "contribute_new_waypoint"
+msgid "New Waypoint"
+msgstr ""
+
+msgctxt "contribute_dialogue_trace_description"
+msgid "Trace Description"
+msgstr ""
+
+msgctxt "contribute_dialogue_trace_message"
+msgid "Please set a description for this trace"
+msgstr ""
+
+msgctxt "contribute_dialogue_new_waypoint"
+msgid "New Waypoint"
+msgstr ""
+
+msgctxt "contribute_dialogue_new_waypoint_message"
+msgid "Please enter waypoint name"
+msgstr ""
+
+msgctxt "contribute_username_not_entered"
+msgid "Not yet entered"
+msgstr ""
+
+msgctxt "contribute_error_enter_osm_login_details"
+msgid "Please enter your login details first"
+msgstr ""
+
+msgctxt "contribute_gps_on"
+msgid "GPS Tracking turned On"
+msgstr ""
+
+msgctxt "contribute_gps_off"
+msgid "GPS Tracking turned Off"
+msgstr ""
+
+msgctxt "contribute_track_cleared"
+msgid "Track cleared"
+msgstr ""
+
+msgctxt "contribute_error_no_traces"
+msgid "No traces collected yet"
+msgstr ""
+
+msgctxt "contribute_uploading_traces"
+msgid "Uploading traces"
+msgstr ""
+
+msgctxt "contribute_form_name"
+msgid "Track Name"
+msgstr ""
+
+msgctxt "contribute_form_visibility"
+msgid "Visibility"
+msgstr ""
+
+msgctxt "contribute_track_uploaded"
+msgid "Track with description \"%1$s\" uploaded to OSM."
+msgstr ""
+
+msgctxt "contribute_waypoint_added"
+msgid "Waypoint \"%1$s\" added"
+msgstr ""
+
+msgctxt "contribute_track_error_happened"
+msgid "Sorry, an error happened:"
+msgstr ""
+
+msgctxt "contribute_waypoing_gps_fix_not_good"
+msgid "GPS fix not good enough to add waypoint, try again"
+msgstr ""
+
+msgctxt "tracing_paused_notification_text"
+msgid "Recording is paused"
+msgstr ""
+
+msgctxt "menu_show_trip_stats"
+msgid "Trip Stats"
+msgstr ""
+
+msgctxt "close_statistics_view"
+msgid "Show Map"
+msgstr ""
+
+msgctxt "reset_trip_statistics"
+msgid "Reset Stats"
+msgstr ""
+
+msgctxt "aver_trip_speed_label"
+msgid "Average Speed:"
+msgstr ""
+
+msgctxt "current_speed_label"
+msgid "Current Speed:"
+msgstr ""
+
+msgctxt "trip_distance_label"
+msgid "Distance:"
+msgstr ""
+
+msgctxt "trip_duration_label"
+msgid "Trip Time:"
+msgstr ""
+
+msgctxt "not_available_string"
+msgid "n/a"
+msgstr ""
+
+msgctxt "namefinder_service_label"
+msgid "Name Finder service"
+msgstr ""
+
+msgctxt "uk_postcode_not_recognised_title"
+msgid "UK Postcode not recognized"
+msgstr ""
+
+msgctxt "uk_postcode_not_recognised"
+msgid ""
+"The postcode is not recognised, the most likely reason for this is that "
+"it has not been entered into the 'Free The Postcode' database "
+"(www.freethepostcode.org).\n"
+"\n"
+" As you are using the Android platform, you can download an open-source "
+"(GPLv3) application from Android Market, it will allow you to easily "
+"submit new postcodes.\n"
+"\n"
+" Would you like to use it?"
+msgstr ""
+
+msgctxt "prefs_map_os"
+msgid "Ordnance Survey (UK only)"
+msgstr ""
+
+msgctxt "error_externalstorage_not_writable"
+msgid "Unable to write to SD card"
+msgstr ""
+
+msgctxt "wplist"
+msgid "Waypoint List"
+msgstr ""
+
+msgctxt "wplist_latitude"
+msgid "Latitude:"
+msgstr ""
+
+msgctxt "wplist_longitude"
+msgid "Longitude:"
+msgstr ""
+
+msgctxt "wplist_elevation"
+msgid "Elevation:"
+msgstr ""
+
+msgctxt "wplist_accuracy"
+msgid "Accuracy:"
+msgstr ""
+
+#, python-format
+msgctxt "new_track"
+msgid "Track %d"
+msgstr ""
+
+msgctxt "moving_time_label"
+msgid "Moving Time"
+msgstr ""
+
+msgctxt "total_time_label"
+msgid "Total Time"
+msgstr ""
+
+msgctxt "time_label"
+msgid "Time"
+msgstr ""
+
+msgctxt "sd_unavail"
+msgid "SD Unavailable"
+msgstr ""
+
+msgctxt "speed"
+msgid "Speed"
+msgstr ""
+
+msgctxt "start_trip"
+msgid "You must start a trip."
+msgstr ""
+
+msgctxt "statistics"
+msgid "Statistics"
+msgstr ""
+
+msgctxt "total_distance_label"
+msgid "Total Distance"
+msgstr ""
+
+msgctxt "distance_label"
+msgid "Distance"
+msgstr ""
+
+msgctxt "unknown"
+msgid "-"
+msgstr ""
+
+msgctxt "waiting"
+msgid "Waiting..."
+msgstr ""
+
+msgctxt "hour"
+msgid "hour"
+msgstr ""
+
+msgctxt "hours"
+msgid "hours"
+msgstr ""
+
+msgctxt "hr"
+msgid "hr"
+msgstr ""
+
+msgctxt "min"
+msgid "min"
+msgstr ""
+
+msgctxt "minute"
+msgid "minute"
+msgstr ""
+
+msgctxt "minutes"
+msgid "minutes"
+msgstr ""
+
+msgctxt "second"
+msgid "second"
+msgstr ""
+
+msgctxt "seconds"
+msgid "seconds"
+msgstr ""
+
+msgctxt "average_speed_label"
+msgid "Average Speed"
+msgstr ""
+
+msgctxt "average_pace_label"
+msgid "Average Pace"
+msgstr ""
+
+msgctxt "average_moving_speed_label"
+msgid "Average Moving Speed"
+msgstr ""
+
+msgctxt "average_moving_pace_label"
+msgid "Average Moving Pace"
+msgstr ""
+
+msgctxt "min_elevation_label"
+msgid "Min Elevation"
+msgstr ""
+
+msgctxt "min_grade_label"
+msgid "Min Grade"
+msgstr ""
+
+msgctxt "min_pace_label"
+msgid "Min Pace"
+msgstr ""
+
+msgctxt "max_elevation_label"
+msgid "Max Elevation"
+msgstr ""
+
+msgctxt "max_grade_label"
+msgid "Max Grade"
+msgstr ""
+
+msgctxt "max_speed_label"
+msgid "Max Speed"
+msgstr ""
+
+msgctxt "elevation_chart_name"
+msgid "Elevation Chart"
+msgstr ""
+
+msgctxt "elevation_gain_label"
+msgid "Elevation Gain"
+msgstr ""
+
+msgctxt "elevation_label"
+msgid "Elevation"
+msgstr ""
+
+msgctxt "latitude_label"
+msgid "Latitude"
+msgstr ""
+
+msgctxt "longitude_label"
+msgid "Longitude"
+msgstr ""
+
+msgctxt "meter"
+msgid "m"
+msgstr ""
+
+msgctxt "kilometer"
+msgid "km"
+msgstr ""
+
+msgctxt "kilometers_long"
+msgid "kilometers"
+msgstr ""
+
+msgctxt "feet"
+msgid "ft"
+msgstr ""
+
+msgctxt "mile"
+msgid "mi"
+msgstr ""
+
+msgctxt "miles_long"
+msgid "miles"
+msgstr ""
+
+msgctxt "kilometer_per_hour"
+msgid "km/h"
+msgstr ""
+
+msgctxt "kilometer_per_hour_long"
+msgid "kilometers per hour"
+msgstr ""
+
+msgctxt "min_per_kilometer"
+msgid "min/km"
+msgstr ""
+
+msgctxt "per_kilometer"
+msgid "per kilometer"
+msgstr ""
+
+msgctxt "mile_per_hour"
+msgid "mi/h"
+msgstr ""
+
+msgctxt "mile_per_hour_long"
+msgid "miles per hour"
+msgstr ""
+
+msgctxt "min_per_mile"
+msgid "min/mi"
+msgstr ""
+
+msgctxt "per_mile"
+msgid "per mile"
+msgstr ""
+
+msgctxt "points"
+msgid "Points"
+msgstr ""
+
+msgctxt "recorded_date"
+msgid "Recorded"
+msgstr ""
+
+msgctxt "category"
+msgid "Activity type"
+msgstr ""
+
+msgctxt "waypoint_category"
+msgid "Marker type"
+msgstr ""
+
+#, python-format
+msgctxt "part"
+msgid "(Part %d)"
+msgstr ""
+
+msgctxt "trackdetails_title"
+msgid "Track Details"
+msgstr ""
+
+msgctxt "trackdetails_name"
+msgid "Track Name"
+msgstr ""
+
+msgctxt "trackdetails_description"
+msgid "Track Description"
+msgstr ""
+
+msgctxt "trackdetails_category"
+msgid "Activity Type (e.g. hiking, cycling, running, climbing...)"
+msgstr ""
+
+msgctxt "tracklist_show_track"
+msgid "Show"
+msgstr ""
+
+msgctxt "tracklist_send_to_osm"
+msgid "Send to OSM..."
+msgstr ""
+
+msgctxt "tracklist_delete_track"
+msgid "Delete from phone..."
+msgstr ""
+
+msgctxt "tracklist_edit_track"
+msgid "Edit details"
+msgstr ""
+
+msgctxt "tracklist_write_to_sd"
+msgid "Write to SD card..."
+msgstr ""
+
+msgctxt "tracklist_save_as_gpx"
+msgid "Save a GPX file"
+msgstr ""
+
+msgctxt "tracklist_save_as_kml"
+msgid "Save a KML file"
+msgstr ""
+
+msgctxt "tracklist_save_as_csv"
+msgid "Save a CSV file"
+msgstr ""
+
+msgctxt "tracklist_share_track"
+msgid "Share with Friends..."
+msgstr ""
+
+msgctxt "tracklist_share_gpx_file"
+msgid "A GPX file"
+msgstr ""
+
+msgctxt "tracklist_share_kml_file"
+msgid "A KML file"
+msgstr ""
+
+msgctxt "tracklist_share_csv_file"
+msgid "A CSV file"
+msgstr ""
+
+msgctxt "tracklist_clear_map"
+msgid "Clear map"
+msgstr ""
+
+msgctxt "tracklist_this_track"
+msgid "This Track"
+msgstr ""
+
+msgctxt "navigate_contextmenu_navigate"
+msgid "Navigate"
+msgstr ""
+
+msgctxt "navigate_contextmenu_aroundpoint"
+msgid "What's here?"
+msgstr ""
+
+msgctxt "sendtoosm_private"
+msgid "More Private"
+msgstr ""
+
+msgctxt "sendtoosm_identifiable"
+msgid "Less Private (preferred)"
+msgstr ""
+
+msgctxt "sendtoosm_title"
+msgid "Upload to OSM"
+msgstr ""
+
+msgctxt "cancel"
+msgid "Cancel"
+msgstr ""
+
+msgctxt "sendtoosm_send_now"
+msgid "Upload Now"
+msgstr ""
+

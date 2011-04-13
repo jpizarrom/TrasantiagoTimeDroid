@@ -1,0 +1,960 @@
+# Turkish translation for opensatnav
+# Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
+# This file is distributed under the same license as the opensatnav package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version:  opensatnav\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2010-11-21 05:15+0100\n"
+"PO-Revision-Date: 2010-11-10 23:18+0000\n"
+"Last-Translator: Guillaume Rosaire <Unknown>\n"
+"Language-Team: Turkish <tr@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 1.0dev\n"
+
+msgctxt "app_name"
+msgid "OpenSatNav"
+msgstr "OpenSatNav"
+
+msgctxt "app_desc"
+msgid "A free and open source OpenStreetMap application for Android."
+msgstr "Android için ücretsiz ve açık kaynak kodlu OpenStreetMap uygulaması"
+
+msgctxt "yes"
+msgid "Yes"
+msgstr "Evet"
+
+msgctxt "no"
+msgid "No"
+msgstr "Hayır"
+
+msgctxt "location_services_disabled"
+msgid ""
+"No location services are enabled. Do you want to change this setting now?"
+" \n"
+"\n"
+"After making the change press the Back button to return to this program."
+msgstr ""
+"Etkin bir konum hizmeti yok. Bu ayarı şimdi değiştirmek ister misiniz? \n"
+"\n"
+"Değişikliği yaptıktan sonra programa dönmek için Geri tuşuna basın."
+
+msgctxt "gps_disabled"
+msgid "Location accuracy will be poor because GPS is not enabled."
+msgstr "GPS etkinleştirilmediğinden, konumun doğruluğu hatalı olabilir."
+
+msgctxt "network_unavailable"
+msgid "No data connection. Please check your settings and try again."
+msgstr "Veri bağlantısı yok. Lütfen ayarlarınızı denetleyip yeniden deneyin."
+
+msgctxt "getting_gps_fix"
+msgid "Attempting to find your location using GPS..."
+msgstr "Konumunuz GPS ile saptanmaya çalışılıyor..."
+
+msgctxt "get_directions"
+msgid "Directions"
+msgstr "Yönlendirmeler"
+
+msgctxt "clear_directions"
+msgid "Clear directions"
+msgstr "Yönlendirmeleri sil"
+
+msgctxt "navigation_mode"
+msgid "Navigation mode"
+msgstr "Gezinme kipi"
+
+msgctxt "start_trace_ticker"
+msgid "OpenSatNav starting trace recording..."
+msgstr "OpenSatNav rotayı kaydetmeye başlıyor..."
+
+msgctxt "tracing_notification_text"
+msgid "A trace is being recorded..."
+msgstr "Rota kaydediliyor..."
+
+msgctxt "planning_mode"
+msgid "  Planning mode  "
+msgstr "  Planlama kipi  "
+
+msgctxt "navigation_mode_on"
+msgid "Navigation mode on"
+msgstr "Gezinme kipi açık"
+
+msgctxt "planning_mode_on"
+msgid "Planning mode on"
+msgstr "Planlama kipi açık"
+
+msgctxt "start_directions_failed"
+msgid ""
+"Can't get directions because your location is\n"
+"\t\tunknown. Please try again when you have a GPS signal."
+msgstr ""
+"Konum bilinmediğinden yönlendirme \n"
+"\t\talınamıyor. Lütfen GPS sinyalini alınca yeniden deneyin."
+
+msgctxt "unspecified_directions_failed"
+msgid "Getting directions failed, please try again."
+msgstr "Yönlendirme alınamadı, lütfen yeniden deneyin."
+
+msgctxt "place_not_found"
+msgid "Sorry, couldn't find \"%1$s\""
+msgstr "Malesef, \"%1$s\" bulunamadı."
+
+msgctxt "unnamed_place"
+msgid "Unnamed"
+msgstr "Adsız"
+
+msgctxt "directions_not_found"
+msgid "Sorry, couldn't get directions"
+msgstr "Malesef, yönlendirme alınamadı"
+
+msgctxt "please_wait"
+msgid "Please wait..."
+msgstr "Lütfen bekleyin..."
+
+msgctxt "searching"
+msgid "Searching"
+msgstr "Aranıyor"
+
+msgctxt "getting_route"
+msgid "Getting route"
+msgstr "Rota bilgisi alınıyor"
+
+msgctxt "enter_destination"
+msgid "Where do you want to go?"
+msgstr "Nereye gitmek istiyorsunuz?"
+
+msgctxt "transport_type"
+msgid "Mode of transport"
+msgstr "Ulaşım şekli"
+
+msgctxt "kilometres_abbreviation"
+msgid " km"
+msgstr " km"
+
+msgctxt "metres_abbreviation"
+msgid " m"
+msgstr " m"
+
+msgctxt "miles_abbreviation"
+msgid " mi"
+msgstr " mi"
+
+msgctxt "yards_abbreviation"
+msgid " yd"
+msgstr " yd"
+
+msgctxt "kmh_abbreviation"
+msgid " km/h"
+msgstr " km/h"
+
+msgctxt "mph_abbreviation"
+msgid " mph"
+msgstr " mph"
+
+msgctxt "away"
+msgid "away"
+msgstr "uzakta"
+
+msgctxt "could_not_find_poi"
+msgid "Could not find any places matching"
+msgstr "Eşleşen konum bulunamadı"
+
+msgctxt "car"
+msgid "Car"
+msgstr "Araba"
+
+msgctxt "bicycle"
+msgid "Bicycle"
+msgstr "Bisiklet"
+
+msgctxt "walking"
+msgid "Walking"
+msgstr "Yürüyüş"
+
+msgctxt "atm"
+msgid "ATM"
+msgstr "ATM"
+
+msgctxt "cafe"
+msgid "Café"
+msgstr "Kafe"
+
+msgctxt "cinema"
+msgid "Cinema"
+msgstr "Sinema"
+
+msgctxt "fuel"
+msgid "Fuel"
+msgstr "Yakıt"
+
+msgctxt "hospital"
+msgid "Hospital"
+msgstr "Hastane"
+
+msgctxt "hotel"
+msgid "Hotel"
+msgstr "Otel"
+
+msgctxt "night_club"
+msgid "Night club"
+msgstr "Gece klübü"
+
+msgctxt "parking"
+msgid "Parking"
+msgstr "Park"
+
+msgctxt "police"
+msgid "Police station"
+msgstr "Karakol"
+
+msgctxt "pub"
+msgid "Pub"
+msgstr "Bar"
+
+msgctxt "restaurant"
+msgid "Restaurant"
+msgstr "Restoran"
+
+msgctxt "taxi_rank"
+msgid "Taxi Rank"
+msgstr "Taksi durağı"
+
+msgctxt "toilet"
+msgid "Toilet"
+msgstr "Tuvalet"
+
+msgctxt "find_nearest"
+msgid "Find nearest..."
+msgstr "En yakındakini bul..."
+
+msgctxt "choose_location"
+msgid "Choose location..."
+msgstr "Konumu seçin..."
+
+msgctxt "touch_screen"
+msgid "Touch screen to continue..."
+msgstr "Devam etmek için ekrana dokunun..."
+
+msgctxt "preferences"
+msgid "Preferences"
+msgstr "Ayarlar"
+
+msgctxt "prefs_general"
+msgid "General"
+msgstr "Genel"
+
+msgctxt "prefs_units"
+msgid "Unit system"
+msgstr "Birim sistemi"
+
+msgctxt "prefs_units_metric"
+msgid "Metric"
+msgstr "Metrik"
+
+msgctxt "prefs_units_imperial"
+msgid "Imperial"
+msgstr "İngiliz standartları"
+
+msgctxt "prefs_map_style"
+msgid "Map style"
+msgstr "Harita tipi"
+
+msgctxt "prefs_map_mapnik"
+msgid "Default"
+msgstr "Varsayılan"
+
+msgctxt "prefs_map_cyclemap"
+msgid "Cycle Map"
+msgstr "Tur Haritası"
+
+msgctxt "prefs_map_noname"
+msgid "No name (for mappers)"
+msgstr "Adsız (haritacılar için)"
+
+msgctxt "prefs_cache_section"
+msgid "Tiles cache"
+msgstr "Harita parçası ön belleği"
+
+msgctxt "prefs_cache_sdcard"
+msgid "SD Card usage"
+msgstr "SD kart kullanımı"
+
+msgctxt "prefs_cache_sdcard_summary"
+msgid "Maximum used size of the SD card to store cached tiles"
+msgstr "Harita parçalarını saklamak için SD karttan kullanılacak en fazla bellek"
+
+msgctxt "prefs_cache_sdcard_dialog"
+msgid "The SD card cache will contain at most the following"
+msgstr "SD Kart belleği en çok şunları içerecek"
+
+msgctxt "prefs_cache_sdcard_title"
+msgid "Select size"
+msgstr "Boyut seçin"
+
+msgctxt "prefs_cache_clear"
+msgid "Clear cache"
+msgstr "Ön belleği temizle"
+
+msgctxt "prefs_cache_clear_summary"
+msgid "Empty the map tile cache"
+msgstr "Harita parçası belleğini boşalt"
+
+msgctxt "prefs_cache_clear_confirm"
+msgid "Are you sure you want to clear the map tile cache?"
+msgstr "Harita parçası belleğini boşaltmak istediğinizden emin misiniz?"
+
+msgctxt "megabytes_abbreviation"
+msgid "Mb"
+msgstr "Mb"
+
+msgctxt "about"
+msgid "About"
+msgstr "Hakkında"
+
+msgctxt "about_website_label"
+msgid "OpenSatNav.org"
+msgstr "OpenSatNav.org"
+
+msgctxt "about_website_url"
+msgid "http://www.opensatnav.org/"
+msgstr "http://www.opensatnav.org/"
+
+msgctxt "menu_preferences"
+msgid "Preferences"
+msgstr "Ayarlar"
+
+msgctxt "menu_about"
+msgid "About OI About itself"
+msgstr "Hakkında"
+
+msgctxt "l_leaders"
+msgid "Project Founder"
+msgstr "Projeyi Başlatan"
+
+msgctxt "l_authors"
+msgid "Written by"
+msgstr "Yazarlar"
+
+msgctxt "l_documenters"
+msgid "Documented by"
+msgstr "Belgelendiren"
+
+msgctxt "l_translators"
+msgid "Translated by"
+msgstr "Çevirenler"
+
+msgctxt "l_artists"
+msgid "Artwork by"
+msgstr "Grafikler"
+
+msgctxt "l_credits"
+msgid "Credits"
+msgstr "Katkıda Bulunanlar"
+
+msgctxt "l_license"
+msgid "License"
+msgstr "Lisans"
+
+msgctxt "l_info"
+msgid "General Info"
+msgstr "Genel Bilgi"
+
+msgctxt "l_others"
+msgid "Special thanks"
+msgstr "Özel teşekkürler"
+
+msgctxt "no_information_available"
+msgid "No information available."
+msgstr "Hiç bilgi yok"
+
+msgctxt "error_email_message"
+msgid ""
+"Dear All,\n"
+"\n"
+"I encountered the following issue while using OpenSatNav, could you "
+"please have a look at it?\n"
+"\n"
+msgstr ""
+"Dear All, (Sevgili Arkadaslar,)\n"
+"\n"
+"I encountered the following issue while using OpenSatNav, could you "
+"please have a look at it? (OpenSatNav'i kullanirken su hatayla "
+"karsilastim. Rica etsem bir goz atabilir misiniz? )\n"
+"\n"
+
+msgctxt "error_email_chooser_title"
+msgid "Send Mail via:"
+msgstr "Şununla e-posta yolla:"
+
+msgctxt "bug_report_mail_address"
+msgid "bug-reports@opensatnav.org"
+msgstr "bug-reports@opensatnav.org"
+
+msgctxt "bug_report_ask_user"
+msgid "An unexpected error just happened. Would you like to send us a bug report?"
+msgstr "Beklenmeyen bir hata oluştu. Bize bir hata raporu göndermek ister misiniz?"
+
+msgctxt "bug_report_not_sent_ask_user"
+msgid ""
+"An unexpected error happened last time you used OpenSatNav. Would you "
+"like to send us a bug report?"
+msgstr ""
+"OpenSatNav'i son kullandığınızda beklenmeyen bir hata oluştu. Bize bir "
+"hata raporu göndermek ister misiniz?"
+
+msgctxt "bug_report_ask_user_title"
+msgid "Unexpected Error"
+msgstr "Beklenmedik Hata"
+
+msgctxt "menu_contribute"
+msgid "Contribute"
+msgstr "Katkıda bulunun"
+
+msgctxt "contribute_title"
+msgid "Contribute to OSM"
+msgstr "OSM'ye katkıda bulunun"
+
+msgctxt "prefs_contribute_section"
+msgid "Contribute"
+msgstr "Katkıda bulunun"
+
+msgctxt "prefs_contribute_osm_username"
+msgid "Username"
+msgstr "Kullanıcı Adı"
+
+msgctxt "prefs_contribute_osm_username_summary"
+msgid "Please enter your OSM username here"
+msgstr "Lütfen OSM kullanıcı adınızı yazın"
+
+msgctxt "prefs_contribute_osm_password"
+msgid "Password"
+msgstr "Parola"
+
+msgctxt "prefs_contribute_osm_password_summary"
+msgid "Please enter your OSM password here"
+msgstr "Lütfen OSM parolanızı yazın"
+
+msgctxt "pref_username_key"
+msgid "pref_username_key"
+msgstr "pref_username_key"
+
+msgctxt "pref_password_key"
+msgid "pref_password_key"
+msgstr "pref_password_key"
+
+msgctxt "contribute_introduction"
+msgid ""
+"You can help OpenSatNav by contributing GPS traces to the Open Street Map"
+" Project"
+msgstr ""
+"GPS izleme bilgilerini Open Street Map (OSM) projesine yollayarak "
+"OpenSatNav'a katkıda bulunabilirsiniz."
+
+msgctxt "contribute_start_recording"
+msgid "Start Recording"
+msgstr "Kaydı Başlat"
+
+msgctxt "contribute_stop_recording"
+msgid "Stop Recording"
+msgstr "Kaydı Durdur"
+
+msgctxt "contribute_upload"
+msgid "Upload Tracks to OSM"
+msgstr "Rotaları OSM'ye yükle"
+
+msgctxt "contribute_delete_traces"
+msgid "Delete Traces"
+msgstr "Rotaları sil"
+
+msgctxt "contribute_delete_old_traces"
+msgid "Delete old traces"
+msgstr "Eski rotaları sil"
+
+msgctxt "contribute_new_waypoint"
+msgid "New Waypoint"
+msgstr "Yeni Nokta"
+
+msgctxt "contribute_dialogue_trace_description"
+msgid "Trace Description"
+msgstr "Rota Açıklaması"
+
+msgctxt "contribute_dialogue_trace_message"
+msgid "Please set a description for this trace"
+msgstr "Lütfen bu rota için bir açıklama yazın"
+
+msgctxt "contribute_dialogue_new_waypoint"
+msgid "New Waypoint"
+msgstr "Yeni Nokta"
+
+msgctxt "contribute_dialogue_new_waypoint_message"
+msgid "Please enter waypoint name"
+msgstr "Lütfen nokta adını yazın"
+
+msgctxt "contribute_username_not_entered"
+msgid "Not yet entered"
+msgstr "Henüz yazılmadı"
+
+msgctxt "contribute_error_enter_osm_login_details"
+msgid "Please enter your login details first"
+msgstr "Lütfen önce hesap bilgilerinizi yazın"
+
+msgctxt "contribute_gps_on"
+msgid "GPS Tracking turned On"
+msgstr "GPS izleme açıldı"
+
+msgctxt "contribute_gps_off"
+msgid "GPS Tracking turned Off"
+msgstr "GPS izleme kapatıldı"
+
+msgctxt "contribute_track_cleared"
+msgid "Track cleared"
+msgstr "Rota silindi"
+
+msgctxt "contribute_error_no_traces"
+msgid "No traces collected yet"
+msgstr "Henüz hiç rota toplanamadı"
+
+msgctxt "contribute_uploading_traces"
+msgid "Uploading traces"
+msgstr "Rotalar karşıya yükleniyor"
+
+msgctxt "contribute_form_name"
+msgid "Track Name"
+msgstr "Rota Adı"
+
+msgctxt "contribute_form_visibility"
+msgid "Visibility"
+msgstr "Görünürlük"
+
+msgctxt "contribute_track_uploaded"
+msgid "Track with description \"%1$s\" uploaded to OSM."
+msgstr "\"%1$s\" açıklamalı rota OSM'ye yüklendi."
+
+msgctxt "contribute_waypoint_added"
+msgid "Waypoint \"%1$s\" added"
+msgstr "\"%1$s\" noktası eklendi"
+
+msgctxt "contribute_track_error_happened"
+msgid "Sorry, an error happened:"
+msgstr "Malesef bir hata oluştu:"
+
+msgctxt "contribute_waypoing_gps_fix_not_good"
+msgid "GPS fix not good enough to add waypoint, try again"
+msgstr "GPS, bir nokta ekleyecek kadar sabit kalmıyor, yeniden deneyin"
+
+msgctxt "tracing_paused_notification_text"
+msgid "Recording is paused"
+msgstr "Kayıt duraklatıldı"
+
+msgctxt "menu_show_trip_stats"
+msgid "Trip Stats"
+msgstr "Yolculuk İstatistikleri"
+
+msgctxt "close_statistics_view"
+msgid "Show Map"
+msgstr "Haritayı Göster"
+
+msgctxt "reset_trip_statistics"
+msgid "Reset Stats"
+msgstr "İstatistikleri Sıfırla"
+
+msgctxt "aver_trip_speed_label"
+msgid "Average Speed:"
+msgstr "Ortalama Hız:"
+
+msgctxt "current_speed_label"
+msgid "Current Speed:"
+msgstr "Şimdiki Hız:"
+
+msgctxt "trip_distance_label"
+msgid "Distance:"
+msgstr "Uzaklık:"
+
+msgctxt "trip_duration_label"
+msgid "Trip Time:"
+msgstr "Yolculuk Süresi:"
+
+msgctxt "not_available_string"
+msgid "n/a"
+msgstr "yok"
+
+msgctxt "namefinder_service_label"
+msgid "Name Finder service"
+msgstr "Ad Bulma Hizmeti"
+
+msgctxt "uk_postcode_not_recognised_title"
+msgid "UK Postcode not recognized"
+msgstr "UK posta kodu tanınamadı"
+
+msgctxt "uk_postcode_not_recognised"
+msgid ""
+"The postcode is not recognised, the most likely reason for this is that "
+"it has not been entered into the 'Free The Postcode' database "
+"(www.freethepostcode.org).\n"
+"\n"
+" As you are using the Android platform, you can download an open-source "
+"(GPLv3) application from Android Market, it will allow you to easily "
+"submit new postcodes.\n"
+"\n"
+" Would you like to use it?"
+msgstr ""
+"Posta kodu, 'Free the Postcode' veritabanında (www.freethepostcode.org) "
+"olmadığından tanınmamış olabilir.\n"
+"\n"
+" Android platformunu kullandığınız için, Android Market'ten açık kaynak "
+"kodlu (GPLv3) bir uygulama indirebilirsiniz. Bu yeni posta kodları "
+"eklemenize izin verecektir.\n"
+"\n"
+" Denemek ister misiniz?"
+
+msgctxt "prefs_map_os"
+msgid "Ordnance Survey (UK only)"
+msgstr "Ordnance Survey Haritası (İngiltere için)"
+
+msgctxt "error_externalstorage_not_writable"
+msgid "Unable to write to SD card"
+msgstr "SD karta yazılamadı"
+
+msgctxt "wplist"
+msgid "Waypoint List"
+msgstr "Yol Noktası Listesi"
+
+msgctxt "wplist_latitude"
+msgid "Latitude:"
+msgstr "Enlem:"
+
+msgctxt "wplist_longitude"
+msgid "Longitude:"
+msgstr "Boylam:"
+
+msgctxt "wplist_elevation"
+msgid "Elevation:"
+msgstr "Yükseklik:"
+
+msgctxt "wplist_accuracy"
+msgid "Accuracy:"
+msgstr "Kararlılık:"
+
+#, python-format
+msgctxt "new_track"
+msgid "Track %d"
+msgstr "%d rota"
+
+msgctxt "moving_time_label"
+msgid "Moving Time"
+msgstr "Yolculuk Süresi"
+
+msgctxt "total_time_label"
+msgid "Total Time"
+msgstr "Toplam Süre"
+
+msgctxt "time_label"
+msgid "Time"
+msgstr "Süre"
+
+msgctxt "sd_unavail"
+msgid "SD Unavailable"
+msgstr "SD bulunamadı"
+
+msgctxt "speed"
+msgid "Speed"
+msgstr "Hız"
+
+msgctxt "start_trip"
+msgid "You must start a trip."
+msgstr "Bir yolculuk başlatmalısınız."
+
+msgctxt "statistics"
+msgid "Statistics"
+msgstr "İstatistikler"
+
+msgctxt "total_distance_label"
+msgid "Total Distance"
+msgstr "Toplam Uzaklık"
+
+msgctxt "distance_label"
+msgid "Distance"
+msgstr "Uzaklık"
+
+msgctxt "unknown"
+msgid "-"
+msgstr "-"
+
+msgctxt "waiting"
+msgid "Waiting..."
+msgstr "Bekliyor..."
+
+msgctxt "hour"
+msgid "hour"
+msgstr "saat"
+
+msgctxt "hours"
+msgid "hours"
+msgstr "saat"
+
+msgctxt "hr"
+msgid "hr"
+msgstr "sa"
+
+msgctxt "min"
+msgid "min"
+msgstr "dak"
+
+msgctxt "minute"
+msgid "minute"
+msgstr "dakika"
+
+msgctxt "minutes"
+msgid "minutes"
+msgstr "dakika"
+
+msgctxt "second"
+msgid "second"
+msgstr "saniye"
+
+msgctxt "seconds"
+msgid "seconds"
+msgstr "saniye"
+
+msgctxt "average_speed_label"
+msgid "Average Speed"
+msgstr "Ortalama Hız"
+
+msgctxt "average_pace_label"
+msgid "Average Pace"
+msgstr "Ortalama Adım"
+
+msgctxt "average_moving_speed_label"
+msgid "Average Moving Speed"
+msgstr "Ortalama Hareket Hızı"
+
+msgctxt "average_moving_pace_label"
+msgid "Average Moving Pace"
+msgstr "Ortalama Hareket  Adımı"
+
+msgctxt "min_elevation_label"
+msgid "Min Elevation"
+msgstr "En Az Yükseklik"
+
+msgctxt "min_grade_label"
+msgid "Min Grade"
+msgstr "En Az Eğim"
+
+msgctxt "min_pace_label"
+msgid "Min Pace"
+msgstr "En Az Adım"
+
+msgctxt "max_elevation_label"
+msgid "Max Elevation"
+msgstr "En Çok Yükseklik"
+
+msgctxt "max_grade_label"
+msgid "Max Grade"
+msgstr "En Çok Eğim"
+
+msgctxt "max_speed_label"
+msgid "Max Speed"
+msgstr "En Çok Hız"
+
+msgctxt "elevation_chart_name"
+msgid "Elevation Chart"
+msgstr "Yükseklik Grafiği"
+
+msgctxt "elevation_gain_label"
+msgid "Elevation Gain"
+msgstr "Yükseklik Artışı"
+
+msgctxt "elevation_label"
+msgid "Elevation"
+msgstr "Yükseklik"
+
+msgctxt "latitude_label"
+msgid "Latitude"
+msgstr "Enlem"
+
+msgctxt "longitude_label"
+msgid "Longitude"
+msgstr "Boylam"
+
+msgctxt "meter"
+msgid "m"
+msgstr "m"
+
+msgctxt "kilometer"
+msgid "km"
+msgstr "km"
+
+msgctxt "kilometers_long"
+msgid "kilometers"
+msgstr "kilometre"
+
+msgctxt "feet"
+msgid "ft"
+msgstr "ft"
+
+msgctxt "mile"
+msgid "mi"
+msgstr "mi"
+
+msgctxt "miles_long"
+msgid "miles"
+msgstr "mil"
+
+msgctxt "kilometer_per_hour"
+msgid "km/h"
+msgstr "km/s"
+
+msgctxt "kilometer_per_hour_long"
+msgid "kilometers per hour"
+msgstr "saatte kilometre"
+
+msgctxt "min_per_kilometer"
+msgid "min/km"
+msgstr "dak/km"
+
+msgctxt "per_kilometer"
+msgid "per kilometer"
+msgstr "her kilometre"
+
+msgctxt "mile_per_hour"
+msgid "mi/h"
+msgstr "mi/s"
+
+msgctxt "mile_per_hour_long"
+msgid "miles per hour"
+msgstr "saatte mil"
+
+msgctxt "min_per_mile"
+msgid "min/mi"
+msgstr "dak/mi"
+
+msgctxt "per_mile"
+msgid "per mile"
+msgstr "her mil"
+
+msgctxt "points"
+msgid "Points"
+msgstr "Noktalar"
+
+msgctxt "recorded_date"
+msgid "Recorded"
+msgstr "Kaydedildi"
+
+msgctxt "category"
+msgid "Activity type"
+msgstr "Etkinlik tipi"
+
+msgctxt "waypoint_category"
+msgid "Marker type"
+msgstr "İşaretleyici tipi"
+
+#, python-format
+msgctxt "part"
+msgid "(Part %d)"
+msgstr "(Bölüm %d)"
+
+msgctxt "trackdetails_title"
+msgid "Track Details"
+msgstr "Rota Ayrıntıları"
+
+msgctxt "trackdetails_name"
+msgid "Track Name"
+msgstr "Rota Adı"
+
+msgctxt "trackdetails_description"
+msgid "Track Description"
+msgstr "Rota Açıklaması"
+
+msgctxt "trackdetails_category"
+msgid "Activity Type (e.g. hiking, cycling, running, climbing...)"
+msgstr "Etkinlik Tipi (örneğin: tırmanma, bisiklet, koşu, gezinti...)"
+
+msgctxt "tracklist_show_track"
+msgid "Show"
+msgstr "Göster"
+
+msgctxt "tracklist_send_to_osm"
+msgid "Send to OSM..."
+msgstr "OSM'ye gönder..."
+
+msgctxt "tracklist_delete_track"
+msgid "Delete from phone..."
+msgstr "Telefondan sil..."
+
+msgctxt "tracklist_edit_track"
+msgid "Edit details"
+msgstr "Ayrıntıları düzenle"
+
+msgctxt "tracklist_write_to_sd"
+msgid "Write to SD card..."
+msgstr "SD karta yaz..."
+
+msgctxt "tracklist_save_as_gpx"
+msgid "Save a GPX file"
+msgstr "GPX dosyasına kaydet"
+
+msgctxt "tracklist_save_as_kml"
+msgid "Save a KML file"
+msgstr "KML dosyasına kaydet"
+
+msgctxt "tracklist_save_as_csv"
+msgid "Save a CSV file"
+msgstr "CSV dosyasına kaydet"
+
+msgctxt "tracklist_share_track"
+msgid "Share with Friends..."
+msgstr "Arkadaşlarımla paylaş..."
+
+msgctxt "tracklist_share_gpx_file"
+msgid "A GPX file"
+msgstr "GPX dosyası"
+
+msgctxt "tracklist_share_kml_file"
+msgid "A KML file"
+msgstr "KML dosyası"
+
+msgctxt "tracklist_share_csv_file"
+msgid "A CSV file"
+msgstr "CSV dosyası"
+
+msgctxt "tracklist_clear_map"
+msgid "Clear map"
+msgstr "Haritayı temizle"
+
+msgctxt "tracklist_this_track"
+msgid "This Track"
+msgstr "Bu Rota"
+
+msgctxt "navigate_contextmenu_navigate"
+msgid "Navigate"
+msgstr "Gezin"
+
+msgctxt "navigate_contextmenu_aroundpoint"
+msgid "What's here?"
+msgstr "Burada ne var?"
+
+msgctxt "sendtoosm_private"
+msgid "More Private"
+msgstr "Daha Özel"
+
+msgctxt "sendtoosm_identifiable"
+msgid "Less Private (preferred)"
+msgstr "Daha Az Özel (yeğlenen)"
+
+msgctxt "sendtoosm_title"
+msgid "Upload to OSM"
+msgstr "OSM'ye yükle"
+
+msgctxt "cancel"
+msgid "Cancel"
+msgstr "İptal"
+
+msgctxt "sendtoosm_send_now"
+msgid "Upload Now"
+msgstr "Şimdi Karşıya Yükle"
+

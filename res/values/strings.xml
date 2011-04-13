@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">OpenSatNav</string>
+	<string name="app_desc">A free and open source OpenStreetMap application
+		for Android.</string>
+	<!-- used in LocationHandler.java because android is buggy for android.R.strings.yes and no
+	see 
+	http://code.google.com/p/android/issues/detail?id=3713&q=android.R.string.yes&colspec=ID%20Type%20Status%20Owner%20Summary%20Stars
+	  -->
+	<string name="yes">Yes</string>
+	<string name="no">No</string>
+
+	<string name="location_services_disabled">No location services are enabled. Do you want to
+		change this setting now? \n\nAfter making the change press the Back
+		button to return to this program.</string>
+	<string name="gps_disabled">Location accuracy will be poor because GPS is not
+		enabled.</string>
+	<string name="network_unavailable">No data connection. Please check your settings and
+		try again.</string>
+	<string name="getting_gps_fix">Attempting to find your location using GPS...	</string>
+	<string name="get_directions">Directions</string>
+	<string name="clear_directions">Clear directions</string>
+	<string name="navigation_mode">Navigation mode</string>
+	<string name="start_trace_ticker">OpenSatNav starting trace recording...</string>
+	<string name="tracing_notification_text">A trace is being recorded...</string>
+	<!--
+		Padded with nbsp's so the menu doesn't rearrange itself when the
+		button toggles
+	-->
+	<string name="planning_mode">  Planning mode  </string>
+	<string name="navigation_mode_on">Navigation mode on</string>
+	<string name="planning_mode_on">Planning mode on</string>
+	<string name="start_directions_failed">&quot;Can't get directions because your location is
+		unknown. Please try again when you have a GPS signal.&quot;</string>
+	<string name="unspecified_directions_failed">Getting directions failed, please try again.
+	</string>
+	<string name="place_not_found">"Sorry, couldn't find \"%1$s\""</string>
+	<string name="unnamed_place">Unnamed</string>
+	<string name="directions_not_found">Sorry, couldn\'t get directions</string>
+	<string name="please_wait">Please wait...</string>
+	<string name="searching">Searching</string>
+	<string name="getting_route">Getting route</string>
+	<string name="enter_destination">Where do you want to go?</string>
+	<string name="transport_type">Mode of transport</string>
+	<!--
+		use a nbsp ( ) before the abbreviation if your language uses one between
+		the number and unit
+	-->
+	<string name="kilometres_abbreviation"> km</string>
+	<string name="metres_abbreviation"> m</string>
+	<string name="miles_abbreviation"> mi</string>
+	<string name="yards_abbreviation"> yd</string>
+	<string name="kmh_abbreviation"> km/h</string>
+	<string name="mph_abbreviation"> mph</string>
+	<string name="away">away</string>
+	<string name="could_not_find_poi">Could not find any places matching </string>
+	<string name="car">Car</string>
+	<string name="bicycle">Bicycle</string>
+	<string name="walking">Walking</string>
+	<!--
+		These are the POI types that would be nice to have, but not all are in
+		OSM namefinder yet
+	-->
+	<!-- Use the OSM tag name for the name attribute if possible -->
+	<string name="atm">ATM</string>
+	<string name="cafe">Café</string>
+	<string name="cinema">Cinema</string>
+	<string name="fuel">Fuel</string>
+	<string name="hospital">Hospital</string>
+	<string name="hotel">Hotel</string>
+	<string name="night_club">Night club</string>
+	<string name="parking">Parking</string>
+	<string name="police">Police station</string>
+	<string name="pub">Pub</string>
+	<string name="restaurant">Restaurant</string>
+	<string name="taxi_rank">Taxi Rank</string>
+	<string name="toilet">Toilet</string>
+	<string name="find_nearest">Find nearest...</string>
+	<string name="choose_location">Choose location...</string>
+	<string name="touch_screen">Touch screen to continue...</string>
+
+
+
+
+	<string name="preferences">Preferences</string>
+	<string name="prefs_general">General</string>
+	<string name="prefs_units">Unit system</string>
+	<string name="prefs_units_metric">Metric</string>
+	<string name="prefs_units_imperial">Imperial</string>
+	<string name="prefs_map_style">Map style</string>
+	<string name="prefs_map_mapnik">Default</string>
+	<string name="prefs_map_cyclemap">Cycle Map</string>
+	<string name="prefs_map_noname">No name (for mappers)</string>
+	<string name="prefs_cache_section">Tiles cache</string>
+	<string name="prefs_cache_sdcard">SD Card usage</string>
+	<string name="prefs_cache_sdcard_summary">Maximum used size of the SD card to store cached
+		tiles</string>
+	<string name="prefs_cache_sdcard_dialog">The SD card cache will contain at most the
+		following</string>
+	<string name="prefs_cache_sdcard_title">Select size</string>
+	<string name="prefs_cache_clear">Clear cache</string>
+	<string name="prefs_cache_clear_summary">Empty the map tile cache</string>
+	<string name="prefs_cache_clear_confirm">Are you sure you want to clear the map tile cache?</string>
+	<string name="megabytes_abbreviation">Mb</string>
+	<string name="about">About</string>
+
+	<!--  OI About inclusion -->
+	<string name="about_website_label">OpenSatNav.org</string>
+	<string name="about_website_url">http://www.opensatnav.org/</string>
+	<string name="menu_preferences">Preferences</string>
+	<string name="menu_about">About OI About itself</string>
+	<string name="l_leaders">Project Founder</string>
+	<string name="l_authors">Written by</string>
+	<string name="l_documenters">Documented by</string>
+	<string name="l_translators">Translated by</string>
+	<string name="l_artists">Artwork by</string>
+	<string name="l_credits">Credits</string>
+	<string name="l_license">License</string>
+	<string name="l_info">General Info</string>
+	<string name="l_others">Special thanks</string>
+	
+
+	<string name="no_information_available">No information available.</string>
+	<!-- / -->
+	<string name="error_email_message">Dear All,\n\nI encountered the following issue
+		while using OpenSatNav, could you please have a look at it?\n\n
+	</string>
+	<string name="error_email_chooser_title">Send Mail via:</string>
+	<string name="bug_report_mail_address">bug-reports@opensatnav.org</string>
+	<string name="bug_report_ask_user">An unexpected error just happened. Would you like
+		to send us a bug report?</string>
+	<string name="bug_report_not_sent_ask_user">An unexpected error happened last time you used
+		OpenSatNav. Would you like to send us a bug report?</string>
+	<string name="bug_report_ask_user_title">Unexpected Error</string>
+	<string name="menu_contribute">Contribute</string>
+	<string name="contribute_title">Contribute to OSM</string>
+	<string name="prefs_contribute_section">Contribute</string>
+	<string name="prefs_contribute_osm_username">Username</string>
+	<string name="prefs_contribute_osm_username_summary">Please enter your OSM username here</string>
+	<string name="prefs_contribute_osm_password">Password</string>
+	<string name="prefs_contribute_osm_password_summary">Please enter your OSM password here</string>
+	<string name="pref_username_key">pref_username_key</string>
+	<string name="pref_password_key">pref_password_key</string>
+	<string name="contribute_introduction">You can help OpenSatNav by contributing GPS traces
+		to the Open Street Map Project</string>
+	<string name="contribute_start_recording">Start Recording</string>
+	<string name="contribute_stop_recording">Stop Recording</string>
+	<string name="contribute_upload">Upload Tracks to OSM</string>
+	<string name="contribute_delete_traces">Delete Traces</string>
+	<string name="contribute_delete_old_traces">Delete old traces</string>
+	<string name="contribute_new_waypoint">New Waypoint</string>
+	<string name="contribute_dialogue_trace_description">Trace Description</string>
+	<string name="contribute_dialogue_trace_message">Please set a description for this trace</string>
+	<string name="contribute_dialogue_new_waypoint">New Waypoint</string>
+	<string name="contribute_dialogue_new_waypoint_message">Please enter waypoint name</string>
+	<string name="contribute_username_not_entered">Not yet entered</string>
+	<string name="contribute_error_enter_osm_login_details">Please enter your login details first</string>
+	<string name="contribute_gps_on">GPS Tracking turned On</string>
+	<string name="contribute_gps_off">GPS Tracking turned Off</string>
+	<string name="contribute_track_cleared">Track cleared</string>
+	<string name="contribute_error_no_traces">No traces collected yet</string>
+	<string name="contribute_uploading_traces">Uploading traces</string>
+	<string name="contribute_form_name">Track Name</string>
+	<string name="contribute_form_visibility">Visibility</string>
+	<!--
+		%1$s will be replaced at runtime by track description, keep it
+		unchanged in translations
+	-->
+	<string name="contribute_track_uploaded">Track with description \"%1$s\" uploaded to OSM.</string>
+	<string name="contribute_waypoint_added">Waypoint \"%1$s\" added</string>
+	
+	<string name="contribute_track_error_happened">Sorry, an error happened: </string>
+	<string name="contribute_waypoing_gps_fix_not_good">GPS fix not good enough to add waypoint, try again</string>
+	<string name="tracing_paused_notification_text">Recording is paused</string>
+	<string name="menu_show_trip_stats">Trip Stats</string>
+ 	<string name="close_statistics_view">Show Map</string>
+ 	<string name="reset_trip_statistics">Reset Stats</string>
+ 	<string name="aver_trip_speed_label">Average Speed:</string>
+ 	<string name="current_speed_label">Current Speed:</string>
+ 	<string name="trip_distance_label">Distance:</string>
+ 	<string name="trip_duration_label">Trip Time:</string>
+ 	<string name="not_available_string">n/a</string>
+	
+	<string name="namefinder_service_label">Name Finder service</string>
+	<!-- only displayed for GB user, no need to be translated in other languages -->
+	<string name="uk_postcode_not_recognised_title">UK Postcode not recognized</string>
+	<string name="uk_postcode_not_recognised">The postcode is not recognised, the most likely reason for this is that it has not been entered into the \'Free The Postcode\' database (www.freethepostcode.org).\n\n 
+	As you are using the Android platform, you can download an open-source (GPLv3) application from Android Market, it will allow you to easily submit new postcodes.\n\n
+	Would you like to use it?</string>
+<string name="prefs_map_os">Ordnance Survey (UK only)</string>
+<string name="error_externalstorage_not_writable">Unable to write to SD card</string>
+
+	<string name="wplist">Waypoint List</string>
+    <string name="wplist_latitude">Latitude: </string>
+    <string name="wplist_longitude">Longitude: </string>
+    <string name="wplist_elevation">Elevation: </string>
+    <string name="wplist_accuracy">Accuracy: </string>
+    
+    <string name="new_track">Track %d</string>
+
+<!-- Stats Labels -->
+  <string name="moving_time_label">Moving Time</string>
+  <string name="total_time_label">Total Time</string>
+  <string name="time_label">Time</string>
+  <string name="sd_unavail">SD Unavailable</string>
+  <string name="speed">Speed</string>
+  <string name="start_trip">You must start a trip.</string>
+  <string name="statistics">Statistics</string>
+  <string name="total_distance_label">Total Distance</string>
+  <string name="distance_label">Distance</string>
+  <string name="unknown">-</string>
+  <string name="waiting">Waiting...</string>
+  
+    <string name="hour">hour</string>
+  <string name="hours">hours</string>
+  <string name="hr">hr</string>
+  <string name="min">min</string>
+  <string name="minute">minute</string>
+  <string name="minutes">minutes</string>
+  <string name="second">second</string>
+  <string name="seconds">seconds</string>
+  
+  <!-- Average -->
+  <string name="average_speed_label">Average Speed</string>
+  <string name="average_pace_label">Average Pace</string>
+  
+  <!-- Average Moving -->
+  <string name="average_moving_speed_label">Average Moving Speed</string>
+  <string name="average_moving_pace_label">Average Moving Pace</string>
+  
+  <!-- Min -->
+  <string name="min_elevation_label">Min Elevation</string>
+  <string name="min_grade_label">Min Grade</string>
+  <string name="min_pace_label">Min Pace</string>
+
+  <!-- Max -->
+  <string name="max_elevation_label">Max Elevation</string>
+  <string name="max_grade_label">Max Grade</string>
+  <string name="max_speed_label">Max Speed</string>
+  
+  <string name="elevation_chart_name">Elevation Chart</string>
+  <string name="elevation_gain_label">Elevation Gain</string>
+  <string name="elevation_label">Elevation</string>
+  <string name="latitude_label">Latitude</string>
+  <string name="longitude_label">Longitude</string>
+  
+  <!-- Units -->
+
+
+  <!-- Distance -->
+  <string name="meter">m</string>
+  <string name="kilometer">km</string>
+  <string name="kilometers_long">kilometers</string>
+  <string name="feet">ft</string>
+  <string name="mile">mi</string>
+  <string name="miles_long">miles</string>
+
+  <!-- Speed and Pace -->
+  <string name="kilometer_per_hour">km/h</string>
+  <string name="kilometer_per_hour_long">kilometers per hour</string>
+  <string name="min_per_kilometer">min/km</string>
+  <string name="per_kilometer">per kilometer</string>
+  <string name="mile_per_hour">mi/h</string>
+  <string name="mile_per_hour_long">miles per hour</string>
+  <string name="min_per_mile">min/mi</string>
+  <string name="per_mile">per mile</string>
+  
+  
+  <!-- Formatting of track and marker descriptions -->
+  <string name="points">Points</string>
+  <string name="recorded_date">Recorded</string>
+  <string name="category">Activity type</string>
+  <string name="waypoint_category">Marker type</string>
+  <string name="part">(Part %d)</string>
+  
+  <!-- Track Details -->
+  <string name="trackdetails_title">Track Details</string>
+  <string name="trackdetails_name">Track Name</string>
+  <string name="trackdetails_description">Track Description</string>
+  <string name="trackdetails_category">Activity Type (e.g. hiking, cycling, running, climbing...)</string>
+  
+  <!--  TrackList -->
+  <string name="tracklist_show_track">Show</string>
+  <string name="tracklist_send_to_osm">Send to OSM...</string>
+  <string name="tracklist_delete_track">Delete from phone...</string>
+  <string name="tracklist_edit_track">Edit details</string>
+  <string name="tracklist_write_to_sd">Write to SD card...</string>
+  <string name="tracklist_save_as_gpx">Save a GPX file</string>
+  <string name="tracklist_save_as_kml">Save a KML file</string>
+  <string name="tracklist_save_as_csv">Save a CSV file</string>
+  <string name="tracklist_share_track">Share with Friends...</string>
+  <string name="tracklist_share_gpx_file">A GPX file</string>
+  <string name="tracklist_share_kml_file">A KML file</string>
+  <string name="tracklist_share_csv_file">A CSV file</string>
+  <string name="tracklist_clear_map">Clear map</string>
+  <string name="tracklist_this_track">This Track</string>
+<string name="navigate_contextmenu_navigate">Navigate</string>
+<string name="navigate_contextmenu_aroundpoint">What\'s here?</string>
+
+
+<!--  Send to OSM Dialog -->
+<string name="sendtoosm_private">More Private</string>
+
+<string name="sendtoosm_identifiable">Less Private (preferred)</string>
+<string name="sendtoosm_title">Upload to OSM</string>
+
+<string name="cancel">Cancel</string>
+<string name="sendtoosm_send_now">Upload Now</string>
+</resources>
+

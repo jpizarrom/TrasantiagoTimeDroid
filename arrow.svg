@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="408.17572"
+   height="457.08121"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.47 r22583"
+   sodipodi:docname="arrow.svg"
+   inkscape:export-filename="/home/kieran/workspace/osn-small-tweaks/res/drawable-hdpi/direction_arrow.png"
+   inkscape:export-xdpi="14.762821"
+   inkscape:export-ydpi="14.762821">
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient3595">
+      <stop
+         style="stop-color:#21e700;stop-opacity:1;"
+         offset="0"
+         id="stop3597" />
+      <stop
+         style="stop-color:#bdf6a1;stop-opacity:1;"
+         offset="1"
+         id="stop3599" />
+    </linearGradient>
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective10" />
+    <filter
+       inkscape:collect="always"
+       id="filter3671"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="7.8946798"
+         id="feGaussianBlur3673" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter3737"
+       x="-0.14475141"
+       width="1.2895029"
+       y="-0.12131329"
+       height="1.2426265"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="14.974609"
+         id="feGaussianBlur3739" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter3807"
+       x="-1.0112247"
+       width="3.0224495"
+       y="-0.83302146"
+       height="2.6660428"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="10.401921"
+         id="feGaussianBlur3809" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.59401059"
+     inkscape:cx="159.72083"
+     inkscape:cy="-37.746249"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1680"
+     inkscape:window-height="1001"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-82.896518,-107.83478)">
+    <path
+       style="opacity:0.55045872;fill:#177400;fill-opacity:1;stroke:none;filter:url(#filter3671)"
+       d="m 285.40625,128.8125 c -8.86064,-0.0943 -13.41577,9.78036 -13.65625,17.4375 -55.75306,131.76379 -110.71473,263.86025 -166.09375,395.78125 60.50744,-27.62106 120.99413,-55.28792 181.53125,-82.84375 60.39425,27.55138 120.75349,55.1799 181.125,82.78125 C 411.81048,406.89668 355.31056,271.82373 298.8125,136.75 c -3.86016,-3.33241 -7.71648,-8.31282 -13.40625,-7.9375 z"
+       id="path3605" />
+    <path
+       style="fill:#31f700;fill-opacity:1;stroke:none"
+       d="m 287.12946,145.1875 0.0893,298.69186 L 441.625,514.39874 287.12946,145.1875 z m 0.0134,0.0165 -154.79911,369.25588 154.88393,-70.60632 -0.0848,-298.64956 z"
+       id="path2827"
+       sodipodi:nodetypes="cccccccc"
+       inkscape:export-filename="/home/kieran/workspace/osn-small-tweaks/res/drawable/direction_arrow.png"
+       inkscape:export-xdpi="5.9533181"
+       inkscape:export-ydpi="5.9533181" />
+    <path
+       style="fill:#6fff4c;fill-opacity:1;stroke:none;filter:url(#filter3737)"
+       d="m 162.84375,482.96875 c 41.46533,-9.52771 102.70528,-49.48277 119.95982,-60.68304 21.48718,9.47524 61.74927,29.78303 83.00976,40.0415 15.06409,7.10473 30.21279,13.53235 45.31167,20.54779 -41.32292,-98.71875 -82.64583,-197.4375 -123.96875,-296.15625 -41.4375,98.75 -82.875,197.5 -124.3125,296.25 z"
+       id="path3675"
+       sodipodi:nodetypes="cccccc"
+       inkscape:export-filename="/home/kieran/workspace/osn-small-tweaks/res/drawable/direction_arrow.png"
+       inkscape:export-xdpi="5.9533181"
+       inkscape:export-ydpi="5.9533181" />
+    <path
+       style="fill:#96ff7d;fill-opacity:1;stroke:none;filter:url(#filter3737)"
+       d="m 227.8125,416.15625 c 16.75889,-9.84487 33.11044,-21.50215 51.6875,-27.21875 23.01633,-0.78464 41.06847,16.14285 61.8125,23.34375 2.21582,0.92233 6.27977,4.2844 3.22747,-0.34478 -19.12791,-45.67674 -38.25581,-91.35348 -57.38372,-137.03022 -19.78125,47.08333 -39.5625,94.16667 -59.34375,141.25 z"
+       id="path3741"
+       inkscape:export-filename="/home/kieran/workspace/osn-small-tweaks/res/drawable/direction_arrow.png"
+       inkscape:export-xdpi="5.9533181"
+       inkscape:export-ydpi="5.9533181" />
+    <path
+       style="fill:#aee7a2;fill-opacity:1;stroke:none;filter:url(#filter3807)"
+       d="m 285.5,310.34375 c -9.60418,24.03912 -21.6161,47.20897 -28.625,72.1875 20.519,-8.03398 43.9294,-5.87275 63.6875,3.5625 -11.13497,-26.69129 -22.28354,-53.3695 -33.1875,-80.15625 -0.625,1.46875 -1.25,2.9375 -1.875,4.40625 z"
+       id="path3777"
+       inkscape:export-filename="/home/kieran/workspace/osn-small-tweaks/res/drawable/direction_arrow.png"
+       inkscape:export-xdpi="5.9533181"
+       inkscape:export-ydpi="5.9533181" />
+  </g>
+</svg>

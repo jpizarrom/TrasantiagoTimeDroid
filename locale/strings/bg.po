@@ -1,0 +1,955 @@
+# Bulgarian translations for PROJECT.
+# Copyright (C) 2010 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2010-11-21 05:15+0100\n"
+"PO-Revision-Date: 2010-11-10 23:21+0000\n"
+"Last-Translator: Guillaume Rosaire <Unknown>\n"
+"Language-Team: bg <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 1.0dev\n"
+
+msgctxt "app_name"
+msgid "OpenSatNav"
+msgstr "OpenSatNav"
+
+msgctxt "app_desc"
+msgid "A free and open source OpenStreetMap application for Android."
+msgstr "Приложение с отворен код за OpenStreetMap."
+
+msgctxt "yes"
+msgid "Yes"
+msgstr "Да"
+
+msgctxt "no"
+msgid "No"
+msgstr "Не"
+
+msgctxt "location_services_disabled"
+msgid ""
+"No location services are enabled. Do you want to change this setting now?"
+" \n"
+"\n"
+"After making the change press the Back button to return to this program."
+msgstr ""
+"Няма позиционна информация. Искате ли да проверите настройките? \n"
+"\n"
+"След промените, натиснете 'Назад' за да се върнете към приложението."
+
+msgctxt "gps_disabled"
+msgid "Location accuracy will be poor because GPS is not enabled."
+msgstr "Точността на местоположението ще е ниска защото GPS не е включен."
+
+msgctxt "network_unavailable"
+msgid "No data connection. Please check your settings and try again."
+msgstr "Няма интернет връзка. Моля проверете настройките и пробвайте отново."
+
+msgctxt "getting_gps_fix"
+msgid "Attempting to find your location using GPS..."
+msgstr "Определяне на местоположението с GPS..."
+
+msgctxt "get_directions"
+msgid "Directions"
+msgstr "Маршрут"
+
+msgctxt "clear_directions"
+msgid "Clear directions"
+msgstr "Изчисти указания"
+
+msgctxt "navigation_mode"
+msgid "Navigation mode"
+msgstr "Режим на навигация"
+
+msgctxt "start_trace_ticker"
+msgid "OpenSatNav starting trace recording..."
+msgstr "OpenSatNav започва запис на маршрут..."
+
+msgctxt "tracing_notification_text"
+msgid "A trace is being recorded..."
+msgstr "Маршрут записан..."
+
+msgctxt "planning_mode"
+msgid "  Planning mode  "
+msgstr "  Режим планиране  "
+
+msgctxt "navigation_mode_on"
+msgid "Navigation mode on"
+msgstr "Режим навигация включен"
+
+msgctxt "planning_mode_on"
+msgid "Planning mode on"
+msgstr "Режим планиране включен"
+
+msgctxt "start_directions_failed"
+msgid ""
+"Can't get directions because your location is\n"
+"\t\tunknown. Please try again when you have a GPS signal."
+msgstr ""
+"Определяне на маршрут е невозможно заради неизвестно местоположение. Моля"
+" опитайте пак след като имате достъп до GPS сигнал."
+
+msgctxt "unspecified_directions_failed"
+msgid "Getting directions failed, please try again."
+msgstr "Неуспешно определяне на маршрут, моля пробвайте отново."
+
+msgctxt "place_not_found"
+msgid "Sorry, couldn't find \"%1$s\""
+msgstr "\"%1$s\" незнайно"
+
+msgctxt "unnamed_place"
+msgid "Unnamed"
+msgstr "Без име"
+
+msgctxt "directions_not_found"
+msgid "Sorry, couldn't get directions"
+msgstr "Невъзможно определяне на маршрут"
+
+msgctxt "please_wait"
+msgid "Please wait..."
+msgstr "Моля, почакайте..."
+
+msgctxt "searching"
+msgid "Searching"
+msgstr "Търсене"
+
+msgctxt "getting_route"
+msgid "Getting route"
+msgstr "Изчисляване на маршрут"
+
+msgctxt "enter_destination"
+msgid "Where do you want to go?"
+msgstr "Въведете крайна точка"
+
+msgctxt "transport_type"
+msgid "Mode of transport"
+msgstr "Транспортно средство"
+
+msgctxt "kilometres_abbreviation"
+msgid " km"
+msgstr " км"
+
+msgctxt "metres_abbreviation"
+msgid " m"
+msgstr " м"
+
+msgctxt "miles_abbreviation"
+msgid " mi"
+msgstr " mi"
+
+msgctxt "yards_abbreviation"
+msgid " yd"
+msgstr " yd"
+
+msgctxt "kmh_abbreviation"
+msgid " km/h"
+msgstr " км/ч"
+
+msgctxt "mph_abbreviation"
+msgid " mph"
+msgstr " mph"
+
+msgctxt "away"
+msgid "away"
+msgstr "далеч"
+
+msgctxt "could_not_find_poi"
+msgid "Could not find any places matching"
+msgstr "Няма попадения"
+
+msgctxt "car"
+msgid "Car"
+msgstr "Кола"
+
+msgctxt "bicycle"
+msgid "Bicycle"
+msgstr "Велосипед"
+
+msgctxt "walking"
+msgid "Walking"
+msgstr "Пеш"
+
+msgctxt "atm"
+msgid "ATM"
+msgstr "Банкомат"
+
+msgctxt "cafe"
+msgid "Café"
+msgstr "Кафе"
+
+msgctxt "cinema"
+msgid "Cinema"
+msgstr "Кино"
+
+msgctxt "fuel"
+msgid "Fuel"
+msgstr "Бензиностанция"
+
+msgctxt "hospital"
+msgid "Hospital"
+msgstr "Болница"
+
+msgctxt "hotel"
+msgid "Hotel"
+msgstr "Хотел"
+
+msgctxt "night_club"
+msgid "Night club"
+msgstr "Дискотека"
+
+msgctxt "parking"
+msgid "Parking"
+msgstr "Паркинг"
+
+msgctxt "police"
+msgid "Police station"
+msgstr "Полиция"
+
+msgctxt "pub"
+msgid "Pub"
+msgstr "Бар"
+
+msgctxt "restaurant"
+msgid "Restaurant"
+msgstr "Ресторант"
+
+msgctxt "taxi_rank"
+msgid "Taxi Rank"
+msgstr "Такси"
+
+msgctxt "toilet"
+msgid "Toilet"
+msgstr "Тоалетна"
+
+msgctxt "find_nearest"
+msgid "Find nearest..."
+msgstr "Намери близки..."
+
+msgctxt "choose_location"
+msgid "Choose location..."
+msgstr "Изберете местност..."
+
+msgctxt "touch_screen"
+msgid "Touch screen to continue..."
+msgstr "Натиснете екрана за да продължите..."
+
+msgctxt "preferences"
+msgid "Preferences"
+msgstr "Настройки"
+
+msgctxt "prefs_general"
+msgid "General"
+msgstr "Общи"
+
+msgctxt "prefs_units"
+msgid "Unit system"
+msgstr "Бройчна система"
+
+msgctxt "prefs_units_metric"
+msgid "Metric"
+msgstr "Метрична"
+
+msgctxt "prefs_units_imperial"
+msgid "Imperial"
+msgstr "Империална"
+
+msgctxt "prefs_map_style"
+msgid "Map style"
+msgstr "Стил на карта"
+
+msgctxt "prefs_map_mapnik"
+msgid "Default"
+msgstr "Стандартно"
+
+msgctxt "prefs_map_cyclemap"
+msgid "Cycle Map"
+msgstr "Карта за Велосипедисти"
+
+msgctxt "prefs_map_noname"
+msgid "No name (for mappers)"
+msgstr "Без име (за топографи)"
+
+msgctxt "prefs_cache_section"
+msgid "Tiles cache"
+msgstr "Кеширане на карта"
+
+msgctxt "prefs_cache_sdcard"
+msgid "SD Card usage"
+msgstr "Използване на SD карта"
+
+msgctxt "prefs_cache_sdcard_summary"
+msgid "Maximum used size of the SD card to store cached tiles"
+msgstr "Максимален размер на памет за кеширане на карта"
+
+msgctxt "prefs_cache_sdcard_dialog"
+msgid "The SD card cache will contain at most the following"
+msgstr "Кеш на SD карта ще бъде най-много"
+
+msgctxt "prefs_cache_sdcard_title"
+msgid "Select size"
+msgstr "Изберете размер"
+
+msgctxt "prefs_cache_clear"
+msgid "Clear cache"
+msgstr "Изчисти кеш"
+
+msgctxt "prefs_cache_clear_summary"
+msgid "Empty the map tile cache"
+msgstr "Натиснете за изчистване на кеш"
+
+msgctxt "prefs_cache_clear_confirm"
+msgid "Are you sure you want to clear the map tile cache?"
+msgstr "Сигурни ли сте че искате да изчистите кеша?"
+
+msgctxt "megabytes_abbreviation"
+msgid "Mb"
+msgstr "Мб"
+
+msgctxt "about"
+msgid "About"
+msgstr "За приложението"
+
+msgctxt "about_website_label"
+msgid "OpenSatNav.org"
+msgstr "OpenSatNav.org"
+
+msgctxt "about_website_url"
+msgid "http://www.opensatnav.org/"
+msgstr "http://www.opensatnav.org/"
+
+msgctxt "menu_preferences"
+msgid "Preferences"
+msgstr "Настройки"
+
+msgctxt "menu_about"
+msgid "About OI About itself"
+msgstr "За OI за себе си"
+
+msgctxt "l_leaders"
+msgid "Project Founder"
+msgstr "Основателя на проекта"
+
+msgctxt "l_authors"
+msgid "Written by"
+msgstr "Разработка:"
+
+msgctxt "l_documenters"
+msgid "Documented by"
+msgstr "Документация:"
+
+msgctxt "l_translators"
+msgid "Translated by"
+msgstr "Перевод:"
+
+msgctxt "l_artists"
+msgid "Artwork by"
+msgstr "Оформление"
+
+msgctxt "l_credits"
+msgid "Credits"
+msgstr "Благодарности"
+
+msgctxt "l_license"
+msgid "License"
+msgstr "Лиценз"
+
+msgctxt "l_info"
+msgid "General Info"
+msgstr "Обща информация"
+
+msgctxt "l_others"
+msgid "Special thanks"
+msgstr "Специални поздрави"
+
+msgctxt "no_information_available"
+msgid "No information available."
+msgstr "Информацията недостъпна."
+
+msgctxt "error_email_message"
+msgid ""
+"Dear All,\n"
+"\n"
+"I encountered the following issue while using OpenSatNav, could you "
+"please have a look at it?\n"
+"\n"
+msgstr ""
+"Dear All,\n"
+"\n"
+"I encountered the following issue while using OpenSatNav, could you "
+"please have a look at it?\n"
+"\n"
+
+msgctxt "error_email_chooser_title"
+msgid "Send Mail via:"
+msgstr "Изпратете емайл през:"
+
+msgctxt "bug_report_mail_address"
+msgid "bug-reports@opensatnav.org"
+msgstr "bug-reports@opensatnav.org"
+
+msgctxt "bug_report_ask_user"
+msgid "An unexpected error just happened. Would you like to send us a bug report?"
+msgstr "Грешка в програмата. Искате ли да изпратите доклад до програмиста?"
+
+msgctxt "bug_report_not_sent_ask_user"
+msgid ""
+"An unexpected error happened last time you used OpenSatNav. Would you "
+"like to send us a bug report?"
+msgstr ""
+"Неочаквана грешка при последното пускане на OpenSatNav. Искате ли да "
+"изпратите доклад до програмиста?"
+
+msgctxt "bug_report_ask_user_title"
+msgid "Unexpected Error"
+msgstr "Неочаквана грешка"
+
+msgctxt "menu_contribute"
+msgid "Contribute"
+msgstr "Доприносете"
+
+msgctxt "contribute_title"
+msgid "Contribute to OSM"
+msgstr "Доприносете към OSM"
+
+msgctxt "prefs_contribute_section"
+msgid "Contribute"
+msgstr "Доприносете"
+
+msgctxt "prefs_contribute_osm_username"
+msgid "Username"
+msgstr "Логин"
+
+msgctxt "prefs_contribute_osm_username_summary"
+msgid "Please enter your OSM username here"
+msgstr "Въведете вашия OSM логин"
+
+msgctxt "prefs_contribute_osm_password"
+msgid "Password"
+msgstr "Пароль"
+
+msgctxt "prefs_contribute_osm_password_summary"
+msgid "Please enter your OSM password here"
+msgstr "Въведете вашата OSM парола"
+
+msgctxt "pref_username_key"
+msgid "pref_username_key"
+msgstr "pref_username_key"
+
+msgctxt "pref_password_key"
+msgid "pref_password_key"
+msgstr "pref_password_key"
+
+msgctxt "contribute_introduction"
+msgid ""
+"You can help OpenSatNav by contributing GPS traces to the Open Street Map"
+" Project"
+msgstr "Можете да помогнете OpenSatNav като доприносите GPS маршрути към проекта"
+
+msgctxt "contribute_start_recording"
+msgid "Start Recording"
+msgstr "Започни запис"
+
+msgctxt "contribute_stop_recording"
+msgid "Stop Recording"
+msgstr "Прекрати запис"
+
+msgctxt "contribute_upload"
+msgid "Upload Tracks to OSM"
+msgstr "Изпрати маршрут до OSM"
+
+msgctxt "contribute_delete_traces"
+msgid "Delete Traces"
+msgstr "Изтрий маршрут"
+
+msgctxt "contribute_delete_old_traces"
+msgid "Delete old traces"
+msgstr "Изчисти стари маршрути"
+
+msgctxt "contribute_new_waypoint"
+msgid "New Waypoint"
+msgstr "Нова пътеводна точка"
+
+msgctxt "contribute_dialogue_trace_description"
+msgid "Trace Description"
+msgstr "Описание на маршрута"
+
+msgctxt "contribute_dialogue_trace_message"
+msgid "Please set a description for this trace"
+msgstr "Моля въведете описание за този маршрут"
+
+msgctxt "contribute_dialogue_new_waypoint"
+msgid "New Waypoint"
+msgstr "Нова пътеводна точка"
+
+msgctxt "contribute_dialogue_new_waypoint_message"
+msgid "Please enter waypoint name"
+msgstr "Моля въведете име на пътеводната точка"
+
+msgctxt "contribute_username_not_entered"
+msgid "Not yet entered"
+msgstr "Още не е въведено"
+
+msgctxt "contribute_error_enter_osm_login_details"
+msgid "Please enter your login details first"
+msgstr "Моля въведете вашия OSM логин"
+
+msgctxt "contribute_gps_on"
+msgid "GPS Tracking turned On"
+msgstr "Включен запис на GPS маршрут"
+
+msgctxt "contribute_gps_off"
+msgid "GPS Tracking turned Off"
+msgstr "Запис на GPS маршрут изключен"
+
+msgctxt "contribute_track_cleared"
+msgid "Track cleared"
+msgstr "Маршрут изчистен"
+
+msgctxt "contribute_error_no_traces"
+msgid "No traces collected yet"
+msgstr "Маршрут не намерен"
+
+msgctxt "contribute_uploading_traces"
+msgid "Uploading traces"
+msgstr "Изпрати маршрут"
+
+msgctxt "contribute_form_name"
+msgid "Track Name"
+msgstr ""
+
+msgctxt "contribute_form_visibility"
+msgid "Visibility"
+msgstr "Видимост"
+
+msgctxt "contribute_track_uploaded"
+msgid "Track with description \"%1$s\" uploaded to OSM."
+msgstr ""
+
+msgctxt "contribute_waypoint_added"
+msgid "Waypoint \"%1$s\" added"
+msgstr "Пътеводна точка \"%1$s\" добавена"
+
+msgctxt "contribute_track_error_happened"
+msgid "Sorry, an error happened:"
+msgstr "Грешка:"
+
+msgctxt "contribute_waypoing_gps_fix_not_good"
+msgid "GPS fix not good enough to add waypoint, try again"
+msgstr "Точността на GPS не е достатъчна за добавяне, опитайте отново"
+
+msgctxt "tracing_paused_notification_text"
+msgid "Recording is paused"
+msgstr "Запис паузиран"
+
+msgctxt "menu_show_trip_stats"
+msgid "Trip Stats"
+msgstr "Статистики на движение"
+
+msgctxt "close_statistics_view"
+msgid "Show Map"
+msgstr "Покажи Карта"
+
+msgctxt "reset_trip_statistics"
+msgid "Reset Stats"
+msgstr "Изчистете Статистики"
+
+msgctxt "aver_trip_speed_label"
+msgid "Average Speed:"
+msgstr "Средна Скорост:"
+
+msgctxt "current_speed_label"
+msgid "Current Speed:"
+msgstr "Текуща Скорост:"
+
+msgctxt "trip_distance_label"
+msgid "Distance:"
+msgstr "Разстояние:"
+
+msgctxt "trip_duration_label"
+msgid "Trip Time:"
+msgstr "Време на пътуване"
+
+msgctxt "not_available_string"
+msgid "n/a"
+msgstr "няма"
+
+msgctxt "namefinder_service_label"
+msgid "Name Finder service"
+msgstr "Услуга за търсене по име"
+
+msgctxt "uk_postcode_not_recognised_title"
+msgid "UK Postcode not recognized"
+msgstr "Невалиден пощенски код"
+
+msgctxt "uk_postcode_not_recognised"
+msgid ""
+"The postcode is not recognised, the most likely reason for this is that "
+"it has not been entered into the 'Free The Postcode' database "
+"(www.freethepostcode.org).\n"
+"\n"
+" As you are using the Android platform, you can download an open-source "
+"(GPLv3) application from Android Market, it will allow you to easily "
+"submit new postcodes.\n"
+"\n"
+" Would you like to use it?"
+msgstr ""
+"Пощенския код е незнаен, най-вероятно защото не е вкаран в \"Освободи "
+"Пощенския Код\" база данни (www.freethepostcode.org)\n"
+" След като използвате Android, можете да свалите отворен код (GPLv3) "
+"програма от Android пазара, която ще ви позволи лесно да изпратите нови "
+"пощенски кодове.\n"
+" Бихте ли искали да я използвате?"
+
+msgctxt "prefs_map_os"
+msgid "Ordnance Survey (UK only)"
+msgstr "Военна информация (за Великобритания)"
+
+msgctxt "error_externalstorage_not_writable"
+msgid "Unable to write to SD card"
+msgstr "Запис на SD карта неуспешен"
+
+msgctxt "wplist"
+msgid "Waypoint List"
+msgstr ""
+
+msgctxt "wplist_latitude"
+msgid "Latitude:"
+msgstr "Ширина:"
+
+msgctxt "wplist_longitude"
+msgid "Longitude:"
+msgstr "Дължина:"
+
+msgctxt "wplist_elevation"
+msgid "Elevation:"
+msgstr "Морска височина:"
+
+msgctxt "wplist_accuracy"
+msgid "Accuracy:"
+msgstr "Точност:"
+
+#, python-format
+msgctxt "new_track"
+msgid "Track %d"
+msgstr ""
+
+msgctxt "moving_time_label"
+msgid "Moving Time"
+msgstr "Време на движение"
+
+msgctxt "total_time_label"
+msgid "Total Time"
+msgstr "Пълно време"
+
+msgctxt "time_label"
+msgid "Time"
+msgstr "Време"
+
+msgctxt "sd_unavail"
+msgid "SD Unavailable"
+msgstr ""
+
+msgctxt "speed"
+msgid "Speed"
+msgstr "Скорост"
+
+msgctxt "start_trip"
+msgid "You must start a trip."
+msgstr ""
+
+msgctxt "statistics"
+msgid "Statistics"
+msgstr "Статистики"
+
+msgctxt "total_distance_label"
+msgid "Total Distance"
+msgstr "Крайно разтояние"
+
+msgctxt "distance_label"
+msgid "Distance"
+msgstr "Разстояние"
+
+msgctxt "unknown"
+msgid "-"
+msgstr "-"
+
+msgctxt "waiting"
+msgid "Waiting..."
+msgstr ""
+
+msgctxt "hour"
+msgid "hour"
+msgstr "час"
+
+msgctxt "hours"
+msgid "hours"
+msgstr "часове"
+
+msgctxt "hr"
+msgid "hr"
+msgstr "ч"
+
+msgctxt "min"
+msgid "min"
+msgstr "мин"
+
+msgctxt "minute"
+msgid "minute"
+msgstr "минута"
+
+msgctxt "minutes"
+msgid "minutes"
+msgstr "минути"
+
+msgctxt "second"
+msgid "second"
+msgstr "секунда"
+
+msgctxt "seconds"
+msgid "seconds"
+msgstr "секунди"
+
+msgctxt "average_speed_label"
+msgid "Average Speed"
+msgstr "Средна Скорост"
+
+msgctxt "average_pace_label"
+msgid "Average Pace"
+msgstr ""
+
+msgctxt "average_moving_speed_label"
+msgid "Average Moving Speed"
+msgstr "Средна скорост в движение"
+
+msgctxt "average_moving_pace_label"
+msgid "Average Moving Pace"
+msgstr ""
+
+msgctxt "min_elevation_label"
+msgid "Min Elevation"
+msgstr ""
+
+msgctxt "min_grade_label"
+msgid "Min Grade"
+msgstr ""
+
+msgctxt "min_pace_label"
+msgid "Min Pace"
+msgstr ""
+
+msgctxt "max_elevation_label"
+msgid "Max Elevation"
+msgstr ""
+
+msgctxt "max_grade_label"
+msgid "Max Grade"
+msgstr ""
+
+msgctxt "max_speed_label"
+msgid "Max Speed"
+msgstr "Максимална Скорост"
+
+msgctxt "elevation_chart_name"
+msgid "Elevation Chart"
+msgstr ""
+
+msgctxt "elevation_gain_label"
+msgid "Elevation Gain"
+msgstr ""
+
+msgctxt "elevation_label"
+msgid "Elevation"
+msgstr "Надморска височина"
+
+msgctxt "latitude_label"
+msgid "Latitude"
+msgstr "Ширина"
+
+msgctxt "longitude_label"
+msgid "Longitude"
+msgstr "Дължина"
+
+msgctxt "meter"
+msgid "m"
+msgstr "м"
+
+msgctxt "kilometer"
+msgid "km"
+msgstr "км"
+
+msgctxt "kilometers_long"
+msgid "kilometers"
+msgstr "километри"
+
+msgctxt "feet"
+msgid "ft"
+msgstr "фт"
+
+msgctxt "mile"
+msgid "mi"
+msgstr ""
+
+msgctxt "miles_long"
+msgid "miles"
+msgstr "мили"
+
+msgctxt "kilometer_per_hour"
+msgid "km/h"
+msgstr "км/ч"
+
+msgctxt "kilometer_per_hour_long"
+msgid "kilometers per hour"
+msgstr "километри в час"
+
+msgctxt "min_per_kilometer"
+msgid "min/km"
+msgstr "мин/км"
+
+msgctxt "per_kilometer"
+msgid "per kilometer"
+msgstr "на километър"
+
+msgctxt "mile_per_hour"
+msgid "mi/h"
+msgstr ""
+
+msgctxt "mile_per_hour_long"
+msgid "miles per hour"
+msgstr "мили в час"
+
+msgctxt "min_per_mile"
+msgid "min/mi"
+msgstr ""
+
+msgctxt "per_mile"
+msgid "per mile"
+msgstr "на миля"
+
+msgctxt "points"
+msgid "Points"
+msgstr ""
+
+msgctxt "recorded_date"
+msgid "Recorded"
+msgstr ""
+
+msgctxt "category"
+msgid "Activity type"
+msgstr ""
+
+msgctxt "waypoint_category"
+msgid "Marker type"
+msgstr ""
+
+#, python-format
+msgctxt "part"
+msgid "(Part %d)"
+msgstr "(Част %d)"
+
+msgctxt "trackdetails_title"
+msgid "Track Details"
+msgstr ""
+
+msgctxt "trackdetails_name"
+msgid "Track Name"
+msgstr ""
+
+msgctxt "trackdetails_description"
+msgid "Track Description"
+msgstr ""
+
+msgctxt "trackdetails_category"
+msgid "Activity Type (e.g. hiking, cycling, running, climbing...)"
+msgstr "Вид на активност (e.g. бягане, катерене...)"
+
+msgctxt "tracklist_show_track"
+msgid "Show"
+msgstr "Покажи"
+
+msgctxt "tracklist_send_to_osm"
+msgid "Send to OSM..."
+msgstr ""
+
+msgctxt "tracklist_delete_track"
+msgid "Delete from phone..."
+msgstr "Изтрии от телефон..."
+
+msgctxt "tracklist_edit_track"
+msgid "Edit details"
+msgstr ""
+
+msgctxt "tracklist_write_to_sd"
+msgid "Write to SD card..."
+msgstr "Запиши на SD карта..."
+
+msgctxt "tracklist_save_as_gpx"
+msgid "Save a GPX file"
+msgstr "Запиши GPX файл"
+
+msgctxt "tracklist_save_as_kml"
+msgid "Save a KML file"
+msgstr "Запиши KML файл"
+
+msgctxt "tracklist_save_as_csv"
+msgid "Save a CSV file"
+msgstr "Запиши CSV файл"
+
+msgctxt "tracklist_share_track"
+msgid "Share with Friends..."
+msgstr "Сподели с Приятели..."
+
+msgctxt "tracklist_share_gpx_file"
+msgid "A GPX file"
+msgstr "GPX файл"
+
+msgctxt "tracklist_share_kml_file"
+msgid "A KML file"
+msgstr "KML файл"
+
+msgctxt "tracklist_share_csv_file"
+msgid "A CSV file"
+msgstr "CSV файл"
+
+msgctxt "tracklist_clear_map"
+msgid "Clear map"
+msgstr "Изчисти карта"
+
+msgctxt "tracklist_this_track"
+msgid "This Track"
+msgstr ""
+
+msgctxt "navigate_contextmenu_navigate"
+msgid "Navigate"
+msgstr ""
+
+msgctxt "navigate_contextmenu_aroundpoint"
+msgid "What's here?"
+msgstr "Какво има тук?"
+
+msgctxt "sendtoosm_private"
+msgid "More Private"
+msgstr ""
+
+msgctxt "sendtoosm_identifiable"
+msgid "Less Private (preferred)"
+msgstr ""
+
+msgctxt "sendtoosm_title"
+msgid "Upload to OSM"
+msgstr ""
+
+msgctxt "cancel"
+msgid "Cancel"
+msgstr ""
+
+msgctxt "sendtoosm_send_now"
+msgid "Upload Now"
+msgstr ""
+

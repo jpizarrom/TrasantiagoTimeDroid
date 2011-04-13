@@ -1,0 +1,967 @@
+# Swedish translation for opensatnav
+# Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
+# This file is distributed under the same license as the opensatnav package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version:  opensatnav\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2010-11-21 05:15+0100\n"
+"PO-Revision-Date: 2010-11-10 23:23+0000\n"
+"Last-Translator: Pontus Freyhult <pontus_launchpad@soua.net>\n"
+"Language-Team: Swedish <sv@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 1.0dev\n"
+
+msgctxt "app_name"
+msgid "OpenSatNav"
+msgstr "OpenSatNav"
+
+msgctxt "app_desc"
+msgid "A free and open source OpenStreetMap application for Android."
+msgstr "Ett fritt och öppet OpenStreetMap-program för Android."
+
+msgctxt "yes"
+msgid "Yes"
+msgstr "Ja"
+
+msgctxt "no"
+msgid "No"
+msgstr "Nej"
+
+msgctxt "location_services_disabled"
+msgid ""
+"No location services are enabled. Do you want to change this setting now?"
+" \n"
+"\n"
+"After making the change press the Back button to return to this program."
+msgstr ""
+"Ingen platstjänst är aktiverad. Vill du ändra detta nu?\n"
+"\n"
+"Efter att du ändrat, tryck Bakåt-knappen för att komma tillbaka till "
+"detta program."
+
+msgctxt "gps_disabled"
+msgid "Location accuracy will be poor because GPS is not enabled."
+msgstr ""
+"Eftersom GPS-användning är avslaget kommer platsbestämning att ha dålig "
+"noggrannhet"
+
+msgctxt "network_unavailable"
+msgid "No data connection. Please check your settings and try again."
+msgstr ""
+"Ingen datanslutning finns tillgänglig. Kontrollera dina inställningar och"
+" försök igen."
+
+msgctxt "getting_gps_fix"
+msgid "Attempting to find your location using GPS..."
+msgstr "Försöker hitta var du är med GPS..."
+
+msgctxt "get_directions"
+msgid "Directions"
+msgstr "Väganvisningar"
+
+msgctxt "clear_directions"
+msgid "Clear directions"
+msgstr "Ta bort anvisningar"
+
+msgctxt "navigation_mode"
+msgid "Navigation mode"
+msgstr "Navigeringsläge"
+
+msgctxt "start_trace_ticker"
+msgid "OpenSatNav starting trace recording..."
+msgstr "OpenSatNav startar spårinspelning..."
+
+msgctxt "tracing_notification_text"
+msgid "A trace is being recorded..."
+msgstr "Spårinspelning är aktiverad..."
+
+msgctxt "planning_mode"
+msgid "  Planning mode  "
+msgstr "  Planeringsläge  "
+
+msgctxt "navigation_mode_on"
+msgid "Navigation mode on"
+msgstr "Navigeringsläge på"
+
+msgctxt "planning_mode_on"
+msgid "Planning mode on"
+msgstr "Planeringsläge på"
+
+msgctxt "start_directions_failed"
+msgid ""
+"Can't get directions because your location is\n"
+"\t\tunknown. Please try again when you have a GPS signal."
+msgstr ""
+"Kan inte hämta väganvisningar eftersom din position är \n"
+"\t\tokänd. Försök igen när du har bättre GPS-signal."
+
+msgctxt "unspecified_directions_failed"
+msgid "Getting directions failed, please try again."
+msgstr "Hämtning av väganvisningar misslyckades, försök igen."
+
+msgctxt "place_not_found"
+msgid "Sorry, couldn't find \"%1$s\""
+msgstr "Tyvärr, kunde inte hitta \"%1$s\""
+
+msgctxt "unnamed_place"
+msgid "Unnamed"
+msgstr "Namnlös"
+
+msgctxt "directions_not_found"
+msgid "Sorry, couldn't get directions"
+msgstr "Tyvärr, kunde inte hämta väganvisningar"
+
+msgctxt "please_wait"
+msgid "Please wait..."
+msgstr "Var vänlig vänta..."
+
+msgctxt "searching"
+msgid "Searching"
+msgstr "Söker"
+
+msgctxt "getting_route"
+msgid "Getting route"
+msgstr "Hämtar vägar"
+
+msgctxt "enter_destination"
+msgid "Where do you want to go?"
+msgstr "Var vill du ta dig?"
+
+msgctxt "transport_type"
+msgid "Mode of transport"
+msgstr "Transportmedel"
+
+msgctxt "kilometres_abbreviation"
+msgid " km"
+msgstr " km"
+
+msgctxt "metres_abbreviation"
+msgid " m"
+msgstr " m"
+
+msgctxt "miles_abbreviation"
+msgid " mi"
+msgstr " mi"
+
+msgctxt "yards_abbreviation"
+msgid " yd"
+msgstr " yd"
+
+msgctxt "kmh_abbreviation"
+msgid " km/h"
+msgstr " km/h"
+
+msgctxt "mph_abbreviation"
+msgid " mph"
+msgstr " mph"
+
+msgctxt "away"
+msgid "away"
+msgstr "bort"
+
+msgctxt "could_not_find_poi"
+msgid "Could not find any places matching"
+msgstr "Kunde inte hitta några platser liknande"
+
+msgctxt "car"
+msgid "Car"
+msgstr "Bil"
+
+msgctxt "bicycle"
+msgid "Bicycle"
+msgstr "Cykel"
+
+msgctxt "walking"
+msgid "Walking"
+msgstr "Gång"
+
+msgctxt "atm"
+msgid "ATM"
+msgstr "Bankomat"
+
+msgctxt "cafe"
+msgid "Café"
+msgstr "Kafé"
+
+msgctxt "cinema"
+msgid "Cinema"
+msgstr "Biograf"
+
+msgctxt "fuel"
+msgid "Fuel"
+msgstr "Bränsle"
+
+msgctxt "hospital"
+msgid "Hospital"
+msgstr "Sjukhus"
+
+msgctxt "hotel"
+msgid "Hotel"
+msgstr "Hotell"
+
+msgctxt "night_club"
+msgid "Night club"
+msgstr "Nattklubb"
+
+msgctxt "parking"
+msgid "Parking"
+msgstr "Parkeringsplats"
+
+msgctxt "police"
+msgid "Police station"
+msgstr "Polisstation"
+
+msgctxt "pub"
+msgid "Pub"
+msgstr "Pub"
+
+msgctxt "restaurant"
+msgid "Restaurant"
+msgstr "Restaurang"
+
+msgctxt "taxi_rank"
+msgid "Taxi Rank"
+msgstr "Taxiplats"
+
+msgctxt "toilet"
+msgid "Toilet"
+msgstr "Toalett"
+
+msgctxt "find_nearest"
+msgid "Find nearest..."
+msgstr "Hitta närmaste..."
+
+msgctxt "choose_location"
+msgid "Choose location..."
+msgstr "Välj plats..."
+
+msgctxt "touch_screen"
+msgid "Touch screen to continue..."
+msgstr "Ta på skärmen för att fortsätta..."
+
+msgctxt "preferences"
+msgid "Preferences"
+msgstr "Inställningar"
+
+msgctxt "prefs_general"
+msgid "General"
+msgstr "Allmänt"
+
+msgctxt "prefs_units"
+msgid "Unit system"
+msgstr "Enhetssystem"
+
+msgctxt "prefs_units_metric"
+msgid "Metric"
+msgstr "Metriska (SI)"
+
+msgctxt "prefs_units_imperial"
+msgid "Imperial"
+msgstr "Imperial (Brittisk-Amerikanska)"
+
+msgctxt "prefs_map_style"
+msgid "Map style"
+msgstr "Kartstil"
+
+msgctxt "prefs_map_mapnik"
+msgid "Default"
+msgstr "Standard"
+
+msgctxt "prefs_map_cyclemap"
+msgid "Cycle Map"
+msgstr "Cykelkarta"
+
+msgctxt "prefs_map_noname"
+msgid "No name (for mappers)"
+msgstr "Namnlös (för kartläggare)"
+
+msgctxt "prefs_cache_section"
+msgid "Tiles cache"
+msgstr "Rutcache"
+
+msgctxt "prefs_cache_sdcard"
+msgid "SD Card usage"
+msgstr "SD-kortsanvändning"
+
+msgctxt "prefs_cache_sdcard_summary"
+msgid "Maximum used size of the SD card to store cached tiles"
+msgstr "Maximalt utrymme som används för att lagra cachade rutor på SD-kortet"
+
+msgctxt "prefs_cache_sdcard_dialog"
+msgid "The SD card cache will contain at most the following"
+msgstr "SD-kortscachen kommer att vara som mest"
+
+msgctxt "prefs_cache_sdcard_title"
+msgid "Select size"
+msgstr "Välj storlek"
+
+msgctxt "prefs_cache_clear"
+msgid "Clear cache"
+msgstr "Töm cache"
+
+msgctxt "prefs_cache_clear_summary"
+msgid "Empty the map tile cache"
+msgstr "Töm kartrutecachen"
+
+msgctxt "prefs_cache_clear_confirm"
+msgid "Are you sure you want to clear the map tile cache?"
+msgstr "Är det säkert att du vill tömma kartrutecachen?"
+
+msgctxt "megabytes_abbreviation"
+msgid "Mb"
+msgstr "Mb"
+
+msgctxt "about"
+msgid "About"
+msgstr "Om"
+
+msgctxt "about_website_label"
+msgid "OpenSatNav.org"
+msgstr "OpenSatNav.org"
+
+msgctxt "about_website_url"
+msgid "http://www.opensatnav.org/"
+msgstr "http://www.opensatnav.org/"
+
+msgctxt "menu_preferences"
+msgid "Preferences"
+msgstr "Inställningar"
+
+msgctxt "menu_about"
+msgid "About OI About itself"
+msgstr "Om OI About (i sig själv)"
+
+msgctxt "l_leaders"
+msgid "Project Founder"
+msgstr "Projektgrundare"
+
+msgctxt "l_authors"
+msgid "Written by"
+msgstr "Skriven av"
+
+msgctxt "l_documenters"
+msgid "Documented by"
+msgstr "Dokumenterad av"
+
+msgctxt "l_translators"
+msgid "Translated by"
+msgstr "Översatt av"
+
+msgctxt "l_artists"
+msgid "Artwork by"
+msgstr "Grafik av"
+
+msgctxt "l_credits"
+msgid "Credits"
+msgstr "Tack till"
+
+msgctxt "l_license"
+msgid "License"
+msgstr "Licens"
+
+msgctxt "l_info"
+msgid "General Info"
+msgstr "Allmän information"
+
+msgctxt "l_others"
+msgid "Special thanks"
+msgstr "Speciella tack"
+
+msgctxt "no_information_available"
+msgid "No information available."
+msgstr "Ingen information tillgänglig."
+
+msgctxt "error_email_message"
+msgid ""
+"Dear All,\n"
+"\n"
+"I encountered the following issue while using OpenSatNav, could you "
+"please have a look at it?\n"
+"\n"
+msgstr ""
+"Dear All,\n"
+"\n"
+"I encountered the following issue while using OpenSatNav, could you "
+"please have a look at it?\n"
+"\n"
+
+msgctxt "error_email_chooser_title"
+msgid "Send Mail via:"
+msgstr "Skicka e-post via:"
+
+msgctxt "bug_report_mail_address"
+msgid "bug-reports@opensatnav.org"
+msgstr "bug-reports@opensatnav.org"
+
+msgctxt "bug_report_ask_user"
+msgid "An unexpected error just happened. Would you like to send us a bug report?"
+msgstr "Ett oväntat fel inträffade nyss. Vill du skicka en felrapport till oss?"
+
+msgctxt "bug_report_not_sent_ask_user"
+msgid ""
+"An unexpected error happened last time you used OpenSatNav. Would you "
+"like to send us a bug report?"
+msgstr ""
+"Ett oväntat fel inträffade förra gången du använde OpenSatNav. Vill du "
+"skicka en felrapport till oss?"
+
+msgctxt "bug_report_ask_user_title"
+msgid "Unexpected Error"
+msgstr "Oväntat fel"
+
+msgctxt "menu_contribute"
+msgid "Contribute"
+msgstr "Bidra"
+
+msgctxt "contribute_title"
+msgid "Contribute to OSM"
+msgstr "Bidra till OSM"
+
+msgctxt "prefs_contribute_section"
+msgid "Contribute"
+msgstr "Bidra"
+
+msgctxt "prefs_contribute_osm_username"
+msgid "Username"
+msgstr "Användarnamn"
+
+msgctxt "prefs_contribute_osm_username_summary"
+msgid "Please enter your OSM username here"
+msgstr "Skriv ditt användarnamn hos OSM"
+
+msgctxt "prefs_contribute_osm_password"
+msgid "Password"
+msgstr "Lösenord"
+
+msgctxt "prefs_contribute_osm_password_summary"
+msgid "Please enter your OSM password here"
+msgstr "Skriv ditt OSM-lösenord här"
+
+msgctxt "pref_username_key"
+msgid "pref_username_key"
+msgstr "pref_username_key"
+
+msgctxt "pref_password_key"
+msgid "pref_password_key"
+msgstr "pref_password_key"
+
+msgctxt "contribute_introduction"
+msgid ""
+"You can help OpenSatNav by contributing GPS traces to the Open Street Map"
+" Project"
+msgstr ""
+"Du kan hjälpa OpenSatNav genom att bidra med GPS-spårloggar till Open "
+"Street Map-projektet"
+
+msgctxt "contribute_start_recording"
+msgid "Start Recording"
+msgstr "Starta inspelning"
+
+msgctxt "contribute_stop_recording"
+msgid "Stop Recording"
+msgstr "Avsluta inspelning"
+
+msgctxt "contribute_upload"
+msgid "Upload Tracks to OSM"
+msgstr "Ladda upp spår till OSM"
+
+msgctxt "contribute_delete_traces"
+msgid "Delete Traces"
+msgstr "Ta bort spårloggar"
+
+msgctxt "contribute_delete_old_traces"
+msgid "Delete old traces"
+msgstr "Ta bort gamla spårloggar"
+
+msgctxt "contribute_new_waypoint"
+msgid "New Waypoint"
+msgstr "Ny vägpunkt"
+
+msgctxt "contribute_dialogue_trace_description"
+msgid "Trace Description"
+msgstr "Spårbeskrivning"
+
+msgctxt "contribute_dialogue_trace_message"
+msgid "Please set a description for this trace"
+msgstr "Ange en beskrivning för detta spår"
+
+msgctxt "contribute_dialogue_new_waypoint"
+msgid "New Waypoint"
+msgstr "Ny vägpunkt"
+
+msgctxt "contribute_dialogue_new_waypoint_message"
+msgid "Please enter waypoint name"
+msgstr "Skriv namn för vägpunkten"
+
+msgctxt "contribute_username_not_entered"
+msgid "Not yet entered"
+msgstr "Inte angivet ännu"
+
+msgctxt "contribute_error_enter_osm_login_details"
+msgid "Please enter your login details first"
+msgstr "Ange dina kontouppgifter först"
+
+msgctxt "contribute_gps_on"
+msgid "GPS Tracking turned On"
+msgstr "GPS-spårning påslagen"
+
+msgctxt "contribute_gps_off"
+msgid "GPS Tracking turned Off"
+msgstr "GPS-spårning avslaget"
+
+msgctxt "contribute_track_cleared"
+msgid "Track cleared"
+msgstr "Spår rensat"
+
+msgctxt "contribute_error_no_traces"
+msgid "No traces collected yet"
+msgstr "Inga spårloggar insamlade än"
+
+msgctxt "contribute_uploading_traces"
+msgid "Uploading traces"
+msgstr "Laddar upp spår"
+
+msgctxt "contribute_form_name"
+msgid "Track Name"
+msgstr "Spårnamn"
+
+msgctxt "contribute_form_visibility"
+msgid "Visibility"
+msgstr "Synlighet"
+
+msgctxt "contribute_track_uploaded"
+msgid "Track with description \"%1$s\" uploaded to OSM."
+msgstr "Ett spår med beskrivningen \"%1$s\" skickades till OSM."
+
+msgctxt "contribute_waypoint_added"
+msgid "Waypoint \"%1$s\" added"
+msgstr "Vägpunkten \"%1$s\" tillagd"
+
+msgctxt "contribute_track_error_happened"
+msgid "Sorry, an error happened:"
+msgstr "Tyvärr, ett fel inträffade:"
+
+msgctxt "contribute_waypoing_gps_fix_not_good"
+msgid "GPS fix not good enough to add waypoint, try again"
+msgstr ""
+"Din GPS-fix är inte tillräckligt bra för att lägga till en vägpunkt, "
+"försök igen"
+
+msgctxt "tracing_paused_notification_text"
+msgid "Recording is paused"
+msgstr "Inspelning pausad"
+
+msgctxt "menu_show_trip_stats"
+msgid "Trip Stats"
+msgstr "Resestatistik"
+
+msgctxt "close_statistics_view"
+msgid "Show Map"
+msgstr "Visa karta"
+
+msgctxt "reset_trip_statistics"
+msgid "Reset Stats"
+msgstr "Nollställ statistik"
+
+msgctxt "aver_trip_speed_label"
+msgid "Average Speed:"
+msgstr "Medelhastighet:"
+
+msgctxt "current_speed_label"
+msgid "Current Speed:"
+msgstr "Nuvarande hastighet:"
+
+msgctxt "trip_distance_label"
+msgid "Distance:"
+msgstr "Distans:"
+
+msgctxt "trip_duration_label"
+msgid "Trip Time:"
+msgstr "Restid:"
+
+msgctxt "not_available_string"
+msgid "n/a"
+msgstr "ej tillgänglig"
+
+msgctxt "namefinder_service_label"
+msgid "Name Finder service"
+msgstr "Namnfinnartjänst"
+
+msgctxt "uk_postcode_not_recognised_title"
+msgid "UK Postcode not recognized"
+msgstr "Okänd UK-postkod"
+
+msgctxt "uk_postcode_not_recognised"
+msgid ""
+"The postcode is not recognised, the most likely reason for this is that "
+"it has not been entered into the 'Free The Postcode' database "
+"(www.freethepostcode.org).\n"
+"\n"
+" As you are using the Android platform, you can download an open-source "
+"(GPLv3) application from Android Market, it will allow you to easily "
+"submit new postcodes.\n"
+"\n"
+" Would you like to use it?"
+msgstr ""
+"Postkoden (i UK) är okänd. Den mest troliga orsaken till det är att den "
+"inte har matats in i 'Free the Postcode'-databasen "
+"(www.freethepostcode.org).\n"
+"\n"
+" Eftersom du använder Androidplattformen kan du ladda ner en öppet "
+"(GPLv3) program från Android Market som låter dig enkelt mata in nya "
+"postkoder.\n"
+"\n"
+"Skulle du vilja använda det?"
+
+msgctxt "prefs_map_os"
+msgid "Ordnance Survey (UK only)"
+msgstr "Ordnance Survey (endast UK)"
+
+msgctxt "error_externalstorage_not_writable"
+msgid "Unable to write to SD card"
+msgstr "Kunde inte skriva till SD-kortet"
+
+msgctxt "wplist"
+msgid "Waypoint List"
+msgstr "Vägpunktslista"
+
+msgctxt "wplist_latitude"
+msgid "Latitude:"
+msgstr "Latitud:"
+
+msgctxt "wplist_longitude"
+msgid "Longitude:"
+msgstr "Longitud:"
+
+msgctxt "wplist_elevation"
+msgid "Elevation:"
+msgstr "Höjd:"
+
+msgctxt "wplist_accuracy"
+msgid "Accuracy:"
+msgstr "Noggrannhet:"
+
+#, python-format
+msgctxt "new_track"
+msgid "Track %d"
+msgstr "Spår %d"
+
+msgctxt "moving_time_label"
+msgid "Moving Time"
+msgstr "Körtid"
+
+msgctxt "total_time_label"
+msgid "Total Time"
+msgstr "Totaltid"
+
+msgctxt "time_label"
+msgid "Time"
+msgstr "Tid"
+
+msgctxt "sd_unavail"
+msgid "SD Unavailable"
+msgstr "SDt ej tillgängligt"
+
+msgctxt "speed"
+msgid "Speed"
+msgstr "Hastighet"
+
+msgctxt "start_trip"
+msgid "You must start a trip."
+msgstr "Du måste starta en tur"
+
+msgctxt "statistics"
+msgid "Statistics"
+msgstr "Statistik"
+
+msgctxt "total_distance_label"
+msgid "Total Distance"
+msgstr "Total sträcka"
+
+msgctxt "distance_label"
+msgid "Distance"
+msgstr "Sträcka"
+
+msgctxt "unknown"
+msgid "-"
+msgstr "-"
+
+msgctxt "waiting"
+msgid "Waiting..."
+msgstr "Väntar..."
+
+msgctxt "hour"
+msgid "hour"
+msgstr "timme"
+
+msgctxt "hours"
+msgid "hours"
+msgstr "timmar"
+
+msgctxt "hr"
+msgid "hr"
+msgstr "h"
+
+msgctxt "min"
+msgid "min"
+msgstr "m"
+
+msgctxt "minute"
+msgid "minute"
+msgstr "minut"
+
+msgctxt "minutes"
+msgid "minutes"
+msgstr "minuter"
+
+msgctxt "second"
+msgid "second"
+msgstr "sekund"
+
+msgctxt "seconds"
+msgid "seconds"
+msgstr "sekunder"
+
+msgctxt "average_speed_label"
+msgid "Average Speed"
+msgstr "Genomsnittshastighet"
+
+msgctxt "average_pace_label"
+msgid "Average Pace"
+msgstr "Genomsnittstakt"
+
+msgctxt "average_moving_speed_label"
+msgid "Average Moving Speed"
+msgstr "Genomsnittlig körhastighet"
+
+msgctxt "average_moving_pace_label"
+msgid "Average Moving Pace"
+msgstr "Genomsnittlig körtakt"
+
+msgctxt "min_elevation_label"
+msgid "Min Elevation"
+msgstr "Minsta höjd"
+
+msgctxt "min_grade_label"
+msgid "Min Grade"
+msgstr "Lägsta stigning/lutning"
+
+msgctxt "min_pace_label"
+msgid "Min Pace"
+msgstr "Lägsta takt"
+
+msgctxt "max_elevation_label"
+msgid "Max Elevation"
+msgstr "Högsta höjd"
+
+msgctxt "max_grade_label"
+msgid "Max Grade"
+msgstr "Högsta stigning/lutning"
+
+msgctxt "max_speed_label"
+msgid "Max Speed"
+msgstr "Högsta hastighet"
+
+msgctxt "elevation_chart_name"
+msgid "Elevation Chart"
+msgstr "Höjdkurva"
+
+msgctxt "elevation_gain_label"
+msgid "Elevation Gain"
+msgstr "Stigning"
+
+msgctxt "elevation_label"
+msgid "Elevation"
+msgstr "Höjd"
+
+msgctxt "latitude_label"
+msgid "Latitude"
+msgstr "Latitud"
+
+msgctxt "longitude_label"
+msgid "Longitude"
+msgstr "Longitud"
+
+msgctxt "meter"
+msgid "m"
+msgstr "m"
+
+msgctxt "kilometer"
+msgid "km"
+msgstr "km"
+
+msgctxt "kilometers_long"
+msgid "kilometers"
+msgstr "kilometer"
+
+msgctxt "feet"
+msgid "ft"
+msgstr "ft"
+
+msgctxt "mile"
+msgid "mi"
+msgstr "mi"
+
+msgctxt "miles_long"
+msgid "miles"
+msgstr "miles"
+
+msgctxt "kilometer_per_hour"
+msgid "km/h"
+msgstr "km/h"
+
+msgctxt "kilometer_per_hour_long"
+msgid "kilometers per hour"
+msgstr "kilometer i timmen"
+
+msgctxt "min_per_kilometer"
+msgid "min/km"
+msgstr "min/km"
+
+msgctxt "per_kilometer"
+msgid "per kilometer"
+msgstr "per kilometer"
+
+msgctxt "mile_per_hour"
+msgid "mi/h"
+msgstr "mi/h"
+
+msgctxt "mile_per_hour_long"
+msgid "miles per hour"
+msgstr "miles i timmen"
+
+msgctxt "min_per_mile"
+msgid "min/mi"
+msgstr "min/mi"
+
+msgctxt "per_mile"
+msgid "per mile"
+msgstr "per mile"
+
+msgctxt "points"
+msgid "Points"
+msgstr "Punkter"
+
+msgctxt "recorded_date"
+msgid "Recorded"
+msgstr "Sparad"
+
+msgctxt "category"
+msgid "Activity type"
+msgstr "Aktivitetstyp"
+
+msgctxt "waypoint_category"
+msgid "Marker type"
+msgstr "Markeringstyp"
+
+#, python-format
+msgctxt "part"
+msgid "(Part %d)"
+msgstr "(Del %d)"
+
+msgctxt "trackdetails_title"
+msgid "Track Details"
+msgstr "Spårdetaljer"
+
+msgctxt "trackdetails_name"
+msgid "Track Name"
+msgstr "Spårnamn"
+
+msgctxt "trackdetails_description"
+msgid "Track Description"
+msgstr "Spårbeskrivning"
+
+msgctxt "trackdetails_category"
+msgid "Activity Type (e.g. hiking, cycling, running, climbing...)"
+msgstr "Aktivitetstyp (ex. cykling, löpning, klättring...)"
+
+msgctxt "tracklist_show_track"
+msgid "Show"
+msgstr "Visa"
+
+msgctxt "tracklist_send_to_osm"
+msgid "Send to OSM..."
+msgstr "Skicka till OSM..."
+
+msgctxt "tracklist_delete_track"
+msgid "Delete from phone..."
+msgstr "Ta bort från telefonen..."
+
+msgctxt "tracklist_edit_track"
+msgid "Edit details"
+msgstr "Ändra detaljer"
+
+msgctxt "tracklist_write_to_sd"
+msgid "Write to SD card..."
+msgstr "Skriv till SD-kort..."
+
+msgctxt "tracklist_save_as_gpx"
+msgid "Save a GPX file"
+msgstr "Spara som GPX-fil"
+
+msgctxt "tracklist_save_as_kml"
+msgid "Save a KML file"
+msgstr "Spara som KML-fil"
+
+msgctxt "tracklist_save_as_csv"
+msgid "Save a CSV file"
+msgstr "Spara som CSV-fil"
+
+msgctxt "tracklist_share_track"
+msgid "Share with Friends..."
+msgstr "Dela med vänner..."
+
+msgctxt "tracklist_share_gpx_file"
+msgid "A GPX file"
+msgstr "En GPX-fil"
+
+msgctxt "tracklist_share_kml_file"
+msgid "A KML file"
+msgstr "EN KML-fil"
+
+msgctxt "tracklist_share_csv_file"
+msgid "A CSV file"
+msgstr "En CSV-fil"
+
+msgctxt "tracklist_clear_map"
+msgid "Clear map"
+msgstr "Rensa karta"
+
+msgctxt "tracklist_this_track"
+msgid "This Track"
+msgstr "Detta spår"
+
+msgctxt "navigate_contextmenu_navigate"
+msgid "Navigate"
+msgstr "Navigera"
+
+msgctxt "navigate_contextmenu_aroundpoint"
+msgid "What's here?"
+msgstr "Vad finns häromkring?"
+
+msgctxt "sendtoosm_private"
+msgid "More Private"
+msgstr "Med privat"
+
+msgctxt "sendtoosm_identifiable"
+msgid "Less Private (preferred)"
+msgstr "Mindre privat (önskvärt)"
+
+msgctxt "sendtoosm_title"
+msgid "Upload to OSM"
+msgstr "Skicka till OSM"
+
+msgctxt "cancel"
+msgid "Cancel"
+msgstr "Avbryt"
+
+msgctxt "sendtoosm_send_now"
+msgid "Upload Now"
+msgstr "Skicka nu"
+

@@ -1,0 +1,210 @@
+# Portuguese translations for PROJECT.
+# Copyright (C) 2010 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2010-11-21 05:15+0100\n"
+"PO-Revision-Date: 2010-06-21 05:15+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: pt <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 1.0dev\n"
+
+msgctxt "about_leaders:0"
+msgid "Chris Andrew (chris_debian)"
+msgstr ""
+
+msgctxt "about_authors:0"
+msgid "Kieran Fleming (Kizza)"
+msgstr ""
+
+msgctxt "about_authors:1"
+msgid "Guillaume Rosaire (ZeroG)"
+msgstr ""
+
+msgctxt "about_authors:2"
+msgid "Stephen Brown (evolvedlight)"
+msgstr ""
+
+msgctxt "about_authors:3"
+msgid "Julien Dodokal (Murphy)"
+msgstr ""
+
+msgctxt "about_translators:0"
+msgid "Guillaume Rosaire (French)"
+msgstr ""
+
+msgctxt "about_translators:1"
+msgid "Julien Dodokal (French)"
+msgstr ""
+
+msgctxt "about_translators:2"
+msgid "Alvaro Lara Cano (Spanish)"
+msgstr ""
+
+msgctxt "about_translators:3"
+msgid "Christian Soltenborn (German)"
+msgstr ""
+
+msgctxt "about_translators:4"
+msgid "Dmitry Pristromov (Russian)"
+msgstr ""
+
+msgctxt "about_translators:5"
+msgid "Lei Jiang (Chinese)"
+msgstr ""
+
+msgctxt "about_translators:6"
+msgid "Zbigniew Czernik (Polish)"
+msgstr ""
+
+msgctxt "about_translators:7"
+msgid "Gerrit A. Abma (Dutch)"
+msgstr ""
+
+msgctxt "about_translators:8"
+msgid "Ivan Peevski (Bulgarian)"
+msgstr ""
+
+msgctxt "about_artists:0"
+msgid "Kizza"
+msgstr ""
+
+msgctxt "about_others:0"
+msgid ""
+"Everyone that helped on Launchpad, viewable at "
+"https://launchpad.net/opensatnav/+topcontributors"
+msgstr ""
+
+msgctxt "mode_of_transport_types:0"
+msgid "@string/car"
+msgstr ""
+
+msgctxt "mode_of_transport_types:1"
+msgid "@string/bicycle"
+msgstr ""
+
+msgctxt "mode_of_transport_types:2"
+msgid "@string/walking"
+msgstr ""
+
+msgctxt "mode_of_transport_types_osmvalue:0"
+msgid "motorcar"
+msgstr ""
+
+msgctxt "mode_of_transport_types_osmvalue:1"
+msgid "bicycle"
+msgstr ""
+
+msgctxt "mode_of_transport_types_osmvalue:2"
+msgid "foot"
+msgstr ""
+
+msgctxt "poi_types:0"
+msgid "@string/atm"
+msgstr ""
+
+msgctxt "poi_types:1"
+msgid "@string/cafe"
+msgstr ""
+
+msgctxt "poi_types:2"
+msgid "@string/cinema"
+msgstr ""
+
+msgctxt "poi_types:3"
+msgid "@string/fuel"
+msgstr ""
+
+msgctxt "poi_types:4"
+msgid "@string/hospital"
+msgstr ""
+
+msgctxt "poi_types:5"
+msgid "@string/hotel"
+msgstr ""
+
+msgctxt "poi_types:6"
+msgid "@string/parking"
+msgstr ""
+
+msgctxt "poi_types:7"
+msgid "@string/police"
+msgstr ""
+
+msgctxt "poi_types:8"
+msgid "@string/pub"
+msgstr ""
+
+msgctxt "poi_types:9"
+msgid "@string/restaurant"
+msgstr ""
+
+msgctxt "poi_types_osmvalue:0"
+msgid "atm"
+msgstr ""
+
+msgctxt "poi_types_osmvalue:1"
+msgid "cafe"
+msgstr ""
+
+msgctxt "poi_types_osmvalue:2"
+msgid "cinema"
+msgstr ""
+
+msgctxt "poi_types_osmvalue:3"
+msgid "fuel"
+msgstr ""
+
+msgctxt "poi_types_osmvalue:4"
+msgid "hospital"
+msgstr ""
+
+msgctxt "poi_types_osmvalue:5"
+msgid "hotel"
+msgstr ""
+
+msgctxt "poi_types_osmvalue:6"
+msgid "parking"
+msgstr ""
+
+msgctxt "poi_types_osmvalue:7"
+msgid "police"
+msgstr ""
+
+msgctxt "poi_types_osmvalue:8"
+msgid "pub"
+msgstr ""
+
+msgctxt "poi_types_osmvalue:9"
+msgid "restaurant"
+msgstr ""
+
+msgctxt "namefinder_service:0"
+msgid "Nominatim"
+msgstr ""
+
+#~ msgctxt "about_leaders:0"
+#~ msgid "chris_debian"
+#~ msgstr ""
+
+#~ msgctxt "about_authors:2"
+#~ msgid "Piluso"
+#~ msgstr ""
+
+#~ msgctxt "about_authors:3"
+#~ msgid "Stephen Brown (evolvedlight)"
+#~ msgstr ""
+
+#~ msgctxt "about_authors:4"
+#~ msgid "Julien Dodokal (Murphy)"
+#~ msgstr ""
+
