@@ -17,12 +17,17 @@ This file is part of OpenSatNav.
 package org.opensatnav.android;
 
 import org.andnav.osm.util.GeoPoint;
+import org.opensatnav.android.services.GeoCoder;
+import org.opensatnav.android.services.PlanoturGeoCoder;
 import org.opensatnav.android.util.FormatHelper;
 
 import android.app.ListActivity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -33,12 +38,15 @@ import android.widget.AdapterView.OnItemClickListener;
 
 public class ChooseLocationActivity extends ListActivity {
 
-
+	protected Bundle locations;
+	protected GeoPoint from;
+	protected int selectedPoi = -1;
+	protected ProgressDialog progress;
 	@Override
 	public void onCreate(android.os.Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		GeoPoint from = GeoPoint.fromDoubleString(getIntent().getStringExtra("fromLocation"), ',');
+		from = GeoPoint.fromDoubleString(getIntent().getStringExtra("fromLocation"), ',');
 		setTitle(this.getResources().getText(R.string.choose_location));
 		
 		final LocationAdapter la = new LocationAdapter(from);
@@ -48,10 +56,56 @@ public class ChooseLocationActivity extends ListActivity {
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long position) {
-				Intent data = getIntent();
-				data.putExtra("location", la.getLocation((int) position).toString());
-				setResult(RESULT_OK, data);
-				finish();
+				progress = ProgressDialog.show(
+						ChooseLocationActivity.this, ChooseLocationActivity.this.getResources().getText(
+								R.string.please_wait), ChooseLocationActivity.this.getResources().getText(
+								R.string.searching), true, true);
+				final Handler handler = new Handler() {
+					@Override
+					public void handleMessage(Message msg) {
+						if (locations != null) {
+							Intent intent = new Intent(ChooseLocationActivity.this,
+									org.opensatnav.android.ChooseServiceActivity.class);
+							intent.putExtra("fromLocation", from.toDoubleString());
+							intent.putExtra("locations", locations);
+							startActivity(intent);
+							
+						}
+					}
+				};
+				new Thread(new Runnable() {
+					public void run() {
+						// put long running operations here
+						PlanoturGeoCoder geoCoder = null;
+
+						
+						geoCoder = new PlanoturGeoCoder();
+							
+						
+						if (selectedPoi == -1) { // text search, rank results within an area
+							locations = geoCoder.queryService("", from, GeoCoder.IN_AREA, 25,
+									ChooseLocationActivity.this);
+						}
+						else {  //POI search, just find the nearest matching POI
+						locations = geoCoder.queryService("", from, GeoCoder.FROM_POINT, 25,
+								ChooseLocationActivity.this);
+						}
+						// ok, we are done
+						handler.sendEmptyMessage(0);
+						
+					}
+				}).start();
+//				Intent intent = new Intent(ChooseLocationActivity.this,
+//						org.opensatnav.android.ChooseServiceActivity.class);
+//				intent.putExtra("location", la.getLocation((int) position).toString());
+//				
+//				intent.putExtra("fromLocation", getIntent().getStringExtra("fromLocation"));
+//				intent.putExtra("locations", getIntent().getBundleExtra("locations"));
+//				startActivity(intent);
+//				Intent data = getIntent();
+//				data.putExtra("location", la.getLocation((int) position).toString());
+//				setResult(RESULT_OK, data);
+//				finish();
 
 			}
 
