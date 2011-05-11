@@ -50,8 +50,8 @@ public class PlanoturGeoCoder implements GeoCoder {
 //							+ "&bbox=-75.594121618586,-37.158541049157,-67.376348181414,-34.032005667055&placecategory="
 //					"http://ajax.googleapis.com/ajax/services/search/local?v=1.0"
 //							+ "&sll=" + this.mOsmv.getMapCenter().toDoubleString()
-							+ "&lat=" + from.getLatitude()
-							+ "&lon=" + from.getLongitude()
+//							+ "&lat=" + from.getLatitude()
+//							+ "&lon=" + from.getLongitude()
 //							+ "&all=1"
 //							+ "&q=" + URLEncoder.encode(query, "UTF-8")
 							+ "");
