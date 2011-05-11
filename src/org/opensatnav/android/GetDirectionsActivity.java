@@ -269,7 +269,7 @@ public class GetDirectionsActivity extends Activity {
 						
 					if (locations != null) {
 						Intent intent = new Intent(GetDirectionsActivity.this,
-								org.opensatnav.android.ChooseLocationActivity.class);
+								org.opensatnav.android.ChooseLocationServiceActivity.class);
 						intent.putExtra("fromLocation", from.toDoubleString());
 						intent.putExtra("locations", locations);
 						startActivityForResult(intent, CHOOSE_LOCATION);

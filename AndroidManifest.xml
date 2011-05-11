@@ -24,7 +24,7 @@
 			android:multiprocess="true" android:authorities="org.opensatnav.android.contribute" />
 		<activity android:name="org.opensatnav.android.GetDirectionsActivity" >
 			</activity>
-		<activity android:name="org.opensatnav.android.ChooseLocationActivity" />
+		<activity android:name="ChooseLocationServiceActivity" />
 		<activity android:name="org.openintents.about.About" />
 		<activity android:name="org.opensatnav.android.ConfigurationActivity" />
 		<activity android:name="org.opensatnav.android.ContributeActivity"

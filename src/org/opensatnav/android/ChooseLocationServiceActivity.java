@@ -36,7 +36,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class ChooseLocationActivity extends ListActivity {
+public class ChooseLocationServiceActivity extends ListActivity {
 
 	protected Bundle locations;
 	protected GeoPoint from;
@@ -58,8 +58,8 @@ public class ChooseLocationActivity extends ListActivity {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long position) {
 				progress = ProgressDialog.show(
-						ChooseLocationActivity.this, ChooseLocationActivity.this.getResources().getText(
-								R.string.please_wait), ChooseLocationActivity.this.getResources().getText(
+						ChooseLocationServiceActivity.this, ChooseLocationServiceActivity.this.getResources().getText(
+								R.string.please_wait), ChooseLocationServiceActivity.this.getResources().getText(
 								R.string.searching), true, true);
 				final Handler handler = new Handler() {
 					@Override
@@ -72,7 +72,7 @@ public class ChooseLocationActivity extends ListActivity {
 								// if orientation change, thread continue but the dialog cannot be dismissed without exception
 							}
 						if (locations != null) {
-							Intent intent = new Intent(ChooseLocationActivity.this,
+							Intent intent = new Intent(ChooseLocationServiceActivity.this,
 									org.opensatnav.android.ChooseServiceActivity.class);
 							intent.putExtra("fromLocation", from.toDoubleString());
 							intent.putExtra("locations", locations);
@@ -92,11 +92,11 @@ public class ChooseLocationActivity extends ListActivity {
 						
 						if (selectedPoi == -1) { // text search, rank results within an area
 							locations = geoCoder.queryService("", from, GeoCoder.IN_AREA, 25,
-									ChooseLocationActivity.this);
+									ChooseLocationServiceActivity.this);
 						}
 						else {  //POI search, just find the nearest matching POI
 						locations = geoCoder.queryService("", from, GeoCoder.FROM_POINT, 25,
-								ChooseLocationActivity.this);
+								ChooseLocationServiceActivity.this);
 						}
 						// ok, we are done
 						handler.sendEmptyMessage(0);
@@ -159,17 +159,17 @@ public class ChooseLocationActivity extends ListActivity {
 
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
-			LinearLayout mainView = new LinearLayout(ChooseLocationActivity.this);
+			LinearLayout mainView = new LinearLayout(ChooseLocationServiceActivity.this);
 			mainView.setOrientation(LinearLayout.VERTICAL);
 			
-			TextView placeView = new TextView(ChooseLocationActivity.this);
-			TextView infoView = new TextView(ChooseLocationActivity.this);
-			TextView distanceView = new TextView(ChooseLocationActivity.this);
+			TextView placeView = new TextView(ChooseLocationServiceActivity.this);
+			TextView infoView = new TextView(ChooseLocationServiceActivity.this);
+			TextView distanceView = new TextView(ChooseLocationServiceActivity.this);
 			//add name
 			String place = locationNames[position];
 			// add unnamed text for places that need it
 			if (place==null || place.length() == 0)
-				place = (String) ChooseLocationActivity.this.getResources().getText(R.string.unnamed_place);
+				place = (String) ChooseLocationServiceActivity.this.getResources().getText(R.string.unnamed_place);
 			// add location type
 			String info = locationInfo[position];
 //			info = info.substring(0,1).toUpperCase()+info.substring(1);
@@ -177,7 +177,7 @@ public class ChooseLocationActivity extends ListActivity {
 			String distance = 
 				new FormatHelper(getBaseContext()).formatDistanceFuzzy
 				(from.distanceTo(new GeoPoint(locationLats[position], locationLongs[position])))
-				+ " " + ChooseLocationActivity.this.getResources().getText(R.string.away);
+				+ " " + ChooseLocationServiceActivity.this.getResources().getText(R.string.away);
 			
 			placeView.setText(place);
 			placeView.setTextSize(20);
