@@ -45,11 +45,13 @@ public class PlanoturGeoCoder implements GeoCoder {
 		
 		try {
 			URL url = new URL(
-					"http://192.168.1.144:5000/busstops?limit=10"
+					"http://192.168.1.144:5000/busstops?limit="+maxResults
 //					"http://dev.planotur.cl/api/place/243/showchilds?lang=es" 
 //							+ "&bbox=-75.594121618586,-37.158541049157,-67.376348181414,-34.032005667055&placecategory="
 //					"http://ajax.googleapis.com/ajax/services/search/local?v=1.0"
 //							+ "&sll=" + this.mOsmv.getMapCenter().toDoubleString()
+							+ "&lat=" + from.getLatitude()
+							+ "&lon=" + from.getLongitude()
 //							+ "&all=1"
 //							+ "&q=" + URLEncoder.encode(query, "UTF-8")
 							+ "");
