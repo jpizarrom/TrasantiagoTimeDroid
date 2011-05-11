@@ -16,7 +16,28 @@ This file is part of OpenSatNav.
  */
 package org.opensatnav.android;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+
 import org.andnav.osm.util.GeoPoint;
+import org.andnav.osm.views.util.StreamUtils;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.protocol.HTTP;
 import org.opensatnav.android.services.GeoCoder;
 import org.opensatnav.android.services.PlanoturGeoCoder;
 import org.opensatnav.android.util.FormatHelper;
@@ -28,6 +49,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -73,6 +95,165 @@ public class ChooseServiceActivity extends ListActivity {
 				new Thread(new Runnable() {
 					public void run() {
 						// put long running operations here
+						String r = "";
+						InputStream in = null;
+						OutputStream out = null;
+						ArrayList <NameValuePair> params;
+						
+						HttpClient httpclient = new DefaultHttpClient();
+						HttpResponse response=null;
+						HttpGet httpget = new HttpGet("http://web.simt.cl/simtweb/buscar.action");
+
+						httpget.setHeader("User-Agent","Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_7; en-us) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Safari/ 530.17");
+						httpget.setHeader("Accept", "application/xml, application/xhtml+xml, text/plain;q=0.8, image/png, */*;q=0.5");
+						httpget.setHeader("Accept-Charset","utf-8, iso-8859-1, utf-16, *;q=0.7");
+//						httpget.setHeader("Accept-Encoding","gzip");
+						httpget.setHeader("Accept-Language","es-ES, en-US");
+						
+						httpget.setHeader("Keep-Alive","300");
+						httpget.setHeader("Connection","keep-alive");
+						
+//						httpget.setHeader("Content-type", "text/html;charset=UTF-8");
+//						httpget.setHeader("Referer","http://web.simt.cl/simtweb/cargar.action");
+//						httpget.setHeader("Host","web.simt.cl");
+//						httpget.setHeader("Cookie","JSESSIONID=B273A06B7923DEDFD6F182C07136C214");
+
+						
+											
+						for (int i = 0; i<httpget.getAllHeaders().length;i++)
+							Log.i(OpenSatNavConstants.LOG_TAG, httpget.getAllHeaders()[i].toString());
+						
+						try {
+							response = httpclient.execute(httpget);
+							
+							in = response.getEntity().getContent();
+							final ByteArrayOutputStream dataStream = new ByteArrayOutputStream();
+							out = new BufferedOutputStream(dataStream, StreamUtils.IO_BUFFER_SIZE);
+							StreamUtils.copy(in, out);
+							out.flush();
+							
+							for (int i = 0; i<response.getAllHeaders().length;i++)
+								Log.i(OpenSatNavConstants.LOG_TAG, response.getAllHeaders()[i].toString());
+							
+							Log.i(OpenSatNavConstants.LOG_TAG, dataStream.toString());
+
+						} catch (ClientProtocolException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+						
+						try {
+							String co = response.getFirstHeader("Set-Cookie").getValue();
+							httpget.setHeader("Cookie",co.substring(0, co.indexOf(";")));
+							for (int i = 0; i<httpget.getAllHeaders().length;i++)
+								Log.i(OpenSatNavConstants.LOG_TAG, httpget.getAllHeaders()[i].toString());
+							
+							response = httpclient.execute(httpget);
+							
+							in = response.getEntity().getContent();
+							final ByteArrayOutputStream dataStream = new ByteArrayOutputStream();
+							out = new BufferedOutputStream(dataStream, StreamUtils.IO_BUFFER_SIZE);
+							StreamUtils.copy(in, out);
+							out.flush();
+							
+							for (int i = 0; i<response.getAllHeaders().length;i++)
+								Log.i(OpenSatNavConstants.LOG_TAG, response.getAllHeaders()[i].toString());
+							
+							Log.i(OpenSatNavConstants.LOG_TAG, dataStream.toString());
+
+						} catch (ClientProtocolException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+						
+					    params = new ArrayList<NameValuePair>();
+					    params.add(new BasicNameValuePair("accion", "normal"));
+					    params.add(new BasicNameValuePair("servicio", "101"));
+					    params.add(new BasicNameValuePair("destino", "33824"));
+					    params.add(new BasicNameValuePair("ejeCruce", "LA PLATA / DORSAL"));
+					    params.add(new BasicNameValuePair("paradero", "PB10"));
+					    
+					    //add parameters
+		                String combinedParams = "";
+		                if(!params.isEmpty()){
+		                    combinedParams += "?";
+		                    for(NameValuePair p : params)
+		                    {
+		                        String paramString = "";
+		                        try {
+									paramString = p.getName() + "=" + URLEncoder.encode(p.getValue(),"UTF-8");
+								} catch (UnsupportedEncodingException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+		                        if(combinedParams.length() > 1)
+		                        {
+		                            combinedParams  +=  "&" + paramString;
+		                        }
+		                        else
+		                        {
+		                            combinedParams += paramString;
+		                        }
+		                    }
+		                }
+						String urlstring = "http://web.simt.cl/simtweb/buscar.action";
+		                Log.i(OpenSatNavConstants.LOG_TAG, urlstring+combinedParams);	
+						
+					    HttpPost httppost = new HttpPost(urlstring);
+					    httppost.setHeader("User-Agent","Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_7; en-us) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Safari/ 530.17");
+					    httppost.setHeader("Accept", "application/xml, application/xhtml+xml, text/plain;q=0.8, image/png, */*;q=0.5");
+					    httppost.setHeader("Accept-Charset","utf-8, iso-8859-1, utf-16, *;q=0.7");
+//						httppost.setHeader("Accept-Encoding","gzip");
+					    httppost.setHeader("Accept-Language","es-ES, en-US");
+					    
+					    httppost.setHeader("Keep-Alive","300");
+					    httppost.setHeader("Connection","keep-alive");
+					    httppost.setHeader("Pragma","no-cache");
+					    httppost.setHeader("Cache-Control","no-cache");
+					    				    
+						for (int i = 0; i<httppost.getAllHeaders().length;i++)
+							Log.i(OpenSatNavConstants.LOG_TAG, httppost.getAllHeaders()[i].toString());
+					    				    
+					    if(!params.isEmpty()){
+					    	try {
+								httppost.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
+							} catch (UnsupportedEncodingException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+		                }
+					    
+					    try {
+							response = httpclient.execute(httppost);
+							
+							in = response.getEntity().getContent();
+							final ByteArrayOutputStream dataStream = new ByteArrayOutputStream();
+							out = new BufferedOutputStream(dataStream, StreamUtils.IO_BUFFER_SIZE);
+							StreamUtils.copy(in, out);
+							out.flush();
+							
+							r = dataStream.toString();
+						} catch (ClientProtocolException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						
+						Log.i(OpenSatNavConstants.LOG_TAG, "results.length="+r);
+						
+						Intent intent = new Intent(ChooseServiceActivity.this,
+								org.opensatnav.android.ServiceActivity.class);
+						intent.putExtra("url", urlstring);
+						intent.putExtra("params", combinedParams);
+						startActivity(intent);
 
 						// ok, we are done
 						handler.sendEmptyMessage(0);

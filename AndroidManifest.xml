@@ -65,6 +65,7 @@
 		<service android:icon="@drawable/icon" android:label="@string/app_name"
 			android:name=".services.routing.RouteInstructionsService" />
 		<activity android:name="org.opensatnav.android.ChooseServiceActivity"></activity>
+		<activity android:name="org.opensatnav.android.ServiceActivity"></activity>
 	</application>
 
 	<uses-sdk android:minSdkVersion="4" android:targetSdkVersion="4" />
