@@ -27,6 +27,8 @@ public class PlanoturGeoCoder implements GeoCoder {
 	private ArrayList locationLatitudes;
 	private ArrayList locationLongitudes;
 	private ArrayList<String> locationInfo;
+	private ArrayList<String> locationParaderos;
+	
 	URL encodedURL;
 
 	@Override
@@ -36,6 +38,7 @@ public class PlanoturGeoCoder implements GeoCoder {
 		locationLatitudes = new ArrayList<int[]>();
 		locationLongitudes = new ArrayList<int[]>();
 		locationInfo = new ArrayList<String>();
+		locationParaderos = new ArrayList<String>();
 		
 		InputStream in = null;
 		OutputStream out = null;
@@ -76,7 +79,7 @@ public class PlanoturGeoCoder implements GeoCoder {
 //			//Toast.makeText(this, res.getString("titleNoFormatting"), Toast.LENGTH_LONG).show();
 //			final String address = res.getString("addressLines").replace("\"", "").replace("[", "").replace("]", "").replace(",", ", ").replace("  ", " ");
 			final String address = properties.getString("paradero");
-			locationNames.add("Planotur: "+address);
+			locationNames.add(address);
 			// convert to integer (E6 format)
 			locationLatitudes.add((int) (coordinates.getDouble(1) * 1000000));
 			locationLongitudes.add((int) (coordinates.getDouble(0) * 1000000));

@@ -28,6 +28,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -61,6 +62,7 @@ public class ChooseLocationServiceActivity extends ListActivity {
 						ChooseLocationServiceActivity.this, ChooseLocationServiceActivity.this.getResources().getText(
 								R.string.please_wait), ChooseLocationServiceActivity.this.getResources().getText(
 								R.string.searching), true, true);
+				final String paradero = la.getParadero((int)position);
 				final Handler handler = new Handler() {
 					@Override
 					public void handleMessage(Message msg) {
@@ -73,9 +75,13 @@ public class ChooseLocationServiceActivity extends ListActivity {
 							}
 						if (locations != null) {
 							Intent intent = new Intent(ChooseLocationServiceActivity.this,
-									org.opensatnav.android.ChooseServiceActivity.class);
+									org.opensatnav.android.ServiceActivity.class);
 							intent.putExtra("fromLocation", from.toDoubleString());
 							intent.putExtra("locations", locations);
+							
+							String urlstring = "http://m.ibus.cl/index.jsp?paradero="+paradero+"&servicio=&boton.x=0&boton.y=0";
+							Log.i(OpenSatNavConstants.LOG_TAG, urlstring);
+							intent.putExtra("url", urlstring);
 							startActivityForResult(intent,0);
 							
 						}
@@ -194,6 +200,10 @@ public class ChooseLocationServiceActivity extends ListActivity {
 
 		public GeoPoint getLocation(int position) {
 			return new GeoPoint(locationLats[position], locationLongs[position]);
+
+		}
+		public String getParadero(int position) {
+			return locationNames[position];
 
 		}
 
