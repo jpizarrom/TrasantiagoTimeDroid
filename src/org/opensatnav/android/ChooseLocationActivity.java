@@ -64,6 +64,13 @@ public class ChooseLocationActivity extends ListActivity {
 				final Handler handler = new Handler() {
 					@Override
 					public void handleMessage(Message msg) {
+						if (progress.isShowing())
+							try {
+								progress.dismiss();
+//								backgroundThreadComplete = true;
+							} catch (IllegalArgumentException e) {
+								// if orientation change, thread continue but the dialog cannot be dismissed without exception
+							}
 						if (locations != null) {
 							Intent intent = new Intent(ChooseLocationActivity.this,
 									org.opensatnav.android.ChooseServiceActivity.class);

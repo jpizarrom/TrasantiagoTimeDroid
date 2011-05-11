@@ -17,12 +17,17 @@ This file is part of OpenSatNav.
 package org.opensatnav.android;
 
 import org.andnav.osm.util.GeoPoint;
+import org.opensatnav.android.services.GeoCoder;
+import org.opensatnav.android.services.PlanoturGeoCoder;
 import org.opensatnav.android.util.FormatHelper;
 
 import android.app.ListActivity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -33,7 +38,8 @@ import android.widget.AdapterView.OnItemClickListener;
 
 public class ChooseServiceActivity extends ListActivity {
 
-
+	protected ProgressDialog progress;
+	
 	@Override
 	public void onCreate(android.os.Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -48,6 +54,31 @@ public class ChooseServiceActivity extends ListActivity {
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long position) {
+				progress = ProgressDialog.show(
+						ChooseServiceActivity.this, ChooseServiceActivity.this.getResources().getText(
+								R.string.please_wait), ChooseServiceActivity.this.getResources().getText(
+								R.string.searching), true, true);
+				final Handler handler = new Handler() {
+					@Override
+					public void handleMessage(Message msg) {
+						if (progress.isShowing())
+							try {
+								progress.dismiss();
+//								backgroundThreadComplete = true;
+							} catch (IllegalArgumentException e) {
+								// if orientation change, thread continue but the dialog cannot be dismissed without exception
+							}
+					}
+				};
+				new Thread(new Runnable() {
+					public void run() {
+						// put long running operations here
+
+						// ok, we are done
+						handler.sendEmptyMessage(0);
+						
+					}
+				}).start();
 //				Intent data = getIntent();
 ////				data.putExtra("location", la.getLocation((int) position).toString());
 //				setResult(RESULT_OK, data);
