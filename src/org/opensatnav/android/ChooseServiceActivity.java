@@ -248,7 +248,7 @@ public class ChooseServiceActivity extends ListActivity {
 						}
 						
 						Log.i(OpenSatNavConstants.LOG_TAG, "results.length="+r);
-						
+						urlstring = "http://m.ibus.cl/index.jsp?paradero=pb10&servicio=&boton.x=0&boton.y=0";
 						Intent intent = new Intent(ChooseServiceActivity.this,
 								org.opensatnav.android.ServiceActivity.class);
 						intent.putExtra("url", urlstring);

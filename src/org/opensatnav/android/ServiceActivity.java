@@ -21,12 +21,12 @@ public class ServiceActivity extends Activity {
         webView.setWebChromeClient(new WebChromeClient() {
             public void onProgressChanged(WebView view, int progress)
             {
-                activity.setTitle("Loading...");
-                activity.setProgress(progress * 100);
- 
-                if(progress == 100)
-                    activity.setTitle(R.string.app_name);
-                Log.i(OpenSatNavConstants.LOG_TAG, view.getUrl());
+//                activity.setTitle("Loading...");
+//                activity.setProgress(progress * 100);
+// 
+//                if(progress == 100)
+//                    activity.setTitle(R.string.app_name);
+//                Log.i(OpenSatNavConstants.LOG_TAG, view.getUrl());
             }
         });
         
