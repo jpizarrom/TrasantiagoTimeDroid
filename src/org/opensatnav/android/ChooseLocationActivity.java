@@ -40,6 +40,7 @@ public class ChooseLocationActivity extends ListActivity {
 
 	protected Bundle locations;
 	protected GeoPoint from;
+	protected String to;
 	protected int selectedPoi = -1;
 	protected ProgressDialog progress;
 	@Override
@@ -68,7 +69,7 @@ public class ChooseLocationActivity extends ListActivity {
 									org.opensatnav.android.ChooseServiceActivity.class);
 							intent.putExtra("fromLocation", from.toDoubleString());
 							intent.putExtra("locations", locations);
-							startActivity(intent);
+							startActivityForResult(intent,0);
 							
 						}
 					}
@@ -95,6 +96,7 @@ public class ChooseLocationActivity extends ListActivity {
 						
 					}
 				}).start();
+				to = la.getLocation((int) position).toString();
 //				Intent intent = new Intent(ChooseLocationActivity.this,
 //						org.opensatnav.android.ChooseServiceActivity.class);
 //				intent.putExtra("location", la.getLocation((int) position).toString());
@@ -102,6 +104,7 @@ public class ChooseLocationActivity extends ListActivity {
 //				intent.putExtra("fromLocation", getIntent().getStringExtra("fromLocation"));
 //				intent.putExtra("locations", getIntent().getBundleExtra("locations"));
 //				startActivity(intent);
+				
 //				Intent data = getIntent();
 //				data.putExtra("location", la.getLocation((int) position).toString());
 //				setResult(RESULT_OK, data);
@@ -110,6 +113,13 @@ public class ChooseLocationActivity extends ListActivity {
 			}
 
 		});
+	}
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+		Intent intent = getIntent();
+		intent.putExtra("location", to);
+		setResult(RESULT_OK, intent);
+		finish();
 	}
 
 	protected class LocationAdapter extends BaseAdapter {

@@ -48,10 +48,10 @@ public class ChooseServiceActivity extends ListActivity {
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long position) {
-				Intent data = getIntent();
-//				data.putExtra("location", la.getLocation((int) position).toString());
-				setResult(RESULT_OK, data);
-				finish();
+//				Intent data = getIntent();
+////				data.putExtra("location", la.getLocation((int) position).toString());
+//				setResult(RESULT_OK, data);
+//				finish();
 
 			}
 
