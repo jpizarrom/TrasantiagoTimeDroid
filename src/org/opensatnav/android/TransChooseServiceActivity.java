@@ -39,7 +39,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
 import org.opensatnav.android.services.GeoCoder;
-import org.opensatnav.android.services.PlanoturGeoCoder;
+import org.opensatnav.android.services.TransantiagoGeoCoder;
 import org.opensatnav.android.util.FormatHelper;
 
 import android.app.ListActivity;

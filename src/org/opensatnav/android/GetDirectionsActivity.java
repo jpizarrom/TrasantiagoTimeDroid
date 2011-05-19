@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import org.andnav.osm.util.GeoPoint;
 import org.opensatnav.android.services.GeoCoder;
 import org.opensatnav.android.services.NominatimGeoCoder;
-import org.opensatnav.android.services.PlanoturGeoCoder;
+import org.opensatnav.android.services.TransantiagoGeoCoder;
 import org.opensatnav.android.util.UKPostCodeValidator;
 
 import android.app.Activity;
@@ -345,7 +345,7 @@ public class GetDirectionsActivity extends Activity {
 								GetDirectionsActivity.this);
 					}
 					else if (selectedPoi == -2)
-						locations = (new PlanoturGeoCoder()).query(toText, from, GeoCoder.IN_AREA, 25,
+						locations = (new TransantiagoGeoCoder()).query(toText, from, GeoCoder.IN_AREA, 25,
 								GetDirectionsActivity.this);
 					else {  //POI search, just find the nearest matching POI
 					locations = geoCoder.query(toText, from, GeoCoder.FROM_POINT, 25,

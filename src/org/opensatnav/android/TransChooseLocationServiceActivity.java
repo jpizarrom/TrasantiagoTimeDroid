@@ -18,7 +18,7 @@ package org.opensatnav.android;
 
 import org.andnav.osm.util.GeoPoint;
 import org.opensatnav.android.services.GeoCoder;
-import org.opensatnav.android.services.PlanoturGeoCoder;
+import org.opensatnav.android.services.TransantiagoGeoCoder;
 import org.opensatnav.android.util.FormatHelper;
 
 import android.app.ListActivity;
@@ -92,10 +92,10 @@ public class TransChooseLocationServiceActivity extends ListActivity {
 				new Thread(new Runnable() {
 					public void run() {
 						// put long running operations here
-						PlanoturGeoCoder geoCoder = null;
+						TransantiagoGeoCoder geoCoder = null;
 
 						
-						geoCoder = new PlanoturGeoCoder();
+						geoCoder = new TransantiagoGeoCoder();
 							
 						
 						if (selectedPoi == -1) { // text search, rank results within an area
