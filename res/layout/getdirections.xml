@@ -33,6 +33,14 @@
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 					android:drawSelectorOnTop="false" android:prompt="@string/find_nearest" />
 			</LinearLayout>
+			<TextView android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="@string/find_nearest"></TextView>
+			<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				android:orientation="horizontal" android:layout_width="fill_parent"
+				android:layout_height="fill_parent">
+				<RadioButton android:id="@+id/radio_trans_search"
+					android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
 		</RadioGroup>
 		<TextView android:id="@+id/TextView02" android:layout_width="wrap_content"
 			android:layout_height="wrap_content" android:text="@string/transport_type"></TextView>

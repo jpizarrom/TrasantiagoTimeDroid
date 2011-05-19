@@ -69,6 +69,7 @@ public class GetDirectionsActivity extends Activity {
 	protected Boolean backgroundThreadComplete = true;
 	private RadioButton radio_text;
 	private RadioButton radio_poi;
+	private RadioButton radio_trans;
 	protected SharedPreferences prefs;
 	protected ProgressDialog progress;
 	
@@ -80,10 +81,16 @@ public class GetDirectionsActivity extends Activity {
 			RadioButton rb = (RadioButton) v;
 			RadioButton radio_text = (RadioButton) findViewById(R.id.radio_text_search);
 			RadioButton radio_poi = (RadioButton) findViewById(R.id.radio_poi_search);
+			RadioButton radio_trans = (RadioButton) findViewById(R.id.radio_trans_search);
 			if (rb.getId() == R.id.radio_poi_search) {
 				radio_text.setChecked(false);
+				radio_trans.setChecked(false);
 			} else if (rb.getId() == R.id.radio_text_search) {
 				radio_poi.setChecked(false);
+				radio_trans.setChecked(false);
+			}else if (rb.getId() == R.id.radio_trans_search) {
+				radio_poi.setChecked(false);
+				radio_text.setChecked(false);
 			}
 		}
 	};
@@ -111,6 +118,8 @@ public class GetDirectionsActivity extends Activity {
 		radio_poi = (RadioButton) findViewById(R.id.radio_poi_search);
 		radio_text.setOnClickListener(radio_listener);
 		radio_poi.setOnClickListener(radio_listener);
+		radio_trans = (RadioButton) findViewById(R.id.radio_trans_search);
+		radio_trans.setOnClickListener(radio_listener);
 
 		final Spinner s_poi = (Spinner) findViewById(R.id.list_of_pois);
 		ArrayAdapter<?> adapter_poi = ArrayAdapter.createFromResource(this,
@@ -236,7 +245,9 @@ public class GetDirectionsActivity extends Activity {
 							selectedPoi);
 					prefEditor.putString("pref_poi", osmvalue);
 					prefEditor.putString("pref_search_mode", "poi");
-				}
+				} else if (radio_trans.isChecked())
+					getLocations(" ", -2);
+					
 				int selectedVehicle = (int) vehicleSpinner.getSelectedItemId();
 				vehicle = getResources().getStringArray(
 						R.array.mode_of_transport_types_osmvalue)[selectedVehicle];
@@ -268,10 +279,18 @@ public class GetDirectionsActivity extends Activity {
 						}
 						
 					if (locations != null) {
-						Intent intent = new Intent(GetDirectionsActivity.this,
+						Intent intent;
+						if (selectedPoi == -1){
+							intent = new Intent(GetDirectionsActivity.this,
 								org.opensatnav.android.ChooseLocationActivity.class);
 //								org.opensatnav.android.TransChooseLocationServiceActivity.class);
 //								org.opensatnav.android.ChooseServiceActivity.class);
+						}else{ 
+							intent = new Intent(GetDirectionsActivity.this,
+//									org.opensatnav.android.ChooseLocationActivity.class);
+									org.opensatnav.android.TransChooseLocationServiceActivity.class);
+//									org.opensatnav.android.ChooseServiceActivity.class);
+						}
 						intent.putExtra("fromLocation", from.toDoubleString());
 						intent.putExtra("locations", locations);
 						startActivityForResult(intent, CHOOSE_LOCATION);
@@ -322,6 +341,9 @@ public class GetDirectionsActivity extends Activity {
 						locations = geoCoder.query(toText, from, GeoCoder.IN_AREA, 25,
 								GetDirectionsActivity.this);
 					}
+					else if (selectedPoi == -2)
+						locations = (new PlanoturGeoCoder()).query(toText, from, GeoCoder.IN_AREA, 25,
+								GetDirectionsActivity.this);
 					else {  //POI search, just find the nearest matching POI
 					locations = geoCoder.query(toText, from, GeoCoder.FROM_POINT, 25,
 							GetDirectionsActivity.this);
