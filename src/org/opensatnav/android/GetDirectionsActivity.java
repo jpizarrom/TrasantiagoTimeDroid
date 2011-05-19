@@ -269,7 +269,8 @@ public class GetDirectionsActivity extends Activity {
 						
 					if (locations != null) {
 						Intent intent = new Intent(GetDirectionsActivity.this,
-								org.opensatnav.android.TransChooseLocationServiceActivity.class);
+								org.opensatnav.android.ChooseLocationActivity.class);
+//								org.opensatnav.android.TransChooseLocationServiceActivity.class);
 //								org.opensatnav.android.ChooseServiceActivity.class);
 						intent.putExtra("fromLocation", from.toDoubleString());
 						intent.putExtra("locations", locations);
@@ -313,7 +314,8 @@ public class GetDirectionsActivity extends Activity {
 					GeoCoder geoCoder = null;
 
 					
-					geoCoder = new PlanoturGeoCoder();
+//					geoCoder = new PlanoturGeoCoder();
+					geoCoder = new NominatimGeoCoder();
 						
 					
 					if (selectedPoi == -1) { // text search, rank results within an area
