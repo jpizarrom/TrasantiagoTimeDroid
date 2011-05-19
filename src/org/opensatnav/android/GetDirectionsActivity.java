@@ -149,6 +149,7 @@ public class GetDirectionsActivity extends Activity {
 				s_poi.requestFocusFromTouch();
 				radio_text.setChecked(false);
 				radio_poi.setChecked(true);
+				radio_trans.setChecked(false);
 				return false;
 			}
 		});
@@ -196,6 +197,7 @@ public class GetDirectionsActivity extends Activity {
 			public boolean onTouch(View v, MotionEvent event) {
 				radio_text.setChecked(true);
 				radio_poi.setChecked(false);
+				radio_trans.setChecked(false);
 				return false;
 			}
 		});
@@ -215,6 +217,7 @@ public class GetDirectionsActivity extends Activity {
 						&& keyCode != KeyEvent.KEYCODE_DPAD_RIGHT) {
 					radio_text.setChecked(true);
 					radio_poi.setChecked(false);
+					radio_trans.setChecked(false);
 				}
 				if ((event.getAction() == KeyEvent.ACTION_DOWN)
 						&& (keyCode == KeyEvent.KEYCODE_ENTER)) {

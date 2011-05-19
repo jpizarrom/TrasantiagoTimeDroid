@@ -131,10 +131,10 @@ public class TransChooseLocationServiceActivity extends ListActivity {
 	}
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
-//		Intent intent = getIntent();
-//		intent.putExtra("location", to);
-//		setResult(RESULT_OK, intent);
-//		finish();
+		Intent intent = getIntent();
+		intent.putExtra("location", to);
+		setResult(RESULT_OK, intent);
+		finish();
 	}
 
 	protected class LocationAdapter extends BaseAdapter {
