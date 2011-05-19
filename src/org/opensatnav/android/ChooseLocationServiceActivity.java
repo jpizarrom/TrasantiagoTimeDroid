@@ -57,7 +57,7 @@ public class ChooseLocationServiceActivity extends ListActivity {
 		getListView().setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long position) {
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, final long position) {
 				progress = ProgressDialog.show(
 						ChooseLocationServiceActivity.this, ChooseLocationServiceActivity.this.getResources().getText(
 								R.string.please_wait), ChooseLocationServiceActivity.this.getResources().getText(
@@ -75,9 +75,11 @@ public class ChooseLocationServiceActivity extends ListActivity {
 							}
 						if (locations != null) {
 							Intent intent = new Intent(ChooseLocationServiceActivity.this,
-									org.opensatnav.android.ServiceActivity.class);
+//									org.opensatnav.android.ServiceActivity.class);
+									org.opensatnav.android.ChooseServiceActivity.class);
 							intent.putExtra("fromLocation", from.toDoubleString());
 							intent.putExtra("locations", locations);
+							intent.putExtra("paradero", la.getParadero((int)position));
 							
 							String urlstring = "http://m.ibus.cl/index.jsp?paradero="+paradero+"&servicio=&boton.x=0&boton.y=0";
 							Log.i(OpenSatNavConstants.LOG_TAG, urlstring);
@@ -97,7 +99,7 @@ public class ChooseLocationServiceActivity extends ListActivity {
 							
 						
 						if (selectedPoi == -1) { // text search, rank results within an area
-							locations = geoCoder.queryService("", from, GeoCoder.IN_AREA, 25,
+							locations = geoCoder.queryService(la.getParadero((int)position), from, GeoCoder.IN_AREA, 25,
 									ChooseLocationServiceActivity.this);
 						}
 						else {  //POI search, just find the nearest matching POI
@@ -129,10 +131,10 @@ public class ChooseLocationServiceActivity extends ListActivity {
 	}
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
-		Intent intent = getIntent();
-		intent.putExtra("location", to);
-		setResult(RESULT_OK, intent);
-		finish();
+//		Intent intent = getIntent();
+//		intent.putExtra("location", to);
+//		setResult(RESULT_OK, intent);
+//		finish();
 	}
 
 	protected class LocationAdapter extends BaseAdapter {
@@ -180,16 +182,16 @@ public class ChooseLocationServiceActivity extends ListActivity {
 			String info = locationInfo[position];
 //			info = info.substring(0,1).toUpperCase()+info.substring(1);
 			// add distance away
-			String distance = 
-				new FormatHelper(getBaseContext()).formatDistanceFuzzy
-				(from.distanceTo(new GeoPoint(locationLats[position], locationLongs[position])))
-				+ " " + ChooseLocationServiceActivity.this.getResources().getText(R.string.away);
+//			String distance = 
+//				new FormatHelper(getBaseContext()).formatDistanceFuzzy
+//				(from.distanceTo(new GeoPoint(locationLats[position], locationLongs[position])))
+//				+ " " + ChooseLocationServiceActivity.this.getResources().getText(R.string.away);
 			
 			placeView.setText(place);
 			placeView.setTextSize(20);
 			placeView.setTextColor(Color.WHITE);
 			infoView.setText(info);
-			distanceView.setText(distance);
+//			distanceView.setText(distance);
 			
 			mainView.addView(placeView, 0);
 			mainView.addView(infoView, 1);

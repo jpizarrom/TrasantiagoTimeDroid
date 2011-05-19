@@ -68,6 +68,7 @@ public class ChooseServiceActivity extends ListActivity {
 		
 		GeoPoint from = GeoPoint.fromDoubleString(getIntent().getStringExtra("fromLocation"), ',');
 		setTitle("servicio");
+		final String paradero = getIntent().getStringExtra("paradero");
 		
 		final LocationAdapter la = new LocationAdapter(from);
 		setListAdapter(la);
@@ -76,6 +77,7 @@ public class ChooseServiceActivity extends ListActivity {
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long position) {
+				final String servicio = la.getServicio((int)position);
 				progress = ProgressDialog.show(
 						ChooseServiceActivity.this, ChooseServiceActivity.this.getResources().getText(
 								R.string.please_wait), ChooseServiceActivity.this.getResources().getText(
@@ -146,8 +148,8 @@ public class ChooseServiceActivity extends ListActivity {
 						}
 						
 						try {
-							String co = response.getFirstHeader("Set-Cookie").getValue();
-							httpget.setHeader("Cookie",co.substring(0, co.indexOf(";")));
+//							String co = response.getFirstHeader("Set-Cookie").getValue();
+//							httpget.setHeader("Cookie",co.substring(0, co.indexOf(";")));
 							for (int i = 0; i<httpget.getAllHeaders().length;i++)
 								Log.i(OpenSatNavConstants.LOG_TAG, httpget.getAllHeaders()[i].toString());
 							
@@ -248,7 +250,7 @@ public class ChooseServiceActivity extends ListActivity {
 						}
 						
 						Log.i(OpenSatNavConstants.LOG_TAG, "results.length="+r);
-						urlstring = "http://m.ibus.cl/index.jsp?paradero=pb10&servicio=&boton.x=0&boton.y=0";
+						urlstring = "http://m.ibus.cl/index.jsp?paradero="+paradero+"&servicio="+servicio+"&boton.x=0&boton.y=0";
 						Intent intent = new Intent(ChooseServiceActivity.this,
 								org.opensatnav.android.ServiceActivity.class);
 						intent.putExtra("url", urlstring);
@@ -337,6 +339,11 @@ public class ChooseServiceActivity extends ListActivity {
 //			return new GeoPoint(locationLats[position], locationLongs[position]);
 //
 //		}
+		public String getServicio(int position) {
+		return locationNames[position];
+
+		}
+		
 
 	}
 

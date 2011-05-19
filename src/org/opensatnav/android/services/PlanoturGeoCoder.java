@@ -22,7 +22,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 public class PlanoturGeoCoder implements GeoCoder {
-	private String url;
+	private String urlbase = "http://50.56.31.19:5000";
 	private ArrayList<String> locationNames;
 	private ArrayList locationLatitudes;
 	private ArrayList locationLongitudes;
@@ -45,7 +45,7 @@ public class PlanoturGeoCoder implements GeoCoder {
 		
 		try {
 			URL url = new URL(
-					"http://192.168.1.144:5000/busstops?limit="+maxResults
+					urlbase+"/busstops?limit="+maxResults
 //					"http://dev.planotur.cl/api/place/243/showchilds?lang=es" 
 //							+ "&bbox=-75.594121618586,-37.158541049157,-67.376348181414,-34.032005667055&placecategory="
 //					"http://ajax.googleapis.com/ajax/services/search/local?v=1.0"
@@ -139,7 +139,7 @@ public class PlanoturGeoCoder implements GeoCoder {
 		
 		try {
 			URL url = new URL(
-					"http://192.168.1.144:5000/services?paradero=PA10"
+					urlbase+"/services?paradero="+query
 //					"http://dev.planotur.cl/api/place/243/showchilds?lang=es" 
 //							+ "&bbox=-75.594121618586,-37.158541049157,-67.376348181414,-34.032005667055&placecategory="
 //					"http://ajax.googleapis.com/ajax/services/search/local?v=1.0"
@@ -173,7 +173,7 @@ public class PlanoturGeoCoder implements GeoCoder {
 //			//Toast.makeText(this, res.getString("titleNoFormatting"), Toast.LENGTH_LONG).show();
 //			final String address = res.getString("addressLines").replace("\"", "").replace("[", "").replace("]", "").replace(",", ", ").replace("  ", " ");
 			final String address = res.getString("servicio");
-			locationNames.add("Planotur: "+address);
+			locationNames.add(address);
 			// convert to integer (E6 format)
 //			locationLatitudes.add((int) (coordinates.getDouble(1) * 1000000));
 //			locationLongitudes.add((int) (coordinates.getDouble(0) * 1000000));
