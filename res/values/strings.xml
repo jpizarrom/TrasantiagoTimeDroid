@@ -307,5 +307,6 @@
 <string name="cancel">Cancel</string>
 <string name="sendtoosm_send_now">Upload Now</string>
 <string name="webview">webview</string>
+<string name="find_nearest_busstops">Find nearest bus stops</string>
 </resources>
 
