@@ -23,17 +23,19 @@ import android.widget.Toast;
 
 public class TransantiagoGeoCoder implements GeoCoder {
 //	private String urlbase = "http://50.56.31.19:5000";
-	private String urlbase = "http://192.168.42.77:5000";
+	private String urlbase = "http://192.168.16.101:5000";
 	private ArrayList<String> locationNames;
 	private ArrayList locationLatitudes;
 	private ArrayList locationLongitudes;
 	private ArrayList<String> locationInfo;
 	private ArrayList<String> locationParaderos;
+	private String bbox = "";
 	
 	URL encodedURL;
 	public Bundle query(String query, GeoPoint from, int mode, int maxResults,
 			Context context, String bbox) {
 		Log.i(OpenSatNavConstants.LOG_TAG,bbox);
+		this.bbox = bbox;
 		return this.query(query, from, mode, maxResults, context);
 		
 	}
@@ -50,18 +52,19 @@ public class TransantiagoGeoCoder implements GeoCoder {
 		OutputStream out = null;
 		
 		try {
-			URL url = new URL(
-					urlbase+"/busstops?limit="+maxResults
-//					"http://dev.planotur.cl/api/place/243/showchilds?lang=es" 
-							+ "&bbox=-75.594121618586,-37.158541049157,-67.376348181414,-34.032005667055&placecategory="
-//					"http://ajax.googleapis.com/ajax/services/search/local?v=1.0"
-//							+ "&bbox=" + this.mOsmv.getMapCenter().toDoubleString()
-//							+ "&bbox=" + from.toDoubleString()	
-//							+ "&lat=" + from.getLatitude()
-//							+ "&lon=" + from.getLongitude()
-//							+ "&all=1"
-//							+ "&q=" + URLEncoder.encode(query, "UTF-8")
-							+ "");
+			String surl = urlbase+"/busstops?limit="+maxResults
+//			"http://dev.planotur.cl/api/place/243/showchilds?lang=es" 
+//			+ "&bbox=-75.594121618586,-37.158541049157,-67.376348181414,-34.032005667055&placecategory="
+//	"http://ajax.googleapis.com/ajax/services/search/local?v=1.0"
+//			+ "&bbox=-70.66821,-33.45129,-70.65107,-33.44019"
+//			+ "&bbox=" + from.toDoubleString()	
+//			+ "&lat=" + from.getLatitude()
+//			+ "&lon=" + from.getLongitude()
+//			+ "&all=1"
+//			+ "&q=" + URLEncoder.encode(query, "UTF-8")
+			+ "";
+			surl += "&bbox=" + bbox;
+			URL url = new URL(surl);
 //			Ut.dd(url.toString());
 			in = new BufferedInputStream(url.openStream(), StreamUtils.IO_BUFFER_SIZE);
 

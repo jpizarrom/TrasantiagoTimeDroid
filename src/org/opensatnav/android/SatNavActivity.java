@@ -472,7 +472,12 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 					intent.setData(Uri.parse(currentLocation.getLatitude()
 							+ "," + currentLocation.getLongitude()));
 
-					intent.putExtra("bbox", this.mOsmv.getMapCenter().toDoubleString());
+					intent.putExtra("bbox", 
+							this.mOsmv.getDrawnBoundingBoxE6().getLonWestE6() / 1E6
+							+ "," + this.mOsmv.getDrawnBoundingBoxE6().getLatSouthE6() / 1E6
+							+ "," + this.mOsmv.getDrawnBoundingBoxE6().getLonEastE6() / 1E6
+							+ "," + this.mOsmv.getDrawnBoundingBoxE6().getLatNorthE6() / 1E6
+							);
 					
 					startActivityForResult(intent, DIRECTIONS_OPTIONS);
 
