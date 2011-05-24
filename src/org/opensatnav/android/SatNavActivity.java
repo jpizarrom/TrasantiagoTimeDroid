@@ -472,6 +472,8 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 					intent.setData(Uri.parse(currentLocation.getLatitude()
 							+ "," + currentLocation.getLongitude()));
 
+					intent.putExtra("bbox", this.mOsmv.getMapCenter().toDoubleString());
+					
 					startActivityForResult(intent, DIRECTIONS_OPTIONS);
 
 					SatNavActivity.this.mOsmv.postInvalidate();

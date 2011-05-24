@@ -346,7 +346,7 @@ public class GetDirectionsActivity extends Activity {
 					}
 					else if (selectedPoi == -2)
 						locations = (new TransantiagoGeoCoder()).query(toText, from, GeoCoder.IN_AREA, 25,
-								GetDirectionsActivity.this);
+								GetDirectionsActivity.this, getIntent().getStringExtra("bbox"));
 					else {  //POI search, just find the nearest matching POI
 					locations = geoCoder.query(toText, from, GeoCoder.FROM_POINT, 25,
 							GetDirectionsActivity.this);
