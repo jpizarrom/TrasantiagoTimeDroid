@@ -22,8 +22,8 @@ import android.util.Log;
 import android.widget.Toast;
 
 public class TransantiagoGeoCoder implements GeoCoder {
-//	private String urlbase = "http://50.56.31.19:5000";
-	private String urlbase = "http://192.168.16.101:5000";
+	private String urlbase = "http://50.56.31.19:5000";
+//	private String urlbase = "http://192.168.16.101:5000";
 	private ArrayList<String> locationNames;
 	private ArrayList locationLatitudes;
 	private ArrayList locationLongitudes;
