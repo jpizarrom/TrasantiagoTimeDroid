@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-  <string name="app_name">OpenSatNav</string>
+  <string name="app_name">OpenSatNav - Transantiago</string>
   <string name="app_desc">Aplicación libre y de código abierto para Android basada en OpenStreetMap</string>
   <string name="yes">Si</string>
   <string name="no">No</string>

@@ -14,7 +14,7 @@ This file is part of OpenSatNav.
     You should have received a copy of the GNU General Public License
     along with OpenSatNav.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.droidcl.transantiago;
+package cl.droid.transantiago;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -38,11 +38,12 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
-import org.droidcl.transantiago.services.TransantiagoGeoCoder;
 import org.opensatnav.android.OpenSatNavConstants;
-import org.opensatnav.android.ServiceActivity;
+import org.opensatnav.android.R;
 import org.opensatnav.android.services.GeoCoder;
 import org.opensatnav.android.util.FormatHelper;
+
+import cl.droid.transantiago.services.TransantiagoGeoCoder;
 
 import android.app.ListActivity;
 import android.app.ProgressDialog;
@@ -254,7 +255,7 @@ public class TransChooseServiceActivity extends ListActivity {
 						Log.i(OpenSatNavConstants.LOG_TAG, "results.length="+r);
 						urlstring = "http://m.ibus.cl/index.jsp?paradero="+paradero+"&servicio="+servicio+"&boton.x=0&boton.y=0";
 						Intent intent = new Intent(TransChooseServiceActivity.this,
-								org.opensatnav.android.ServiceActivity.class);
+								cl.droid.transantiago.ServiceActivity.class);
 						intent.putExtra("url", urlstring);
 						intent.putExtra("params", combinedParams);
 						startActivity(intent);

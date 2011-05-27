@@ -20,10 +20,11 @@ package org.opensatnav.android;
 import java.util.ArrayList;
 
 import org.andnav.osm.util.GeoPoint;
-import org.droidcl.transantiago.services.TransantiagoGeoCoder;
 import org.opensatnav.android.services.GeoCoder;
 import org.opensatnav.android.services.NominatimGeoCoder;
 import org.opensatnav.android.util.UKPostCodeValidator;
+
+import cl.droid.transantiago.services.TransantiagoGeoCoder;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -291,7 +292,7 @@ public class GetDirectionsActivity extends Activity {
 						}else{ 
 							intent = new Intent(GetDirectionsActivity.this,
 //									org.opensatnav.android.ChooseLocationActivity.class);
-									org.droidcl.transantiago.TransChooseLocationServiceActivity.class);
+									cl.droid.transantiago.TransChooseLocationServiceActivity.class);
 //									org.opensatnav.android.ChooseServiceActivity.class);
 						}
 						intent.putExtra("fromLocation", from.toDoubleString());

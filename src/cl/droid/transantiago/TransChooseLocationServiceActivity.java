@@ -14,13 +14,15 @@ This file is part of OpenSatNav.
     You should have received a copy of the GNU General Public License
     along with OpenSatNav.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.droidcl.transantiago;
+package cl.droid.transantiago;
 
 import org.andnav.osm.util.GeoPoint;
-import org.droidcl.transantiago.services.TransantiagoGeoCoder;
 import org.opensatnav.android.OpenSatNavConstants;
+import org.opensatnav.android.R;
 import org.opensatnav.android.services.GeoCoder;
 import org.opensatnav.android.util.FormatHelper;
+
+import cl.droid.transantiago.services.TransantiagoGeoCoder;
 
 import android.app.ListActivity;
 import android.app.ProgressDialog;
@@ -77,7 +79,7 @@ public class TransChooseLocationServiceActivity extends ListActivity {
 						if (locations != null) {
 							Intent intent = new Intent(TransChooseLocationServiceActivity.this,
 //									org.opensatnav.android.ServiceActivity.class);
-									org.droidcl.transantiago.TransChooseServiceActivity.class);
+									cl.droid.transantiago.TransChooseServiceActivity.class);
 							intent.putExtra("fromLocation", from.toDoubleString());
 							intent.putExtra("locations", locations);
 							intent.putExtra("paradero", la.getParadero((int)position));
