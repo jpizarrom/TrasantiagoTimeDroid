@@ -50,6 +50,8 @@
 			android:value="@string/about_website_label" />
 		<meta-data android:name="org.openintents.metadata.WEBSITE_URL"
 			android:value="@string/about_website_url" />
+		<meta-data android:name="org.openintents.metadata.EMAIL"
+			android:value="@string/about_email" />
 		<meta-data android:name="org.openintents.metadata.LICENSE"
 			android:resource="@raw/license" />
 

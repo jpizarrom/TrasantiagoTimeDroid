@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
   <string name="app_name">OpenSatNav - Transantiago</string>
-  <string name="app_desc">Aplicación libre y de código abierto para Android basada en OpenStreetMap</string>
+  <string name="app_desc">Aplicación libre y de código abierto para Android basada en OpenStreetMap y OpenSatNav.</string>
   <string name="yes">Si</string>
   <string name="no">No</string>
   <string name="location_services_disabled">Ningún servicio de localización está activo. ¿Quiere activarlo ahora? \n\nDespués de aplicar los cambios, pulse el botón de Volver para regresar a éste programa.</string>
@@ -61,8 +61,8 @@
   <string name="prefs_cache_clear_confirm">¿Está seguro que desea eliminar el caché de mapas?</string>
   <string name="megabytes_abbreviation">Mb</string>
   <string name="about">A cerca de</string>
-  <string name="about_website_label">OpenSatNav.org</string>
-  <string name="about_website_url">http://www.opensatnav.org/</string>
+  <string name="about_website_label">droid.cl</string>
+  <string name="about_website_url">http://droid.cl/</string>
   <string name="menu_preferences">Preferencias</string>
   <string name="menu_about">A Cerca de OI A cerca de ello</string>
   <string name="l_leaders">Fundador del proyecto</string>

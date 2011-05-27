@@ -2,7 +2,7 @@
 <resources>
 	<string name="app_name">OpenSatNav - Transantiago</string>
 	<string name="app_desc">A free and open source OpenStreetMap application
-		for Android.</string>
+		for Android, based on OpenSatNav.</string>
 	<!-- used in LocationHandler.java because android is buggy for android.R.strings.yes and no
 	see 
 	http://code.google.com/p/android/issues/detail?id=3713&q=android.R.string.yes&colspec=ID%20Type%20Status%20Owner%20Summary%20Stars
@@ -105,8 +105,8 @@
 	<string name="about">About</string>
 
 	<!--  OI About inclusion -->
-	<string name="about_website_label">OpenSatNav.org</string>
-	<string name="about_website_url">http://www.opensatnav.org/</string>
+	<string name="about_website_label">droid.cl</string>
+	<string name="about_website_url">http://droid.cl/</string>
 	<string name="menu_preferences">Preferences</string>
 	<string name="menu_about">About OI About itself</string>
 	<string name="l_leaders">Project Founder</string>
