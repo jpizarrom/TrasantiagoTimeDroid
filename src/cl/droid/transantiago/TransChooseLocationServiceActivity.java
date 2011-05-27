@@ -16,6 +16,29 @@ This file is part of OpenSatNav.
  */
 package cl.droid.transantiago;
 
+import org.andnav.osm.util.GeoPoint;
+import org.opensatnav.android.OpenSatNavConstants;
+import org.opensatnav.android.services.GeoCoder;
+import org.opensatnav.android.util.FormatHelper;
+
+import cl.droid.transantiago.services.TransantiagoGeoCoder;
+
+import android.app.ListActivity;
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.AdapterView.OnItemClickListener;
+
 public class TransChooseLocationServiceActivity extends ListActivity {
 
 	protected Bundle locations;
