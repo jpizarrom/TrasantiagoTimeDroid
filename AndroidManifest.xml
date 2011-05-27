@@ -53,7 +53,7 @@
 		<meta-data android:name="org.openintents.metadata.LICENSE"
 			android:resource="@raw/license" />
 
-		<receiver android:name="WidgetProvider">
+		<receiver android:name="org.opensatnav.android.WidgetProvider">
 			<intent-filter>
 				<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
 			</intent-filter>
@@ -62,7 +62,7 @@
 		</receiver>
 
 		<service android:icon="@drawable/icon" android:label="@string/app_name"
-			android:name="services.routing.RouteInstructionsService" />
+			android:name="org.opensatnav.android.services.routing.RouteInstructionsService" />
 			
 		<activity android:name="cl.droid.transantiago.TransChooseLocationServiceActivity" />
 		<activity android:name="cl.droid.transantiago.TransChooseServiceActivity"></activity>
