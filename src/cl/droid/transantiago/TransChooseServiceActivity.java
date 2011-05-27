@@ -100,82 +100,82 @@ public class TransChooseServiceActivity extends ListActivity {
 					public void run() {
 						// put long running operations here
 						String r = "";
-						InputStream in = null;
-						OutputStream out = null;
+//						InputStream in = null;
+//						OutputStream out = null;
 						ArrayList <NameValuePair> params;
-						
-						HttpClient httpclient = new DefaultHttpClient();
-						HttpResponse response=null;
-						HttpGet httpget = new HttpGet("http://web.simt.cl/simtweb/buscar.action");
-
-						httpget.setHeader("User-Agent","Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_7; en-us) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Safari/ 530.17");
-						httpget.setHeader("Accept", "application/xml, application/xhtml+xml, text/plain;q=0.8, image/png, */*;q=0.5");
-						httpget.setHeader("Accept-Charset","utf-8, iso-8859-1, utf-16, *;q=0.7");
-//						httpget.setHeader("Accept-Encoding","gzip");
-						httpget.setHeader("Accept-Language","es-ES, en-US");
-						
-						httpget.setHeader("Keep-Alive","300");
-						httpget.setHeader("Connection","keep-alive");
-						
-//						httpget.setHeader("Content-type", "text/html;charset=UTF-8");
-//						httpget.setHeader("Referer","http://web.simt.cl/simtweb/cargar.action");
-//						httpget.setHeader("Host","web.simt.cl");
-//						httpget.setHeader("Cookie","JSESSIONID=B273A06B7923DEDFD6F182C07136C214");
-
-						
-											
-						for (int i = 0; i<httpget.getAllHeaders().length;i++)
-							Log.i(OpenSatNavConstants.LOG_TAG, httpget.getAllHeaders()[i].toString());
-						
-						try {
-							response = httpclient.execute(httpget);
-							
-							in = response.getEntity().getContent();
-							final ByteArrayOutputStream dataStream = new ByteArrayOutputStream();
-							out = new BufferedOutputStream(dataStream, StreamUtils.IO_BUFFER_SIZE);
-							StreamUtils.copy(in, out);
-							out.flush();
-							
-							for (int i = 0; i<response.getAllHeaders().length;i++)
-								Log.i(OpenSatNavConstants.LOG_TAG, response.getAllHeaders()[i].toString());
-							
-							Log.i(OpenSatNavConstants.LOG_TAG, dataStream.toString());
-
-						} catch (ClientProtocolException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						} catch (IOException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}
-						
-						try {
-//							String co = response.getFirstHeader("Set-Cookie").getValue();
-//							httpget.setHeader("Cookie",co.substring(0, co.indexOf(";")));
-							for (int i = 0; i<httpget.getAllHeaders().length;i++)
-								Log.i(OpenSatNavConstants.LOG_TAG, httpget.getAllHeaders()[i].toString());
-							
-							response = httpclient.execute(httpget);
-							
-							in = response.getEntity().getContent();
-							final ByteArrayOutputStream dataStream = new ByteArrayOutputStream();
-							out = new BufferedOutputStream(dataStream, StreamUtils.IO_BUFFER_SIZE);
-							StreamUtils.copy(in, out);
-							out.flush();
-							
-							for (int i = 0; i<response.getAllHeaders().length;i++)
-								Log.i(OpenSatNavConstants.LOG_TAG, response.getAllHeaders()[i].toString());
-							
-							Log.i(OpenSatNavConstants.LOG_TAG, dataStream.toString());
-
-						} catch (ClientProtocolException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						} catch (IOException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}
-						
+//						
+//						HttpClient httpclient = new DefaultHttpClient();
+//						HttpResponse response=null;
+//						HttpGet httpget = new HttpGet("http://web.simt.cl/simtweb/buscar.action");
+//
+//						httpget.setHeader("User-Agent","Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_7; en-us) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Safari/ 530.17");
+//						httpget.setHeader("Accept", "application/xml, application/xhtml+xml, text/plain;q=0.8, image/png, */*;q=0.5");
+//						httpget.setHeader("Accept-Charset","utf-8, iso-8859-1, utf-16, *;q=0.7");
+////						httpget.setHeader("Accept-Encoding","gzip");
+//						httpget.setHeader("Accept-Language","es-ES, en-US");
+//						
+//						httpget.setHeader("Keep-Alive","300");
+//						httpget.setHeader("Connection","keep-alive");
+//						
+////						httpget.setHeader("Content-type", "text/html;charset=UTF-8");
+////						httpget.setHeader("Referer","http://web.simt.cl/simtweb/cargar.action");
+////						httpget.setHeader("Host","web.simt.cl");
+////						httpget.setHeader("Cookie","JSESSIONID=B273A06B7923DEDFD6F182C07136C214");
+//
+//						
+//											
+//						for (int i = 0; i<httpget.getAllHeaders().length;i++)
+//							Log.i(OpenSatNavConstants.LOG_TAG, httpget.getAllHeaders()[i].toString());
+//						
+//						try {
+//							response = httpclient.execute(httpget);
+//							
+//							in = response.getEntity().getContent();
+//							final ByteArrayOutputStream dataStream = new ByteArrayOutputStream();
+//							out = new BufferedOutputStream(dataStream, StreamUtils.IO_BUFFER_SIZE);
+//							StreamUtils.copy(in, out);
+//							out.flush();
+//							
+//							for (int i = 0; i<response.getAllHeaders().length;i++)
+//								Log.i(OpenSatNavConstants.LOG_TAG, response.getAllHeaders()[i].toString());
+//							
+//							Log.i(OpenSatNavConstants.LOG_TAG, dataStream.toString());
+//
+//						} catch (ClientProtocolException e1) {
+//							// TODO Auto-generated catch block
+//							e1.printStackTrace();
+//						} catch (IOException e1) {
+//							// TODO Auto-generated catch block
+//							e1.printStackTrace();
+//						}
+//						
+//						try {
+////							String co = response.getFirstHeader("Set-Cookie").getValue();
+////							httpget.setHeader("Cookie",co.substring(0, co.indexOf(";")));
+//							for (int i = 0; i<httpget.getAllHeaders().length;i++)
+//								Log.i(OpenSatNavConstants.LOG_TAG, httpget.getAllHeaders()[i].toString());
+//							
+//							response = httpclient.execute(httpget);
+//							
+//							in = response.getEntity().getContent();
+//							final ByteArrayOutputStream dataStream = new ByteArrayOutputStream();
+//							out = new BufferedOutputStream(dataStream, StreamUtils.IO_BUFFER_SIZE);
+//							StreamUtils.copy(in, out);
+//							out.flush();
+//							
+//							for (int i = 0; i<response.getAllHeaders().length;i++)
+//								Log.i(OpenSatNavConstants.LOG_TAG, response.getAllHeaders()[i].toString());
+//							
+//							Log.i(OpenSatNavConstants.LOG_TAG, dataStream.toString());
+//
+//						} catch (ClientProtocolException e1) {
+//							// TODO Auto-generated catch block
+//							e1.printStackTrace();
+//						} catch (IOException e1) {
+//							// TODO Auto-generated catch block
+//							e1.printStackTrace();
+//						}
+//						
 					    params = new ArrayList<NameValuePair>();
 					    params.add(new BasicNameValuePair("accion", "normal"));
 					    params.add(new BasicNameValuePair("servicio", "101"));
@@ -207,49 +207,49 @@ public class TransChooseServiceActivity extends ListActivity {
 		                    }
 		                }
 						String urlstring = "http://web.simt.cl/simtweb/buscar.action";
-		                Log.i(OpenSatNavConstants.LOG_TAG, urlstring+combinedParams);	
-						
-					    HttpPost httppost = new HttpPost(urlstring);
-					    httppost.setHeader("User-Agent","Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_7; en-us) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Safari/ 530.17");
-					    httppost.setHeader("Accept", "application/xml, application/xhtml+xml, text/plain;q=0.8, image/png, */*;q=0.5");
-					    httppost.setHeader("Accept-Charset","utf-8, iso-8859-1, utf-16, *;q=0.7");
-//						httppost.setHeader("Accept-Encoding","gzip");
-					    httppost.setHeader("Accept-Language","es-ES, en-US");
-					    
-					    httppost.setHeader("Keep-Alive","300");
-					    httppost.setHeader("Connection","keep-alive");
-					    httppost.setHeader("Pragma","no-cache");
-					    httppost.setHeader("Cache-Control","no-cache");
-					    				    
-						for (int i = 0; i<httppost.getAllHeaders().length;i++)
-							Log.i(OpenSatNavConstants.LOG_TAG, httppost.getAllHeaders()[i].toString());
-					    				    
-					    if(!params.isEmpty()){
-					    	try {
-								httppost.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
-							} catch (UnsupportedEncodingException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-		                }
-					    
-					    try {
-							response = httpclient.execute(httppost);
-							
-							in = response.getEntity().getContent();
-							final ByteArrayOutputStream dataStream = new ByteArrayOutputStream();
-							out = new BufferedOutputStream(dataStream, StreamUtils.IO_BUFFER_SIZE);
-							StreamUtils.copy(in, out);
-							out.flush();
-							
-							r = dataStream.toString();
-						} catch (ClientProtocolException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						} catch (IOException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
+//		                Log.i(OpenSatNavConstants.LOG_TAG, urlstring+combinedParams);	
+//						
+//					    HttpPost httppost = new HttpPost(urlstring);
+//					    httppost.setHeader("User-Agent","Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_7; en-us) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Safari/ 530.17");
+//					    httppost.setHeader("Accept", "application/xml, application/xhtml+xml, text/plain;q=0.8, image/png, */*;q=0.5");
+//					    httppost.setHeader("Accept-Charset","utf-8, iso-8859-1, utf-16, *;q=0.7");
+////						httppost.setHeader("Accept-Encoding","gzip");
+//					    httppost.setHeader("Accept-Language","es-ES, en-US");
+//					    
+//					    httppost.setHeader("Keep-Alive","300");
+//					    httppost.setHeader("Connection","keep-alive");
+//					    httppost.setHeader("Pragma","no-cache");
+//					    httppost.setHeader("Cache-Control","no-cache");
+//					    				    
+//						for (int i = 0; i<httppost.getAllHeaders().length;i++)
+//							Log.i(OpenSatNavConstants.LOG_TAG, httppost.getAllHeaders()[i].toString());
+//					    				    
+//					    if(!params.isEmpty()){
+//					    	try {
+//								httppost.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
+//							} catch (UnsupportedEncodingException e) {
+//								// TODO Auto-generated catch block
+//								e.printStackTrace();
+//							}
+//		                }
+//					    
+//					    try {
+//							response = httpclient.execute(httppost);
+//							
+//							in = response.getEntity().getContent();
+//							final ByteArrayOutputStream dataStream = new ByteArrayOutputStream();
+//							out = new BufferedOutputStream(dataStream, StreamUtils.IO_BUFFER_SIZE);
+//							StreamUtils.copy(in, out);
+//							out.flush();
+//							
+//							r = dataStream.toString();
+//						} catch (ClientProtocolException e) {
+//							// TODO Auto-generated catch block
+//							e.printStackTrace();
+//						} catch (IOException e) {
+//							// TODO Auto-generated catch block
+//							e.printStackTrace();
+//						}
 						
 						Log.i(OpenSatNavConstants.LOG_TAG, "results.length="+r);
 						urlstring = "http://m.ibus.cl/index.jsp?paradero="+paradero+"&servicio="+servicio+"&boton.x=0&boton.y=0";
