@@ -1,13 +1,5 @@
 package cl.droid.transantiago;
 
-import org.opensatnav.android.R;
-
-import android.app.Activity;
-import android.os.Bundle;
-import android.util.Log;
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
-
 public class ServiceActivity extends Activity {
 	final Activity activity = this;
 
