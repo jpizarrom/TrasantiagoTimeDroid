@@ -20,8 +20,8 @@
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
-		<provider android:name="contribute.content.OSNProvider"
-			android:multiprocess="true" android:authorities="org.opensatnav.android.contribute" />
+<!-- 		<provider android:name="contribute.content.OSNProvider" -->
+<!-- 			android:multiprocess="true" android:authorities="org.opensatnav.android.contribute" /> -->
 		<activity android:name="org.opensatnav.android.GetDirectionsActivity" />
 		<activity android:name="org.opensatnav.android.ChooseLocationActivity" />
 		<activity android:name="org.openintents.about.About" />
@@ -64,8 +64,8 @@
 		<service android:icon="@drawable/icon" android:label="@string/app_name"
 			android:name="services.routing.RouteInstructionsService" />
 			
-		<activity android:name="org.droidcl.transantiago.TransChooseLocationServiceActivity" />
-		<activity android:name="org.droidcl.transantiago.TransChooseServiceActivity"></activity>
+		<activity android:name="cl.droid.transantiago.TransChooseLocationServiceActivity" />
+		<activity android:name="cl.droid.transantiago.TransChooseServiceActivity"></activity>
 		<activity android:name="cl.droid.transantiago.ServiceActivity"></activity>
 	</application>
 

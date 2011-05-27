@@ -21,6 +21,8 @@ import org.andnav.osm.util.constants.OpenStreetMapConstants;
 import org.opensatnav.android.services.LocationHandler;
 import org.opensatnav.android.services.NoLocationProvidersException;
 
+import cl.droid.transantiago.R;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;

@@ -19,6 +19,8 @@ package org.opensatnav.android;
 import org.andnav.osm.util.GeoPoint;
 import org.opensatnav.android.util.FormatHelper;
 
+import cl.droid.transantiago.R;
+
 import android.app.ListActivity;
 import android.content.Intent;
 import android.graphics.Color;

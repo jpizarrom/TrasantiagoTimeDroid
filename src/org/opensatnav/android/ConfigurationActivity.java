@@ -1,5 +1,6 @@
 package org.opensatnav.android;
 
+import cl.droid.transantiago.R;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 

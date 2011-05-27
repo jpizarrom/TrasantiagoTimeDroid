@@ -46,6 +46,8 @@ import org.opensatnav.android.services.routing.RouteInstructionsService;
 import org.opensatnav.android.services.routing.overlay.RouteOverlay;
 import org.opensatnav.android.util.BugReportExceptionHandler;
 
+import cl.droid.transantiago.R;
+
 import android.app.Dialog;
 import android.content.ComponentName;
 import android.content.Intent;

@@ -24,6 +24,7 @@ import org.opensatnav.android.services.GeoCoder;
 import org.opensatnav.android.services.NominatimGeoCoder;
 import org.opensatnav.android.util.UKPostCodeValidator;
 
+import cl.droid.transantiago.R;
 import cl.droid.transantiago.services.TransantiagoGeoCoder;
 
 import android.app.Activity;

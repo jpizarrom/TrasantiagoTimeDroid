@@ -8,6 +8,8 @@ import org.opensatnav.android.contribute.util.StringUtils;
 import org.opensatnav.android.contribute.util.UnitConversions;
 import org.opensatnav.android.contribute.util.constants.ContributeConstants;
 
+import cl.droid.transantiago.R;
+
 import android.app.ListActivity;
 import android.content.ComponentName;
 import android.content.Intent;

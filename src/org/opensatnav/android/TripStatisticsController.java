@@ -4,6 +4,8 @@ import org.opensatnav.android.services.TripStatistics;
 import org.opensatnav.android.services.TripStatisticsListener;
 import org.opensatnav.android.services.TripStatistics.TripStatisticsStrings;
 
+import cl.droid.transantiago.R;
+
 import android.content.Context;
 import android.util.Log;
 import android.view.View;

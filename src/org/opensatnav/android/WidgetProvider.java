@@ -1,5 +1,6 @@
 package org.opensatnav.android;
 
+import cl.droid.transantiago.R;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
