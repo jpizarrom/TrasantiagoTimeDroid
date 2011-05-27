@@ -14,7 +14,7 @@ This file is part of OpenSatNav.
     You should have received a copy of the GNU General Public License
     along with OpenSatNav.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.opensatnav.android;
+package org.droidcl.transantiago;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -38,8 +38,10 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
+import org.droidcl.transantiago.services.TransantiagoGeoCoder;
+import org.opensatnav.android.OpenSatNavConstants;
+import org.opensatnav.android.ServiceActivity;
 import org.opensatnav.android.services.GeoCoder;
-import org.opensatnav.android.services.TransantiagoGeoCoder;
 import org.opensatnav.android.util.FormatHelper;
 
 import android.app.ListActivity;

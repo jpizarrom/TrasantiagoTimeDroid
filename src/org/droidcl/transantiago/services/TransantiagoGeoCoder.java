@@ -1,4 +1,4 @@
-package org.opensatnav.android.services;
+package org.droidcl.transantiago.services;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -15,6 +15,7 @@ import org.andnav.osm.views.util.StreamUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.opensatnav.android.OpenSatNavConstants;
+import org.opensatnav.android.services.GeoCoder;
 
 import android.content.Context;
 import android.os.Bundle;

@@ -64,8 +64,8 @@
 
 		<service android:icon="@drawable/icon" android:label="@string/app_name"
 			android:name=".services.routing.RouteInstructionsService" />
-		<activity android:name="TransChooseLocationServiceActivity" />
-		<activity android:name="TransChooseServiceActivity"></activity>
+		<activity android:name="org.droidcl.transantiago.TransChooseLocationServiceActivity" />
+		<activity android:name="org.droidcl.transantiago.TransChooseServiceActivity"></activity>
 		<activity android:name="org.opensatnav.android.ServiceActivity"></activity>
 	</application>
 
