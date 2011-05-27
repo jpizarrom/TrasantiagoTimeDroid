@@ -3,7 +3,7 @@ package org.opensatnav.android.services.routing.overlay;
 import org.andnav.osm.views.OpenStreetMapView;
 import org.andnav.osm.views.overlay.OpenStreetMapViewOverlay;
 import org.opensatnav.android.services.routing.RouteInstruction;
-import org.opensatnav.android.R;
+import cl.droid.transantiago.R;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

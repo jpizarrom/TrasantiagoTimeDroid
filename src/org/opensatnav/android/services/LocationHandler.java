@@ -2,7 +2,7 @@ package org.opensatnav.android.services;
 
 import org.andnav.osm.util.constants.OpenStreetMapConstants;
 import org.opensatnav.android.OpenSatNavConstants;
-import org.opensatnav.android.R;
+import cl.droid.transantiago.R;
 
 import android.app.AlertDialog;
 import android.content.Context;

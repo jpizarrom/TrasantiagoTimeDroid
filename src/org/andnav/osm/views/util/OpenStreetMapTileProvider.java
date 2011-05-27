@@ -19,7 +19,7 @@ package org.andnav.osm.views.util;
 
 import org.andnav.osm.util.constants.OpenStreetMapConstants;
 import org.andnav.osm.views.util.constants.OpenStreetMapViewConstants;
-import org.opensatnav.android.R;
+import cl.droid.transantiago.R;
 
 import android.content.Context;
 import android.content.SharedPreferences;

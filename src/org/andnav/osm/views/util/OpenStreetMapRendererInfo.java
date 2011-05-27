@@ -18,7 +18,7 @@ This file is part of OpenSatNav.
 package org.andnav.osm.views.util;
 
 import org.andnav.osm.views.util.constants.OpenStreetMapViewConstants;
-import org.opensatnav.android.R;
+import cl.droid.transantiago.R;
 
 /**
  * 

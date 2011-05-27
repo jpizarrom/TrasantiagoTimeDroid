@@ -19,7 +19,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import org.opensatnav.android.OpenSatNavConstants;
-import org.opensatnav.android.R;
+import cl.droid.transantiago.R;
 import org.opensatnav.android.SatNavActivity;
 import org.opensatnav.android.contribute.content.IProviderUtils;
 import org.opensatnav.android.contribute.content.Track;

@@ -15,7 +15,7 @@
  */
 package org.opensatnav.android.contribute.output;
 
-import org.opensatnav.android.R;
+import cl.droid.transantiago.R;
 import org.opensatnav.android.SatNavActivity;
 import org.opensatnav.android.contribute.util.constants.ContributeConstants;
 

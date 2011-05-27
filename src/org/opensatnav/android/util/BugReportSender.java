@@ -2,7 +2,7 @@ package org.opensatnav.android.util;
 
 import java.util.ArrayList;
 
-import org.opensatnav.android.R;
+import cl.droid.transantiago.R;
 
 import android.app.AlertDialog;
 import android.content.Context;

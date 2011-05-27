@@ -20,7 +20,7 @@ import java.util.Date;
 import java.util.Vector;
 
 import org.opensatnav.android.OpenSatNavConstants;
-import org.opensatnav.android.R;
+import cl.droid.transantiago.R;
 import org.opensatnav.android.contribute.content.DescriptionGenerator;
 import org.opensatnav.android.contribute.content.Track;
 import org.opensatnav.android.contribute.content.Waypoint;

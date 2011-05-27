@@ -3,7 +3,7 @@ package org.opensatnav.android.util;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.opensatnav.android.R;
+import cl.droid.transantiago.R;
 
 import android.app.AlertDialog.Builder;
 import android.content.ActivityNotFoundException;

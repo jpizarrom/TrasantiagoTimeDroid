@@ -20,7 +20,7 @@ package org.andnav.osm.views.overlay;
 import org.andnav.osm.util.GeoPoint;
 import org.andnav.osm.views.OpenStreetMapView;
 import org.andnav.osm.views.OpenStreetMapView.OpenStreetMapViewProjection;
-import org.opensatnav.android.R;
+import cl.droid.transantiago.R;
 
 import android.content.Context;
 import android.graphics.Bitmap;

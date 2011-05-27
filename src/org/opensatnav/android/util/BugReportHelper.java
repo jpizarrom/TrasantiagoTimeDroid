@@ -1,6 +1,6 @@
 package org.opensatnav.android.util;
 
-import org.opensatnav.android.R;
+import cl.droid.transantiago.R;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;

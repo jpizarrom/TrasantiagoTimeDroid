@@ -31,7 +31,7 @@ import java.util.regex.Pattern;
 
 import org.openintents.intents.AboutIntents;
 import org.openintents.metadata.AboutMetaData;
-import org.opensatnav.android.R;
+import cl.droid.transantiago.R;
 
 import android.app.TabActivity;
 import android.content.Intent;

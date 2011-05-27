@@ -4,7 +4,7 @@ import org.andnav.osm.util.GeoPoint;
 import org.andnav.osm.views.OpenStreetMapView;
 import org.andnav.osm.views.OpenStreetMapView.OpenStreetMapViewProjection;
 import org.opensatnav.android.OpenSatNavConstants;
-import org.opensatnav.android.R;
+import cl.droid.transantiago.R;
 import org.opensatnav.android.services.routing.RouteInstructionsService;
 
 import android.app.AlertDialog;

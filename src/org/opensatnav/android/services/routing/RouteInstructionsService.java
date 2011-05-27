@@ -5,7 +5,7 @@ import org.andnav.osm.util.GeoPoint;
 import org.andnav.osm.util.TypeConverter;
 import org.andnav.osm.views.OpenStreetMapView;
 import org.opensatnav.android.OpenSatNavConstants;
-import org.opensatnav.android.R;
+import cl.droid.transantiago.R;
 import org.opensatnav.android.WidgetProvider;
 import org.opensatnav.android.services.CloudmadeRouter;
 import org.opensatnav.android.services.LocationHandler;
