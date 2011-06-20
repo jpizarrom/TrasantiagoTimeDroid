@@ -252,7 +252,9 @@ public class TransChooseServiceActivity extends ListActivity {
 //						}
 						
 						Log.i(OpenSatNavConstants.LOG_TAG, "results.length="+r);
-						urlstring = "http://m.ibus.cl/index.jsp?paradero="+paradero+"&servicio="+servicio+"&boton.x=0&boton.y=0";
+						urlstring = "http://m.ibus.cl/index.jsp?paradero="+paradero.toLowerCase()+"&servicio="+servicio+"&boton.x=66&boton.y=14";
+//						urlstring = "http://web.simt.cl/simtweb/buscarAction.do?d=busquedaRapida&servicio=-1&destino=-1&paradero=-1&busqueda_rapida="+paradero+"+"+servicio+"&ingresar_paradero=PC616";
+						Log.i(OpenSatNavConstants.LOG_TAG, urlstring);
 						Intent intent = new Intent(TransChooseServiceActivity.this,
 								cl.droid.transantiago.ServiceActivity.class);
 						intent.putExtra("url", urlstring);

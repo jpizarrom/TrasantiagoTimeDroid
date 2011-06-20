@@ -1,5 +1,7 @@
 package cl.droid.transantiago;
 
+import org.opensatnav.android.OpenSatNavConstants;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,6 +10,7 @@ import android.webkit.WebView;
 
 public class ServiceActivity extends Activity {
 	final Activity activity = this;
+	int first = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -16,21 +19,32 @@ public class ServiceActivity extends Activity {
 		setContentView(R.layout.web);
 		WebView webView = (WebView) findViewById(R.id.webview);
         webView.getSettings().setJavaScriptEnabled(true);
-        String url = getIntent().getStringExtra("url");
+        final String url = getIntent().getStringExtra("url");
         String params = getIntent().getStringExtra("params");
+        
+        webView.setVisibility(WebView.INVISIBLE);
         webView.setWebChromeClient(new WebChromeClient() {
+        	
             public void onProgressChanged(WebView view, int progress)
             {
-                activity.setTitle("Loading...");
+                activity.setTitle("Loading..."+first);
                 activity.setProgress(progress * 100);
  
-                if(progress == 100)
+                if(progress == 100){
+                	if(first<1){
+//                		Log.i(OpenSatNavConstants.LOG_TAG, view.getUrl());
+                		first++;
+                		Log.i(OpenSatNavConstants.LOG_TAG, url);
+                		view.loadUrl(url);
+                		}else
+                			view.setVisibility(WebView.VISIBLE);
                     activity.setTitle(R.string.app_name);
+                }
 //                Log.i(OpenSatNavConstants.LOG_TAG, view.getUrl());
             }
         });
-        
-        webView.loadUrl(url);
+        Log.i(OpenSatNavConstants.LOG_TAG, url);
+        webView.loadUrl("http://m.ibus.cl");
 	}
 
 }
