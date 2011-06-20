@@ -480,6 +480,12 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 							+ "," + this.mOsmv.getDrawnBoundingBoxE6().getLonEastE6() / 1E6
 							+ "," + this.mOsmv.getDrawnBoundingBoxE6().getLatNorthE6() / 1E6
 							);
+					intent.putExtra("lat", 
+							this.mOsmv.getMapCenter().getLatitude()
+							);
+					intent.putExtra("lon", 
+							this.mOsmv.getMapCenter().getLongitude()
+							);
 					
 					startActivityForResult(intent, DIRECTIONS_OPTIONS);
 

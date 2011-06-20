@@ -346,9 +346,14 @@ public class GetDirectionsActivity extends Activity {
 						locations = geoCoder.query(toText, from, GeoCoder.IN_AREA, 25,
 								GetDirectionsActivity.this);
 					}
-					else if (selectedPoi == -2)
+					else if (selectedPoi == -2){
+						String slat = String.valueOf(getIntent().getDoubleExtra("lat",0.0));
+						String slon = String.valueOf(getIntent().getDoubleExtra("lon",0.0));
+//						locations = (new TransantiagoGeoCoder()).query(toText, from, GeoCoder.IN_AREA, 25,
+//								GetDirectionsActivity.this, getIntent().getStringExtra("bbox"));
 						locations = (new TransantiagoGeoCoder()).query(toText, from, GeoCoder.IN_AREA, 25,
-								GetDirectionsActivity.this, getIntent().getStringExtra("bbox"));
+								GetDirectionsActivity.this, slat, slon);
+						}
 					else {  //POI search, just find the nearest matching POI
 					locations = geoCoder.query(toText, from, GeoCoder.FROM_POINT, 25,
 							GetDirectionsActivity.this);

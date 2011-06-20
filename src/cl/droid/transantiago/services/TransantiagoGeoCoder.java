@@ -30,15 +30,20 @@ public class TransantiagoGeoCoder implements GeoCoder {
 	private ArrayList locationLongitudes;
 	private ArrayList<String> locationInfo;
 	private ArrayList<String> locationParaderos;
-	private String bbox = "";
+	private String q = "";
 	
 	URL encodedURL;
 	public Bundle query(String query, GeoPoint from, int mode, int maxResults,
 			Context context, String bbox) {
 		Log.i(OpenSatNavConstants.LOG_TAG,bbox);
-		this.bbox = bbox;
+		this.q = "&bbox=" + bbox;
 		return this.query(query, from, mode, maxResults, context);
-		
+	}
+	public Bundle query(String query, GeoPoint from, int mode, int maxResults,
+			Context context, String lat, String lon) {
+		this.q = "&lat=" + lat + "&lon=" +lon;
+		this.q += "&tolerance=0.005";
+		return this.query(query, from, mode, maxResults, context);
 	}
 	@Override
 	public Bundle query(String query, GeoPoint from, int mode, int maxResults,
@@ -64,7 +69,8 @@ public class TransantiagoGeoCoder implements GeoCoder {
 //			+ "&all=1"
 //			+ "&q=" + URLEncoder.encode(query, "UTF-8")
 			+ "";
-			surl += "&bbox=" + bbox;
+			surl += q;
+			Log.i(OpenSatNavConstants.LOG_TAG, "surl="+surl);	
 			URL url = new URL(surl);
 //			Ut.dd(url.toString());
 			in = new BufferedInputStream(url.openStream(), StreamUtils.IO_BUFFER_SIZE);
@@ -230,6 +236,5 @@ public class TransantiagoGeoCoder implements GeoCoder {
 		bundle.putStringArray("info", infoArray);
 		return bundle;
 	}
-
 
 }
