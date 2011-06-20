@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_name">OpenSatNav - Transantiago</string>
+	<string name="app_name">TransDroid</string>
 	<string name="app_desc">A free and open source OpenStreetMap application
 		for Android, based on OpenSatNav.</string>
 	<!-- used in LocationHandler.java because android is buggy for android.R.strings.yes and no
