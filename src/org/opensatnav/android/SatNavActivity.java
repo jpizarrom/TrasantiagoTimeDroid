@@ -37,6 +37,8 @@ import org.opensatnav.android.contribute.util.MyTracksUtils;
 import org.opensatnav.android.contribute.util.constants.ContributeConstants;
 import org.opensatnav.android.contribute.util.constants.OSMConstants;
 
+import org.opensatnav.android.services.GeoCoder;
+import org.opensatnav.android.services.NominatimGeoCoder;
 import org.opensatnav.android.services.TripStatistics;
 
 import org.opensatnav.android.services.TripStatisticsListener;
@@ -45,10 +47,13 @@ import org.opensatnav.android.services.routing.RouteInstructionServiceTTS;
 import org.opensatnav.android.services.routing.RouteInstructionsService;
 import org.opensatnav.android.services.routing.overlay.RouteOverlay;
 import org.opensatnav.android.util.BugReportExceptionHandler;
+import org.opensatnav.android.util.UKPostCodeValidator;
 
 import cl.droid.transantiago.R;
+import cl.droid.transantiago.services.TransantiagoGeoCoder;
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
@@ -62,6 +67,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.IBinder;
+import android.os.Message;
 import android.preference.PreferenceManager;
 import android.provider.BaseColumns; //import android.speech.tts.TextToSpeech;
 //import android.speech.tts.TextToSpeech.OnInitListener;
@@ -95,6 +101,7 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 	private static final int DIRECTIONS_OPTIONS = MENU_ABOUT + 1;
 	private static final int MENU_CONTRIBUTE = DIRECTIONS_OPTIONS + 1;
 	private static final int MENU_TRIP_STATS = MENU_CONTRIBUTE + 1;
+	private static final int MENU_TRANS_TOGGLE = MENU_TRIP_STATS + 1;
 
 	private static final int SELECT_POI = 0;
 	private static final int CONTRIBUTE = SELECT_POI + 1;
@@ -442,6 +449,9 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 
 	@Override
 	public boolean onCreateOptionsMenu(final Menu pMenu) {
+		MenuItem transMenuItem = pMenu.add(0, MENU_TRANS_TOGGLE,
+				Menu.NONE, R.string.get_trans);
+		
 		MenuItem directionsMenuItem = pMenu.add(0, MENU_DIRECTIONS_TOGGLE,
 				Menu.NONE, R.string.get_directions);
 		directionsMenuItem.setIcon(android.R.drawable.ic_menu_directions);
@@ -466,6 +476,10 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 	@Override
 	public boolean onMenuItemSelected(int featureId, MenuItem item) {
 		switch (item.getItemId()) {
+		case MENU_TRANS_TOGGLE:
+			from = this.mOsmv.getMapCenter();
+			getLocations(" ");
+			return true;
 		case MENU_DIRECTIONS_TOGGLE:
 			if (routeInstructionsService.currentlyRouting == false) {
 				if (currentLocation != null) {
@@ -544,7 +558,129 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 		}
 		return false;
 	}
+	
+	protected Bundle locations;
+	protected Boolean backgroundThreadComplete = true;
+	protected ProgressDialog progress;
+	protected GeoPoint from;
+	protected String bbox;
+	
+	public void getLocations(final String toText) {
+		if (toText.length() != 0) {
+			backgroundThreadComplete = false;
 
+			progress = ProgressDialog.show(
+					SatNavActivity.this, this.getResources().getText(
+							R.string.please_wait), this.getResources().getText(
+							R.string.searching), true, true);
+
+			bbox= this.mOsmv.getDrawnBoundingBoxE6().getLonWestE6() / 1E6
+			+ "," + this.mOsmv.getDrawnBoundingBoxE6().getLatSouthE6() / 1E6
+			+ "," + this.mOsmv.getDrawnBoundingBoxE6().getLonEastE6() / 1E6
+			+ "," + this.mOsmv.getDrawnBoundingBoxE6().getLatNorthE6() / 1E6
+			;
+			
+			final Handler handler = new Handler() {
+				// threading stuff - this actually handles the stuff after the
+				// thread has completed (code below)
+				@Override
+				public void handleMessage(Message msg) {
+					if (progress.isShowing())
+						try {
+							progress.dismiss();
+							backgroundThreadComplete = true;
+						} catch (IllegalArgumentException e) {
+							// if orientation change, thread continue but the dialog cannot be dismissed without exception
+						}
+						
+					if (locations != null) {
+						Intent intent;
+//						if (selectedPoi == -1){
+//							intent = new Intent(this,
+//								org.opensatnav.android.ChooseLocationActivity.class);
+////								org.opensatnav.android.TransChooseLocationServiceActivity.class);
+////								org.opensatnav.android.ChooseServiceActivity.class);
+//						}else{ 
+							intent = new Intent(SatNavActivity.this,
+//									org.opensatnav.android.ChooseLocationActivity.class);
+									cl.droid.transantiago.TransChooseLocationServiceActivity.class);
+//									org.opensatnav.android.ChooseServiceActivity.class);
+//						}
+						intent.putExtra("fromLocation", from.toDoubleString());
+						intent.putExtra("locations", locations);
+						startActivity(intent);
+					} 
+//					else {
+//						if (selectedPoi == -1) { // text search
+//							// specific case for UK postcodes
+//							String currentLocale = GetDirectionsActivity.this.getResources().getConfiguration().locale.getCountry();
+//							if ((currentLocale.compareTo("GB") == 0) && (UKPostCodeValidator.isPostCode(toText.trim()))) {
+//								UKPostCodeValidator.showFreeThePostCodeDialog(GetDirectionsActivity.this);
+//							} else {
+//								String text = String
+//										.format(
+//												GetDirectionsActivity.this
+//														.getResources()
+//														.getText(
+//																R.string.place_not_found)
+//														.toString(), toText);
+//								Toast.makeText(GetDirectionsActivity.this,
+//										text, Toast.LENGTH_LONG).show();
+//							}
+//						} else { // poi search
+//							String stringValue = getResources().getStringArray(
+//									R.array.poi_types)[selectedPoi];
+//							Toast
+//									.makeText(
+//											GetDirectionsActivity.this,
+//											GetDirectionsActivity.this
+//													.getResources()
+//													.getText(
+//															R.string.could_not_find_poi)
+//													+ " " + stringValue,
+//											Toast.LENGTH_LONG).show();
+//						}
+//					}
+				}
+			};
+			new Thread(new Runnable() {
+				public void run() {
+//					progress = ProgressDialog.show(
+//							SatNavActivity.this, SatNavActivity.this.getResources().getText(
+//									R.string.please_wait), SatNavActivity.this.getResources().getText(
+//									R.string.searching), true, true);
+					
+					// put long running operations here
+					GeoCoder geoCoder = null;
+
+					
+//					geoCoder = new PlanoturGeoCoder();
+//					geoCoder = new NominatimGeoCoder();
+						
+					
+//					if (selectedPoi == -1) { // text search, rank results within an area
+//						locations = geoCoder.query(toText, from, GeoCoder.IN_AREA, 25,
+//								SatNavActivity.this);
+//					}
+//					else if (selectedPoi == -2){
+//						String slat = String.valueOf(getIntent().getDoubleExtra("lat",0.0));
+//						String slon = String.valueOf(getIntent().getDoubleExtra("lon",0.0));
+						locations = (new TransantiagoGeoCoder()).query(toText, from, GeoCoder.IN_AREA, 25,
+								SatNavActivity.this, bbox );
+//						locations = (new TransantiagoGeoCoder()).query(toText, from, GeoCoder.IN_AREA, 25,
+//								GetDirectionsActivity.this, slat, slon);
+//						}
+//					else {  //POI search, just find the nearest matching POI
+//					locations = geoCoder.query(toText, from, GeoCoder.FROM_POINT, 25,
+//							SatNavActivity.this);
+//					}
+					// ok, we are done
+					handler.sendEmptyMessage(0);
+				}
+			}).start();
+
+		}
+	}
 	/** Display trip statistics */
 	public void showTripStatistics(boolean show) {
 		if (show) {
