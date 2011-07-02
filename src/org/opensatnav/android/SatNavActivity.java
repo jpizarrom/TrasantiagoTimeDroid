@@ -593,7 +593,7 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 							// if orientation change, thread continue but the dialog cannot be dismissed without exception
 						}
 						
-					if (locations != null) {
+					if (locations != null && locations.containsKey("names") && locations.getStringArray("names").length > 0 ) {
 						Intent intent;
 //						if (selectedPoi == -1){
 //							intent = new Intent(this,
@@ -641,6 +641,20 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 //											Toast.LENGTH_LONG).show();
 //						}
 //					}
+					if (locations != null)
+						Toast
+						.makeText(
+								SatNavActivity.this,
+								String.format(
+										SatNavActivity.this
+											.getResources()
+											.getText(
+//												R.string.could_not_find_poi
+												R.string.place_not_found).toString(),
+										"paradero")
+//										+ " " + stringValue
+										,
+								Toast.LENGTH_LONG).show();
 				}
 			};
 			new Thread(new Runnable() {

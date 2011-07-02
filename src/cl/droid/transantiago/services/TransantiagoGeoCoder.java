@@ -125,7 +125,7 @@ public class TransantiagoGeoCoder implements GeoCoder {
 		Bundle bundle = new Bundle();
 		// should have done this better - didn't know Java had issues like this!
 		int[] latArray = new int[locationLatitudes.size()];
-		int[] lonArray = new int[locationLatitudes.size()];
+		int[] lonArray = new int[locationLongitudes.size()];
 		String[] nameArray = new String[locationNames.size()];
 		String[] infoArray = new String[locationInfo.size()];
 
