@@ -309,5 +309,8 @@
 <string name="webview">webview</string>
 <string name="find_nearest_busstops">Find nearest bus stops</string>
 <string name="get_trans">Transantiago</string>
+<string name="choose_location_busstop">Choose bus stop...</string>
+<string name="choose_location_service">Choose bus service...</string>
+<string name="busstop">Bus stop</string>
 </resources>
 

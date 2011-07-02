@@ -194,7 +194,7 @@ public class TransantiagoGeoCoder implements GeoCoder {
 			// convert to integer (E6 format)
 //			locationLatitudes.add((int) (coordinates.getDouble(1) * 1000000));
 //			locationLongitudes.add((int) (coordinates.getDouble(0) * 1000000));
-			locationInfo.add(res.getString("destino_name"));
+			locationInfo.add("Destino "+res.getString("destino_name"));
 //			Toast.makeText(context, address, Toast.LENGTH_LONG).show();
 //			//Toast.makeText(this, ((JSONObject) json.get("addressLines")).toString(), Toast.LENGTH_LONG).show();
 //

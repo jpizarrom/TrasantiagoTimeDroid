@@ -69,8 +69,10 @@ public class TransChooseServiceActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 		
 		GeoPoint from = GeoPoint.fromDoubleString(getIntent().getStringExtra("fromLocation"), ',');
-		setTitle("servicio");
 		final String paradero = getIntent().getStringExtra("paradero");
+		
+		setTitle(this.getResources().getText(R.string.busstop) + " : " + paradero + " - " + 
+				this.getResources().getText(R.string.choose_location_service));
 		
 		final LocationAdapter la = new LocationAdapter(from);
 		setListAdapter(la);

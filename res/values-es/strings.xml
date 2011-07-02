@@ -124,4 +124,7 @@
   <string name="uk_postcode_not_recognised">El código postal no ha sido reconocido, puede que se deba a que no ha sido introducido en la base de datos de \'Free The Postcode\' (www.freethepostcode.org).\n\n \n\tComo está usando la plataforma Android, puede descargarse un programa de código abierto (GPLv3) desde el Android Market, que le permitirá enviar facilmente nuevos códigos postales.\n\n\n\t¿Quiere usarlo?</string>
   <string name="prefs_map_os">Ordnance Survey (sólo Reino Unido)</string>
   <string name="find_nearest_busstops">Encontrar paradas más carcanas</string>
+  <string name="choose_location_busstop">Seleccione parada...</string>
+  <string name="choose_location_service">Seleccione servicio...</string>
+  <string name="busstop">Parada</string>
 </resources>
