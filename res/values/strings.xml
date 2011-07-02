@@ -312,5 +312,6 @@
 <string name="choose_location_busstop">Choose bus stop...</string>
 <string name="choose_location_service">Choose bus service...</string>
 <string name="busstop">Bus stop</string>
+<string name="error_no_inet_conn">No internet connection</string>
 </resources>
 

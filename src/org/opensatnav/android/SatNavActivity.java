@@ -55,6 +55,7 @@ import cl.droid.transantiago.services.TransantiagoGeoCoder;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
@@ -62,11 +63,14 @@ import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.database.ContentObserver;
 import android.database.Cursor;
 import android.location.Location;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.IBinder;
+import android.os.Looper;
 import android.os.Message;
 import android.preference.PreferenceManager;
 import android.provider.BaseColumns; //import android.speech.tts.TextToSpeech;
@@ -478,9 +482,19 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 		switch (item.getItemId()) {
 		case MENU_TRANS_TOGGLE:
 			from = this.mOsmv.getMapCenter();
+			if (!this.isOnline()){
+				Toast.makeText(this, this.getResources().getText(
+					R.string.error_no_inet_conn), Toast.LENGTH_LONG).show();
+				return true;
+			}
 			getLocations(" ");
 			return true;
 		case MENU_DIRECTIONS_TOGGLE:
+			if (!this.isOnline()){
+				Toast.makeText(this, this.getResources().getText(
+					R.string.error_no_inet_conn), Toast.LENGTH_LONG).show();
+				return true;
+			}
 			if (routeInstructionsService.currentlyRouting == false) {
 				if (currentLocation != null) {
 					Intent intent = new Intent(this,
@@ -558,7 +572,16 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 		}
 		return false;
 	}
+
 	
+	public boolean isOnline() {
+	    ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+	    NetworkInfo netInfo = cm.getActiveNetworkInfo();
+	    if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+	        return true;
+	    }
+	    return false;
+	}
 	protected Bundle locations;
 	protected Boolean backgroundThreadComplete = true;
 	protected ProgressDialog progress;
