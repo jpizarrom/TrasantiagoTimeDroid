@@ -608,7 +608,7 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 //						}
 						intent.putExtra("fromLocation", from.toDoubleString());
 						intent.putExtra("locations", locations);
-						startActivity(intent);
+						startActivityForResult(intent, MENU_TRANS_TOGGLE);
 					} 
 //					else {
 //						if (selectedPoi == -1) { // text search
@@ -641,7 +641,7 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 //											Toast.LENGTH_LONG).show();
 //						}
 //					}
-					if (locations != null)
+					if (locations != null && locations.containsKey("names") && locations.getStringArray("names").length == 0)
 						Toast
 						.makeText(
 								SatNavActivity.this,
@@ -762,6 +762,7 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 
 		}
 		Log.v(OpenSatNavConstants.LOG_TAG, "Code is " + requestCode);
+		Log.v(OpenSatNavConstants.LOG_TAG, "resultCode is " + resultCode);
 		if (resultCode == ContributeConstants.SEND_TO_OSM_DIALOG) {
 			Log.v(OpenSatNavConstants.LOG_TAG, "Sending to OSM");
 			shareRequested = false;

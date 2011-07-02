@@ -133,10 +133,10 @@ public class TransChooseLocationServiceActivity extends ListActivity {
 	}
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
-		Intent intent = getIntent();
-		intent.putExtra("location", to);
-		setResult(RESULT_OK, intent);
-		finish();
+//		Intent intent = getIntent();
+//		intent.putExtra("location", to);
+//		setResult(RESULT_OK, intent);
+//		finish();
 	}
 
 	protected class LocationAdapter extends BaseAdapter {
@@ -184,16 +184,16 @@ public class TransChooseLocationServiceActivity extends ListActivity {
 			String info = locationInfo[position];
 //			info = info.substring(0,1).toUpperCase()+info.substring(1);
 			// add distance away
-//			String distance = 
-//				new FormatHelper(getBaseContext()).formatDistanceFuzzy
-//				(from.distanceTo(new GeoPoint(locationLats[position], locationLongs[position])))
-//				+ " " + ChooseLocationServiceActivity.this.getResources().getText(R.string.away);
+			String distance = 
+				new FormatHelper(getBaseContext()).formatDistanceFuzzy
+				(from.distanceTo(new GeoPoint(locationLats[position], locationLongs[position])))
+				+ " " + TransChooseLocationServiceActivity.this.getResources().getText(R.string.away);
 			
 			placeView.setText(place);
 			placeView.setTextSize(20);
 			placeView.setTextColor(Color.WHITE);
 			infoView.setText(info);
-//			distanceView.setText(distance);
+			distanceView.setText(distance);
 			
 			mainView.addView(placeView, 0);
 			mainView.addView(infoView, 1);
