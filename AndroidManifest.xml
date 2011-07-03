@@ -71,5 +71,5 @@
 		<activity android:name="cl.droid.transantiago.ServiceActivity"></activity>
 	</application>
 
-	<uses-sdk android:minSdkVersion="4" android:targetSdkVersion="4" />
+	<uses-sdk android:minSdkVersion="7" android:targetSdkVersion="7"/>
 </manifest> 
