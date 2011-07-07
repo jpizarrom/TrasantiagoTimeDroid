@@ -465,9 +465,9 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 		MenuItem toggleAutoFollowMenuItem = pMenu.add(0,
 				MENU_TOGGLE_FOLLOW_MODE, Menu.NONE, R.string.planning_mode);
 		toggleAutoFollowMenuItem.setIcon(android.R.drawable.ic_menu_mapmode);
-		MenuItem tripStatsMenuItem = pMenu.add(0, MENU_TRIP_STATS, Menu.NONE,
-				R.string.menu_show_trip_stats);
-		tripStatsMenuItem.setIcon(android.R.drawable.ic_menu_recent_history);
+//		MenuItem tripStatsMenuItem = pMenu.add(0, MENU_TRIP_STATS, Menu.NONE,
+//				R.string.menu_show_trip_stats);
+//		tripStatsMenuItem.setIcon(android.R.drawable.ic_menu_recent_history);
 		MenuItem prefsMenuItem = pMenu.add(0, MENU_PREFERENCES, Menu.NONE,
 				R.string.preferences);
 		prefsMenuItem.setIcon(android.R.drawable.ic_menu_preferences);

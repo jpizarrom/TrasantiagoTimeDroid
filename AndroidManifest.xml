@@ -11,17 +11,16 @@
 
 	<!--  Used for Cloudmade routing device ID (uses IMEI) -->
 	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
-
+       	
 	<application android:icon="@drawable/icon" android:label="@string/app_name"
-		android:debuggable="false">
+		android:theme="@android:style/Theme.NoTitleBar">
+		
 		<activity android:name="org.opensatnav.android.SatNavActivity">
-			<intent-filter>
-				<action android:name="android.intent.action.MAIN" />
-				<category android:name="android.intent.category.LAUNCHER" />
-			</intent-filter>
 		</activity>
-<!-- 		<provider android:name="contribute.content.OSNProvider" -->
-<!-- 			android:multiprocess="true" android:authorities="org.opensatnav.android.contribute" /> -->
+<!-- 		<provider android:name="org.opensatnav.android.contribute.content.OSNProvider" -->
+<!-- 			android:authorities="cl.droid.transantiago"  -->
+<!-- 			android:syncable="false" -->
+<!-- 			/> -->
 		<activity android:name="org.opensatnav.android.GetDirectionsActivity" />
 		<activity android:name="org.opensatnav.android.ChooseLocationActivity" />
 		<activity android:name="org.openintents.about.About" />
@@ -30,8 +29,8 @@
 			android:finishOnTaskLaunch="true" />
 
 
-		<service android:name="org.opensatnav.android.contribute.services.TrackRecordingService" />
-		<service android:name="org.opensatnav.android.TripStatisticsService" />
+<!-- 		<service android:name="org.opensatnav.android.contribute.services.TrackRecordingService" /> -->
+<!-- 		<service android:name="org.opensatnav.android.TripStatisticsService" /> -->
 
 		<!-- values used in the About screen -->
 		<meta-data android:name="org.openintents.metadata.COMMENTS"
@@ -55,21 +54,42 @@
 		<meta-data android:name="org.openintents.metadata.LICENSE"
 			android:resource="@raw/license" />
 
-		<receiver android:name="org.opensatnav.android.WidgetProvider">
-			<intent-filter>
-				<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-			</intent-filter>
-			<meta-data android:name="android.appwidget.provider"
-				android:resource="@xml/widget" />
-		</receiver>
+<!-- 		<receiver android:name="org.opensatnav.android.WidgetProvider"> -->
+<!-- 			<intent-filter> -->
+<!-- 				<action android:name="android.appwidget.action.APPWIDGET_UPDATE" /> -->
+<!-- 			</intent-filter> -->
+<!-- 			<meta-data android:name="android.appwidget.provider" -->
+<!-- 				android:resource="@xml/widget" /> -->
+<!-- 		</receiver> -->
 
-		<service android:icon="@drawable/icon" android:label="@string/app_name"
-			android:name="org.opensatnav.android.services.routing.RouteInstructionsService" />
+<!-- 		<service android:icon="@drawable/icon" android:label="@string/app_name" -->
+<!-- 			android:name="org.opensatnav.android.services.routing.RouteInstructionsService" /> -->
 			
-		<activity android:name="cl.droid.transantiago.TransChooseLocationServiceActivity" />
+		<activity android:name=".TransChooseLocationServiceActivity">
+		    <!-- Receives the search request. -->
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <!-- Points to searchable meta data. -->
+            <meta-data android:name="android.app.searchable"
+                    android:resource="@xml/searchable"/>
+		</activity>
+		
 		<activity android:name="cl.droid.transantiago.TransChooseServiceActivity"></activity>
+		
 		<activity android:name="cl.droid.transantiago.ServiceActivity"></activity>
+		
+		<activity android:name=".activity.HomeActivity">
+			<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+		</activity>
+		<meta-data android:name="android.app.default_searchable"
+                   android:value=".TransChooseLocationServiceActivity" />      
 	</application>
 
-	<uses-sdk android:minSdkVersion="7" android:targetSdkVersion="7"/>
+	<uses-sdk android:minSdkVersion="3" android:targetSdkVersion="7"/>
 </manifest> 
