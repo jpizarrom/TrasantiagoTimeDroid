@@ -50,10 +50,12 @@ import org.opensatnav.android.util.BugReportExceptionHandler;
 import org.opensatnav.android.util.UKPostCodeValidator;
 
 import cl.droid.transantiago.R;
+import cl.droid.transantiago.activity.HomeActivity;
 import cl.droid.transantiago.services.TransantiagoGeoCoder;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.app.SearchManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -106,6 +108,7 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 	private static final int MENU_CONTRIBUTE = DIRECTIONS_OPTIONS + 1;
 	private static final int MENU_TRIP_STATS = MENU_CONTRIBUTE + 1;
 	private static final int MENU_TRANS_TOGGLE = MENU_TRIP_STATS + 1;
+	private static final int MENU_SEARCH = MENU_TRANS_TOGGLE + 1;
 
 	private static final int SELECT_POI = 0;
 	private static final int CONTRIBUTE = SELECT_POI + 1;
@@ -453,12 +456,16 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 
 	@Override
 	public boolean onCreateOptionsMenu(final Menu pMenu) {
+		pMenu.add(0, R.id.search, 0, android.R.string.search_go)
+    	.setIcon(android.R.drawable.ic_search_category_default)
+    	.setAlphabeticShortcut(SearchManager.MENU_KEY);
+		
 		MenuItem transMenuItem = pMenu.add(0, MENU_TRANS_TOGGLE,
 				Menu.NONE, R.string.get_trans);
 		
-		MenuItem directionsMenuItem = pMenu.add(0, MENU_DIRECTIONS_TOGGLE,
-				Menu.NONE, R.string.get_directions);
-		directionsMenuItem.setIcon(android.R.drawable.ic_menu_directions);
+//		MenuItem directionsMenuItem = pMenu.add(0, MENU_DIRECTIONS_TOGGLE,
+//				Menu.NONE, R.string.get_directions);
+//		directionsMenuItem.setIcon(android.R.drawable.ic_menu_directions);
 //		MenuItem contributeMenuItem = pMenu.add(0, MENU_CONTRIBUTE, Menu.NONE,
 //				R.string.menu_contribute);
 //		contributeMenuItem.setIcon(android.R.drawable.ic_menu_edit);
@@ -480,6 +487,10 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 	@Override
 	public boolean onMenuItemSelected(int featureId, MenuItem item) {
 		switch (item.getItemId()) {
+		case R.id.search:
+			onSearchRequested();
+			Toast.makeText(this, "onSearchRequested", Toast.LENGTH_LONG).show();
+			return true;
 		case MENU_TRANS_TOGGLE:
 			from = this.mOsmv.getMapCenter();
 			if (!this.isOnline()){
@@ -735,13 +746,13 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		MenuItem navigationMenu = menu.findItem(MENU_DIRECTIONS_TOGGLE);
 
-		if (routeInstructionsService.currentlyRouting == false) {
-			navigationMenu.setTitle(R.string.get_directions).setIcon(
-					android.R.drawable.ic_menu_directions);
-		} else {
-			navigationMenu.setTitle(R.string.clear_directions).setIcon(
-					android.R.drawable.ic_menu_close_clear_cancel);
-		}
+//		if (routeInstructionsService.currentlyRouting == false) {
+//			navigationMenu.setTitle(R.string.get_directions).setIcon(
+//					android.R.drawable.ic_menu_directions);
+//		} else {
+//			navigationMenu.setTitle(R.string.clear_directions).setIcon(
+//					android.R.drawable.ic_menu_close_clear_cancel);
+//		}
 
 		MenuItem followMenu = menu.findItem(MENU_TOGGLE_FOLLOW_MODE);
 		if (!(this.autoFollowing)) {

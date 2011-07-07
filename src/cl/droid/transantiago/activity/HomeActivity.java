@@ -32,8 +32,8 @@ public class HomeActivity extends Activity {
 		findViewById(R.id.home_btn_search).setOnClickListener(new View.OnClickListener() {
 		    public void onClick(View v) {
 		    	Toast.makeText(HomeActivity.this, "home_btn_search", Toast.LENGTH_LONG).show();
-		    	HomeActivity.this.startSearch(null, false, Bundle.EMPTY, false);
-//		    	onSearchRequested();
+//		    	HomeActivity.this.startSearch(null, false, Bundle.EMPTY, false);
+		    	onSearchRequested();
 		    }
 		});
 	}

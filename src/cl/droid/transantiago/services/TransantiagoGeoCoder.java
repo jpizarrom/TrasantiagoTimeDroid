@@ -177,6 +177,7 @@ public class TransantiagoGeoCoder implements GeoCoder {
 			//Ut.dd(json.toString(4)); //
 			JSONArray results = (JSONArray) ((JSONObject) json).get("features");
 //			Ut.dd("results.length="+results.length());
+			Log.i(OpenSatNavConstants.LOG_TAG, "URL="+url);	
 			Log.i(OpenSatNavConstants.LOG_TAG, "results.length="+results.length());	
 			if(results.length() == 0){
 //				Toast.makeText(this, R.string.no_items, Toast.LENGTH_SHORT).show();

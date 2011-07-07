@@ -63,6 +63,9 @@ import android.widget.AdapterView.OnItemClickListener;
 public class TransChooseServiceActivity extends ListActivity {
 
 	protected ProgressDialog progress;
+	Bundle b;
+	String[] locationInfo;
+	String[] locationNames;
 	
 	@Override
 	public void onCreate(android.os.Bundle savedInstanceState) {
@@ -70,6 +73,10 @@ public class TransChooseServiceActivity extends ListActivity {
 		
 		GeoPoint from = GeoPoint.fromDoubleString(getIntent().getStringExtra("fromLocation"), ',');
 		final String paradero = getIntent().getStringExtra("paradero");
+		
+		b = getIntent().getBundleExtra("locations");
+		locationInfo = b.getStringArray("info");
+		locationNames = b.getStringArray("names");
 		
 		setTitle(this.getResources().getText(R.string.busstop) + " : " + paradero + " - " + 
 				this.getResources().getText(R.string.choose_location_service));
@@ -281,9 +288,9 @@ public class TransChooseServiceActivity extends ListActivity {
 	protected class LocationAdapter extends BaseAdapter {
 
 		GeoPoint from;
-		Bundle b = getIntent().getBundleExtra("locations");
-		String[] locationInfo = b.getStringArray("info");
-		String[] locationNames = b.getStringArray("names");
+//		Bundle b = getIntent().getBundleExtra("locations");
+//		String[] locationInfo = b.getStringArray("info");
+//		String[] locationNames = b.getStringArray("names");
 //		final int[] locationLats = b.getIntArray("latitudes");
 //		final int[] locationLongs = b.getIntArray("longitudes");
 
