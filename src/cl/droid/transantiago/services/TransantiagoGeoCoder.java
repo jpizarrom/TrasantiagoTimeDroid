@@ -156,7 +156,9 @@ public class TransantiagoGeoCoder implements GeoCoder {
 		
 		try {
 			URL url = new URL(
-					urlbase+"/services?paradero="+query
+//					urlbase+"/services?paradero="+query
+//					urlbase+"/services/byparadero/"+query
+					urlbase+"/services/byparadero_simt/"+query
 //					"http://dev.planotur.cl/api/place/243/showchilds?lang=es" 
 //							+ "&bbox=-75.594121618586,-37.158541049157,-67.376348181414,-34.032005667055&placecategory="
 //					"http://ajax.googleapis.com/ajax/services/search/local?v=1.0"
@@ -195,7 +197,20 @@ public class TransantiagoGeoCoder implements GeoCoder {
 			// convert to integer (E6 format)
 //			locationLatitudes.add((int) (coordinates.getDouble(1) * 1000000));
 //			locationLongitudes.add((int) (coordinates.getDouble(0) * 1000000));
-			locationInfo.add("Destino "+res.getString("destino_name"));
+			String loc = "";
+			if (res.has("codigorespuesta") && res.has("codigorespuesta") && !(res.getString("codigorespuesta").equals("00") || res.getString("codigorespuesta").equals("01")) )
+				loc+=res.getString("respuestaServicio") +"\n";
+			
+			if (res.has("destino_name") && res.has("destino_name") && !res.getString("destino_name").equals(""))
+				loc+="Destino "+res.getString("destino_name") +"\n";
+			
+			if (res.has("horaprediccionbus1") && res.has("distanciabus1") && !res.getString("distanciabus1").equals(""))
+				loc += "Bus1 " + res.getString("horaprediccionbus1") + "|" + res.getString("distanciabus1") + "mts." +"\n";
+			
+			if (res.has("horaprediccionbus2") && res.has("distanciabus2") && !res.getString("distanciabus2").equals(""))
+				loc += "Bus2 " + res.getString("horaprediccionbus2") + "|" + res.getString("distanciabus2") + "mts." +"\n";
+			
+			locationInfo.add(loc);
 //			Toast.makeText(context, address, Toast.LENGTH_LONG).show();
 //			//Toast.makeText(this, ((JSONObject) json.get("addressLines")).toString(), Toast.LENGTH_LONG).show();
 //
