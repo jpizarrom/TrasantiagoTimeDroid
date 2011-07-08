@@ -465,7 +465,7 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 
 	@Override
 	public boolean onCreateOptionsMenu(final Menu pMenu) {
-		pMenu.add(0, R.id.search, 0, "Nearby Stops")
+		pMenu.add(0, R.id.search, 0, R.string.stops_on_map)
     	.setIcon(android.R.drawable.ic_search_category_default)
     	.setAlphabeticShortcut(SearchManager.MENU_KEY);
 		

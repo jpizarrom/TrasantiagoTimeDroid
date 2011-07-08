@@ -314,5 +314,9 @@
 <string name="busstop">Bus stop</string>
 <string name="error_no_inet_conn">No internet connection</string>
 <string name="search_label">search</string>
+<string name="btn_search_stops">Search Stops</string>
+<string name="btn_search_map">Map</string>
+<string name="search_hint">Bus Stop Code</string>
+<string name="stops_on_map">Bus stops in map</string>
 </resources>
 

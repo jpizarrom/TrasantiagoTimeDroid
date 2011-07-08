@@ -74,7 +74,7 @@ public class TransChooseLocationServiceActivity extends ListActivity {
 //            WordAdapter wordAdapter = new WordAdapter(Dictionary.getInstance().getMatches(query));
 //            mList.setAdapter(wordAdapter);
 //            mList.setOnItemClickListener(wordAdapter);
-            finish();
+//            finish();
         } else {
 		
 		from = GeoPoint.fromDoubleString(getIntent().getStringExtra("fromLocation"), ',');

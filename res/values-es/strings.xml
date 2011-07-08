@@ -127,4 +127,8 @@
   <string name="choose_location_busstop">Seleccione parada...</string>
   <string name="choose_location_service">Seleccione servicio...</string>
   <string name="busstop">Parada</string>
+  <string name="btn_search_map">Mapa</string>
+  <string name="btn_search_stops">Buscar Parada</string>
+  <string name="search_hint">Código de parada</string>
+  <string name="stops_on_map">Paradas en el mapa</string>
 </resources>
