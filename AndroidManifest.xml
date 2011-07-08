@@ -84,7 +84,9 @@
 		
 		<activity android:name="cl.droid.transantiago.TransChooseServiceActivity"></activity>
 		
-		<activity android:name="cl.droid.transantiago.ServiceActivity"></activity>
+		<activity android:name="cl.droid.transantiago.ServiceActivity"
+		android:theme="@android:style/Theme.Black"
+		></activity>
 		
 		<activity android:name=".activity.HomeActivity">
 			<intent-filter>

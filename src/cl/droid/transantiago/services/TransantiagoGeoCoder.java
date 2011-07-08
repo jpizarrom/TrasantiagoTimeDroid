@@ -157,8 +157,8 @@ public class TransantiagoGeoCoder implements GeoCoder {
 		try {
 			URL url = new URL(
 //					urlbase+"/services?paradero="+query
-//					urlbase+"/services/byparadero/"+query
-					urlbase+"/services/byparadero_simt/"+query
+					urlbase+"/services/byparadero/"+query
+//					urlbase+"/services/byparadero_simt/"+query
 //					"http://dev.planotur.cl/api/place/243/showchilds?lang=es" 
 //							+ "&bbox=-75.594121618586,-37.158541049157,-67.376348181414,-34.032005667055&placecategory="
 //					"http://ajax.googleapis.com/ajax/services/search/local?v=1.0"
@@ -198,7 +198,7 @@ public class TransantiagoGeoCoder implements GeoCoder {
 //			locationLatitudes.add((int) (coordinates.getDouble(1) * 1000000));
 //			locationLongitudes.add((int) (coordinates.getDouble(0) * 1000000));
 			String loc = "";
-			if (res.has("codigorespuesta") && res.has("codigorespuesta") && !(res.getString("codigorespuesta").equals("00") || res.getString("codigorespuesta").equals("01")) )
+			if (res.has("codigorespuesta") && res.has("codigorespuesta") && !res.getString("codigorespuesta").equals("") && !(res.getString("codigorespuesta").equals("00") || res.getString("codigorespuesta").equals("01")) )
 				loc+=res.getString("respuestaServicio") +"\n";
 			
 			if (res.has("destino_name") && res.has("destino_name") && !res.getString("destino_name").equals(""))
