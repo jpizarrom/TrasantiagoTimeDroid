@@ -70,6 +70,7 @@ public class TransChooseServiceActivity extends ListActivity {
 	@Override
 	public void onCreate(android.os.Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setContentView(R.layout.services_list);
 		
 		GeoPoint from = GeoPoint.fromDoubleString(getIntent().getStringExtra("fromLocation"), ',');
 		final String paradero = getIntent().getStringExtra("paradero");

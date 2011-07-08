@@ -206,7 +206,7 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 	protected Route route = new Route();
 	protected RouteInstructionsService routeInstructionsService;
 
-	private RelativeLayout layout;
+	private LinearLayout layout;
 
 	// ===========================================================
 	// Constructors
@@ -221,14 +221,22 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 		BugReportExceptionHandler.register(this);
 //		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
-		final RelativeLayout rl = new RelativeLayout(this);
-		layout = rl;
+//		final LinearLayout rl = new LinearLayout(this);
 		
-//		LayoutInflater inflater = (LayoutInflater)this.getSystemService
-//	      (Context.LAYOUT_INFLATER_SERVICE);
-//		View titlebar = inflater.inflate(R.layout.titlebar, rl);
+		LayoutInflater inflater = (LayoutInflater)this.getSystemService
+	      (Context.LAYOUT_INFLATER_SERVICE);
+		final LinearLayout rl = (LinearLayout) inflater.inflate(R.layout.map, null);
 //		if (titlebar != null)
 //			rl.addView(titlebar);
+		layout = rl;
+		
+//		 TitleBar Search
+		rl.findViewById(R.id.map_titlebar_btn_search_map).setOnClickListener(new View.OnClickListener() {
+		    public void onClick(View v) {
+		    	onSearchOnMap();
+//		    	onSearchRequested();
+		    }
+		});
 		
 		prefs = PreferenceManager.getDefaultSharedPreferences(this);
 		prefs.registerOnSharedPreferenceChangeListener(this);
@@ -394,19 +402,19 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 			preferences.registerOnSharedPreferenceChangeListener(this);
 		}
 
-		// Trip statistics
+//		// Trip statistics
 		mTripStatsController = new TripStatisticsController(SatNavActivity.this);
-		mTripStatsController.addViewTo(rl);
-		// for after configuration change like keyboard open/close
-		TripStatistics.TripStatisticsStrings data = null;
-		if (retainables != null)
-			data = (TripStatistics.TripStatisticsStrings) retainables[0];
-
-		if (data != null) {
-
-			mTripStatsController.setAllStats(data);
-
-		}
+//		mTripStatsController.addViewTo(rl);
+//		// for after configuration change like keyboard open/close
+//		TripStatistics.TripStatisticsStrings data = null;
+//		if (retainables != null)
+//			data = (TripStatistics.TripStatisticsStrings) retainables[0];
+//
+//		if (data != null) {
+//
+//			mTripStatsController.setAllStats(data);
+//
+//		}
 		this.setContentView(rl);
 	}
 
@@ -493,6 +501,15 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 		return true;
 	}
 
+	private void onSearchOnMap(){
+		from = this.mOsmv.getMapCenter();
+		if (!this.isOnline()){
+			Toast.makeText(this, this.getResources().getText(
+				R.string.error_no_inet_conn), Toast.LENGTH_LONG).show();
+		} else
+			getLocations(" ");
+	}
+	
 	@Override
 	public boolean onMenuItemSelected(int featureId, MenuItem item) {
 		switch (item.getItemId()) {
@@ -500,14 +517,9 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 //			onSearchRequested();
 //			Toast.makeText(this, "onSearchRequested", Toast.LENGTH_LONG).show();
 //			return true;
+		case R.id.map_titlebar_btn_search_map:
 		case MENU_TRANS_TOGGLE:
-			from = this.mOsmv.getMapCenter();
-			if (!this.isOnline()){
-				Toast.makeText(this, this.getResources().getText(
-					R.string.error_no_inet_conn), Toast.LENGTH_LONG).show();
-				return true;
-			}
-			getLocations(" ");
+			onSearchOnMap();
 			return true;
 		case MENU_DIRECTIONS_TOGGLE:
 			if (!this.isOnline()){

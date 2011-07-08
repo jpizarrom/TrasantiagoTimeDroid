@@ -79,6 +79,11 @@ public class HomeActivity extends Activity {
 				onSearchRequested();
 //				Toast.makeText(HomeActivity.this, "onSearchRequested", Toast.LENGTH_LONG).show();
 				return true;
+			case R.id.menu_about:
+				Intent intent1 = new Intent(this, org.openintents.about.About.class);
+//				startActivityForResult(intent1, R.id.menu_about);
+				startActivity(intent1);
+				return true;
 		}
 //		return super.onOptionsItemSelected(item);
 		return false;

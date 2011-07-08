@@ -39,6 +39,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
@@ -50,9 +51,12 @@ public class TransChooseLocationServiceActivity extends ListActivity {
 	protected String to;
 	protected int selectedPoi = -1;
 	protected ProgressDialog progress;
+	
+	private ListView mListView;
 	@Override
 	public void onCreate(android.os.Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setContentView(R.layout.stops_list);
 		Intent intent = getIntent();
 //		Toast.makeText(TransChooseLocationServiceActivity.this, "onCreate", Toast.LENGTH_LONG).show();
 		setTitle(this.getResources().getText(R.string.choose_location_busstop));
@@ -79,6 +83,7 @@ public class TransChooseLocationServiceActivity extends ListActivity {
 		
 		from = GeoPoint.fromDoubleString(getIntent().getStringExtra("fromLocation"), ',');
 		final LocationAdapter la = new LocationAdapter(from);
+//		mListView = (ListView)this.findViewById(android.R.id.list);
 		setListAdapter(la);
 		getListView().setTextFilterEnabled(true);
 		getListView().setOnItemClickListener(new OnItemClickListener() {
