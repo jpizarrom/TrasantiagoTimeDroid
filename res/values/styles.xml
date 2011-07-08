@@ -76,7 +76,7 @@
     <style name="TitleBarSeparator">
         <item name="android:layout_width">2px</item>
         <item name="android:layout_height">fill_parent</item>
-<!--         <item name="android:background">@drawable/seperator_gradient</item> -->
+        <item name="android:background">@drawable/seperator_gradient</item>
     </style>
 
     <style name="TitleBarLogo">
