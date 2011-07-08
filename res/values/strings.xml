@@ -318,5 +318,6 @@
 <string name="btn_search_map">Map</string>
 <string name="search_hint">Bus Stop Code</string>
 <string name="stops_on_map">Bus stops in map</string>
+<string name="search">Search</string>
 </resources>
 

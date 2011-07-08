@@ -23,12 +23,13 @@ public class HomeActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home);
 		
-		// TitleBar Search
-//		findViewById(R.id.home_titlebar_btn_search).setOnClickListener(new View.OnClickListener() {
-//		    public void onClick(View v) {
-//		    	onSearchRequested();
-//		    }
-//		});
+//		 TitleBar Search
+//		android.R.color.tertiary_text_light
+		findViewById(R.id.home_titlebar_btn_search).setOnClickListener(new View.OnClickListener() {
+		    public void onClick(View v) {
+		    	onSearchRequested();
+		    }
+		});
 		
 		// Nearby
 		findViewById(R.id.home_btn_nearby).setOnClickListener(new View.OnClickListener() {
