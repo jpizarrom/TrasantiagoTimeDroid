@@ -79,6 +79,7 @@ import android.provider.BaseColumns; //import android.speech.tts.TextToSpeech;
 //import android.speech.tts.TextToSpeech.OnInitListener;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -86,6 +87,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
 import android.view.WindowManager.BadTokenException;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import android.widget.ZoomControls;
@@ -217,10 +219,17 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		BugReportExceptionHandler.register(this);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
+//		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		final RelativeLayout rl = new RelativeLayout(this);
 		layout = rl;
+		
+//		LayoutInflater inflater = (LayoutInflater)this.getSystemService
+//	      (Context.LAYOUT_INFLATER_SERVICE);
+//		View titlebar = inflater.inflate(R.layout.titlebar, rl);
+//		if (titlebar != null)
+//			rl.addView(titlebar);
+		
 		prefs = PreferenceManager.getDefaultSharedPreferences(this);
 		prefs.registerOnSharedPreferenceChangeListener(this);
 		instance = this;
@@ -456,12 +465,12 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 
 	@Override
 	public boolean onCreateOptionsMenu(final Menu pMenu) {
-		pMenu.add(0, R.id.search, 0, android.R.string.search_go)
+		pMenu.add(0, R.id.search, 0, "Nearby Stops")
     	.setIcon(android.R.drawable.ic_search_category_default)
     	.setAlphabeticShortcut(SearchManager.MENU_KEY);
 		
-		MenuItem transMenuItem = pMenu.add(0, MENU_TRANS_TOGGLE,
-				Menu.NONE, R.string.get_trans);
+//		MenuItem transMenuItem = pMenu.add(0, MENU_TRANS_TOGGLE,
+//				Menu.NONE, R.string.get_trans);
 		
 //		MenuItem directionsMenuItem = pMenu.add(0, MENU_DIRECTIONS_TOGGLE,
 //				Menu.NONE, R.string.get_directions);
@@ -488,9 +497,9 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 	public boolean onMenuItemSelected(int featureId, MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.search:
-			onSearchRequested();
-			Toast.makeText(this, "onSearchRequested", Toast.LENGTH_LONG).show();
-			return true;
+//			onSearchRequested();
+//			Toast.makeText(this, "onSearchRequested", Toast.LENGTH_LONG).show();
+//			return true;
 		case MENU_TRANS_TOGGLE:
 			from = this.mOsmv.getMapCenter();
 			if (!this.isOnline()){

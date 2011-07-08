@@ -1,21 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent" android:layout_height="fill_parent"
-	android:orientation="vertical">
-<!-- 	<LinearLayout android:id="@+id/linearLayout1" style="@style/TitleBar"></LinearLayout> -->
-	<LinearLayout android:id="@+id/linearLayout2"
-		android:layout_width="fill_parent" android:orientation="vertical"
-		android:layout_height="wrap_content">
-		<LinearLayout android:layout_width="fill_parent"
-			android:id="@+id/linearLayout3" android:layout_height="wrap_content"
-			android:orientation="horizontal">
-			<Button android:layout_height="wrap_content"
-				android:layout_gravity="center_vertical" android:text="Button1"
-				android:layout_width="fill_parent" android:layout_weight="1"
-				android:id="@+id/home_btn_nearby"></Button>
-			<Button android:layout_height="wrap_content"
-				android:layout_width="fill_parent" android:text="Button2"
-				android:layout_weight="1" android:id="@+id/home_btn_search"></Button>
+	android:orientation="vertical" android:id="@+id/home">
+
+<!-- 	<LinearLayout android:id="@+id/home_titlebar" style="@style/TitleBar"> -->
+<!-- 		<ImageView style="@style/TitleBarLogo" -->
+<!-- 			android:contentDescription="@string/app_name" android:src="@drawable/title_logo" /> -->
+
+<!-- 		<View style="@style/TitleBarSpring" /> -->
+
+<!-- 		<ImageView style="@style/TitleBarSeparator" /> -->
+
+<!-- 		<ImageButton android:id="@+id/home_titlebar_btn_search" -->
+<!-- 		style="@style/TitleBarAction" -->
+<!-- 		android:src="@android:drawable/ic_search_category_default" /> -->
+<!-- 	</LinearLayout> -->
+
+	<LinearLayout android:orientation="vertical"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:layout_weight="1" android:padding="6dip">
+
+		<LinearLayout android:orientation="horizontal"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_weight="1">
+			<Button 
+				android:layout_weight="1" android:id="@+id/home_btn_nearby" style="@style/HomeButton"
+				android:text="Map"
+				android:drawableTop="@android:drawable/ic_menu_compass"
+				>
+				</Button>
+			<Button 
+				android:id="@+id/home_btn_search" style="@style/HomeButton"
+				android:text="Search Stops"
+				android:drawableTop="@android:drawable/ic_search_category_default"
+				>
+				</Button>
 		</LinearLayout>
 	</LinearLayout>
 </LinearLayout>

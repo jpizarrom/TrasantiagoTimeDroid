@@ -18,6 +18,7 @@ package cl.droid.transantiago;
 
 import org.andnav.osm.util.GeoPoint;
 import org.opensatnav.android.OpenSatNavConstants;
+import org.opensatnav.android.SatNavActivity;
 import org.opensatnav.android.services.GeoCoder;
 import org.opensatnav.android.util.FormatHelper;
 
@@ -119,7 +120,11 @@ public class TransChooseLocationServiceActivity extends ListActivity {
 //		finish();
 	}
 	private void launchServices(final String paradero) {
-		Toast.makeText(TransChooseLocationServiceActivity.this, "launchServices", Toast.LENGTH_LONG).show();
+//		Toast.makeText(TransChooseLocationServiceActivity.this, "launchServices", Toast.LENGTH_LONG).show();
+		progress = ProgressDialog.show(
+				TransChooseLocationServiceActivity.this, TransChooseLocationServiceActivity.this.getResources().getText(
+						R.string.please_wait), TransChooseLocationServiceActivity.this.getResources().getText(
+						R.string.searching), true, true);
 		final Handler handler = new Handler() {
 			@Override
 			public void handleMessage(Message msg) {
@@ -130,7 +135,7 @@ public class TransChooseLocationServiceActivity extends ListActivity {
 					} catch (IllegalArgumentException e) {
 						// if orientation change, thread continue but the dialog cannot be dismissed without exception
 					}
-				if (locations != null) {
+				if (locations != null && locations.containsKey("names") && locations.getStringArray("names").length > 0) {
 					Intent intent = new Intent(TransChooseLocationServiceActivity.this,
 //							org.opensatnav.android.ServiceActivity.class);
 							cl.droid.transantiago.TransChooseServiceActivity.class);
@@ -143,7 +148,21 @@ public class TransChooseLocationServiceActivity extends ListActivity {
 					intent.putExtra("url", urlstring);
 					startActivityForResult(intent,0);
 					
-				}
+				} else if (locations != null && locations.containsKey("names") && locations.getStringArray("names").length == 0)
+					Toast
+					.makeText(
+							TransChooseLocationServiceActivity.this,
+							String.format(
+									TransChooseLocationServiceActivity.this
+										.getResources()
+										.getText(
+//											R.string.could_not_find_poi
+											R.string.place_not_found).toString(),
+									"paradero")
+//									+ " " + stringValue
+									,
+							Toast.LENGTH_LONG).show();
+				TransChooseLocationServiceActivity.this.finish();
 			}
 		};
 		new Thread(new Runnable() {
