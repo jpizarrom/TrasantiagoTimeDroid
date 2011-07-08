@@ -76,7 +76,7 @@
   <string name="no_information_available">Nema dostupnih informacija.</string>
   <string name="error_email_message">Poštovani,\n\nNaišao sam na sljedeću grešku prilikom korištenja OpenSatNav, možete li pogledati?\n\n</string>
   <string name="error_email_chooser_title">Pošalji e-mail preko:</string>
-  <string name="bug_report_mail_address">bug-reports@opensatnav.org</string>
+  <string name="bug_report_mail_address">bug-reports@droid.cl</string>
   <string name="bug_report_ask_user">Dogodila se neočekivana greška. Želite li nam poslati izvještaj o grešci?</string>
   <string name="bug_report_not_sent_ask_user">Dogodila se neočekivana greška dok ste zadnji put koristili OpenSatNav. Želite li nam poslati izvještaj o grešci?</string>
   <string name="bug_report_ask_user_title">Neočekivana greška</string>

@@ -88,7 +88,7 @@
   <string name="no_information_available">Ei tietoa saatavilla</string>
   <string name="error_email_message">Dear All,\n\nI encountered the following issue while using OpenSatNav, could you please have a look at it?\n\n</string>
   <string name="error_email_chooser_title">Lähetä sähköposti:</string>
-  <string name="bug_report_mail_address">bug-reports@opensatnav.org</string>
+  <string name="bug_report_mail_address">bug-reports@droid.cl</string>
   <string name="bug_report_ask_user">Tapahtui odottamaton virhe. Haluatko lähettää meille virheraportin?</string>
   <string name="bug_report_not_sent_ask_user">Odottamaton virhe tapahtui kun viimeksi käytit OpenSatNav:a. Haluatko lähettää meille virheraportin?</string>
   <string name="bug_report_ask_user_title">Odottamaton virhe</string>

@@ -394,8 +394,8 @@ msgid "Send Mail via:"
 msgstr "Enviar email via:"
 
 msgctxt "bug_report_mail_address"
-msgid "bug-reports@opensatnav.org"
-msgstr "bug-reports@opensatnav.org"
+msgid "bug-reports@droid.cl"
+msgstr "bug-reports@droid.cl"
 
 msgctxt "bug_report_ask_user"
 msgid "An unexpected error just happened. Would you like to send us a bug report?"

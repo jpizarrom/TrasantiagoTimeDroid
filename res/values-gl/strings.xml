@@ -76,7 +76,7 @@
   <string name="no_information_available">Non hai información dispoñible.</string>
   <string name="error_email_message">Boas a todos,\n\nAtopei o seguinte problema mentres usaba OpenSatNav, ¿poderiades botarlle unha ollada?\n\n</string>
   <string name="error_email_chooser_title">Enviar correo por:</string>
-  <string name="bug_report_mail_address">bug-reports@opensatnav.org</string>
+  <string name="bug_report_mail_address">bug-reports@droid.cl</string>
   <string name="bug_report_ask_user">Ocorreu un erro inesperado. ¿Gustariache enviarnos un informe de erros?</string>
   <string name="bug_report_not_sent_ask_user">Ocorreu un erro inesperado a última vez que usaches OpenSatNav. ¿Gústariache enviarnos un informe de erros?</string>
   <string name="bug_report_ask_user_title">Erro inesperado</string>

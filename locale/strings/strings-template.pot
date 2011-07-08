@@ -381,7 +381,7 @@ msgid "Send Mail via:"
 msgstr ""
 
 msgctxt "bug_report_mail_address"
-msgid "bug-reports@opensatnav.org"
+msgid "bug-reports@droid.cl"
 msgstr ""
 
 msgctxt "bug_report_ask_user"

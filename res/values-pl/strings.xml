@@ -85,7 +85,7 @@
   <string name="l_others">Specjalne podziękowania</string>
   <string name="no_information_available">Brak informacji.</string>
   <string name="error_email_chooser_title">Wyślij e-mail przez:</string>
-  <string name="bug_report_mail_address">bug-reports@opensatnav.org</string>
+  <string name="bug_report_mail_address">bug-reports@droid.cl</string>
   <string name="bug_report_ask_user">Wystąpił niespodziewany błąd. Czy chcesz nam zgłosić błąd?</string>
   <string name="bug_report_not_sent_ask_user">Ostatnio podczas korzystania z OpenSatNav wystąpił niespodziewany błąd. Czy chcesz nam zgłosić błąd?</string>
   <string name="bug_report_ask_user_title">Niespodziewany błąd</string>

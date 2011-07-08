@@ -82,7 +82,7 @@
   <string name="l_others">Speciální poděkování</string>
   <string name="no_information_available">Nejsou dostupné žádné informace</string>
   <string name="error_email_chooser_title">Poslat email pomocí:</string>
-  <string name="bug_report_mail_address">bug-reports@opensatnav.org</string>
+  <string name="bug_report_mail_address">bug-reports@droid.cl</string>
   <string name="bug_report_ask_user">Stala se neočekávaná chyba. Chcete nám poslat zprávu o chybě?</string>
   <string name="bug_report_not_sent_ask_user">Při posledním použití OpenSatNav se stala neočekávaná chyba. Chcete nám poslat zprávu o chybě?</string>
   <string name="bug_report_ask_user_title">Neočekávaná chyba</string>

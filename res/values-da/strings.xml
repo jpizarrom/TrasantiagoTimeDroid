@@ -87,7 +87,7 @@
   <string name="no_information_available">Ingen information tilgægelig.</string>
   <string name="error_email_message">Kære alle,\n\nJeg er stødt på følgende problem under brug af OpenSatNav. Kan I venligst hjælpe mig med at se på det?\n\n</string>
   <string name="error_email_chooser_title">Send e-mail via:</string>
-  <string name="bug_report_mail_address">bug-reports@opensatnav.org</string>
+  <string name="bug_report_mail_address">bug-reports@droid.cl</string>
   <string name="bug_report_ask_user">Der skete en uventet fejl. Vil du sende en fejlrapport?</string>
   <string name="bug_report_not_sent_ask_user">Der skete en uventet fejl sidste gang du brugte OpenSatNav. Vil du sende os en fejlrapport?</string>
   <string name="bug_report_ask_user_title">Uventet fejl</string>

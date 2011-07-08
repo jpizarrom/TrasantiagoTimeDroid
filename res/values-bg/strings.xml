@@ -88,7 +88,7 @@
   <string name="no_information_available">Информацията недостъпна.</string>
   <string name="error_email_message">Dear All,\n\nI encountered the following issue while using OpenSatNav, could you please have a look at it?\n\n</string>
   <string name="error_email_chooser_title">Изпратете емайл през:</string>
-  <string name="bug_report_mail_address">bug-reports@opensatnav.org</string>
+  <string name="bug_report_mail_address">bug-reports@droid.cl</string>
   <string name="bug_report_ask_user">Грешка в програмата. Искате ли да изпратите доклад до програмиста?</string>
   <string name="bug_report_not_sent_ask_user">Неочаквана грешка при последното пускане на OpenSatNav. Искате ли да изпратите доклад до програмиста?</string>
   <string name="bug_report_ask_user_title">Неочаквана грешка</string>

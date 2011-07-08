@@ -88,7 +88,7 @@
   <string name="no_information_available">Keine Informationen verfügbar.</string>
   <string name="error_email_message">Liebe Entwickler,\n\nbei der Benutzung von OpenSatNav ist ein Fehler aufgetreten - könnt Ihr euch das bitte anschauen?\n\n</string>
   <string name="error_email_chooser_title">Email senden über:</string>
-  <string name="bug_report_mail_address">bug-reports@opensatnav.org</string>
+  <string name="bug_report_mail_address">bug-reports@droid.cl</string>
   <string name="bug_report_ask_user">Leider ist ein unerwarteter Fehler aufgetreten. Möchten Sie einen Fehlerbericht senden?</string>
   <string name="bug_report_not_sent_ask_user">Leider ist bei der letzten Benutzung von OpenSatNav ein Fehler aufgetreten. Möchten Sie einen Fehlerbericht senden?</string>
   <string name="bug_report_ask_user_title">Unerwarteter Fehler</string>

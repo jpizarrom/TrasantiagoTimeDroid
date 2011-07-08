@@ -88,7 +88,7 @@
   <string name="no_information_available">Hiç bilgi yok</string>
   <string name="error_email_message">Dear All, (Sevgili Arkadaslar,)\n\nI encountered the following issue while using OpenSatNav, could you please have a look at it? (OpenSatNav\'i kullanirken su hatayla karsilastim. Rica etsem bir goz atabilir misiniz? )\n\n</string>
   <string name="error_email_chooser_title">Şununla e-posta yolla:</string>
-  <string name="bug_report_mail_address">bug-reports@opensatnav.org</string>
+  <string name="bug_report_mail_address">bug-reports@droid.cl</string>
   <string name="bug_report_ask_user">Beklenmeyen bir hata oluştu. Bize bir hata raporu göndermek ister misiniz?</string>
   <string name="bug_report_not_sent_ask_user">OpenSatNav\'i son kullandığınızda beklenmeyen bir hata oluştu. Bize bir hata raporu göndermek ister misiniz?</string>
   <string name="bug_report_ask_user_title">Beklenmedik Hata</string>
