@@ -23,6 +23,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 
@@ -47,7 +50,10 @@ import cl.droid.transantiago.services.TransantiagoGeoCoder;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -56,6 +62,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -65,12 +72,22 @@ public class TransChooseServiceActivity extends ListActivity {
 	protected ProgressDialog progress;
 	Bundle b;
 	String[] locationInfo;
-	String[] locationNames;
+	String[] locationNames;;
+	ImageView ads;
 	
 	@Override
 	public void onCreate(android.os.Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.services_list);
+		
+		ads = (ImageView)this.findViewById(R.id.ads);
+//		Uri uri= Uri.parse("http://198.41.36.27:8080/admMarketing/img/11273693.jpg");
+//		ads.setImageURI(uri);
+		BitmapFactory.Options bmOptions;
+	    bmOptions = new BitmapFactory.Options();
+	    bmOptions.inSampleSize = 1;
+	    Bitmap bm = LoadImage("http://198.41.36.27:8080/admMarketing/img/11273693.jpg", bmOptions);
+//	    ads.setImageBitmap(bm);
 		
 		GeoPoint from = GeoPoint.fromDoubleString(getIntent().getStringExtra("fromLocation"), ',');
 		final String paradero = getIntent().getStringExtra("paradero");
@@ -84,7 +101,7 @@ public class TransChooseServiceActivity extends ListActivity {
 		
 		final LocationAdapter la = new LocationAdapter(from);
 		setListAdapter(la);
-		getListView().setTextFilterEnabled(true);
+//		getListView().setTextFilterEnabled(true);
 		getListView().setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
@@ -361,5 +378,56 @@ public class TransChooseServiceActivity extends ListActivity {
 
 	}
 
+	   private Bitmap LoadImage(final String URL, final BitmapFactory.Options options)
+	   {
+		   final Handler handler = new Handler() {
+//			   @Override
+//			   public void handleMessage(Message msg) {
+//				   ads.setImageBitmap(bm);
+//			   }
+		   };
+		   new Thread(new Runnable() {
+			   public void run() {
+				   InputStream in = null;       
+				   try {
+					   in = OpenHttpConnection(URL);
+					   final Bitmap bitmap = BitmapFactory.decodeStream(in, null, options);
+					   in.close();
+					   
+					   handler.post(new Runnable() {
+                           public void run() {
+                               if (ads != null &&  bitmap!= null) {
+                            	   ads.setImageBitmap(bitmap);
+                               }
+                           }
+                       });
+				   } catch (IOException e1) {
+					   handler.sendEmptyMessage(0);
+				   }
+				   //return bitmap;   
+			   }
+			   }
+		   ).start();
+		   return null;
+	   }
+	   private InputStream OpenHttpConnection(String strURL) throws IOException{
+		   InputStream inputStream = null;
+		   URL url = new URL(strURL);
+		   URLConnection conn = url.openConnection();
+
+		   try{
+		    HttpURLConnection httpConn = (HttpURLConnection)conn;
+		    httpConn.setRequestMethod("GET");
+		    httpConn.connect();
+
+		    if (httpConn.getResponseCode() == HttpURLConnection.HTTP_OK) {
+		     inputStream = httpConn.getInputStream();
+		    }
+		   }
+		   catch (Exception ex)
+		   {
+		   }
+		   return inputStream;
+		  }
 	
 }

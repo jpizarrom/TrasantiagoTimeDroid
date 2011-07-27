@@ -17,9 +17,9 @@
 <!-- 		style="@style/TitleBarAction" -->
 <!-- 		android:src="@android:drawable/ic_search_category_default" /> -->
 	</LinearLayout>
-  
-  <ListView android:id="@android:id/list"
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"/>
+  <ListView android:id="@android:id/list" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="2"></ListView>
+  <LinearLayout android:layout_weight="0" android:layout_width="fill_parent" android:id="@+id/linearLayout1" android:layout_height="100dip">
+      <ImageView android:src="@drawable/icon" android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/ads"></ImageView>
+  </LinearLayout>
   
 </LinearLayout>
