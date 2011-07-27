@@ -5,7 +5,10 @@ import org.opensatnav.android.SatNavActivity;
 import cl.droid.transantiago.R;
 import android.app.Activity;
 import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -76,7 +79,7 @@ public class HomeActivity extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 			case R.id.search:
-				onSearchRequested();
+					onSearchRequested();
 //				Toast.makeText(HomeActivity.this, "onSearchRequested", Toast.LENGTH_LONG).show();
 				return true;
 			case R.id.menu_about:
@@ -90,8 +93,20 @@ public class HomeActivity extends Activity {
 	}
 	
 //    @Override
-//    public boolean onSearchRequested() {
-//        return super.onSearchRequested();
-//    }
-
+    public boolean onSearchRequested() {
+    	if (!this.isOnline()){
+			Toast.makeText(this, this.getResources().getText(
+				R.string.error_no_inet_conn), Toast.LENGTH_LONG).show();
+			return false;
+		}else
+			return super.onSearchRequested();
+    }
+	public boolean isOnline() {
+	    ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+	    NetworkInfo netInfo = cm.getActiveNetworkInfo();
+	    if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+	        return true;
+	    }
+	    return false;
+	}
 }

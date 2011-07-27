@@ -102,7 +102,9 @@ public class TransChooseServiceActivity extends ListActivity {
 		final LocationAdapter la = new LocationAdapter(from);
 		setListAdapter(la);
 //		getListView().setTextFilterEnabled(true);
-		getListView().setOnItemClickListener(new OnItemClickListener() {
+//		getListView().setOnItemClickListener();
+				
+		OnItemClickListener showTimesFromWeb = new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long position) {
@@ -300,7 +302,7 @@ public class TransChooseServiceActivity extends ListActivity {
 
 			}
 
-		});
+		};
 	}
 
 	protected class LocationAdapter extends BaseAdapter {
