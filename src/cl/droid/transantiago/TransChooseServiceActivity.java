@@ -344,7 +344,7 @@ public class TransChooseServiceActivity extends ListActivity {
 			
 			mainView.addView(placeView, 0);
 			mainView.addView(infoView, 1);
-			mainView.addView(distanceView, 2);
+//			mainView.addView(distanceView, 2);
 			
 			return mainView;
 		}

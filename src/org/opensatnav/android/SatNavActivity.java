@@ -127,7 +127,7 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 
 	private OpenStreetMapView mOsmv;
 	private ZoomControls zoomControls;
-	private static TripStatisticsController mTripStatsController;
+//	private static TripStatisticsController mTripStatsController;
 
 	/**
 	 * The currently selected track (or null if nothing selected).
@@ -194,17 +194,17 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 	private SendToOSMDialog sendToOSMDialog;
 
 	private OpenStreetMapViewDirectedLocationOverlay mMyLocationOverlay;
-	protected RouteOverlay routeOverlay;
-	protected OpenStreetMapViewTraceOverlay traceOverlay;
-	protected OpenStreetMapViewTouchResponderOverlay mTouchResponder;
+//	protected RouteOverlay routeOverlay;
+//	protected OpenStreetMapViewTraceOverlay traceOverlay;
+//	protected OpenStreetMapViewTouchResponderOverlay mTouchResponder;
 	protected boolean autoFollowing = true;
 	protected boolean viewingTripStatistics = false;
 
 	protected Location currentLocation;
 
 	protected SharedPreferences prefs;
-	protected Route route = new Route();
-	protected RouteInstructionsService routeInstructionsService;
+//	protected Route route = new Route();
+//	protected RouteInstructionsService routeInstructionsService;
 
 	private RelativeLayout layout;
 
@@ -245,8 +245,8 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 		instance = this;
 		Object[] retainables = (Object[]) getLastNonConfigurationInstance();
 
-		Intent svc = new Intent(this, RouteInstructionsService.class);
-		startService(svc);
+//		Intent svc = new Intent(this, RouteInstructionsService.class);
+//		startService(svc);
 
 		this.mOsmv = new OpenStreetMapView(this, OpenStreetMapRendererInfo
 				.getFromPrefName(prefs.getString("map_style", "mapnik"))) {
@@ -289,21 +289,21 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 
 		/* Other overlays */
 
-		traceOverlay = new OpenStreetMapViewTraceOverlay(this);// Buggy, so
+//		traceOverlay = new OpenStreetMapViewTraceOverlay(this);// Buggy, so
 																// taken out for
 																// the moment
 		// this.mOsmv.getOverlays().add(traceOverlay);
 
-		if (retainables != null)
-			routeOverlay = (RouteOverlay) retainables[2];
-		else
-			routeOverlay = new RouteOverlay(this);
-		this.mOsmv.getOverlays().add(routeOverlay);
-		routeInstructionsService = new RouteInstructionsService(this,
-				routeOverlay, mOsmv);
-		mTouchResponder = new OpenStreetMapViewTouchResponderOverlay(
-				routeInstructionsService);
-		this.mOsmv.getOverlays().add(mTouchResponder);
+//		if (retainables != null)
+//			routeOverlay = (RouteOverlay) retainables[2];
+//		else
+//			routeOverlay = new RouteOverlay(this);
+//		this.mOsmv.getOverlays().add(routeOverlay);
+//		routeInstructionsService = new RouteInstructionsService(this,
+//				routeOverlay, mOsmv);
+//		mTouchResponder = new OpenStreetMapViewTouchResponderOverlay(
+//				routeInstructionsService);
+//		this.mOsmv.getOverlays().add(mTouchResponder);
 
 		/* ZoomControls */
 		{
@@ -405,7 +405,7 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 		}
 
 //		// Trip statistics
-		mTripStatsController = new TripStatisticsController(SatNavActivity.this);
+		//mTripStatsController = new TripStatisticsController(SatNavActivity.this);
 //		mTripStatsController.addViewTo(rl);
 //		// for after configuration change like keyboard open/close
 //		TripStatistics.TripStatisticsStrings data = null;
@@ -451,8 +451,8 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 			this.mMyLocationOverlay.setAccuracy(newLocation.getAccuracy());
 
 			// TODO: Change this!
-			this.mTouchResponder.setLocation(TypeConverter
-					.locationToGeoPoint(newLocation));
+//			this.mTouchResponder.setLocation(TypeConverter
+//					.locationToGeoPoint(newLocation));
 
 			if (autoFollowing) {
 				this.mOsmv.setMapCenter(TypeConverter
@@ -529,41 +529,41 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 					R.string.error_no_inet_conn), Toast.LENGTH_LONG).show();
 				return true;
 			}
-			if (routeInstructionsService.currentlyRouting == false) {
-				if (currentLocation != null) {
-					Intent intent = new Intent(this,
-							org.opensatnav.android.GetDirectionsActivity.class);
-					intent.setData(Uri.parse(currentLocation.getLatitude()
-							+ "," + currentLocation.getLongitude()));
-
-					intent.putExtra("bbox", 
-							this.mOsmv.getDrawnBoundingBoxE6().getLonWestE6() / 1E6
-							+ "," + this.mOsmv.getDrawnBoundingBoxE6().getLatSouthE6() / 1E6
-							+ "," + this.mOsmv.getDrawnBoundingBoxE6().getLonEastE6() / 1E6
-							+ "," + this.mOsmv.getDrawnBoundingBoxE6().getLatNorthE6() / 1E6
-							);
-					intent.putExtra("lat", 
-							this.mOsmv.getMapCenter().getLatitude()
-							);
-					intent.putExtra("lon", 
-							this.mOsmv.getMapCenter().getLongitude()
-							);
-					
-					startActivityForResult(intent, DIRECTIONS_OPTIONS);
-
-					SatNavActivity.this.mOsmv.postInvalidate();
-				} else
-					Toast.makeText(this, R.string.start_directions_failed,
-							Toast.LENGTH_LONG).show();
-			} else {
-				// we are already routing, clear the route
-
-				Intent svc = new Intent(this, RouteInstructionsService.class);
-				stopService(svc);
-				routeInstructionsService.stopRouting();
-				SatNavActivity.this.mOsmv.postInvalidate();
-
-			}
+//			if (routeInstructionsService.currentlyRouting == false) {
+//				if (currentLocation != null) {
+//					Intent intent = new Intent(this,
+//							org.opensatnav.android.GetDirectionsActivity.class);
+//					intent.setData(Uri.parse(currentLocation.getLatitude()
+//							+ "," + currentLocation.getLongitude()));
+//
+//					intent.putExtra("bbox", 
+//							this.mOsmv.getDrawnBoundingBoxE6().getLonWestE6() / 1E6
+//							+ "," + this.mOsmv.getDrawnBoundingBoxE6().getLatSouthE6() / 1E6
+//							+ "," + this.mOsmv.getDrawnBoundingBoxE6().getLonEastE6() / 1E6
+//							+ "," + this.mOsmv.getDrawnBoundingBoxE6().getLatNorthE6() / 1E6
+//							);
+//					intent.putExtra("lat", 
+//							this.mOsmv.getMapCenter().getLatitude()
+//							);
+//					intent.putExtra("lon", 
+//							this.mOsmv.getMapCenter().getLongitude()
+//							);
+//					
+//					startActivityForResult(intent, DIRECTIONS_OPTIONS);
+//
+//					SatNavActivity.this.mOsmv.postInvalidate();
+//				} else
+//					Toast.makeText(this, R.string.start_directions_failed,
+//							Toast.LENGTH_LONG).show();
+//			} else {
+//				// we are already routing, clear the route
+//
+//				Intent svc = new Intent(this, RouteInstructionsService.class);
+//				stopService(svc);
+//				routeInstructionsService.stopRouting();
+//				SatNavActivity.this.mOsmv.postInvalidate();
+//
+//			}
 
 			return true;
 		case MENU_CONTRIBUTE:
@@ -754,15 +754,15 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 	}
 	/** Display trip statistics */
 	public void showTripStatistics(boolean show) {
-		if (show) {
-			mTripStatsController.setVisible(true);
-			mOsmv.setVisibility(View.GONE);
-			zoomControls.setVisibility(View.GONE);
-		} else {
-			mTripStatsController.setVisible(false);
-			mOsmv.setVisibility(View.VISIBLE);
-			zoomControls.setVisibility(View.VISIBLE);
-		}
+//		if (show) {
+//			mTripStatsController.setVisible(true);
+//			mOsmv.setVisibility(View.GONE);
+//			zoomControls.setVisibility(View.GONE);
+//		} else {
+//			mTripStatsController.setVisible(false);
+//			mOsmv.setVisibility(View.VISIBLE);
+//			zoomControls.setVisibility(View.VISIBLE);
+//		}
 	}
 
 	@Override
@@ -800,11 +800,11 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 			if (resultCode == RESULT_OK) {
 				GeoPoint to = GeoPoint.fromIntString(data.getStringExtra("to"));
 				String vehicle = data.getStringExtra("vehicle");
-				if (currentLocation != null) {
-					routeInstructionsService.refreshRoute(TypeConverter
-							.locationToGeoPoint(currentLocation), to, vehicle);
-
-				}
+//				if (currentLocation != null) {
+//					routeInstructionsService.refreshRoute(TypeConverter
+//							.locationToGeoPoint(currentLocation), to, vehicle);
+//
+//				}
 
 			}
 			/*
@@ -882,8 +882,8 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 
 		// Make sure any updates that might have happened are propagated to the
 		// Map overlay:
-		observer.onChange(false);
-		waypointObserver.onChange(false);
+//		observer.onChange(false);
+//		waypointObserver.onChange(false);
 		instance = this;
 
 		// mTripStatsController = new
@@ -891,8 +891,8 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 		// mTripStatsController.addViewTo(rl);
 		// for after configuration change like keyboard open/close
 
-		mTripStatsController.start();
-		registerContentObservers();
+//		mTripStatsController.start();
+//		registerContentObservers();
 		// registerLocationAndSensorListeners();
 		super.onResume();
 
@@ -915,9 +915,9 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 	}
 
 	private void stopTripStatsController() {
-		if (mTripStatsController != null) {
-			mTripStatsController.stop();
-		}
+//		if (mTripStatsController != null) {
+//			mTripStatsController.stop();
+//		}
 	}
 
 	protected void onPause() {
@@ -938,21 +938,21 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 		Log.v(OpenSatNavConstants.LOG_TAG, "onDestroy()");
 		this.mOsmv.closeDB();
 		// routeInstructionsService.stopTTS()
-		Intent svc = new Intent(this, RouteInstructionsService.class);
-		stopService(svc);
+//		Intent svc = new Intent(this, RouteInstructionsService.class);
+//		stopService(svc);
 		instance = null;
 
 		super.onDestroy();
 	}
 
-	@Override
-	public Object onRetainNonConfigurationInstance() {
-		Object[] retainables = new Object[3];
-		retainables[0] = mTripStatsController.getAllStatistics();
-		retainables[1] = mMyLocationOverlay;
-		retainables[2] = routeOverlay;
-		return retainables;
-	}
+//	@Override
+//	public Object onRetainNonConfigurationInstance() {
+//		Object[] retainables = new Object[3];
+//		retainables[0] = mTripStatsController.getAllStatistics();
+//		retainables[1] = mMyLocationOverlay;
+//		retainables[2] = routeOverlay;
+//		return retainables;
+//	}
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -1050,36 +1050,36 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 	private final Runnable restoreWaypointsRunnable = new Runnable() {
 		@Override
 		public void run() {
-			if (selectedTrack == null) {
-				return;
-			}
-
-			Cursor cursor = null;
-			traceOverlay.clearWaypoints();
-			try {
-				// We will silently drop extra waypoints to make the app
-				// responsive.
-				// TODO: Try to only load the waypoints in the view port.
-				cursor = providerUtils.getWaypointsCursor(
-						selectedTrack.getId(), 0,
-						OSMConstants.MAX_DISPLAYED_WAYPOINTS_POINTS);
-				if (cursor != null) {
-					if (cursor.moveToFirst()) {
-						do {
-							Waypoint wpt = providerUtils.createWaypoint(cursor);
-							traceOverlay.addWaypoint(wpt);
-						} while (cursor.moveToNext());
-					}
-				}
-			} catch (RuntimeException e) {
-				Log.w(OpenSatNavConstants.LOG_TAG,
-						"Caught an unexpected exception.", e);
-			} finally {
-				if (cursor != null) {
-					cursor.close();
-				}
-			}
-			mOsmv.postInvalidate();
+//			if (selectedTrack == null) {
+//				return;
+//			}
+//
+//			Cursor cursor = null;
+//			traceOverlay.clearWaypoints();
+//			try {
+//				// We will silently drop extra waypoints to make the app
+//				// responsive.
+//				// TODO: Try to only load the waypoints in the view port.
+//				cursor = providerUtils.getWaypointsCursor(
+//						selectedTrack.getId(), 0,
+//						OSMConstants.MAX_DISPLAYED_WAYPOINTS_POINTS);
+//				if (cursor != null) {
+//					if (cursor.moveToFirst()) {
+//						do {
+//							Waypoint wpt = providerUtils.createWaypoint(cursor);
+//							traceOverlay.addWaypoint(wpt);
+//						} while (cursor.moveToNext());
+//					}
+//				}
+//			} catch (RuntimeException e) {
+//				Log.w(OpenSatNavConstants.LOG_TAG,
+//						"Caught an unexpected exception.", e);
+//			} finally {
+//				if (cursor != null) {
+//					cursor.close();
+//				}
+//			}
+//			mOsmv.postInvalidate();
 		}
 	};
 
@@ -1091,16 +1091,16 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 	private final Runnable setSelectedTrackRunnable = new Runnable() {
 		@Override
 		public void run() {
-			uiHandler.post(new Runnable() {
-				public void run() {
-					showTrack(selectedTrack);
-					traceOverlay.setSelectedTrack(selectedTrack);
-					mOsmv.invalidate();
-					/*
-					 * busyPane.setVisibility(View.GONE); updateOptionsButton();
-					 */
-				}
-			});
+//			uiHandler.post(new Runnable() {
+//				public void run() {
+//					showTrack(selectedTrack);
+//					traceOverlay.setSelectedTrack(selectedTrack);
+//					mOsmv.invalidate();
+//					/*
+//					 * busyPane.setVisibility(View.GONE); updateOptionsButton();
+//					 */
+//				}
+//			});
 		}
 	};
 
@@ -1128,29 +1128,29 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 	 *            a given track id
 	 */
 	public void setSelectedTrack(final long trackId) {
-		Log.v(OpenSatNavConstants.LOG_TAG, "SatNavActivity.setSelectedTrack("
-				+ trackId + ")");
-		if (selectedTrack != null && selectedTrack.getId() == trackId) {
-			// Selected track did not change, nothing to do.
-			traceOverlay.setSelectedTrack(selectedTrack);
-			mOsmv.invalidate();
-
-			return;
-		}
-		if (trackId < 0) {
-			// Remove selection.
-			selectedTrack = null;
-			traceOverlay.setSelectedTrack(null);
-			traceOverlay.clearWaypoints();
-
-			mOsmv.invalidate();
-			return;
-		}
-
-		selectedTrack = providerUtils.getTrack(trackId);
-		updateTrackHandler.post(restoreTrackRunnable);
-		updateTrackHandler.post(restoreWaypointsRunnable);
-		updateTrackHandler.post(setSelectedTrackRunnable);
+//		Log.v(OpenSatNavConstants.LOG_TAG, "SatNavActivity.setSelectedTrack("
+//				+ trackId + ")");
+//		if (selectedTrack != null && selectedTrack.getId() == trackId) {
+//			// Selected track did not change, nothing to do.
+//			traceOverlay.setSelectedTrack(selectedTrack);
+//			mOsmv.invalidate();
+//
+//			return;
+//		}
+//		if (trackId < 0) {
+//			// Remove selection.
+//			selectedTrack = null;
+//			traceOverlay.setSelectedTrack(null);
+//			traceOverlay.clearWaypoints();
+//
+//			mOsmv.invalidate();
+//			return;
+//		}
+//
+//		selectedTrack = providerUtils.getTrack(trackId);
+//		updateTrackHandler.post(restoreTrackRunnable);
+//		updateTrackHandler.post(restoreWaypointsRunnable);
+//		updateTrackHandler.post(setSelectedTrackRunnable);
 	}
 
 	/**
