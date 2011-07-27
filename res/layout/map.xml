@@ -17,5 +17,7 @@
 		style="@style/TitleBarAction"
 		android:src="@android:drawable/ic_search_category_default" />
 	</LinearLayout>
+	<RelativeLayout android:id="@+id/map_rl" android:layout_height="wrap_content" android:layout_width="fill_parent">
+	</RelativeLayout>
 
 </LinearLayout>

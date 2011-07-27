@@ -206,7 +206,7 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 	protected Route route = new Route();
 	protected RouteInstructionsService routeInstructionsService;
 
-	private LinearLayout layout;
+	private RelativeLayout layout;
 
 	// ===========================================================
 	// Constructors
@@ -221,17 +221,19 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 		BugReportExceptionHandler.register(this);
 //		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
-//		final LinearLayout rl = new LinearLayout(this);
+		setContentView(R.layout.map);
+//		final RelativeLayout rl = new RelativeLayout(this);
 		
-		LayoutInflater inflater = (LayoutInflater)this.getSystemService
-	      (Context.LAYOUT_INFLATER_SERVICE);
-		final LinearLayout rl = (LinearLayout) inflater.inflate(R.layout.map, null);
+//		LayoutInflater inflater = (LayoutInflater)this.getSystemService
+//	      (Context.LAYOUT_INFLATER_SERVICE);
+//		LinearLayout ll = (LinearLayout) inflater.inflate(R.layout.map, null);
+		final RelativeLayout rl = (RelativeLayout) findViewById(R.id.map_rl);
 //		if (titlebar != null)
 //			rl.addView(titlebar);
 		layout = rl;
 		
 //		 TitleBar Search
-		rl.findViewById(R.id.map_titlebar_btn_search_map).setOnClickListener(new View.OnClickListener() {
+		findViewById(R.id.map_titlebar_btn_search_map).setOnClickListener(new View.OnClickListener() {
 		    public void onClick(View v) {
 		    	onSearchOnMap();
 //		    	onSearchRequested();
@@ -415,7 +417,7 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 //			mTripStatsController.setAllStats(data);
 //
 //		}
-		this.setContentView(rl);
+//		this.setContentView(rl);
 	}
 
 	// ===========================================================
