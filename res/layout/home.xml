@@ -15,7 +15,7 @@
 
 		<ImageButton android:id="@+id/home_titlebar_btn_search"
 		style="@style/TitleBarAction"
-		android:src="@android:drawable/ic_search_category_default" />
+		android:src="@drawable/parada_android_32" />
 	</LinearLayout>
 
 	<LinearLayout android:orientation="vertical"
@@ -28,14 +28,14 @@
 			<Button 
 				android:layout_weight="1" android:id="@+id/home_btn_nearby" style="@style/HomeButton"
 				android:text="@string/btn_search_map"
-				android:drawableTop="@android:drawable/ic_menu_compass"
-				>
+				android:drawableTop="@drawable/mapa_android"
+				android:layout_gravity="center_vertical">
 				</Button>
 			<Button 
 				android:id="@+id/home_btn_search" style="@style/HomeButton"
 				android:text="@string/btn_search_stops"
-				android:drawableTop="@android:drawable/ic_search_category_default"
-				>
+				android:drawableTop="@drawable/parada_android"
+				android:layout_gravity="center_vertical">
 				</Button>
 		</LinearLayout>
 	</LinearLayout>

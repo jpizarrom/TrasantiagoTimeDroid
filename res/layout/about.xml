@@ -22,7 +22,17 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"><!-- Having the tabs at the bottom would be better but it seems this is not easily possible. pjv 2008-12-31-->
-    
+
+<ScrollView android:id="@+id/sv_how_to" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:padding="5dip" android:fadingEdge="vertical">
+		<TextView android:id="@+id/et_how_to"
+			android:textAppearance="?android:attr/textAppearanceSmall"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:autoLink="web|email|map"
+			android:paddingBottom="20dip">
+		</TextView>
+</ScrollView>
+ 
 <ScrollView android:id="@+id/sv_info" android:layout_width="fill_parent"
 	android:layout_height="fill_parent" android:padding="5dip"
 	android:scrollbars="vertical" android:fadingEdge="vertical"
