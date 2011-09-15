@@ -1,0 +1,20 @@
+Condiciones del Servicio de Información Móvil de Transantiago
+
+El Servicio de Información Móvil de Transantiago (SIMT) permite a los Usuarios del Sistema de Transporte Público de Santiago obtener información sobre los tiempos estimados de llegada de los buses a su parada.
+
+El Servicio de Información Móvil de Transantiago (SIMT) es una creación de la empresa chilena Wireless-IQ S.A. (contact@wireless-iq.com)
+
+El SIMT es una aplicación que entrega a sus usuarios información de los tiempos aproximados de llegada de los buses Transantiago que operan en la Provincia de Santiago, así como en las comunas de Puente Alto y San Bernardo.
+
+La información que entrega el sistema al usuario indica los rangos de tiempo aproximado para que el recorrido que se busca llegue al paradero consultado. La información que se entrega corresponde a los dos buses más cercanos del recorrido consultado, en minutos y distancia, que hayan sido ingresados al sistema de información.
+
+El sistema entrega información de todos los recorridos del sistema.
+
+La información de codificación de paraderos que utiliza el SIMT, se ha creado a partir de la Información proporcionada por el Ministerio de Transportes y Telecomunicaciones de Chile.
+Los pronósticos de tiempos de llegada son aproximaciones basadas en el comportamiento pasado de los buses del mismo servicio para el recorrido y horario consultado. En atención a lo anterior, se pueden ver afectados los pronósticos de tiempos que el SIMT entregue.
+
+Como consecuencia de lo anterior, no se responderá por los eventuales daños o perjuicios, directos ó indirectos, materiales o morales que pudieren afectar a los usuarios del servicio como resultado de las decisiones adoptadas en base a la información difundida por este medio.
+
+La correcta entrega de la información para este servicio es de responsabilidad única y exclusiva de Wireless-IQ S.A.
+
+La responsabilidad de ingresar los buses al sistema de gestión de flota para un correcto funcionamiento del servicio de información móvil de Transantiago es de cada operador de servicios.

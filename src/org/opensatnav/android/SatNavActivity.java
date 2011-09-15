@@ -642,7 +642,7 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 				// thread has completed (code below)
 				@Override
 				public void handleMessage(Message msg) {
-					if (progress.isShowing())
+					if (progress!=null && progress.isShowing())
 						try {
 							progress.dismiss();
 							backgroundThreadComplete = true;
@@ -711,6 +711,14 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 										"paradero")
 //										+ " " + stringValue
 										,
+								Toast.LENGTH_LONG).show();
+					if (locations == null)
+						Toast.makeText(SatNavActivity.this,
+								SatNavActivity.this
+								.getResources()
+								.getText(
+//									R.string.could_not_find_poi
+									R.string.error_no_server_conn).toString(),
 								Toast.LENGTH_LONG).show();
 				}
 			};

@@ -58,6 +58,8 @@
 			android:value="@string/about_email" />
 		<meta-data android:name="org.openintents.metadata.LICENSE"
 			android:resource="@raw/license" />
+		<meta-data android:name="org.openintents.metadata.EULA"
+			android:resource="@raw/eula" />
 
 <!-- 		<receiver android:name="org.opensatnav.android.WidgetProvider"> -->
 <!-- 			<intent-filter> -->

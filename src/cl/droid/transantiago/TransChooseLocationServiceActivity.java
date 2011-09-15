@@ -130,6 +130,7 @@ public class TransChooseLocationServiceActivity extends ListActivity {
 				TransChooseLocationServiceActivity.this, TransChooseLocationServiceActivity.this.getResources().getText(
 						R.string.please_wait), TransChooseLocationServiceActivity.this.getResources().getText(
 						R.string.searching), true, true);
+		
 		final Handler handler = new Handler() {
 			@Override
 			public void handleMessage(Message msg) {
@@ -167,6 +168,15 @@ public class TransChooseLocationServiceActivity extends ListActivity {
 //									+ " " + stringValue
 									,
 							Toast.LENGTH_LONG).show();
+				if (locations == null)
+					Toast.makeText(TransChooseLocationServiceActivity.this,
+							TransChooseLocationServiceActivity.this
+							.getResources()
+							.getText(
+//								R.string.could_not_find_poi
+								R.string.error_no_server_conn).toString(),
+							Toast.LENGTH_LONG).show();
+				
 				TransChooseLocationServiceActivity.this.finish();
 			}
 		};

@@ -212,6 +212,7 @@ public final class AboutMetaData {
 	 */
 	public static final String METADATA_LICENSE = "org.openintents.metadata.LICENSE";
 
+	public static final String METADATA_EULA = "org.openintents.metadata.EULA";
 	/**
 	 * Application metadata: The primary email address for this application.
 	 * 

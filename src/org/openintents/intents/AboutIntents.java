@@ -301,6 +301,7 @@ public final class AboutIntents {
 	 * </p>
 	 */
 	public static final String EXTRA_LICENSE_RESOURCE = "org.openintents.extra.LICENSE_RESOURCE";
+	public static final String EXTRA_EULA_RESOURCE = "org.openintents.extra.EULA_RESOURCE";
 
 	/**
 	 * Optional intent extra:

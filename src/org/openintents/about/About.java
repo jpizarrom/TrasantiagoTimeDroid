@@ -92,6 +92,7 @@ public class About extends TabActivity {
 	protected TextView mArtistsText;
 	protected TextView mNoInformationText;
 	protected TextView mLicenseText;
+	protected TextView mEULAText;
 
 	protected TabHost tabHost;
 
@@ -366,6 +367,64 @@ public class About extends TabActivity {
     	}
     	*/
 	}
+	protected void displayEULA(final String packagename, final Intent intent) {
+		
+		int resourceid = AboutUtils.getResourceIdExtraOrMetadata(this, packagename, intent, 
+				AboutIntents.EXTRA_EULA_RESOURCE, AboutMetaData.METADATA_EULA);
+		
+		if (resourceid == 0) {
+			mEULAText.setText(R.string.no_information_available);
+			return;
+		}
+		
+		
+		// Retrieve license from resource:
+		String license = "";
+		try {
+    		Resources resources = getPackageManager()
+				.getResourcesForApplication(packagename);
+    		
+    		//Read in the license file as a big String
+    		BufferedReader in
+    		   = new BufferedReader(new InputStreamReader(
+    				resources.openRawResource(resourceid)));
+    		String line;
+    		StringBuilder sb = new StringBuilder();
+    		try {
+    			while ((line = in.readLine()) != null) { // Read line per line.
+    				if (TextUtils.isEmpty(line)) {
+    					// Empty line: Leave line break
+    					sb.append("\n\n");
+    				} else {
+    					sb.append(line);
+    					sb.append(" ");
+    				}
+    			}
+    			license = sb.toString();
+    		} catch (IOException e) {
+    			//Should not happen.
+    			e.printStackTrace();
+    		}
+    		
+    	} catch (NameNotFoundException e) {
+            Log.e(TAG, "Package name not found", e);
+    	}
+    	
+    	mEULAText.setText(license);
+		/*
+		mLicenseText.setHorizontallyScrolling(!intent.getBooleanExtra(
+				AboutIntents.EXTRA_WRAP_LICENSE, false));
+		mLicenseText.setHorizontalScrollBarEnabled(!intent.getBooleanExtra(
+				AboutIntents.EXTRA_WRAP_LICENSE, false));
+		if (intent.hasExtra(AboutIntents.EXTRA_LICENSE)
+				&& intent.getStringExtra(AboutIntents.EXTRA_LICENSE) != null) {
+			mLicenseText.setText(intent
+					.getStringExtra(AboutIntents.EXTRA_LICENSE));
+		} else {
+    		mLicenseText.setText("");
+    	}
+    	*/
+	}
 
 	/**
 	 * Fetch and display logo information.
@@ -591,9 +650,9 @@ public class About extends TabActivity {
         LayoutInflater.from(this).inflate(R.layout.about,
 				tabHost.getTabContentView(), true);
         
-        tabHost.addTab(tabHost.newTabSpec(getString(R.string.l_how_to_use))
-                .setIndicator(getString(R.string.l_how_to_use))
-                .setContent(R.id.sv_how_to));
+        tabHost.addTab(tabHost.newTabSpec(getString(R.string.l_eula))
+                .setIndicator(getString(R.string.l_eula))
+                .setContent(R.id.sv_eula));
         tabHost.addTab(tabHost.newTabSpec(getString(R.string.l_info))
                 .setIndicator(getString(R.string.l_info))
                 .setContent(R.id.sv_info));
@@ -664,6 +723,8 @@ public class About extends TabActivity {
 		mNoInformationText = (TextView) findViewById(R.id.tv_no_information);
 
 		mLicenseText = (TextView) findViewById(R.id.et_license);
+		
+		mEULAText = (TextView) findViewById(R.id.et_eula);
     }
 
 
@@ -731,6 +792,7 @@ public class About extends TabActivity {
     	displayTranslators(packagename, intent);
     	displayArtists(packagename, intent);
     	displayLicense(packagename, intent);
+    	displayEULA(packagename, intent);
     	displayEmail(packagename, intent);
     	
     	checkCreditsAvailable();

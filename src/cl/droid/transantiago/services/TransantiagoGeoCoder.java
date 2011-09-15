@@ -23,7 +23,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 public class TransantiagoGeoCoder implements GeoCoder {
-	private String urlbase = "http://50.56.31.19:5000";
+	private String urlbase = "http://50.56.31.19:50000";
 //	private String urlbase = "http://192.168.16.101:5000";
 	private ArrayList<String> locationNames;
 	private ArrayList locationLatitudes;
@@ -116,7 +116,8 @@ public class TransantiagoGeoCoder implements GeoCoder {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			Toast.makeText(context, "R.string.no_inet_conn", Toast.LENGTH_LONG).show();
+//			Toast.makeText(context, "R.string.no_inet_conn", Toast.LENGTH_LONG).show();
+			return null;
 		} finally {
 			StreamUtils.closeStream(in);
 			StreamUtils.closeStream(out);
@@ -224,7 +225,8 @@ public class TransantiagoGeoCoder implements GeoCoder {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			Toast.makeText(context, "R.string.no_inet_conn", Toast.LENGTH_LONG).show();
+//			Toast.makeText(context, "R.string.no_inet_conn", Toast.LENGTH_LONG).show();
+			return null;
 		} finally {
 			StreamUtils.closeStream(in);
 			StreamUtils.closeStream(out);
