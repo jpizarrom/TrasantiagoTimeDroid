@@ -49,6 +49,14 @@ public class HomeActivity extends Activity {
 		    	onSearchRequested();
 		    }
 		});
+		
+		// About
+		findViewById(R.id.home_btn_about).setOnClickListener(new View.OnClickListener() {
+		    public void onClick(View v) {
+				Intent intent = new Intent(HomeActivity.this, org.openintents.about.About.class);
+				startActivity(intent);
+		    }
+		});
 	}
 
 	@Override
