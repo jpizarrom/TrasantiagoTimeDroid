@@ -23,7 +23,8 @@ import android.util.Log;
 import android.widget.Toast;
 
 public class TransantiagoGeoCoder implements GeoCoder {
-	private String urlbase = "http://50.56.31.19:5000";
+	private String urlbase = "http://dev.planotur.cl/transdroid/v1";
+//	private String urlbase = "http://50.56.31.19:5001";
 //	private String urlbase = "http://192.168.16.101:5000";
 	private ArrayList<String> locationNames;
 	private ArrayList locationLatitudes;
@@ -97,12 +98,12 @@ public class TransantiagoGeoCoder implements GeoCoder {
 //			Ut.dd(coordinates.toString(4));
 //			//Toast.makeText(this, res.getString("titleNoFormatting"), Toast.LENGTH_LONG).show();
 //			final String address = res.getString("addressLines").replace("\"", "").replace("[", "").replace("]", "").replace(",", ", ").replace("  ", " ");
-			final String address = properties.getString("paradero");
+			final String address = properties.getString("code");
 			locationNames.add(address);
 			// convert to integer (E6 format)
 			locationLatitudes.add((int) (coordinates.getDouble(1) * 1000000));
 			locationLongitudes.add((int) (coordinates.getDouble(0) * 1000000));
-			locationInfo.add(properties.getString("paradero_name"));
+			locationInfo.add(properties.getString("name"));
 //			Toast.makeText(context, address, Toast.LENGTH_LONG).show();
 //			//Toast.makeText(this, ((JSONObject) json.get("addressLines")).toString(), Toast.LENGTH_LONG).show();
 //
