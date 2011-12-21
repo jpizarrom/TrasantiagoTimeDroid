@@ -49,20 +49,12 @@ public class Utils {
     // ===========================================================
     public static final int IO_BUFFER_SIZE = 8 * 1024;
 
-    public static File SD_PATH = Environment.getExternalStorageDirectory();
-    public static final String DB_FILENAME = "contactos-cl.db";
-    public static final String DB_LINK = "http://droid.cl/app/number.db";
-    public static File DB_FILE = new File(SD_PATH, DB_FILENAME);
-    public static final String DB_PATH = DB_FILE.getPath();
-
     public static final String PREF_CHANGELOG = "changelog";
     public static final String PREF_APP_VERSION = "app.version";
     
     public static final String PREF_EULA = "eula";
     public static final String PREF_EULA_ACCEPTED = "eula.accepted";
     
-    public static final String APP_NAMESPACE = "http://schemas.android.com/apk/res/org.droidcl.chileancompany";
-
 	/**
 	 * 
 	 * @param totalSeconds

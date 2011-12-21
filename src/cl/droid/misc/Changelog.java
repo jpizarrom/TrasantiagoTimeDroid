@@ -23,6 +23,7 @@ import cl.droid.utils.Utils;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 
 public class Changelog {
@@ -31,27 +32,40 @@ public class Changelog {
 	public static boolean show(Activity activity) {
 		SharedPreferences preferences = activity.getSharedPreferences(Utils.PREF_CHANGELOG, Activity.MODE_PRIVATE);
 		int prefVersion = preferences.getInt(Utils.PREF_APP_VERSION, 0);
+		boolean eula = preferences.getBoolean(Utils.PREF_EULA_ACCEPTED, false);
 
 		int currentVersion = Utils.getAppVersion(activity, TAG);
 		if (currentVersion==-1)
 		    return false;
 
 //		if (prefVersion != 0) {
-			if (currentVersion > prefVersion || prefVersion == 0) {
-				showChangelogDialog(activity);
-//			}
-		}
+			if (currentVersion > prefVersion || prefVersion == 0 || eula == false) {
+				preferences.edit().putBoolean(Utils.PREF_EULA_ACCEPTED, false).commit();
+				showChangelogDialog(activity, preferences);
+			}
+//		}
 		preferences.edit().putInt(Utils.PREF_APP_VERSION, currentVersion).commit();
 		return true;
 	}
 
-	protected static void showChangelogDialog(Activity activity) {
+	protected static void showChangelogDialog(final Activity activity, final SharedPreferences preferences) {
 	    final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
 	    builder.setIcon(android.R.drawable.ic_dialog_info);
 	    builder.setTitle(R.string.changelog_title);
 	    builder.setCancelable(true);
-	    builder.setPositiveButton(R.string.ok, null);
+	    builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) {
+				accept(preferences);
+			}
+		});
+	    	    
 	    builder.setView(Utils.dialogWebView(activity, activity.getString(R.string.changelog_filename)));
 	    builder.create().show();
+	}
+	private static void accept(SharedPreferences preferences) {
+		preferences.edit().putBoolean(Utils.PREF_EULA_ACCEPTED, true).commit();
+	}
+	private static void refuse(Activity activity) {
+		activity.finish();
 	}
 }
