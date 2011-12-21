@@ -133,4 +133,5 @@
   <string name="stops_on_map">Paradas en el mapa</string>
   <string name="Search">Buscar</string>
   <string name="l_how_to_use">Como usar</string>
+  <string name="changelog_filename">changelog-es.html</string>
 </resources>

@@ -650,12 +650,12 @@ public class About extends TabActivity {
         LayoutInflater.from(this).inflate(R.layout.about,
 				tabHost.getTabContentView(), true);
         
-        tabHost.addTab(tabHost.newTabSpec(getString(R.string.l_eula))
-                .setIndicator(getString(R.string.l_eula))
-                .setContent(R.id.sv_eula));
         tabHost.addTab(tabHost.newTabSpec(getString(R.string.l_info))
                 .setIndicator(getString(R.string.l_info))
                 .setContent(R.id.sv_info));
+        tabHost.addTab(tabHost.newTabSpec(getString(R.string.l_eula))
+                .setIndicator(getString(R.string.l_eula))
+                .setContent(R.id.sv_eula));
         tabHost.addTab(tabHost.newTabSpec(getString(R.string.l_credits))
                 .setIndicator(getString(R.string.l_credits))
                 .setContent(R.id.sv_credits));

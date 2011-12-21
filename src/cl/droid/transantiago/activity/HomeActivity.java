@@ -2,6 +2,7 @@ package cl.droid.transantiago.activity;
 
 import org.opensatnav.android.SatNavActivity;
 
+import cl.droid.misc.Changelog;
 import cl.droid.transantiago.R;
 import android.app.Activity;
 import android.app.SearchManager;
@@ -25,6 +26,8 @@ public class HomeActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home);
+		
+		boolean appUnchanged = Changelog.show(this);
 		
 //		 TitleBar Search
 //		android.R.color.tertiary_text_light

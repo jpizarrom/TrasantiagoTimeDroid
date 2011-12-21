@@ -320,5 +320,8 @@
 <string name="stops_on_map">Bus stops in map</string>
 <string name="search">Search</string>
 <string name="l_eula">EULA</string>
+<string name="changelog_title">Changelog</string>
+<string name="ok">OK</string>
+<string name="changelog_filename">changelog.html</string>
 </resources>
 
