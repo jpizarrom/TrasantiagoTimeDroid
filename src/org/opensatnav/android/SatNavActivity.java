@@ -21,6 +21,8 @@ import java.io.IOException;
 import org.opensatnav.android.services.GeoCoder;
 import org.opensatnav.android.util.BugReportExceptionHandler;
 import org.osmdroid.constants.OpenStreetMapConstants;
+import org.osmdroid.tileprovider.tilesource.ITileSource;
+import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
 
@@ -119,12 +121,12 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 	 * provider. This is used to determine which locations are new compared to
 	 * the last time the mapOverlay was updated.
 	 */
-	private long lastSeenLocationId = -1;
+//	private long lastSeenLocationId = -1;
 
 	/**
 	 * Does the user want to share the current track.
 	 */
-	private boolean shareRequested = false;
+//	private boolean shareRequested = false;
 
 	/**
 	 * From the shared preferences:
@@ -155,11 +157,11 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 	/** Handler for updateTrackThread */
 	private Handler updateTrackHandler;
 
-	private ContentObserver observer;
-	private ContentObserver waypointObserver;
+//	private ContentObserver observer;
+//	private ContentObserver waypointObserver;
 
 	/** Handler for callbacks to the UI thread */
-	private final Handler uiHandler = new Handler();
+//	private final Handler uiHandler = new Handler();
 
 	/**
 	 * Singleton instance
@@ -178,6 +180,7 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 	protected Location currentLocation;
 
 	protected SharedPreferences prefs;
+	private SharedPreferences mPrefs;
 //	protected Route route = new Route();
 //	protected RouteInstructionsService routeInstructionsService;
 
@@ -218,7 +221,7 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 		prefs = PreferenceManager.getDefaultSharedPreferences(this);
 		prefs.registerOnSharedPreferenceChangeListener(this);
 		instance = this;
-		Object[] retainables = (Object[]) getLastNonConfigurationInstance();
+//		Object[] retainables = (Object[]) getLastNonConfigurationInstance();
 
 //		Intent svc = new Intent(this, RouteInstructionsService.class);
 //		startService(svc);
@@ -242,7 +245,7 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 				android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
 				android.view.ViewGroup.LayoutParams.WRAP_CONTENT));
 //		providerUtils = IProviderUtils.Factory.get(this);
-		this.mOsmv.getController().setZoom(19);
+		this.mOsmv.getController().setZoom(1);
 
 //		if (mLocationHandler.getFirstLocation() != null)
 //			this.mOsmv.setMapCenter(TypeConverter
@@ -311,56 +314,56 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 		}
 
 		// Recorded Trace Overlay
-		updateTrackThread.start();
-		updateTrackHandler = new Handler(updateTrackThread.getLooper());
+//		updateTrackThread.start();
+//		updateTrackHandler = new Handler(updateTrackThread.getLooper());
 
 		// Register observer for the track point provider:
 		Log.d(OpenSatNavConstants.LOG_TAG, "INIT OF THE CONTENTOBSERVER");
-		Handler contentHandler = new Handler();
-		observer = new ContentObserver(contentHandler) {
-			@Override
-			public void onChange(boolean selfChange) {
-				Log.d(OpenSatNavConstants.LOG_TAG,
-						"MyTracksMap: ContentObserver.onChange");
-				// Check for any new locations and append them to the currently
-				// recording track:
-
-				if (isRecording) {
-					// No track is being recorded. We should not be here.
-					Log.v(OpenSatNavConstants.LOG_TAG,
-							"Not recording, so didn't update map view");
-					return;
-				}
-//				if (selectedTrack == null
-//						|| selectedTrack.getId() != recordingTrackId) {
+//		Handler contentHandler = new Handler();
+//		observer = new ContentObserver(contentHandler) {
+//			@Override
+//			public void onChange(boolean selfChange) {
+//				Log.d(OpenSatNavConstants.LOG_TAG,
+//						"MyTracksMap: ContentObserver.onChange");
+//				// Check for any new locations and append them to the currently
+//				// recording track:
+//
+//				if (isRecording) {
+//					// No track is being recorded. We should not be here.
 //					Log.v(OpenSatNavConstants.LOG_TAG,
-//							"No track or something else selected?");
-//					// No track, or one other than the recording track is
-//					// selected,
-//					// don't bother.
+//							"Not recording, so didn't update map view");
 //					return;
 //				}
-				Log
-						.v(OpenSatNavConstants.LOG_TAG,
-								"About to update trace view");
-				// Update can potentially be lengthy, put it in its own thread:
-				updateTrackHandler.post(updateTrackRunnable);
-				super.onChange(selfChange);
-			}
-		};
+////				if (selectedTrack == null
+////						|| selectedTrack.getId() != recordingTrackId) {
+////					Log.v(OpenSatNavConstants.LOG_TAG,
+////							"No track or something else selected?");
+////					// No track, or one other than the recording track is
+////					// selected,
+////					// don't bother.
+////					return;
+////				}
+//				Log
+//						.v(OpenSatNavConstants.LOG_TAG,
+//								"About to update trace view");
+//				// Update can potentially be lengthy, put it in its own thread:
+//				updateTrackHandler.post(updateTrackRunnable);
+//				super.onChange(selfChange);
+//			}
+//		};
 
-		waypointObserver = new ContentObserver(contentHandler) {
-			@Override
-			public void onChange(boolean selfChange) {
-				Log.d(OpenSatNavConstants.LOG_TAG,
-						"MyTracksMap: ContentObserver.onChange waypoints");
-//				if (selectedTrack == null) {
-//					return;
-//				}
-//				updateTrackHandler.post(restoreWaypointsRunnable);
-				super.onChange(selfChange);
-			}
-		};
+//		waypointObserver = new ContentObserver(contentHandler) {
+//			@Override
+//			public void onChange(boolean selfChange) {
+//				Log.d(OpenSatNavConstants.LOG_TAG,
+//						"MyTracksMap: ContentObserver.onChange waypoints");
+////				if (selectedTrack == null) {
+////					return;
+////				}
+////				updateTrackHandler.post(restoreWaypointsRunnable);
+//				super.onChange(selfChange);
+//			}
+//		};
 
 		// Read shared preferences and register change listener:
 		SharedPreferences preferences = getSharedPreferences(
@@ -879,6 +882,14 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 //		registerContentObservers();
 		// registerLocationAndSensorListeners();
 		super.onResume();
+		
+		final String tileSourceName = prefs.getString(PREFS_TILE_SOURCE,
+				TileSourceFactory.DEFAULT_TILE_SOURCE.name());
+		try {
+			final ITileSource tileSource = TileSourceFactory.getTileSource(tileSourceName);
+			mOsmv.setTileSource(tileSource);
+		} catch (final IllegalArgumentException ignore) {
+		}
 
 		// While this activity was paused the user may have deleted the selected
 		// track. In that case the map overlay needs to be cleared:
@@ -1177,7 +1188,7 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 	 * Unregisters the content observer for the map overlay.
 	 */
 	private void unregisterContentObservers() {
-		getContentResolver().unregisterContentObserver(observer);
+//		getContentResolver().unregisterContentObserver(observer);
 		// getContentResolver().unregisterContentObserver(waypointObserver);
 	}
 
