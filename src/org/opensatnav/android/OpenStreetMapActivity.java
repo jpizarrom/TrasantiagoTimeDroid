@@ -17,9 +17,9 @@ This file is part of OpenSatNav.
 // Created by plusminus on 00:14:42 - 02.10.2008
 package org.opensatnav.android;
 
-import org.andnav.osm.util.constants.OpenStreetMapConstants;
 import org.opensatnav.android.services.LocationHandler;
 import org.opensatnav.android.services.NoLocationProvidersException;
+import org.osmdroid.constants.OpenStreetMapConstants;
 
 import cl.droid.transantiago.R;
 

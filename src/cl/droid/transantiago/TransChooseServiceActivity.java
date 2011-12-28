@@ -29,8 +29,6 @@ import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 
-import org.andnav.osm.util.GeoPoint;
-import org.andnav.osm.views.util.StreamUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
@@ -44,6 +42,7 @@ import org.apache.http.protocol.HTTP;
 import org.opensatnav.android.OpenSatNavConstants;
 import org.opensatnav.android.services.GeoCoder;
 import org.opensatnav.android.util.FormatHelper;
+import org.osmdroid.util.GeoPoint;
 
 import cl.droid.transantiago.services.TransantiagoGeoCoder;
 

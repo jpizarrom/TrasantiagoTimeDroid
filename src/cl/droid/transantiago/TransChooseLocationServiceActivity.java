@@ -16,11 +16,11 @@ This file is part of OpenSatNav.
  */
 package cl.droid.transantiago;
 
-import org.andnav.osm.util.GeoPoint;
 import org.opensatnav.android.OpenSatNavConstants;
 import org.opensatnav.android.SatNavActivity;
 import org.opensatnav.android.services.GeoCoder;
 import org.opensatnav.android.util.FormatHelper;
+import org.osmdroid.util.GeoPoint;
 
 import cl.droid.transantiago.activity.HomeActivity;
 import cl.droid.transantiago.services.TransantiagoGeoCoder;

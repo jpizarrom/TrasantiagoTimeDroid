@@ -1,6 +1,6 @@
 package org.opensatnav.android.services;
 
-import org.andnav.osm.util.GeoPoint;
+import org.osmdroid.util.GeoPoint;
 
 import android.content.Context;
 import android.os.Bundle;

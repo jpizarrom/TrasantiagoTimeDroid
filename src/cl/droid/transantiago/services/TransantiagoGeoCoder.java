@@ -9,13 +9,12 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 
-import org.andnav.osm.util.GeoPoint;
-import org.andnav.osm.views.controller.OpenStreetMapViewController;
-import org.andnav.osm.views.util.StreamUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.opensatnav.android.OpenSatNavConstants;
 import org.opensatnav.android.services.GeoCoder;
+import org.osmdroid.tileprovider.util.StreamUtils;
+import org.osmdroid.util.GeoPoint;
 
 import android.content.Context;
 import android.os.Bundle;
