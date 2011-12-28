@@ -30,6 +30,7 @@ import cl.droid.transantiago.R;
 import cl.droid.transantiago.activity.HomeActivity;
 import cl.droid.transantiago.services.TransantiagoGeoCoder;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.app.SearchManager;
@@ -69,7 +70,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 import android.widget.ZoomControls;
 
-public class SatNavActivity extends OpenStreetMapActivity implements
+public class SatNavActivity extends Activity implements
 		OpenStreetMapConstants, OnSharedPreferenceChangeListener {
 	// ===========================================================
 	// Constants
@@ -151,11 +152,11 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 	 * A thread with a looper. Post to updateTrackHandler to execute Runnables
 	 * on this thread.
 	 */
-	private final HandlerThread updateTrackThread = new HandlerThread(
-			"updateTrackThread");
+//	private final HandlerThread updateTrackThread = new HandlerThread(
+//			"updateTrackThread");
 
 	/** Handler for updateTrackThread */
-	private Handler updateTrackHandler;
+//	private Handler updateTrackHandler;
 
 //	private ContentObserver observer;
 //	private ContentObserver waypointObserver;
@@ -180,7 +181,7 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 	protected Location currentLocation;
 
 	protected SharedPreferences prefs;
-	private SharedPreferences mPrefs;
+//	private SharedPreferences mPrefs;
 //	protected Route route = new Route();
 //	protected RouteInstructionsService routeInstructionsService;
 
@@ -196,7 +197,7 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		BugReportExceptionHandler.register(this);
+//		BugReportExceptionHandler.register(this);
 //		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.map);
@@ -242,10 +243,11 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 //			}
 //		};
 		rl.addView(this.mOsmv, new RelativeLayout.LayoutParams(
-				android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
-				android.view.ViewGroup.LayoutParams.WRAP_CONTENT));
+				android.view.ViewGroup.LayoutParams.FILL_PARENT,
+				android.view.ViewGroup.LayoutParams.FILL_PARENT));
 //		providerUtils = IProviderUtils.Factory.get(this);
-		this.mOsmv.getController().setZoom(1);
+		mOsmv.getController().setZoom(prefs.getInt(PREFS_ZOOM_LEVEL, 1));
+		mOsmv.scrollTo(prefs.getInt(PREFS_SCROLL_X, 0), prefs.getInt(PREFS_SCROLL_Y, 0));
 
 //		if (mLocationHandler.getFirstLocation() != null)
 //			this.mOsmv.setMapCenter(TypeConverter
@@ -420,37 +422,37 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 		}
 	}
 
-	@Override
-	public void onLocationChanged(Location newLocation) {
-		if (newLocation != null) {
-//			this.mMyLocationOverlay.setLocation(TypeConverter
-//					.locationToGeoPoint(newLocation));
-//			this.mMyLocationOverlay.setBearing(newLocation.getBearing());
-//			this.mMyLocationOverlay.setSpeed(newLocation.getSpeed());
-//			this.mMyLocationOverlay.setAccuracy(newLocation.getAccuracy());
-
-			// TODO: Change this!
-//			this.mTouchResponder.setLocation(TypeConverter
-//					.locationToGeoPoint(newLocation));
-
-//			if (autoFollowing) {
-//				this.mOsmv.setMapCenter(TypeConverter
-//						.locationToGeoPoint(newLocation));
-//			} else {
-//				// tell the viewer that it should redraw
-//				SatNavActivity.this.mOsmv.postInvalidate();
+//	@Override
+//	public void onLocationChanged(Location newLocation) {
+//		if (newLocation != null) {
+////			this.mMyLocationOverlay.setLocation(TypeConverter
+////					.locationToGeoPoint(newLocation));
+////			this.mMyLocationOverlay.setBearing(newLocation.getBearing());
+////			this.mMyLocationOverlay.setSpeed(newLocation.getSpeed());
+////			this.mMyLocationOverlay.setAccuracy(newLocation.getAccuracy());
+//
+//			// TODO: Change this!
+////			this.mTouchResponder.setLocation(TypeConverter
+////					.locationToGeoPoint(newLocation));
+//
+////			if (autoFollowing) {
+////				this.mOsmv.setMapCenter(TypeConverter
+////						.locationToGeoPoint(newLocation));
+////			} else {
+////				// tell the viewer that it should redraw
+////				SatNavActivity.this.mOsmv.postInvalidate();
+////			}
+//
+//			if (OpenSatNavConstants.DEBUGMODE)
+//				Log.v(OpenSatNavConstants.LOG_TAG, "Accuracy: "
+//						+ newLocation.getAccuracy());
+//			currentLocation = newLocation;
+//
+//			if (isRecording) {
+//				updateTrackHandler.post(updateTrackRunnable);
 //			}
-
-			if (OpenSatNavConstants.DEBUGMODE)
-				Log.v(OpenSatNavConstants.LOG_TAG, "Accuracy: "
-						+ newLocation.getAccuracy());
-			currentLocation = newLocation;
-
-			if (isRecording) {
-				updateTrackHandler.post(updateTrackRunnable);
-			}
-		}
-	}
+//		}
+//	}
 
 	@Override
 	public boolean onCreateOptionsMenu(final Menu pMenu) {
@@ -905,7 +907,7 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 	protected void onStop() {
 		super.onStop();
 		instance = null;
-		stopTripStatsController();
+//		stopTripStatsController();
 
 	}
 
@@ -921,9 +923,19 @@ public class SatNavActivity extends OpenStreetMapActivity implements
 		// been
 		// killed. Shouldn't block longer than approx. 2 seconds.
 		Log.d(OpenSatNavConstants.LOG_TAG, "Pausing OSN");
-		stopTripStatsController();
-		unregisterContentObservers();
+//		stopTripStatsController();
+//		unregisterContentObservers();
 		instance = null;
+
+		final SharedPreferences.Editor edit = prefs.edit();
+		edit.putString(PREFS_TILE_SOURCE, mOsmv.getTileProvider().getTileSource().name());
+		edit.putInt(PREFS_SCROLL_X, mOsmv.getScrollX());
+		edit.putInt(PREFS_SCROLL_Y, mOsmv.getScrollY());
+		edit.putInt(PREFS_ZOOM_LEVEL, mOsmv.getZoomLevel());
+//		edit.putBoolean(PREFS_SHOW_LOCATION, mLocationOverlay.isMyLocationEnabled());
+//		edit.putBoolean(PREFS_SHOW_COMPASS, mLocationOverlay.isCompassEnabled());
+		edit.commit();
+		
 		super.onPause();
 
 	}
