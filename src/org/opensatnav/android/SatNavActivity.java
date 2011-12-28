@@ -290,7 +290,7 @@ public class SatNavActivity extends Activity implements
 		{
 			zoomControls = new ZoomControls(this);
 			// by default we are zoomed in to the max
-			zoomControls.setIsZoomInEnabled(false);
+			zoomControls.setIsZoomInEnabled(true);
 			zoomControls.setOnZoomOutClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
