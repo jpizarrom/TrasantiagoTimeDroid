@@ -333,7 +333,7 @@ public class SatNavActivity extends Activity implements
 							Toast.makeText(
 									SatNavActivity.this,
 									"Item '" + item.mTitle + "' (index=" + index
-											+ ") got long pressed", Toast.LENGTH_LONG).show();
+											+ ") got long pressed", Toast.LENGTH_SHORT).show();
 							
 							final String paradero = item.mTitle;
 							final ProgressDialog progress = ProgressDialog.show(
@@ -825,9 +825,10 @@ public class SatNavActivity extends Activity implements
 												.getResources()
 												.getText(
 //													R.string.could_not_find_poi
-													R.string.place_not_found).toString(),
+													R.string.place_found).toString(),
+											size,
 											"paradero")
-											+ " " + size
+//											+ " " + size
 											,
 									Toast.LENGTH_LONG).show();
 							String[] locationInfo = locations.getStringArray("info");

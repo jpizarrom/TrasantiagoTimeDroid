@@ -323,5 +323,6 @@
 <string name="changelog_title">Changelog</string>
 <string name="ok">OK</string>
 <string name="changelog_filename">changelog.html</string>
+<string name="place_found">&quot;Could find \&quot;%1$s\&quot; \&quot;%2$s\&quot;&quot;</string>
 </resources>
 
