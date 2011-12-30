@@ -2,5 +2,7 @@
 <searchable xmlns:android="http://schemas.android.com/apk/res/android"
     android:label="@string/search_label"
     android:hint="@string/search_hint"
-    >
+	android:searchSuggestAuthority="cl.droid.transantiago"
+	android:searchSuggestSelection=" ?" >
+<!-- 	android:searchSuggestIntentAction="android.intent.action.VIEW"> -->
 </searchable>

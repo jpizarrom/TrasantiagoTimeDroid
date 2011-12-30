@@ -5,7 +5,7 @@
 <!--     Theme_Black -->
 <!--     Light -->
 <!--     Theme_Translucent -->
-    	<item name="android:windowNoTitle">true</item>
+<!--     	<item name="android:windowNoTitle">true</item> -->
     </style>
 
     <style name="WidgetBackground">

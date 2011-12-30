@@ -30,6 +30,9 @@
 <!-- 			android:authorities="cl.droid.transantiago"  -->
 <!-- 			android:syncable="false" -->
 <!-- 			/> -->
+		<provider android:name=".MySuggestionProvider"
+              android:authorities="cl.droid.transantiago" />
+              
 		<activity android:name="org.opensatnav.android.GetDirectionsActivity" />
 		<activity android:name="org.opensatnav.android.ChooseLocationActivity" />
 		<activity android:name="org.openintents.about.About" />

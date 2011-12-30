@@ -33,6 +33,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.provider.SearchRecentSuggestions;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,6 +73,10 @@ public class TransChooseLocationServiceActivity extends ListActivity {
 //        }else 
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
+            SearchRecentSuggestions suggestions = new SearchRecentSuggestions(this,
+                    MySuggestionProvider.AUTHORITY, MySuggestionProvider.MODE);
+            suggestions.saveRecentQuery(query, null);
+            
             from = new GeoPoint(0,0);
             launchServices(query.toUpperCase());
 //            mTextView.setText(getString(R.string.search_results, query));

@@ -330,10 +330,10 @@ public class SatNavActivity extends Activity implements
 
 						@Override
 						public boolean onItemLongPress(final int index, final OverlayItem item) {
-							Toast.makeText(
-									SatNavActivity.this,
-									"Item '" + item.mTitle + "' (index=" + index
-											+ ") got long pressed", Toast.LENGTH_SHORT).show();
+//							Toast.makeText(
+//									SatNavActivity.this,
+//									"Item '" + item.mTitle + "' (index=" + index
+//											+ ") got long pressed", Toast.LENGTH_SHORT).show();
 							
 							final String paradero = item.mTitle;
 							final ProgressDialog progress = ProgressDialog.show(

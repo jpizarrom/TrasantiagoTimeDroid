@@ -95,8 +95,9 @@ public class TransChooseServiceActivity extends ListActivity {
 		locationInfo = b.getStringArray("info");
 		locationNames = b.getStringArray("names");
 		
-		setTitle(this.getResources().getText(R.string.busstop) + " : " + paradero + " - " + 
-				this.getResources().getText(R.string.choose_location_service));
+		setTitle(this.getResources().getText(R.string.busstop) + " : " + paradero 
+//				+ " - " + this.getResources().getText(R.string.choose_location_service)
+				);
 		
 		final LocationAdapter la = new LocationAdapter(from);
 		setListAdapter(la);
