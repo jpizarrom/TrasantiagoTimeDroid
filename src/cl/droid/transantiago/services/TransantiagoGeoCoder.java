@@ -143,6 +143,7 @@ public class TransantiagoGeoCoder implements GeoCoder {
 		bundle.putIntArray("latitudes", latArray);
 		bundle.putIntArray("longitudes", lonArray);
 		bundle.putStringArray("info", infoArray);
+		bundle.putInt("size", locationNames.size());
 		return bundle;
 	}
 	public Bundle queryService(String query, GeoPoint from, int mode, int maxResults,

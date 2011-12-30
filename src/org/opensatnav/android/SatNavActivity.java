@@ -727,7 +727,36 @@ public class SatNavActivity extends Activity implements
 //						}
 						intent.putExtra("fromLocation", from.toDoubleString());
 						intent.putExtra("locations", locations);
-						startActivityForResult(intent, MENU_TRANS_TOGGLE);
+//						startActivityForResult(intent, MENU_TRANS_TOGGLE);
+						
+						if (locations.getInt("size")>0){
+							int size = locations.getInt("size");
+							Toast
+							.makeText(
+									SatNavActivity.this,
+									String.format(
+											SatNavActivity.this
+												.getResources()
+												.getText(
+//													R.string.could_not_find_poi
+													R.string.place_not_found).toString(),
+											"paradero")
+											+ " " + size
+											,
+									Toast.LENGTH_LONG).show();
+							String[] locationInfo = locations.getStringArray("info");
+							String[] locationNames = locations.getStringArray("names");
+							final int[] locationLats = locations.getIntArray("latitudes");
+							final int[] locationLongs = locations.getIntArray("longitudes");
+							for (int i=0; i<size; i++){
+								((ItemizedIconOverlay<OverlayItem>)SatNavActivity.this.mItemizedOverlay).addItem(
+										new OverlayItem(locationNames[i], locationInfo[i], new GeoPoint(locationLats[i],
+												locationLongs[i]))
+										);
+								
+							}
+							SatNavActivity.this.mOsmv.invalidate();
+						}
 					} 
 //					else {
 //						if (selectedPoi == -1) { // text search
