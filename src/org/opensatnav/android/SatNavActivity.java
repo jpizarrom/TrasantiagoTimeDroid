@@ -30,12 +30,15 @@ import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.ItemizedIconOverlay;
 import org.osmdroid.views.overlay.ItemizedOverlay;
+import org.osmdroid.views.overlay.ItemizedOverlayControlView;
+import org.osmdroid.views.overlay.ItemizedOverlayWithFocus;
 import org.osmdroid.views.overlay.MyLocationOverlay;
 import org.osmdroid.views.overlay.OverlayItem;
 import org.osmdroid.views.overlay.ScaleBarOverlay;
 import org.osmdroid.views.overlay.SimpleLocationOverlay;
 
 import cl.droid.transantiago.R;
+import cl.droid.transantiago.TransChooseLocationServiceActivity;
 import cl.droid.transantiago.activity.HomeActivity;
 import cl.droid.transantiago.services.TransantiagoGeoCoder;
 
@@ -64,6 +67,7 @@ import android.os.Message;
 import android.preference.PreferenceManager;
 import android.provider.BaseColumns; //import android.speech.tts.TextToSpeech;
 //import android.speech.tts.TextToSpeech.OnInitListener;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -119,7 +123,7 @@ public class SatNavActivity extends Activity implements
 	private MyLocationOverlay mMyLocationOverlay;
 //	private SimpleLocationOverlay mMyLocationOverlay;
 	private ScaleBarOverlay mScaleBarOverlay;
-	private ItemizedOverlay<OverlayItem> mItemizedOverlay;
+	private ItemizedOverlayWithFocus<OverlayItem> mItemizedOverlay;
 	private ResourceProxy mResourceProxy;
 	
 //	private static TripStatisticsController mTripStatsController;
@@ -313,14 +317,14 @@ public class SatNavActivity extends Activity implements
 		{
 			final ArrayList<OverlayItem> items = new ArrayList<OverlayItem>();
 			/* OnTapListener for the Markers, shows a simple Toast. */
-			this.mItemizedOverlay = new ItemizedIconOverlay<OverlayItem>(items,
+			this.mItemizedOverlay = new ItemizedOverlayWithFocus<OverlayItem>(items,
 					new ItemizedIconOverlay.OnItemGestureListener<OverlayItem>() {
 						@Override
 						public boolean onItemSingleTapUp(final int index, final OverlayItem item) {
-							Toast.makeText(
-									SatNavActivity.this,
-									"Item '" + item.mTitle + "' (index=" + index
-											+ ") got single tapped up", Toast.LENGTH_LONG).show();
+//							Toast.makeText(
+//									SatNavActivity.this,
+//									"Item '" + item.mTitle + "' (index=" + index
+//											+ ") got single tapped up", Toast.LENGTH_LONG).show();
 							return true; // We 'handled' this event.
 						}
 
@@ -330,11 +334,93 @@ public class SatNavActivity extends Activity implements
 									SatNavActivity.this,
 									"Item '" + item.mTitle + "' (index=" + index
 											+ ") got long pressed", Toast.LENGTH_LONG).show();
-							return false;
+							
+							final String paradero = item.mTitle;
+							final ProgressDialog progress = ProgressDialog.show(
+									SatNavActivity.this, SatNavActivity.this.getResources().getText(
+											R.string.please_wait), SatNavActivity.this.getResources().getText(
+											R.string.searching), true, true);
+							final Handler handler = new Handler() {
+								@Override
+								public void handleMessage(Message msg) {
+									if (progress != null && progress.isShowing())
+										try {
+											progress.dismiss();
+//											backgroundThreadComplete = true;
+										} catch (IllegalArgumentException e) {
+											// if orientation change, thread continue but the dialog cannot be dismissed without exception
+										}
+									if (locations != null && locations.containsKey("names") && locations.getStringArray("names").length > 0) {
+										Intent intent = new Intent(SatNavActivity.this,
+//												org.opensatnav.android.ServiceActivity.class);
+												cl.droid.transantiago.TransChooseServiceActivity.class);
+										intent.putExtra("fromLocation", from.toDoubleString());
+										intent.putExtra("locations", locations);
+										intent.putExtra("paradero", paradero);
+										
+										String urlstring = "http://m.ibus.cl/index.jsp?paradero="+paradero+"&servicio=&boton.x=0&boton.y=0";
+										Log.i(OpenSatNavConstants.LOG_TAG, urlstring);
+										intent.putExtra("url", urlstring);
+										startActivityForResult(intent,0);
+										
+									} else if (locations != null && locations.containsKey("names") && locations.getStringArray("names").length == 0)
+										Toast
+										.makeText(
+												SatNavActivity.this,
+												String.format(
+														SatNavActivity.this
+															.getResources()
+															.getText(
+//																R.string.could_not_find_poi
+																R.string.place_not_found).toString(),
+														"paradero")
+//														+ " " + stringValue
+														,
+												Toast.LENGTH_LONG).show();
+									if (locations == null)
+										Toast.makeText(SatNavActivity.this,
+												SatNavActivity.this
+												.getResources()
+												.getText(
+//													R.string.could_not_find_poi
+													R.string.error_no_server_conn).toString(),
+												Toast.LENGTH_LONG).show();
+									
+//									TransChooseLocationServiceActivity.this.finish();
+								}
+							};
+							new Thread(new Runnable() {
+								public void run() {
+									// put long running operations here
+									TransantiagoGeoCoder geoCoder = null;
+
+									
+									geoCoder = new TransantiagoGeoCoder();
+										
+									
+//									if (selectedPoi == -1) { // text search, rank results within an area
+										locations = geoCoder.queryService(paradero, from, GeoCoder.IN_AREA, 25,
+												SatNavActivity.this);
+//									}
+//									else {  //POI search, just find the nearest matching POI
+//									locations = geoCoder.queryService("", from, GeoCoder.FROM_POINT, 25,
+//											TransChooseLocationServiceActivity.this);
+//									}
+									// ok, we are done
+									handler.sendEmptyMessage(0);
+									
+								}
+							}).start();
+							
+							return true;
 						}
 					}, mResourceProxy);
-			
+			this.mItemizedOverlay.setFocusItemsOnTap(true);
 			this.mOsmv.getOverlays().add(this.mItemizedOverlay);
+			
+//			AttributeSet attrs = null;
+//			ItemizedOverlayControlView mItemizedOverlayControlView = new ItemizedOverlayControlView(this.getBaseContext(), attrs);
+//			layout.addView(mItemizedOverlayControlView);
 		}
 		
 //		traceOverlay = new OpenStreetMapViewTraceOverlay(this);// Buggy, so
