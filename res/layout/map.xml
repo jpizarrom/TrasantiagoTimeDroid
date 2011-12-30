@@ -6,17 +6,20 @@
   >
 
 	<LinearLayout android:id="@+id/map_titlebar" style="@style/TitleBar">
-		<ImageView style="@style/TitleBarLogo"
+		<ImageView style="@style/TitleBarAction"
 			android:contentDescription="@string/app_name" android:src="@drawable/title_logo" />
-
-		<View style="@style/TitleBarSpring" />
+		
+		<ImageView style="@style/TitleBarSeparator" />
+        <TextView style="@style/TitleBarText" />
+        
+<!-- 		<View style="@style/TitleBarSpring" /> -->
 
 		<ImageView style="@style/TitleBarSeparator" />
-
 		<ImageButton android:id="@+id/map_titlebar_btn_search_map"
 		style="@style/TitleBarAction"
 		android:src="@android:drawable/ic_menu_search" />
 		
+		<ImageView style="@style/TitleBarSeparator" />
 		<ImageButton android:id="@+id/map_titlebar_btn_mylocation"
 		style="@style/TitleBarAction"
 		android:src="@android:drawable/ic_menu_mylocation" />

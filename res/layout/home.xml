@@ -11,15 +11,25 @@
 
 		<View style="@style/TitleBarSpring" />
 
-		<ImageView style="@style/TitleBarSeparator" />
+<!-- 		<ImageView style="@style/TitleBarSeparator" /> -->
+<!--         <ImageButton style="@style/TitleBarAction" -->
+<!--             android:id="@+id/btn_title_refresh" -->
+<!--             android:contentDescription="string/description_refresh" -->
+<!--             android:src="@drawable/ic_menu_refresh"/> -->
+<!--             android:onClick="onActionBarButtonClick" /> -->
+<!--         <ProgressBar style="@style/TitleBarProgressIndicator" -->
+<!--             android:id="@+id/title_refresh_progress" -->
+<!--             android:visibility="gone" /> -->
 	
+		<ImageView style="@style/TitleBarSeparator" />
 		<ImageButton android:id="@+id/home_titlebar_btn_share"
-		style="@style/TitleBarAction"
-		android:src="@android:drawable/ic_menu_share" />
+			style="@style/TitleBarAction"
+			android:src="@android:drawable/ic_menu_share" />
 		
+		<ImageView style="@style/TitleBarSeparator" />
 		<ImageButton android:id="@+id/home_titlebar_btn_search"
-		style="@style/TitleBarAction"
-		android:src="@android:drawable/ic_menu_search" />
+			style="@style/TitleBarAction"
+			android:src="@android:drawable/ic_menu_search" />
 	</LinearLayout>
 
 	<LinearLayout android:orientation="vertical"

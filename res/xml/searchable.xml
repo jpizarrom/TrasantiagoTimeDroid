@@ -6,7 +6,7 @@
     android:searchSettingsDescription="@string/search_label"
     android:includeInGlobalSearch="true"
        
-	android:searchSuggestAuthority="cl.droid.transantiago"
+	android:searchSuggestAuthority="cl.droid.transantiago.MySuggestionProvider"
 	android:searchSuggestSelection=" ?">
 <!--  	android:searchSuggestIntentAction="android.intent.action.VIEW"> -->
 </searchable>

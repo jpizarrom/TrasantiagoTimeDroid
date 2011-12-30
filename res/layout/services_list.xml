@@ -6,7 +6,7 @@
   android:layout_height="fill_parent">
   
   	<LinearLayout style="@style/TitleBar">
-		<ImageView style="@style/TitleBarLogo"
+		<ImageView style="@style/TitleBarAction"
 			android:contentDescription="@string/app_name" android:src="@drawable/title_logo" />
 
 <!-- 		<View style="@style/TitleBarSpring" /> -->

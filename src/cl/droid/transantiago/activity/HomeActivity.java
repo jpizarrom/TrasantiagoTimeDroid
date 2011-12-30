@@ -37,6 +37,16 @@ public class HomeActivity extends Activity {
 		    }
 		});
 		
+		findViewById(R.id.home_titlebar_btn_share).setOnClickListener(new View.OnClickListener() {
+		    public void onClick(View v) {
+		    	Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+		    	emailIntent.setType("text/plain");
+		    	emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, getResources().getString(R.string.recommendation_subject));
+		    	emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, getResources().getString(R.string.recommendation_body));
+		    	startActivity(emailIntent);
+		    }
+		});
+		
 		// Nearby
 		findViewById(R.id.home_btn_nearby).setOnClickListener(new View.OnClickListener() {
 		    public void onClick(View v) {
@@ -60,6 +70,7 @@ public class HomeActivity extends Activity {
 				startActivity(intent);
 		    }
 		});
+
 	}
 
 	@Override

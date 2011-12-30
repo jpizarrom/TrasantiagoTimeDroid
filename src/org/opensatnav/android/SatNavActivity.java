@@ -84,6 +84,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import android.widget.ZoomControls;
+import android.widget.TextView;
 
 public class SatNavActivity extends Activity implements
 		OpenStreetMapConstants, OnSharedPreferenceChangeListener {
@@ -243,6 +244,14 @@ public class SatNavActivity extends Activity implements
 //		    	onSearchRequested();
 		    }
 		});
+		findViewById(R.id.map_titlebar_btn_mylocation).setOnClickListener(new View.OnClickListener() {
+		    public void onClick(View v) {
+		    	mMyLocationOverlay.enableMyLocation();
+		    	mMyLocationOverlay.enableFollowLocation();
+		    }
+		});
+		// Set the title
+		((TextView) findViewById(R.id.title_text)).setText("mTitle");
 		
 		prefs = PreferenceManager.getDefaultSharedPreferences(this);
 		prefs.registerOnSharedPreferenceChangeListener(this);
@@ -266,7 +275,8 @@ public class SatNavActivity extends Activity implements
 						) {
 //					SatNavActivity.this.autoFollowing = false;
 //					SatNavActivity.this.displayToast(R.string.planning_mode_on);
-						SatNavActivity.this.mMyLocationOverlay.disableMyLocation();
+//						SatNavActivity.this.mMyLocationOverlay.disableMyLocation();
+						mMyLocationOverlay.disableFollowLocation();
 				}
 //				updateZoomButtons();
 				return super.onTouchEvent(event);

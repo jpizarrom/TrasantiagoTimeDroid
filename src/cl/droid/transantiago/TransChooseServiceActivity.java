@@ -79,6 +79,9 @@ public class TransChooseServiceActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.services_list);
 		
+		// Set the title
+		((TextView) findViewById(R.id.title_text)).setText("mTitle");
+		
 		ads = (ImageView)this.findViewById(R.id.ads);
 //		Uri uri= Uri.parse("http://198.41.36.27:8080/admMarketing/img/11273693.jpg");
 //		ads.setImageURI(uri);
