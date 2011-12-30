@@ -37,6 +37,7 @@ import org.osmdroid.views.overlay.OverlayItem;
 import org.osmdroid.views.overlay.ScaleBarOverlay;
 import org.osmdroid.views.overlay.SimpleLocationOverlay;
 
+import cl.droid.transantiago.MySuggestionProvider;
 import cl.droid.transantiago.R;
 import cl.droid.transantiago.TransChooseLocationServiceActivity;
 import cl.droid.transantiago.activity.HomeActivity;
@@ -66,6 +67,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.preference.PreferenceManager;
 import android.provider.BaseColumns; //import android.speech.tts.TextToSpeech;
+import android.provider.SearchRecentSuggestions;
 //import android.speech.tts.TextToSpeech.OnInitListener;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -336,6 +338,10 @@ public class SatNavActivity extends Activity implements
 //											+ ") got long pressed", Toast.LENGTH_SHORT).show();
 							
 							final String paradero = item.mTitle;
+							SearchRecentSuggestions suggestions = new SearchRecentSuggestions(SatNavActivity.this,
+				                    MySuggestionProvider.AUTHORITY, MySuggestionProvider.MODE);
+				            suggestions.saveRecentQuery(paradero, null);
+				            
 							final ProgressDialog progress = ProgressDialog.show(
 									SatNavActivity.this, SatNavActivity.this.getResources().getText(
 											R.string.please_wait), SatNavActivity.this.getResources().getText(
