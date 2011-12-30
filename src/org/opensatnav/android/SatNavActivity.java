@@ -496,13 +496,13 @@ public class SatNavActivity extends Activity implements
 //				R.string.preferences);
 //		prefsMenuItem.setIcon(android.R.drawable.ic_menu_preferences);
 		
-//		MenuItem aboutMenuItem = pMenu.add(0, MENU_ABOUT, Menu.NONE,
-//				R.string.about);
-//		aboutMenuItem.setIcon(android.R.drawable.ic_menu_info_details);
-		
 		// Put overlay items next
 		this.mOsmv.getOverlayManager().onCreateOptionsMenu(pMenu, MENU_LAST_ID, mOsmv);
 //		this.mMyLocationOverlay.onCreateOptionsMenu(pMenu, MENU_LAST_ID, mOsmv);
+		
+		MenuItem aboutMenuItem = pMenu.add(0, MENU_ABOUT, Menu.NONE,
+				R.string.about);
+		aboutMenuItem.setIcon(android.R.drawable.ic_menu_info_details);
 		
 		return true;
 	}
@@ -527,12 +527,12 @@ public class SatNavActivity extends Activity implements
 		case MENU_TRANS_TOGGLE:
 			onSearchOnMap();
 			return true;
-		case MENU_DIRECTIONS_TOGGLE:
-			if (!this.isOnline()){
-				Toast.makeText(this, this.getResources().getText(
-					R.string.error_no_inet_conn), Toast.LENGTH_LONG).show();
-				return true;
-			}
+//		case MENU_DIRECTIONS_TOGGLE:
+//			if (!this.isOnline()){
+//				Toast.makeText(this, this.getResources().getText(
+//					R.string.error_no_inet_conn), Toast.LENGTH_LONG).show();
+//				return true;
+//			}
 //			if (routeInstructionsService.currentlyRouting == false) {
 //				if (currentLocation != null) {
 //					Intent intent = new Intent(this,
@@ -569,7 +569,7 @@ public class SatNavActivity extends Activity implements
 //
 //			}
 
-			return true;
+//			return true;
 //		case MENU_CONTRIBUTE:
 //
 //			Intent intentContribute = new Intent(this,
@@ -609,11 +609,11 @@ public class SatNavActivity extends Activity implements
 			startActivityForResult(intent1, MENU_ABOUT);
 
 			return true;
-		case MENU_TRIP_STATS:
-			viewingTripStatistics = true;
-			showTripStatistics(true);
-
-			return true;
+//		case MENU_TRIP_STATS:
+//			viewingTripStatistics = true;
+//			showTripStatistics(true);
+//
+//			return true;
 		}
 		return this.mOsmv.getOverlayManager().onOptionsItemSelected(item, MENU_LAST_ID, mOsmv);
 	}
@@ -918,8 +918,9 @@ public class SatNavActivity extends Activity implements
 		// registerLocationAndSensorListeners();
 		super.onResume();
 		
-		final String tileSourceName = prefs.getString("map_style",
-//			prefs.getString(PREFS_TILE_SOURCE,
+		final String tileSourceName = 
+//			prefs.getString("map_style",
+			prefs.getString(PREFS_TILE_SOURCE,
 				TileSourceFactory.DEFAULT_TILE_SOURCE.name());
 		try {
 			final ITileSource tileSource = TileSourceFactory.getTileSource(tileSourceName);
@@ -968,7 +969,7 @@ public class SatNavActivity extends Activity implements
 		instance = null;
 
 		final SharedPreferences.Editor edit = prefs.edit();
-//		edit.putString(PREFS_TILE_SOURCE, mOsmv.getTileProvider().getTileSource().name());
+		edit.putString(PREFS_TILE_SOURCE, mOsmv.getTileProvider().getTileSource().name());
 		edit.putInt(PREFS_SCROLL_X, mOsmv.getScrollX());
 		edit.putInt(PREFS_SCROLL_Y, mOsmv.getScrollY());
 		edit.putInt(PREFS_ZOOM_LEVEL, mOsmv.getZoomLevel());
