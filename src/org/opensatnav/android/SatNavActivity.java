@@ -221,7 +221,7 @@ public class SatNavActivity extends Activity implements
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-//		BugReportExceptionHandler.register(this);
+		BugReportExceptionHandler.register(this);
 //		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.map);
@@ -375,7 +375,7 @@ public class SatNavActivity extends Activity implements
 										intent.putExtra("paradero", paradero);
 										
 										String urlstring = "http://m.ibus.cl/index.jsp?paradero="+paradero+"&servicio=&boton.x=0&boton.y=0";
-										Log.i(OpenSatNavConstants.LOG_TAG, urlstring);
+//										Log.i(OpenSatNavConstants.LOG_TAG, urlstring);
 										intent.putExtra("url", urlstring);
 										startActivityForResult(intent,0);
 										
