@@ -2,10 +2,12 @@
 <resources>
 
     <style name="Theme" parent="android:Theme.Black">
+<!--     <style name="Theme" parent="android:style/Theme.Light"> -->
 <!--     Theme_Black -->
 <!--     Light -->
 <!--     Theme_Translucent -->
-<!--     	<item name="android:windowNoTitle">true</item> -->
+    	<item name="android:windowNoTitle">true</item>
+    	<item name="android:windowContentOverlay">@null</item>
     </style>
 
     <style name="WidgetBackground">
