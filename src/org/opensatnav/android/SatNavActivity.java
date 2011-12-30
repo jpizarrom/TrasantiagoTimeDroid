@@ -25,6 +25,7 @@ import org.osmdroid.tileprovider.tilesource.ITileSource;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
+import org.osmdroid.views.overlay.MyLocationOverlay;
 
 import cl.droid.transantiago.R;
 import cl.droid.transantiago.activity.HomeActivity;
@@ -89,6 +90,8 @@ public class SatNavActivity extends Activity implements
 	private static final int MENU_TRIP_STATS = MENU_CONTRIBUTE + 1;
 	private static final int MENU_TRANS_TOGGLE = MENU_TRIP_STATS + 1;
 	private static final int MENU_SEARCH = MENU_TRANS_TOGGLE + 1;
+	
+	private static final int MENU_LAST_ID = MENU_SEARCH + 1;
 
 	private static final int SELECT_POI = 0;
 	private static final int CONTRIBUTE = SELECT_POI + 1;
@@ -104,7 +107,8 @@ public class SatNavActivity extends Activity implements
 	// ===========================================================
 
 	private MapView mOsmv;
-	private ZoomControls zoomControls;
+//	private ZoomControls zoomControls;
+	private MyLocationOverlay mMyLocationOverlay;
 //	private static TripStatisticsController mTripStatsController;
 
 	/**
@@ -223,25 +227,30 @@ public class SatNavActivity extends Activity implements
 		prefs.registerOnSharedPreferenceChangeListener(this);
 		instance = this;
 //		Object[] retainables = (Object[]) getLastNonConfigurationInstance();
-
+		
+//		this.autoFollowing = prefs.getBoolean(PREFS_SHOW_LOCATION, false);
+		
 //		Intent svc = new Intent(this, RouteInstructionsService.class);
 //		startService(svc);
 
-		this.mOsmv = new MapView(this, 256);
+		this.mOsmv = new MapView(this, 256)
 //		OpenStreetMapView(this, OpenStreetMapRendererInfo
-//				.getFromPrefName(prefs.getString("map_style", "mapnik"))) {
-//			@Override
-//			public boolean onTouchEvent(MotionEvent event) {
+//				.getFromPrefName(prefs.getString("map_style", "mapnik"))) 
+		{
+			@Override
+			public boolean onTouchEvent(MotionEvent event) {
 //				// switches to 'planning mode' as soon as you scroll anywhere
-//				if (event.getAction() == MotionEvent.ACTION_MOVE
-//						&& SatNavActivity.this.autoFollowing == true) {
+				if (event.getAction() == MotionEvent.ACTION_MOVE
+//						&& SatNavActivity.this.autoFollowing == true
+						) {
 //					SatNavActivity.this.autoFollowing = false;
 //					SatNavActivity.this.displayToast(R.string.planning_mode_on);
-//				}
+						SatNavActivity.this.mMyLocationOverlay.disableMyLocation();
+				}
 //				updateZoomButtons();
-//				return super.onTouchEvent(event);
-//			}
-//		};
+				return super.onTouchEvent(event);
+			}
+		};
 		rl.addView(this.mOsmv, new RelativeLayout.LayoutParams(
 				android.view.ViewGroup.LayoutParams.FILL_PARENT,
 				android.view.ViewGroup.LayoutParams.FILL_PARENT));
@@ -266,6 +275,13 @@ public class SatNavActivity extends Activity implements
 //					this);
 //			this.mOsmv.getOverlays().add(mMyLocationOverlay);
 
+			this.mMyLocationOverlay = new MyLocationOverlay(this.getBaseContext(), this.mOsmv){
+				
+			};
+			this.mOsmv.setBuiltInZoomControls(true);
+			this.mOsmv.setMultiTouchControls(true);
+			this.mOsmv.getOverlays().add(this.mMyLocationOverlay);
+			
 		}
 
 		/* Other overlays */
@@ -288,30 +304,30 @@ public class SatNavActivity extends Activity implements
 
 		/* ZoomControls */
 		{
-			zoomControls = new ZoomControls(this);
-			// by default we are zoomed in to the max
-			zoomControls.setIsZoomInEnabled(true);
-			zoomControls.setOnZoomOutClickListener(new OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					SatNavActivity.this.mOsmv.getController().zoomOut();
-					updateZoomButtons();
-				}
-			});
-			zoomControls.setOnZoomInClickListener(new OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					SatNavActivity.this.mOsmv.getController().zoomIn();
-					updateZoomButtons();
-				}
-			});
-
-			final RelativeLayout.LayoutParams zoomParams = new RelativeLayout.LayoutParams(
-					android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
-					android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
-			zoomParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
-			zoomParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-			rl.addView(zoomControls, zoomParams);
+//			zoomControls = new ZoomControls(this);
+//			// by default we are zoomed in to the max
+//			zoomControls.setIsZoomInEnabled(true);
+//			zoomControls.setOnZoomOutClickListener(new OnClickListener() {
+//				@Override
+//				public void onClick(View v) {
+//					SatNavActivity.this.mOsmv.getController().zoomOut();
+//					updateZoomButtons();
+//				}
+//			});
+//			zoomControls.setOnZoomInClickListener(new OnClickListener() {
+//				@Override
+//				public void onClick(View v) {
+//					SatNavActivity.this.mOsmv.getController().zoomIn();
+//					updateZoomButtons();
+//				}
+//			});
+//
+//			final RelativeLayout.LayoutParams zoomParams = new RelativeLayout.LayoutParams(
+//					android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
+//					android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
+//			zoomParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
+//			zoomParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+//			rl.addView(zoomControls, zoomParams);
 
 		}
 
@@ -410,16 +426,16 @@ public class SatNavActivity extends Activity implements
 	// ===========================================================
 
 	private void updateZoomButtons() {
-		if (SatNavActivity.this.mOsmv.canZoomIn()) {
-			zoomControls.setIsZoomInEnabled(true);
-		} else {
-			zoomControls.setIsZoomInEnabled(false);
-		}
-		if (SatNavActivity.this.mOsmv.canZoomOut()) {
-			zoomControls.setIsZoomOutEnabled(true);
-		} else {
-			zoomControls.setIsZoomOutEnabled(false);
-		}
+//		if (SatNavActivity.this.mOsmv.canZoomIn()) {
+//			zoomControls.setIsZoomInEnabled(true);
+//		} else {
+//			zoomControls.setIsZoomInEnabled(false);
+//		}
+//		if (SatNavActivity.this.mOsmv.canZoomOut()) {
+//			zoomControls.setIsZoomOutEnabled(true);
+//		} else {
+//			zoomControls.setIsZoomOutEnabled(false);
+//		}
 	}
 
 //	@Override
@@ -469,18 +485,25 @@ public class SatNavActivity extends Activity implements
 //		MenuItem contributeMenuItem = pMenu.add(0, MENU_CONTRIBUTE, Menu.NONE,
 //				R.string.menu_contribute);
 //		contributeMenuItem.setIcon(android.R.drawable.ic_menu_edit);
-		MenuItem toggleAutoFollowMenuItem = pMenu.add(0,
-				MENU_TOGGLE_FOLLOW_MODE, Menu.NONE, R.string.planning_mode);
-		toggleAutoFollowMenuItem.setIcon(android.R.drawable.ic_menu_mapmode);
+//		MenuItem toggleAutoFollowMenuItem = pMenu.add(0,
+//				MENU_TOGGLE_FOLLOW_MODE, Menu.NONE, R.string.planning_mode);
+//		toggleAutoFollowMenuItem.setIcon(android.R.drawable.ic_menu_mapmode);
 //		MenuItem tripStatsMenuItem = pMenu.add(0, MENU_TRIP_STATS, Menu.NONE,
 //				R.string.menu_show_trip_stats);
 //		tripStatsMenuItem.setIcon(android.R.drawable.ic_menu_recent_history);
-		MenuItem prefsMenuItem = pMenu.add(0, MENU_PREFERENCES, Menu.NONE,
-				R.string.preferences);
-		prefsMenuItem.setIcon(android.R.drawable.ic_menu_preferences);
-		MenuItem aboutMenuItem = pMenu.add(0, MENU_ABOUT, Menu.NONE,
-				R.string.about);
-		aboutMenuItem.setIcon(android.R.drawable.ic_menu_info_details);
+		
+//		MenuItem prefsMenuItem = pMenu.add(0, MENU_PREFERENCES, Menu.NONE,
+//				R.string.preferences);
+//		prefsMenuItem.setIcon(android.R.drawable.ic_menu_preferences);
+		
+//		MenuItem aboutMenuItem = pMenu.add(0, MENU_ABOUT, Menu.NONE,
+//				R.string.about);
+//		aboutMenuItem.setIcon(android.R.drawable.ic_menu_info_details);
+		
+		// Put overlay items next
+		this.mOsmv.getOverlayManager().onCreateOptionsMenu(pMenu, MENU_LAST_ID, mOsmv);
+//		this.mMyLocationOverlay.onCreateOptionsMenu(pMenu, MENU_LAST_ID, mOsmv);
+		
 		return true;
 	}
 
@@ -557,17 +580,24 @@ public class SatNavActivity extends Activity implements
 		case MENU_RENDERER_ID:
 			this.mOsmv.invalidate();
 			return true;
-		case MENU_TOGGLE_FOLLOW_MODE:
-			if (this.autoFollowing) {
-				this.autoFollowing = false;
-				Toast.makeText(this, R.string.planning_mode_on,
-						Toast.LENGTH_SHORT).show();
-			} else {
-				this.autoFollowing = true;
-				Toast.makeText(this, R.string.navigation_mode_on,
-						Toast.LENGTH_SHORT).show();
-			}
-			return true;
+//		case MENU_TOGGLE_FOLLOW_MODE:
+////			if (this.autoFollowing) {
+//			if (prefs.getBoolean(PREFS_SHOW_LOCATION, false)){
+//				this.autoFollowing = false;
+//				Toast.makeText(this, R.string.planning_mode_on,
+//						Toast.LENGTH_SHORT).show();
+//				
+//				prefs.edit().putBoolean(PREFS_SHOW_LOCATION,true);
+//				this.mMyLocationOverlay.enableFollowLocation();
+//			} else {
+//				this.autoFollowing = true;
+//				Toast.makeText(this, R.string.navigation_mode_on,
+//						Toast.LENGTH_SHORT).show();
+//				
+//				prefs.edit().putBoolean(PREFS_SHOW_LOCATION,false);
+//				this.mMyLocationOverlay.disableFollowLocation();
+//			}
+//			return true;
 		case MENU_PREFERENCES:
 			Intent intent = new Intent(this,
 					org.opensatnav.android.ConfigurationActivity.class);
@@ -585,7 +615,7 @@ public class SatNavActivity extends Activity implements
 
 			return true;
 		}
-		return false;
+		return this.mOsmv.getOverlayManager().onOptionsItemSelected(item, MENU_LAST_ID, mOsmv);
 	}
 
 	
@@ -756,7 +786,7 @@ public class SatNavActivity extends Activity implements
 
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
-		MenuItem navigationMenu = menu.findItem(MENU_DIRECTIONS_TOGGLE);
+//		MenuItem navigationMenu = menu.findItem(MENU_DIRECTIONS_TOGGLE);
 
 //		if (routeInstructionsService.currentlyRouting == false) {
 //			navigationMenu.setTitle(R.string.get_directions).setIcon(
@@ -766,20 +796,23 @@ public class SatNavActivity extends Activity implements
 //					android.R.drawable.ic_menu_close_clear_cancel);
 //		}
 
-		MenuItem followMenu = menu.findItem(MENU_TOGGLE_FOLLOW_MODE);
-		if (!(this.autoFollowing)) {
-
-			// this weird style is required to set multiple attributes on
-			// the item
-
-			followMenu.setTitle(R.string.navigation_mode).setIcon(
-					android.R.drawable.ic_menu_mylocation);
-		} else {
-
-			followMenu.setTitle(R.string.planning_mode).setIcon(
-					android.R.drawable.ic_menu_mapmode);
-		}
-		return true;
+//		MenuItem followMenu = menu.findItem(MENU_TOGGLE_FOLLOW_MODE);
+////		if (!(this.autoFollowing)) {
+//		if (!prefs.getBoolean(PREFS_SHOW_LOCATION, false)){
+//
+//			// this weird style is required to set multiple attributes on
+//			// the item
+//
+//			followMenu.setTitle(R.string.navigation_mode).setIcon(
+//					android.R.drawable.ic_menu_mylocation);
+//		} else {
+//
+//			followMenu.setTitle(R.string.planning_mode).setIcon(
+//					android.R.drawable.ic_menu_mapmode);
+//		}
+		this.mOsmv.getOverlayManager().onPrepareOptionsMenu(menu, MENU_LAST_ID, mOsmv);
+		return super.onPrepareOptionsMenu(menu);
+//		return true;
 	}
 
 	@Override
@@ -817,43 +850,43 @@ public class SatNavActivity extends Activity implements
 
 	}
 
-	@Override
-	public void onSaveInstanceState(Bundle savedInstanceState) {
+//	@Override
+//	public void onSaveInstanceState(Bundle savedInstanceState) {
+//
+//		savedInstanceState.putInt("zoomLevel", this.mOsmv.getZoomLevel());
+//		savedInstanceState.putBoolean("autoFollowing", autoFollowing);
+//		Log.v(OpenSatNavConstants.LOG_TAG, "Put " + this.mOsmv.getZoomLevel()
+//				+ " into zoomlevel");
+//		savedInstanceState.putBoolean("viewTripStatistics",
+//				viewingTripStatistics);
+//		savedInstanceState.putInt("mLatitudeE6", this.mOsmv
+//				.getMapCenter().getLatitudeE6());
+//		savedInstanceState.putInt("mLongitudeE6", this.mOsmv
+//				.getMapCenter().getLongitudeE6());
+//
+//		super.onSaveInstanceState(savedInstanceState);
+//	}
 
-		savedInstanceState.putInt("zoomLevel", this.mOsmv.getZoomLevel());
-		savedInstanceState.putBoolean("autoFollowing", autoFollowing);
-		Log.v(OpenSatNavConstants.LOG_TAG, "Put " + this.mOsmv.getZoomLevel()
-				+ " into zoomlevel");
-		savedInstanceState.putBoolean("viewTripStatistics",
-				viewingTripStatistics);
-		savedInstanceState.putInt("mLatitudeE6", this.mOsmv
-				.getMapCenter().getLatitudeE6());
-		savedInstanceState.putInt("mLongitudeE6", this.mOsmv
-				.getMapCenter().getLongitudeE6());
-
-		super.onSaveInstanceState(savedInstanceState);
-	}
-
-	@Override
-	public void onRestoreInstanceState(Bundle savedInstanceState) {
-		super.onRestoreInstanceState(savedInstanceState);
-
-		autoFollowing = savedInstanceState.getBoolean("autoFollowing");
-		this.mOsmv.getController().setZoom(savedInstanceState.getInt("zoomLevel"));
-		if (this.mOsmv.canZoomIn()) {
-			zoomControls.setIsZoomInEnabled(true);
-			if (!this.mOsmv.canZoomOut())
-				zoomControls.setIsZoomOutEnabled(false);
-		}
-//		this.mOsmv.setMapCenter(savedInstanceState.getInt("mLatitudeE6"),
-//				savedInstanceState.getInt("mLongitudeE6"));
-
-		viewingTripStatistics = savedInstanceState
-				.getBoolean("viewTripStatistics");
-		if (viewingTripStatistics) {
-			showTripStatistics(true);
-		}
-	}
+//	@Override
+//	public void onRestoreInstanceState(Bundle savedInstanceState) {
+//		super.onRestoreInstanceState(savedInstanceState);
+//
+//		autoFollowing = savedInstanceState.getBoolean("autoFollowing");
+//		this.mOsmv.getController().setZoom(savedInstanceState.getInt("zoomLevel"));
+////		if (this.mOsmv.canZoomIn()) {
+////			zoomControls.setIsZoomInEnabled(true);
+////			if (!this.mOsmv.canZoomOut())
+////				zoomControls.setIsZoomOutEnabled(false);
+////		}
+////		this.mOsmv.setMapCenter(savedInstanceState.getInt("mLatitudeE6"),
+////				savedInstanceState.getInt("mLongitudeE6"));
+//
+//		viewingTripStatistics = savedInstanceState
+//				.getBoolean("viewTripStatistics");
+//		if (viewingTripStatistics) {
+//			showTripStatistics(true);
+//		}
+//	}
 
 	private void displayToast(String msg) {
 		Toast.makeText(getBaseContext(), msg, Toast.LENGTH_SHORT).show();
@@ -885,12 +918,19 @@ public class SatNavActivity extends Activity implements
 		// registerLocationAndSensorListeners();
 		super.onResume();
 		
-		final String tileSourceName = prefs.getString(PREFS_TILE_SOURCE,
+		final String tileSourceName = prefs.getString("map_style",
+//			prefs.getString(PREFS_TILE_SOURCE,
 				TileSourceFactory.DEFAULT_TILE_SOURCE.name());
 		try {
 			final ITileSource tileSource = TileSourceFactory.getTileSource(tileSourceName);
 			mOsmv.setTileSource(tileSource);
 		} catch (final IllegalArgumentException ignore) {
+		}
+		if (prefs.getBoolean(PREFS_SHOW_LOCATION, false)) {
+			this.mMyLocationOverlay.enableMyLocation();
+		}
+		if (prefs.getBoolean(PREFS_SHOW_COMPASS, false)) {
+			this.mMyLocationOverlay.enableCompass();
 		}
 
 		// While this activity was paused the user may have deleted the selected
@@ -928,13 +968,16 @@ public class SatNavActivity extends Activity implements
 		instance = null;
 
 		final SharedPreferences.Editor edit = prefs.edit();
-		edit.putString(PREFS_TILE_SOURCE, mOsmv.getTileProvider().getTileSource().name());
+//		edit.putString(PREFS_TILE_SOURCE, mOsmv.getTileProvider().getTileSource().name());
 		edit.putInt(PREFS_SCROLL_X, mOsmv.getScrollX());
 		edit.putInt(PREFS_SCROLL_Y, mOsmv.getScrollY());
 		edit.putInt(PREFS_ZOOM_LEVEL, mOsmv.getZoomLevel());
-//		edit.putBoolean(PREFS_SHOW_LOCATION, mLocationOverlay.isMyLocationEnabled());
-//		edit.putBoolean(PREFS_SHOW_COMPASS, mLocationOverlay.isCompassEnabled());
+		edit.putBoolean(PREFS_SHOW_LOCATION,mMyLocationOverlay.isMyLocationEnabled());
+		edit.putBoolean(PREFS_SHOW_COMPASS, mMyLocationOverlay.isCompassEnabled());
 		edit.commit();
+		
+		this.mMyLocationOverlay.disableMyLocation();
+		this.mMyLocationOverlay.disableCompass();
 		
 		super.onPause();
 
@@ -982,12 +1025,19 @@ public class SatNavActivity extends Activity implements
 
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
 			java.lang.String key) {
-//		if (key.contentEquals("map_style")) {
+		if (key.contentEquals("map_style")) {
 //			SatNavActivity.this.mOsmv
 //					.setRenderer(OpenStreetMapRendererInfo
 //							.getFromPrefName(sharedPreferences.getString(key,
 //									"mapnik")));
-//		}
+			final String tileSourceName = sharedPreferences.getString(key,
+									"mapnik");
+			try {
+				final ITileSource tileSource = TileSourceFactory.getTileSource(tileSourceName);
+				mOsmv.setTileSource(tileSource);
+			} catch (final IllegalArgumentException ignore) {
+			}
+		}
 	}
 
 	// All the new stuff is here - this really needs to go somewhere else!
