@@ -26,6 +26,8 @@ import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.MyLocationOverlay;
+import org.osmdroid.views.overlay.ScaleBarOverlay;
+import org.osmdroid.views.overlay.SimpleLocationOverlay;
 
 import cl.droid.transantiago.R;
 import cl.droid.transantiago.activity.HomeActivity;
@@ -109,6 +111,8 @@ public class SatNavActivity extends Activity implements
 	private MapView mOsmv;
 //	private ZoomControls zoomControls;
 	private MyLocationOverlay mMyLocationOverlay;
+//	private SimpleLocationOverlay mMyLocationOverlay;
+	private ScaleBarOverlay mScaleBarOverlay;
 //	private static TripStatisticsController mTripStatsController;
 
 	/**
@@ -262,6 +266,16 @@ public class SatNavActivity extends Activity implements
 //			this.mOsmv.setMapCenter(TypeConverter
 //					.locationToGeoPoint(mLocationHandler.getFirstLocation()));
 
+		/* Scale Bar Overlay */
+		{
+			this.mScaleBarOverlay = new ScaleBarOverlay(this);
+			this.mOsmv.getOverlays().add(mScaleBarOverlay);
+			// Scale bar tries to draw as 1-inch, so to put it in the top center, set x offset to
+			// half screen width, minus half an inch.
+			this.mScaleBarOverlay.setScaleBarOffset(getResources().getDisplayMetrics().widthPixels
+					/ 2 - getResources().getDisplayMetrics().xdpi / 2, 10);
+		}
+		
 		/* SingleLocation-Overlay */
 		{
 			/*
@@ -275,8 +289,7 @@ public class SatNavActivity extends Activity implements
 //					this);
 //			this.mOsmv.getOverlays().add(mMyLocationOverlay);
 
-			this.mMyLocationOverlay = new MyLocationOverlay(this.getBaseContext(), this.mOsmv){
-				
+			this.mMyLocationOverlay = new MyLocationOverlay(this.getBaseContext(), this.mOsmv){	
 			};
 			this.mOsmv.setBuiltInZoomControls(true);
 			this.mOsmv.setMultiTouchControls(true);
