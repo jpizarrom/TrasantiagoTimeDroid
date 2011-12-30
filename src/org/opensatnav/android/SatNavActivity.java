@@ -17,15 +17,21 @@ This file is part of OpenSatNav.
 package org.opensatnav.android;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.opensatnav.android.services.GeoCoder;
 import org.opensatnav.android.util.BugReportExceptionHandler;
+import org.osmdroid.ResourceProxy;
+import org.osmdroid.ResourceProxyImpl;
 import org.osmdroid.constants.OpenStreetMapConstants;
 import org.osmdroid.tileprovider.tilesource.ITileSource;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
+import org.osmdroid.views.overlay.ItemizedIconOverlay;
+import org.osmdroid.views.overlay.ItemizedOverlay;
 import org.osmdroid.views.overlay.MyLocationOverlay;
+import org.osmdroid.views.overlay.OverlayItem;
 import org.osmdroid.views.overlay.ScaleBarOverlay;
 import org.osmdroid.views.overlay.SimpleLocationOverlay;
 
@@ -113,6 +119,9 @@ public class SatNavActivity extends Activity implements
 	private MyLocationOverlay mMyLocationOverlay;
 //	private SimpleLocationOverlay mMyLocationOverlay;
 	private ScaleBarOverlay mScaleBarOverlay;
+	private ItemizedOverlay<OverlayItem> mItemizedOverlay;
+	private ResourceProxy mResourceProxy;
+	
 //	private static TripStatisticsController mTripStatsController;
 
 	/**
@@ -211,6 +220,8 @@ public class SatNavActivity extends Activity implements
 		setContentView(R.layout.map);
 //		final RelativeLayout rl = new RelativeLayout(this);
 		
+		mResourceProxy = new ResourceProxyImpl(getApplicationContext());
+		
 //		LayoutInflater inflater = (LayoutInflater)this.getSystemService
 //	      (Context.LAYOUT_INFLATER_SERVICE);
 //		LinearLayout ll = (LinearLayout) inflater.inflate(R.layout.map, null);
@@ -298,7 +309,34 @@ public class SatNavActivity extends Activity implements
 		}
 
 		/* Other overlays */
+		/* Itemized Overlay */
+		{
+			final ArrayList<OverlayItem> items = new ArrayList<OverlayItem>();
+			/* OnTapListener for the Markers, shows a simple Toast. */
+			this.mItemizedOverlay = new ItemizedIconOverlay<OverlayItem>(items,
+					new ItemizedIconOverlay.OnItemGestureListener<OverlayItem>() {
+						@Override
+						public boolean onItemSingleTapUp(final int index, final OverlayItem item) {
+							Toast.makeText(
+									SatNavActivity.this,
+									"Item '" + item.mTitle + "' (index=" + index
+											+ ") got single tapped up", Toast.LENGTH_LONG).show();
+							return true; // We 'handled' this event.
+						}
 
+						@Override
+						public boolean onItemLongPress(final int index, final OverlayItem item) {
+							Toast.makeText(
+									SatNavActivity.this,
+									"Item '" + item.mTitle + "' (index=" + index
+											+ ") got long pressed", Toast.LENGTH_LONG).show();
+							return false;
+						}
+					}, mResourceProxy);
+			
+			this.mOsmv.getOverlays().add(this.mItemizedOverlay);
+		}
+		
 //		traceOverlay = new OpenStreetMapViewTraceOverlay(this);// Buggy, so
 																// taken out for
 																// the moment
