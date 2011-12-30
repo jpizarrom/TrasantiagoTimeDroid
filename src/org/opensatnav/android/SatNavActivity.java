@@ -251,7 +251,7 @@ public class SatNavActivity extends Activity implements
 		    }
 		});
 		// Set the title
-		((TextView) findViewById(R.id.title_text)).setText("mTitle");
+		((TextView) findViewById(R.id.title_text)).setText("Map");
 		
 		prefs = PreferenceManager.getDefaultSharedPreferences(this);
 		prefs.registerOnSharedPreferenceChangeListener(this);

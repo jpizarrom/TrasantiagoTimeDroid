@@ -90,6 +90,7 @@ public class TransChooseServiceActivity extends ListActivity {
 		
 		GeoPoint from = GeoPoint.fromDoubleString(getIntent().getStringExtra("fromLocation"), ',');
 		final String paradero = getIntent().getStringExtra("paradero");
+		
 		// Set the title
 		((TextView) findViewById(R.id.title_text)).setText(paradero);
 		
