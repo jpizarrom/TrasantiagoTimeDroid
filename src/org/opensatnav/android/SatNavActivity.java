@@ -19,6 +19,8 @@ package org.opensatnav.android;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import net.wigle.wigleandroid.ZoomButtonsController;
+
 import org.opensatnav.android.services.GeoCoder;
 import org.opensatnav.android.util.BugReportExceptionHandler;
 import org.osmdroid.ResourceProxy;
@@ -55,6 +57,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.database.ContentObserver;
 import android.database.Cursor;
+import android.graphics.PixelFormat;
 import android.location.Location;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -71,6 +74,7 @@ import android.provider.SearchRecentSuggestions;
 //import android.speech.tts.TextToSpeech.OnInitListener;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -82,11 +86,13 @@ import android.view.View.OnClickListener;
 import android.view.WindowManager.BadTokenException;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.RelativeLayout.LayoutParams;
 import android.widget.Toast;
-import android.widget.ZoomControls;
 import android.widget.TextView;
+import android.widget.ZoomControls;
 
 public class SatNavActivity extends Activity implements
 		OpenStreetMapConstants, OnSharedPreferenceChangeListener {
@@ -124,7 +130,7 @@ public class SatNavActivity extends Activity implements
 	// ===========================================================
 
 	private MapView mOsmv;
-//	private ZoomControls zoomControls;
+	private ZoomControls zoomControls;
 	private MyLocationOverlay mMyLocationOverlay;
 //	private SimpleLocationOverlay mMyLocationOverlay;
 	private ScaleBarOverlay mScaleBarOverlay;
@@ -316,7 +322,7 @@ public class SatNavActivity extends Activity implements
 		this.mOsmv = new MapView(this, 256)
 //		OpenStreetMapView(this, OpenStreetMapRendererInfo
 //				.getFromPrefName(prefs.getString("map_style", "mapnik"))) 
-		{
+		{	
 			@Override
 			public boolean onTouchEvent(MotionEvent event) {
 //				// switches to 'planning mode' as soon as you scroll anywhere
@@ -369,7 +375,7 @@ public class SatNavActivity extends Activity implements
 			this.mMyLocationOverlay = new MyLocationOverlay(this.getBaseContext(), this.mOsmv){	
 			};
 			this.mOsmv.setBuiltInZoomControls(true);
-//			this.mOsmv.setMultiTouchControls(true);
+			this.mOsmv.setMultiTouchControls(true);
 			this.mOsmv.getOverlays().add(this.mMyLocationOverlay);
 			
 		}
@@ -399,7 +405,7 @@ public class SatNavActivity extends Activity implements
 //									SatNavActivity.this,
 //									"Item '" + item.mTitle + "' (index=" + index
 //											+ ") got long pressed", Toast.LENGTH_SHORT).show();							
-							launch(item.mTitle);
+//							launch(item.mTitle);
 							return true;
 						}
 					}, mResourceProxy);
@@ -430,28 +436,28 @@ public class SatNavActivity extends Activity implements
 		/* ZoomControls */
 		{
 //			zoomControls = new ZoomControls(this);
-//			// by default we are zoomed in to the max
+////			// by default we are zoomed in to the max
 //			zoomControls.setIsZoomInEnabled(true);
 //			zoomControls.setOnZoomOutClickListener(new OnClickListener() {
 //				@Override
 //				public void onClick(View v) {
 //					SatNavActivity.this.mOsmv.getController().zoomOut();
-//					updateZoomButtons();
+////					updateZoomButtons();
 //				}
 //			});
 //			zoomControls.setOnZoomInClickListener(new OnClickListener() {
 //				@Override
 //				public void onClick(View v) {
 //					SatNavActivity.this.mOsmv.getController().zoomIn();
-//					updateZoomButtons();
+////					updateZoomButtons();
 //				}
 //			});
-//
+			
 //			final RelativeLayout.LayoutParams zoomParams = new RelativeLayout.LayoutParams(
 //					android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
 //					android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 //			zoomParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
-//			zoomParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+//			zoomParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
 //			rl.addView(zoomControls, zoomParams);
 
 		}
@@ -460,9 +466,9 @@ public class SatNavActivity extends Activity implements
 			popup = new PopupControls(this);
 			final RelativeLayout.LayoutParams zoomParams = new RelativeLayout.LayoutParams(
 					android.view.ViewGroup.LayoutParams.FILL_PARENT,
-					android.view.ViewGroup.LayoutParams.FILL_PARENT);
+					android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 			zoomParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
-			zoomParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+			zoomParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
 			popup.setVisibility(View.GONE);
 			rl.addView(popup, zoomParams);
 //			rl.addView(popup);
