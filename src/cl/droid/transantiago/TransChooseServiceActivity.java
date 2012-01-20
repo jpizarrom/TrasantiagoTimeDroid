@@ -85,7 +85,7 @@ public class TransChooseServiceActivity extends ListActivity {
 		BitmapFactory.Options bmOptions;
 	    bmOptions = new BitmapFactory.Options();
 	    bmOptions.inSampleSize = 1;
-	    Bitmap bm = loadImage("http://198.41.36.27:8080/admMarketing/img/0125137911.gif", bmOptions);
+//	    Bitmap bm = loadImage("http://198.41.36.27:8080/admMarketing/img/0125137911.gif", bmOptions);
 //	    ads.setImageBitmap(bm);
 		
 		GeoPoint from = GeoPoint.fromDoubleString(getIntent().getStringExtra("fromLocation"), ',');
@@ -94,6 +94,9 @@ public class TransChooseServiceActivity extends ListActivity {
 		b = getIntent().getBundleExtra("locations");
 		locationInfo = b.getStringArray("info");
 		locationNames = b.getStringArray("names");
+		
+		if (b.containsKey("ads"))
+			loadImage(b.getString("ads"), bmOptions);
 		
 		setTitle(this.getResources().getText(R.string.busstop) + " : " + paradero 
 //				+ " - " + this.getResources().getText(R.string.choose_location_service)

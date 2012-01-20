@@ -30,6 +30,7 @@ public class TransantiagoGeoCoder implements GeoCoder {
 	private ArrayList locationLongitudes;
 	private ArrayList<String> locationInfo;
 	private ArrayList<String> locationParaderos;
+	private String ads;
 	private String q = "";
 	
 	URL encodedURL;
@@ -152,6 +153,7 @@ public class TransantiagoGeoCoder implements GeoCoder {
 		locationLatitudes = new ArrayList<int[]>();
 		locationLongitudes = new ArrayList<int[]>();
 		locationInfo = new ArrayList<String>();
+		ads = "";
 		
 		InputStream in = null;
 		OutputStream out = null;
@@ -178,6 +180,8 @@ public class TransantiagoGeoCoder implements GeoCoder {
 
 			String str = dataStream.toString();
 			JSONObject json = new JSONObject(str);
+			if (json.has("ads"))
+				ads = json.getString("ads");
 			//Ut.dd(json.toString(4)); //
 			JSONArray results = (JSONArray) ((JSONObject) json).get("features");
 //			Ut.dd("results.length="+results.length());
@@ -253,6 +257,7 @@ public class TransantiagoGeoCoder implements GeoCoder {
 		bundle.putIntArray("latitudes", latArray);
 		bundle.putIntArray("longitudes", lonArray);
 		bundle.putStringArray("info", infoArray);
+		bundle.putString("ads", ads);
 		return bundle;
 	}
 
