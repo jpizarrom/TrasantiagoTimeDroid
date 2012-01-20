@@ -72,6 +72,8 @@ import android.preference.PreferenceManager;
 import android.provider.BaseColumns; //import android.speech.tts.TextToSpeech;
 import android.provider.SearchRecentSuggestions;
 //import android.speech.tts.TextToSpeech.OnInitListener;
+import android.text.method.ScrollingMovementMethod;
+import android.text.method.SingleLineTransformationMethod;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
@@ -84,6 +86,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
 import android.view.WindowManager.BadTokenException;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -230,8 +233,8 @@ public class SatNavActivity extends Activity implements
 	public class PopupControls extends LinearLayout {
 		private final Button mZoomIn;
 	    private final Button mZoomOut;
-	    public final EditText title;
-	    public final EditText description;
+	    public final TextView title;
+	    public final TextView description;
 	    public OverlayItem item;
 		public PopupControls(Context context) {
 //			super(context);
@@ -249,8 +252,21 @@ public class SatNavActivity extends Activity implements
 	        
 	        mZoomIn = (Button) findViewById(R.id.btn_close);
 	        mZoomOut = (Button) findViewById(R.id.btn_launch);
-	        title = (EditText) findViewById(R.id.title);
-	        description = (EditText) findViewById(R.id.description);
+	        title = (TextView) findViewById(R.id.title);
+	        description = (TextView) findViewById(R.id.description);
+	        
+//	        int mInputType = EditorInfo.TYPE_NULL;
+//	        mInputType |= EditorInfo.TYPE_TEXT_FLAG_MULTI_LINE;
+//	        description.setInputType(mInputType);
+	        description.setMovementMethod(new ScrollingMovementMethod());
+//	        description.setVerticalScrollBarEnabled(true);
+//	        description.setTransformationMethod(SingleLineTransformationMethod.getInstance());
+//	        description.setMaxLines(Integer.MAX_VALUE);	
+//	        description.setHorizontallyScrolling(false);	
+//	        description.setTransformationMethod(null);
+//	        description.setSingleLine(false);
+
+//	        description.setInputType() |= EditorInfo.TYPE_TEXT_FLAG_MULTI_LINE;
 	        
 	        item = null;
 	        
@@ -394,7 +410,7 @@ public class SatNavActivity extends Activity implements
 //									"Item '" + item.mTitle + "' (index=" + index
 //											+ ") got single tapped up", Toast.LENGTH_LONG).show();
 							popup.title.setText(item.mTitle);
-							popup.description.setText(item.mDescription);
+							popup.description.setText(item.mDescription+item.mDescription+item.mDescription);
 							popup.setVisibility(View.VISIBLE);
 							return true; // We 'handled' this event.
 						}
