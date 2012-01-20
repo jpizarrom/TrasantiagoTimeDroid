@@ -24,7 +24,9 @@
 		style="@style/TitleBarAction"
 		android:src="@android:drawable/ic_menu_mylocation" />
 	</LinearLayout>
-	<RelativeLayout android:id="@+id/map_rl" android:layout_height="wrap_content" android:layout_width="fill_parent">
+	<RelativeLayout android:id="@+id/map_rl" 
+	android:layout_height="fill_parent" 
+	android:layout_width="fill_parent">
 	</RelativeLayout>
 
 </LinearLayout>

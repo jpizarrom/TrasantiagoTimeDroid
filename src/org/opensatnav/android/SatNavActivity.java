@@ -80,6 +80,8 @@ import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
 import android.view.WindowManager.BadTokenException;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -128,6 +130,7 @@ public class SatNavActivity extends Activity implements
 	private ScaleBarOverlay mScaleBarOverlay;
 	private ItemizedOverlayWithFocus<OverlayItem> mItemizedOverlay;
 	private ResourceProxy mResourceProxy;
+	private PopupControls popup;
 	
 //	private static TripStatisticsController mTripStatsController;
 
@@ -217,6 +220,53 @@ public class SatNavActivity extends Activity implements
 	public static SatNavActivity getInstance() {
 		return instance;
 	}
+//	@Widget
+	public class PopupControls extends LinearLayout {
+		private final Button mZoomIn;
+	    private final Button mZoomOut;
+	    public final EditText title;
+	    public final EditText description;
+	    public OverlayItem item;
+		public PopupControls(Context context) {
+//			super(context);
+			this(context, null);
+			// TODO Auto-generated constructor stub
+		}
+		public PopupControls(Context context, AttributeSet attrs) {
+	        super(context, attrs);
+	        setFocusable(false);
+	        
+	        LayoutInflater inflater = (LayoutInflater) context
+	                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+	        inflater.inflate(R.layout.popup, this, // we are the parent
+	                true);
+	        
+	        mZoomIn = (Button) findViewById(R.id.btn_close);
+	        mZoomOut = (Button) findViewById(R.id.btn_launch);
+	        title = (EditText) findViewById(R.id.title);
+	        description = (EditText) findViewById(R.id.description);
+	        
+	        item = null;
+	        
+	        mZoomIn.setOnClickListener(new View.OnClickListener() {
+			    public void onClick(View v) {
+					Toast.makeText(
+					SatNavActivity.this,
+					"mZoomIn", Toast.LENGTH_LONG).show();
+					popup.setVisibility(View.GONE);
+			    }
+			});
+	        mZoomOut.setOnClickListener(new View.OnClickListener() {
+			    public void onClick(View v) {
+					Toast.makeText(
+					SatNavActivity.this,
+					"mZoomOut", Toast.LENGTH_LONG).show();
+					popup.setVisibility(View.GONE);
+					SatNavActivity.this.launch(title.getText().toString());
+			    }
+			});
+	    }
+		}
 
 	/** Called when the activity is first created. */
 	@Override
@@ -319,7 +369,7 @@ public class SatNavActivity extends Activity implements
 			this.mMyLocationOverlay = new MyLocationOverlay(this.getBaseContext(), this.mOsmv){	
 			};
 			this.mOsmv.setBuiltInZoomControls(true);
-			this.mOsmv.setMultiTouchControls(true);
+//			this.mOsmv.setMultiTouchControls(true);
 			this.mOsmv.getOverlays().add(this.mMyLocationOverlay);
 			
 		}
@@ -337,6 +387,9 @@ public class SatNavActivity extends Activity implements
 //									SatNavActivity.this,
 //									"Item '" + item.mTitle + "' (index=" + index
 //											+ ") got single tapped up", Toast.LENGTH_LONG).show();
+							popup.title.setText(item.mTitle);
+							popup.description.setText(item.mDescription);
+							popup.setVisibility(View.VISIBLE);
 							return true; // We 'handled' this event.
 						}
 
@@ -345,93 +398,12 @@ public class SatNavActivity extends Activity implements
 //							Toast.makeText(
 //									SatNavActivity.this,
 //									"Item '" + item.mTitle + "' (index=" + index
-//											+ ") got long pressed", Toast.LENGTH_SHORT).show();
-							
-							final String paradero = item.mTitle;
-							SearchRecentSuggestions suggestions = new SearchRecentSuggestions(SatNavActivity.this,
-				                    MySuggestionProvider.AUTHORITY, MySuggestionProvider.MODE);
-				            suggestions.saveRecentQuery(paradero, null);
-				            
-							final ProgressDialog progress = ProgressDialog.show(
-									SatNavActivity.this, SatNavActivity.this.getResources().getText(
-											R.string.please_wait), SatNavActivity.this.getResources().getText(
-											R.string.searching), true, true);
-							final Handler handler = new Handler() {
-								@Override
-								public void handleMessage(Message msg) {
-									if (progress != null && progress.isShowing())
-										try {
-											progress.dismiss();
-//											backgroundThreadComplete = true;
-										} catch (IllegalArgumentException e) {
-											// if orientation change, thread continue but the dialog cannot be dismissed without exception
-										}
-									if (locations != null && locations.containsKey("names") && locations.getStringArray("names").length > 0) {
-										Intent intent = new Intent(SatNavActivity.this,
-//												org.opensatnav.android.ServiceActivity.class);
-												cl.droid.transantiago.TransChooseServiceActivity.class);
-										intent.putExtra("fromLocation", from.toDoubleString());
-										intent.putExtra("locations", locations);
-										intent.putExtra("paradero", paradero);
-										
-										String urlstring = "http://m.ibus.cl/index.jsp?paradero="+paradero+"&servicio=&boton.x=0&boton.y=0";
-//										Log.i(OpenSatNavConstants.LOG_TAG, urlstring);
-										intent.putExtra("url", urlstring);
-										startActivityForResult(intent,0);
-										
-									} else if (locations != null && locations.containsKey("names") && locations.getStringArray("names").length == 0)
-										Toast
-										.makeText(
-												SatNavActivity.this,
-												String.format(
-														SatNavActivity.this
-															.getResources()
-															.getText(
-//																R.string.could_not_find_poi
-																R.string.place_not_found).toString(),
-														"paradero")
-//														+ " " + stringValue
-														,
-												Toast.LENGTH_LONG).show();
-									if (locations == null)
-										Toast.makeText(SatNavActivity.this,
-												SatNavActivity.this
-												.getResources()
-												.getText(
-//													R.string.could_not_find_poi
-													R.string.error_no_server_conn).toString(),
-												Toast.LENGTH_LONG).show();
-									
-//									TransChooseLocationServiceActivity.this.finish();
-								}
-							};
-							new Thread(new Runnable() {
-								public void run() {
-									// put long running operations here
-									TransantiagoGeoCoder geoCoder = null;
-
-									
-									geoCoder = new TransantiagoGeoCoder();
-										
-									
-//									if (selectedPoi == -1) { // text search, rank results within an area
-										locations = geoCoder.queryService(paradero, from, GeoCoder.IN_AREA, 25,
-												SatNavActivity.this);
-//									}
-//									else {  //POI search, just find the nearest matching POI
-//									locations = geoCoder.queryService("", from, GeoCoder.FROM_POINT, 25,
-//											TransChooseLocationServiceActivity.this);
-//									}
-									// ok, we are done
-									handler.sendEmptyMessage(0);
-									
-								}
-							}).start();
-							
+//											+ ") got long pressed", Toast.LENGTH_SHORT).show();							
+							launch(item.mTitle);
 							return true;
 						}
 					}, mResourceProxy);
-			this.mItemizedOverlay.setFocusItemsOnTap(true);
+//			this.mItemizedOverlay.setFocusItemsOnTap(true);
 			this.mOsmv.getOverlays().add(this.mItemizedOverlay);
 			
 //			AttributeSet attrs = null;
@@ -482,6 +454,18 @@ public class SatNavActivity extends Activity implements
 //			zoomParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
 //			rl.addView(zoomControls, zoomParams);
 
+		}
+		/* PUPUP */
+		{
+			popup = new PopupControls(this);
+			final RelativeLayout.LayoutParams zoomParams = new RelativeLayout.LayoutParams(
+					android.view.ViewGroup.LayoutParams.FILL_PARENT,
+					android.view.ViewGroup.LayoutParams.FILL_PARENT);
+			zoomParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
+			zoomParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+			popup.setVisibility(View.GONE);
+			rl.addView(popup, zoomParams);
+//			rl.addView(popup);
 		}
 
 		// Recorded Trace Overlay
@@ -779,6 +763,90 @@ public class SatNavActivity extends Activity implements
 	        return true;
 	    }
 	    return false;
+	}
+
+	public void launch(final String paradero) {
+//		final String paradero = item.mTitle;
+		SearchRecentSuggestions suggestions = new SearchRecentSuggestions(SatNavActivity.this,
+                MySuggestionProvider.AUTHORITY, MySuggestionProvider.MODE);
+        suggestions.saveRecentQuery(paradero, null);
+        
+		final ProgressDialog progress = ProgressDialog.show(
+				SatNavActivity.this, SatNavActivity.this.getResources().getText(
+						R.string.please_wait), SatNavActivity.this.getResources().getText(
+						R.string.searching), true, true);
+		final Handler handler = new Handler() {
+			@Override
+			public void handleMessage(Message msg) {
+				if (progress != null && progress.isShowing())
+					try {
+						progress.dismiss();
+//						backgroundThreadComplete = true;
+					} catch (IllegalArgumentException e) {
+						// if orientation change, thread continue but the dialog cannot be dismissed without exception
+					}
+				if (locations != null && locations.containsKey("names") && locations.getStringArray("names").length > 0) {
+					Intent intent = new Intent(SatNavActivity.this,
+//							org.opensatnav.android.ServiceActivity.class);
+							cl.droid.transantiago.TransChooseServiceActivity.class);
+					intent.putExtra("fromLocation", from.toDoubleString());
+					intent.putExtra("locations", locations);
+					intent.putExtra("paradero", paradero);
+					
+					String urlstring = "http://m.ibus.cl/index.jsp?paradero="+paradero+"&servicio=&boton.x=0&boton.y=0";
+//					Log.i(OpenSatNavConstants.LOG_TAG, urlstring);
+					intent.putExtra("url", urlstring);
+					startActivityForResult(intent,0);
+					
+				} else if (locations != null && locations.containsKey("names") && locations.getStringArray("names").length == 0)
+					Toast
+					.makeText(
+							SatNavActivity.this,
+							String.format(
+									SatNavActivity.this
+										.getResources()
+										.getText(
+//											R.string.could_not_find_poi
+											R.string.place_not_found).toString(),
+									"paradero")
+//									+ " " + stringValue
+									,
+							Toast.LENGTH_LONG).show();
+				if (locations == null)
+					Toast.makeText(SatNavActivity.this,
+							SatNavActivity.this
+							.getResources()
+							.getText(
+//								R.string.could_not_find_poi
+								R.string.error_no_server_conn).toString(),
+							Toast.LENGTH_LONG).show();
+				
+//				TransChooseLocationServiceActivity.this.finish();
+			}
+		};
+		new Thread(new Runnable() {
+			public void run() {
+				// put long running operations here
+				TransantiagoGeoCoder geoCoder = null;
+
+				
+				geoCoder = new TransantiagoGeoCoder();
+					
+				
+//				if (selectedPoi == -1) { // text search, rank results within an area
+					locations = geoCoder.queryService(paradero, from, GeoCoder.IN_AREA, 25,
+							SatNavActivity.this);
+//				}
+//				else {  //POI search, just find the nearest matching POI
+//				locations = geoCoder.queryService("", from, GeoCoder.FROM_POINT, 25,
+//						TransChooseLocationServiceActivity.this);
+//				}
+				// ok, we are done
+				handler.sendEmptyMessage(0);
+				
+			}
+		}).start();
+		
 	}
 	protected Bundle locations;
 	protected Boolean backgroundThreadComplete = true;
