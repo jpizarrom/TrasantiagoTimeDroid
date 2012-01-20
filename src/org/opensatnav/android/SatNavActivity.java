@@ -231,8 +231,8 @@ public class SatNavActivity extends Activity implements
 	}
 //	@Widget
 	public class PopupControls extends LinearLayout {
-		private final Button mZoomIn;
-	    private final Button mZoomOut;
+		private final Button mClose;
+	    private final Button mLaunch;
 	    public final TextView title;
 	    public final TextView description;
 	    public OverlayItem item;
@@ -250,8 +250,8 @@ public class SatNavActivity extends Activity implements
 	        inflater.inflate(R.layout.popup, this, // we are the parent
 	                true);
 	        
-	        mZoomIn = (Button) findViewById(R.id.btn_close);
-	        mZoomOut = (Button) findViewById(R.id.btn_launch);
+	        mClose = (Button) findViewById(R.id.btn_close);
+	        mLaunch = (Button) findViewById(R.id.btn_launch);
 	        title = (TextView) findViewById(R.id.title);
 	        description = (TextView) findViewById(R.id.description);
 	        
@@ -270,20 +270,20 @@ public class SatNavActivity extends Activity implements
 	        
 	        item = null;
 	        
-	        mZoomIn.setOnClickListener(new View.OnClickListener() {
+	        mClose.setOnClickListener(new View.OnClickListener() {
 			    public void onClick(View v) {
-					Toast.makeText(
-					SatNavActivity.this,
-					"mZoomIn", Toast.LENGTH_LONG).show();
+//					Toast.makeText(
+//					SatNavActivity.this,
+//					"mZoomIn", Toast.LENGTH_LONG).show();
 					popup.setVisibility(View.GONE);
 			    }
 			});
-	        mZoomOut.setOnClickListener(new View.OnClickListener() {
+	        mLaunch.setOnClickListener(new View.OnClickListener() {
 			    public void onClick(View v) {
-					Toast.makeText(
-					SatNavActivity.this,
-					"mZoomOut", Toast.LENGTH_LONG).show();
-					popup.setVisibility(View.GONE);
+//					Toast.makeText(
+//					SatNavActivity.this,
+//					"mZoomOut", Toast.LENGTH_LONG).show();
+//					popup.setVisibility(View.GONE);
 					SatNavActivity.this.launch(title.getText().toString());
 			    }
 			});
@@ -358,8 +358,8 @@ public class SatNavActivity extends Activity implements
 				android.view.ViewGroup.LayoutParams.FILL_PARENT,
 				android.view.ViewGroup.LayoutParams.FILL_PARENT));
 //		providerUtils = IProviderUtils.Factory.get(this);
-		mOsmv.getController().setZoom(prefs.getInt(PREFS_ZOOM_LEVEL, 1));
-		mOsmv.scrollTo(prefs.getInt(PREFS_SCROLL_X, 0), prefs.getInt(PREFS_SCROLL_Y, 0));
+		mOsmv.getController().setZoom(prefs.getInt(PREFS_ZOOM_LEVEL, 14));
+		mOsmv.scrollTo(prefs.getInt(PREFS_SCROLL_X, -823161), prefs.getInt(PREFS_SCROLL_Y, 413748));
 
 //		if (mLocationHandler.getFirstLocation() != null)
 //			this.mOsmv.setMapCenter(TypeConverter
@@ -410,7 +410,7 @@ public class SatNavActivity extends Activity implements
 //									"Item '" + item.mTitle + "' (index=" + index
 //											+ ") got single tapped up", Toast.LENGTH_LONG).show();
 							popup.title.setText(item.mTitle);
-							popup.description.setText(item.mDescription+item.mDescription+item.mDescription);
+							popup.description.setText(item.mDescription);
 							popup.setVisibility(View.VISIBLE);
 							return true; // We 'handled' this event.
 						}
@@ -477,7 +477,7 @@ public class SatNavActivity extends Activity implements
 //			rl.addView(zoomControls, zoomParams);
 
 		}
-		/* PUPUP */
+		/* POPUP */
 		{
 			popup = new PopupControls(this);
 			final RelativeLayout.LayoutParams zoomParams = new RelativeLayout.LayoutParams(
@@ -487,6 +487,26 @@ public class SatNavActivity extends Activity implements
 			zoomParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
 			popup.setVisibility(View.GONE);
 			rl.addView(popup, zoomParams);
+//			rl.addView(popup);
+		}
+
+		/* Fetch busstop buttom */
+		{
+			Button busstopButton = new Button(this);
+//			busstopButton.setText("Para");
+			busstopButton.setBackgroundResource(R.drawable.parada_cercana_64);
+			busstopButton.setOnClickListener(new View.OnClickListener() {
+			    public void onClick(View v) {
+			    	onSearchOnMap();
+			    }
+			});
+			final RelativeLayout.LayoutParams zoomParams = new RelativeLayout.LayoutParams(
+					android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
+					android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
+			zoomParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+			zoomParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+			popup.setVisibility(View.GONE);
+			rl.addView(busstopButton, zoomParams);
 //			rl.addView(popup);
 		}
 
@@ -1232,7 +1252,13 @@ public class SatNavActivity extends Activity implements
 	}
 
 	protected void onPause() {
-
+//		Toast.makeText(
+//				SatNavActivity.this,
+//				mOsmv.getScrollX() + ", " +mOsmv.getScrollY()
+//				+ " - " + mOsmv.getZoomLevel()
+////				"Item '" + item.mTitle + "' (index=" + index
+////						+ ") got single tapped up"
+//				, Toast.LENGTH_LONG).show();
 		// Called when activity is going into the background, but has not (yet)
 		// been
 		// killed. Shouldn't block longer than approx. 2 seconds.

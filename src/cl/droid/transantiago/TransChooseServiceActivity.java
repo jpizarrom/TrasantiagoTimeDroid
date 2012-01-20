@@ -85,7 +85,7 @@ public class TransChooseServiceActivity extends ListActivity {
 		BitmapFactory.Options bmOptions;
 	    bmOptions = new BitmapFactory.Options();
 	    bmOptions.inSampleSize = 1;
-	    Bitmap bm = LoadImage("http://198.41.36.27:8080/admMarketing/img/11273693.jpg", bmOptions);
+	    Bitmap bm = loadImage("http://198.41.36.27:8080/admMarketing/img/0125137911.gif", bmOptions);
 //	    ads.setImageBitmap(bm);
 		
 		GeoPoint from = GeoPoint.fromDoubleString(getIntent().getStringExtra("fromLocation"), ',');
@@ -382,7 +382,7 @@ public class TransChooseServiceActivity extends ListActivity {
 
 	}
 
-	   private Bitmap LoadImage(final String URL, final BitmapFactory.Options options)
+	   private Bitmap loadImage(final String URL, final BitmapFactory.Options options)
 	   {
 		   final Handler handler = new Handler() {
 //			   @Override
