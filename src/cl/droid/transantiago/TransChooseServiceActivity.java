@@ -98,9 +98,9 @@ public class TransChooseServiceActivity extends ListActivity {
 		if (b.containsKey("ads"))
 			loadImage(b.getString("ads"), bmOptions);
 		
-		setTitle(this.getResources().getText(R.string.busstop) + " : " + paradero 
-//				+ " - " + this.getResources().getText(R.string.choose_location_service)
-				);
+//		setTitle(this.getResources().getText(R.string.busstop) + " : " + paradero 
+////				+ " - " + this.getResources().getText(R.string.choose_location_service)
+//				);
 		// Set the title
 		((TextView) findViewById(R.id.title_text)).setText(paradero);
 		
@@ -362,7 +362,7 @@ public class TransChooseServiceActivity extends ListActivity {
 			
 			placeView.setText(place);
 			placeView.setTextSize(20);
-			placeView.setTextColor(Color.WHITE);
+//			placeView.setTextColor(Color.WHITE);
 			infoView.setText(info);
 //			distanceView.setText(distance);
 			

@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class HomeActivity extends Activity {
@@ -28,16 +29,16 @@ public class HomeActivity extends Activity {
 		setContentView(R.layout.home);
 		
 		boolean appUnchanged = Changelog.show(this);
-		
+		((TextView) findViewById(R.id.title_text)).setText("Home");
 //		 TitleBar Search
 //		android.R.color.tertiary_text_light
-		findViewById(R.id.home_titlebar_btn_search).setOnClickListener(new View.OnClickListener() {
+		findViewById(R.id.titlebar_btn_search).setOnClickListener(new View.OnClickListener() {
 		    public void onClick(View v) {
 		    	onSearchRequested();
 		    }
 		});
 		
-		findViewById(R.id.home_titlebar_btn_share).setOnClickListener(new View.OnClickListener() {
+		findViewById(R.id.titlebar_btn_share).setOnClickListener(new View.OnClickListener() {
 		    public void onClick(View v) {
 		    	Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
 		    	emailIntent.setType("text/plain");

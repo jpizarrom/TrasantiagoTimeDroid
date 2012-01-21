@@ -298,6 +298,7 @@ public class SatNavActivity extends Activity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.map);
 //		final RelativeLayout rl = new RelativeLayout(this);
+		((TextView) findViewById(R.id.title_text)).setText("Map");
 		
 		mResourceProxy = new ResourceProxyImpl(getApplicationContext());
 		
@@ -310,13 +311,13 @@ public class SatNavActivity extends Activity implements
 		layout = rl;
 		
 //		 TitleBar Search
-		findViewById(R.id.map_titlebar_btn_search_map).setOnClickListener(new View.OnClickListener() {
+		findViewById(R.id.titlebar_btn_search_map).setOnClickListener(new View.OnClickListener() {
 		    public void onClick(View v) {
 		    	onSearchOnMap();
 //		    	onSearchRequested();
 		    }
 		});
-		findViewById(R.id.map_titlebar_btn_mylocation).setOnClickListener(new View.OnClickListener() {
+		findViewById(R.id.titlebar_btn_mylocation).setOnClickListener(new View.OnClickListener() {
 		    public void onClick(View v) {
 		    	mMyLocationOverlay.enableMyLocation();
 		    	mMyLocationOverlay.enableFollowLocation();
@@ -702,7 +703,7 @@ public class SatNavActivity extends Activity implements
 //			onSearchRequested();
 //			Toast.makeText(this, "onSearchRequested", Toast.LENGTH_LONG).show();
 //			return true;
-		case R.id.map_titlebar_btn_search_map:
+		case R.id.titlebar_btn_search_map:
 		case MENU_TRANS_TOGGLE:
 			onSearchOnMap();
 			return true;
