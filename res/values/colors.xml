@@ -18,4 +18,6 @@
 	<color name="gray">#ff606060</color>
 	<color name="aqua">#ff007bff</color>
 	<color name="red">#ffff0000</color>
+	
+	<color name="popup_background">#ff073763</color>
 </resources>
