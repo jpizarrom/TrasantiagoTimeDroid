@@ -40,6 +40,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
 import org.opensatnav.android.OpenSatNavConstants;
+import org.opensatnav.android.SatNavActivity;
 import org.opensatnav.android.services.GeoCoder;
 import org.opensatnav.android.util.FormatHelper;
 import org.osmdroid.util.GeoPoint;
@@ -56,6 +57,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.provider.SearchRecentSuggestions;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -64,6 +66,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
 public class TransChooseServiceActivity extends ListActivity {
@@ -71,8 +74,11 @@ public class TransChooseServiceActivity extends ListActivity {
 	protected ProgressDialog progress;
 	Bundle b;
 	String[] locationInfo;
-	String[] locationNames;;
+	String[] locationNames;
 	ImageView ads;
+	protected GeoPoint from;
+	BitmapFactory.Options bmOptions;
+	LocationAdapter la;
 	
 	@Override
 	public void onCreate(android.os.Bundle savedInstanceState) {
@@ -82,21 +88,22 @@ public class TransChooseServiceActivity extends ListActivity {
 		ads = (ImageView)this.findViewById(R.id.ads);
 //		Uri uri= Uri.parse("http://198.41.36.27:8080/admMarketing/img/11273693.jpg");
 //		ads.setImageURI(uri);
-		BitmapFactory.Options bmOptions;
+//		BitmapFactory.Options bmOptions;
 	    bmOptions = new BitmapFactory.Options();
 	    bmOptions.inSampleSize = 1;
 //	    Bitmap bm = loadImage("http://198.41.36.27:8080/admMarketing/img/0125137911.gif", bmOptions);
 //	    ads.setImageBitmap(bm);
 		
-		GeoPoint from = GeoPoint.fromDoubleString(getIntent().getStringExtra("fromLocation"), ',');
+		from = GeoPoint.fromDoubleString(getIntent().getStringExtra("fromLocation"), ',');
 		final String paradero = getIntent().getStringExtra("paradero");
 		
-		b = getIntent().getBundleExtra("locations");
-		locationInfo = b.getStringArray("info");
-		locationNames = b.getStringArray("names");
+//		b = getIntent().getBundleExtra("locations");
+//		locationInfo = b.getStringArray("info");
+//		locationNames = b.getStringArray("names");
+		locationNames = null;
 		
-		if (b.containsKey("ads"))
-			loadImage(b.getString("ads"), bmOptions);
+//		if (b.containsKey("ads"))
+//			loadImage(b.getString("ads"), bmOptions);
 		
 //		setTitle(this.getResources().getText(R.string.busstop) + " : " + paradero 
 ////				+ " - " + this.getResources().getText(R.string.choose_location_service)
@@ -104,8 +111,10 @@ public class TransChooseServiceActivity extends ListActivity {
 		// Set the title
 		((TextView) findViewById(R.id.title_text)).setText(paradero);
 		
-		final LocationAdapter la = new LocationAdapter(from);
-		setListAdapter(la);
+		la = new LocationAdapter(from);
+//		setListAdapter(la);
+		
+		this.launch(paradero);
 //		getListView().setTextFilterEnabled(true);
 //		getListView().setOnItemClickListener();
 				
@@ -325,7 +334,9 @@ public class TransChooseServiceActivity extends ListActivity {
 
 		@Override
 		public int getCount() {
-			return locationNames.length;
+			if (locationNames!=null)
+				return locationNames.length;
+			return 0;
 		}
 
 		@Override
@@ -438,5 +449,97 @@ public class TransChooseServiceActivity extends ListActivity {
 		   }
 		   return inputStream;
 		  }
+
+	   protected Bundle locations;
+	   public void launch(final String paradero) {
+		   //			final String paradero = item.mTitle;
+		   SearchRecentSuggestions suggestions = new SearchRecentSuggestions(TransChooseServiceActivity.this,
+				   MySuggestionProvider.AUTHORITY, MySuggestionProvider.MODE);
+		   suggestions.saveRecentQuery(paradero, null);
+
+		   final ProgressDialog progress = ProgressDialog.show(
+				   TransChooseServiceActivity.this, TransChooseServiceActivity.this.getResources().getText(
+						   R.string.please_wait), TransChooseServiceActivity.this.getResources().getText(
+								   R.string.searching), true, true);
+		   final Handler handler = new Handler() {
+			   @Override
+			   public void handleMessage(Message msg) {
+				   if (progress != null && progress.isShowing())
+					   try {
+						   progress.dismiss();
+						   //							backgroundThreadComplete = true;
+					   } catch (IllegalArgumentException e) {
+						   // if orientation change, thread continue but the dialog cannot be dismissed without exception
+					   }
+					   if (locations != null && locations.containsKey("names") && locations.getStringArray("names").length > 0) {
+							locationInfo = locations.getStringArray("info");
+							locationNames = locations.getStringArray("names");
+							setListAdapter(la);
+							
+							if (locations.containsKey("ads"))
+								loadImage(locations.getString("ads"), bmOptions);
+//						   Intent intent = new Intent(SatNavActivity.this,
+//								   //								org.opensatnav.android.ServiceActivity.class);
+//								   cl.droid.transantiago.TransChooseServiceActivity.class);
+//						   intent.putExtra("fromLocation", from.toDoubleString());
+//						   intent.putExtra("locations", locations);
+//						   intent.putExtra("paradero", paradero);
+//
+//						   String urlstring = "http://m.ibus.cl/index.jsp?paradero="+paradero+"&servicio=&boton.x=0&boton.y=0";
+//						   //						Log.i(OpenSatNavConstants.LOG_TAG, urlstring);
+//						   intent.putExtra("url", urlstring);
+//						   startActivityForResult(intent,0);
+
+					   } else if (locations != null && locations.containsKey("names") && locations.getStringArray("names").length == 0)
+						   Toast
+						   .makeText(
+								   TransChooseServiceActivity.this,
+								   String.format(
+										   TransChooseServiceActivity.this
+										   .getResources()
+										   .getText(
+												   //												R.string.could_not_find_poi
+												   R.string.place_not_found).toString(),
+								   "paradero")
+								   //										+ " " + stringValue
+								   ,
+								   Toast.LENGTH_LONG).show();
+					   if (locations == null)
+						   Toast.makeText(TransChooseServiceActivity.this,
+								   TransChooseServiceActivity.this
+								   .getResources()
+								   .getText(
+										   //									R.string.could_not_find_poi
+										   R.string.error_no_server_conn).toString(),
+										   Toast.LENGTH_LONG).show();
+
+					   //					TransChooseLocationServiceActivity.this.finish();
+			   }
+		   };
+		   new Thread(new Runnable() {
+			   public void run() {
+				   // put long running operations here
+				   TransantiagoGeoCoder geoCoder = null;
+
+
+				   geoCoder = new TransantiagoGeoCoder();
+
+
+				   //					if (selectedPoi == -1) { // text search, rank results within an area
+				   locations = geoCoder.queryService(paradero, from, GeoCoder.IN_AREA, 25,
+						   TransChooseServiceActivity.this);
+				   //					}
+				   //					else {  //POI search, just find the nearest matching POI
+				   //					locations = geoCoder.queryService("", from, GeoCoder.FROM_POINT, 25,
+				   //							TransChooseLocationServiceActivity.this);
+				   //					}
+				   // ok, we are done
+				   handler.sendEmptyMessage(0);
+
+			   }
+		   }).start();
+
+	   }
+
 	
 }
