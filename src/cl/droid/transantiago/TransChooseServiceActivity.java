@@ -85,6 +85,11 @@ public class TransChooseServiceActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.services_list);
 		
+		Toast.makeText(
+				TransChooseServiceActivity.this,
+				"SatNavActivity onCreate"
+				, Toast.LENGTH_LONG).show();
+		
 		ads = (ImageView)this.findViewById(R.id.ads);
 //		Uri uri= Uri.parse("http://198.41.36.27:8080/admMarketing/img/11273693.jpg");
 //		ads.setImageURI(uri);
@@ -396,7 +401,18 @@ public class TransChooseServiceActivity extends ListActivity {
 
 	}
 
-	   private Bitmap loadImage(final String URL, final BitmapFactory.Options options)
+	
+	   @Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+	}
+	@Override
+	protected void onStop() {
+		// TODO Auto-generated method stub
+		super.onStop();
+	}
+	private Bitmap loadImage(final String URL, final BitmapFactory.Options options)
 	   {
 		   final Handler handler = new Handler() {
 //			   @Override
@@ -457,10 +473,10 @@ public class TransChooseServiceActivity extends ListActivity {
 				   MySuggestionProvider.AUTHORITY, MySuggestionProvider.MODE);
 		   suggestions.saveRecentQuery(paradero, null);
 
-		   final ProgressDialog progress = ProgressDialog.show(
-				   TransChooseServiceActivity.this, TransChooseServiceActivity.this.getResources().getText(
-						   R.string.please_wait), TransChooseServiceActivity.this.getResources().getText(
-								   R.string.searching), true, true);
+//		   final ProgressDialog progress = ProgressDialog.show(
+//				   TransChooseServiceActivity.this, TransChooseServiceActivity.this.getResources().getText(
+//						   R.string.please_wait), TransChooseServiceActivity.this.getResources().getText(
+//								   R.string.searching), true, true);
 		   final Handler handler = new Handler() {
 			   @Override
 			   public void handleMessage(Message msg) {
@@ -472,9 +488,9 @@ public class TransChooseServiceActivity extends ListActivity {
 						   // if orientation change, thread continue but the dialog cannot be dismissed without exception
 					   }
 					   if (locations != null && locations.containsKey("names") && locations.getStringArray("names").length > 0) {
-							locationInfo = locations.getStringArray("info");
-							locationNames = locations.getStringArray("names");
-							setListAdapter(la);
+//							locationInfo = locations.getStringArray("info");
+//							locationNames = locations.getStringArray("names");
+//							setListAdapter(la);
 							
 							if (locations.containsKey("ads"))
 								loadImage(locations.getString("ads"), bmOptions);

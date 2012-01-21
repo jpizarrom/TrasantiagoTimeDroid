@@ -300,6 +300,11 @@ public class SatNavActivity extends Activity implements
 //		final RelativeLayout rl = new RelativeLayout(this);
 		((TextView) findViewById(R.id.title_text)).setText("Map");
 		
+		Toast.makeText(
+				SatNavActivity.this,
+				"SatNavActivity onCreate"
+				, Toast.LENGTH_LONG).show();
+		
 		mResourceProxy = new ResourceProxyImpl(getApplicationContext());
 		
 //		LayoutInflater inflater = (LayoutInflater)this.getSystemService

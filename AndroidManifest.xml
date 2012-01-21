@@ -20,7 +20,7 @@
 	android:theme="@style/Theme"
 	>
 		
-		<activity android:name="org.opensatnav.android.SatNavActivity">
+		<activity android:name="org.opensatnav.android.SatNavActivity" android:configChanges="orientation">
 <!-- 			<intent-filter> -->
 <!--                 <action android:name="android.intent.action.MAIN" /> -->
 <!--                 <category android:name="android.intent.category.LAUNCHER" /> -->
@@ -34,7 +34,7 @@
               android:authorities="cl.droid.transantiago.MySuggestionProvider" />
               
 		<activity android:name="org.opensatnav.android.GetDirectionsActivity" />
-		<activity android:name="org.opensatnav.android.ChooseLocationActivity" />
+		<activity android:name="org.opensatnav.android.ChooseLocationActivity" android:configChanges="orientation"/>
 		<activity android:name="org.openintents.about.About" />
 		<activity android:name="org.opensatnav.android.ConfigurationActivity" />
 		<activity android:name="org.opensatnav.android.ContributeActivity"
@@ -91,7 +91,7 @@
                     android:resource="@xml/searchable"/>
 		</activity>
 		
-		<activity android:name="cl.droid.transantiago.TransChooseServiceActivity"></activity>
+		<activity android:name="cl.droid.transantiago.TransChooseServiceActivity" android:configChanges="orientation"></activity>
 		
 		<activity android:name="cl.droid.transantiago.ServiceActivity"
 		android:theme="@android:style/Theme.Black"
