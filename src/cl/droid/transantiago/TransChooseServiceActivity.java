@@ -65,6 +65,7 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
@@ -79,6 +80,8 @@ public class TransChooseServiceActivity extends ListActivity {
 	protected GeoPoint from;
 	BitmapFactory.Options bmOptions;
 	LocationAdapter la;
+	String paradero;
+	private ListView mListView;
 	
 	@Override
 	public void onCreate(android.os.Bundle savedInstanceState) {
@@ -91,6 +94,13 @@ public class TransChooseServiceActivity extends ListActivity {
 				, Toast.LENGTH_LONG).show();
 		
 		ads = (ImageView)this.findViewById(R.id.ads);
+		// Refresh title button
+		findViewById(R.id.title_btn_refresh).setOnClickListener(new View.OnClickListener() {
+		    public void onClick(View v) {
+		    	TransChooseServiceActivity.this.launch(paradero);
+		    }
+		});	
+		
 //		Uri uri= Uri.parse("http://198.41.36.27:8080/admMarketing/img/11273693.jpg");
 //		ads.setImageURI(uri);
 //		BitmapFactory.Options bmOptions;
@@ -100,7 +110,7 @@ public class TransChooseServiceActivity extends ListActivity {
 //	    ads.setImageBitmap(bm);
 		
 		from = GeoPoint.fromDoubleString(getIntent().getStringExtra("fromLocation"), ',');
-		final String paradero = getIntent().getStringExtra("paradero");
+		paradero = getIntent().getStringExtra("paradero");
 		
 //		b = getIntent().getBundleExtra("locations");
 //		locationInfo = b.getStringArray("info");
@@ -117,6 +127,8 @@ public class TransChooseServiceActivity extends ListActivity {
 		((TextView) findViewById(R.id.title_text)).setText(paradero);
 		
 		la = new LocationAdapter(from);
+		mListView = getListView();
+//		mListView.setVisibility(View.GONE);
 //		setListAdapter(la);
 		
 		this.launch(paradero);
@@ -477,6 +489,7 @@ public class TransChooseServiceActivity extends ListActivity {
 //				   TransChooseServiceActivity.this, TransChooseServiceActivity.this.getResources().getText(
 //						   R.string.please_wait), TransChooseServiceActivity.this.getResources().getText(
 //								   R.string.searching), true, true);
+		   showRefreshSpinner(true);
 		   final Handler handler = new Handler() {
 			   @Override
 			   public void handleMessage(Message msg) {
@@ -488,12 +501,13 @@ public class TransChooseServiceActivity extends ListActivity {
 						   // if orientation change, thread continue but the dialog cannot be dismissed without exception
 					   }
 					   if (locations != null && locations.containsKey("names") && locations.getStringArray("names").length > 0) {
-//							locationInfo = locations.getStringArray("info");
-//							locationNames = locations.getStringArray("names");
-//							setListAdapter(la);
+							locationInfo = locations.getStringArray("info");
+							locationNames = locations.getStringArray("names");
+							setListAdapter(la);
 							
 							if (locations.containsKey("ads"))
 								loadImage(locations.getString("ads"), bmOptions);
+							showRefreshSpinner(false);
 //						   Intent intent = new Intent(SatNavActivity.this,
 //								   //								org.opensatnav.android.ServiceActivity.class);
 //								   cl.droid.transantiago.TransChooseServiceActivity.class);
@@ -557,5 +571,9 @@ public class TransChooseServiceActivity extends ListActivity {
 
 	   }
 
+		private void showRefreshSpinner(boolean isRefreshing) {
+			findViewById(R.id.title_btn_refresh).setVisibility(isRefreshing ? View.GONE : View.VISIBLE);
+			findViewById(R.id.title_refresh_progress).setVisibility(isRefreshing ? View.VISIBLE : View.GONE);
+		}
 	
 }

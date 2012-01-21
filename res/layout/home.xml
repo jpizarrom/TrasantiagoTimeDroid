@@ -26,9 +26,6 @@
 		<ImageButton android:id="@+id/titlebar_btn_share"
 			style="@style/TitleBarAction" android:src="@android:drawable/ic_menu_share" />
 
-		<ImageView style="@style/TitleBarSeparator" />
-		<ImageButton android:id="@+id/titlebar_btn_search"
-			style="@style/TitleBarAction" android:src="@android:drawable/ic_menu_search" />
 	</LinearLayout>
 
 	<LinearLayout android:orientation="vertical"

@@ -79,11 +79,11 @@
 <!-- 		<service android:icon="@drawable/icon" android:label="@string/app_name" -->
 <!-- 			android:name="org.opensatnav.android.services.routing.RouteInstructionsService" /> -->
 			
-		<activity android:name=".TransChooseLocationServiceActivity">
+		<activity android:name=".TransChooseLocationServiceActivity" android:launchMode="singleTop">
 		    <!-- Receives the search request. -->
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
-<!--                 <category android:name="android.intent.category.DEFAULT" /> -->
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
 
             <!-- Points to searchable meta data. -->

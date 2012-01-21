@@ -139,7 +139,8 @@ public class TransChooseLocationServiceActivity extends ListActivity {
 		String urlstring = "http://m.ibus.cl/index.jsp?paradero="+paradero+"&servicio=&boton.x=0&boton.y=0";
 		//Log.i(OpenSatNavConstants.LOG_TAG, urlstring);
 		intent.putExtra("url", urlstring);
-		startActivityForResult(intent,0);
+		startActivity(intent);
+		finish();
 		
 //		Toast.makeText(TransChooseLocationServiceActivity.this, "launchServices", Toast.LENGTH_LONG).show();
 //		progress = ProgressDialog.show(

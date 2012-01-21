@@ -140,6 +140,8 @@ public class SatNavActivity extends Activity implements
 	private ItemizedIconOverlay<OverlayItem> mItemizedOverlay;
 	private ResourceProxy mResourceProxy;
 	private PopupControls popup;
+	Button busstopButton;
+	Button refButton;
 	
 //	private static TripStatisticsController mTripStatsController;
 
@@ -300,10 +302,10 @@ public class SatNavActivity extends Activity implements
 //		final RelativeLayout rl = new RelativeLayout(this);
 		((TextView) findViewById(R.id.title_text)).setText("Map");
 		
-		Toast.makeText(
-				SatNavActivity.this,
-				"SatNavActivity onCreate"
-				, Toast.LENGTH_LONG).show();
+//		Toast.makeText(
+//				SatNavActivity.this,
+//				"SatNavActivity onCreate"
+//				, Toast.LENGTH_LONG).show();
 		
 		mResourceProxy = new ResourceProxyImpl(getApplicationContext());
 		
@@ -315,13 +317,13 @@ public class SatNavActivity extends Activity implements
 //			rl.addView(titlebar);
 		layout = rl;
 		
-//		 TitleBar Search
-		findViewById(R.id.titlebar_btn_search_map).setOnClickListener(new View.OnClickListener() {
-		    public void onClick(View v) {
-		    	onSearchOnMap();
-//		    	onSearchRequested();
-		    }
-		});
+////		 TitleBar Search
+//		findViewById(R.id.titlebar_btn_search_map).setOnClickListener(new View.OnClickListener() {
+//		    public void onClick(View v) {
+//		    	onSearchOnMap();
+////		    	onSearchRequested();
+//		    }
+//		});
 		findViewById(R.id.titlebar_btn_mylocation).setOnClickListener(new View.OnClickListener() {
 		    public void onClick(View v) {
 		    	mMyLocationOverlay.enableMyLocation();
@@ -499,22 +501,37 @@ public class SatNavActivity extends Activity implements
 
 		/* Fetch busstop buttom */
 		{
-			Button busstopButton = new Button(this);
+			busstopButton = new Button(this);
 //			busstopButton.setText("Para");
 			busstopButton.setBackgroundResource(R.drawable.parada_cercana_64);
 			busstopButton.setOnClickListener(new View.OnClickListener() {
 			    public void onClick(View v) {
+			    	SatNavActivity.this.showRefreshSpinner(true);
 			    	onSearchOnMap();
 			    }
 			});
+			{
 			final RelativeLayout.LayoutParams zoomParams = new RelativeLayout.LayoutParams(
 					android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
 					android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 			zoomParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
 			zoomParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-			popup.setVisibility(View.GONE);
 			rl.addView(busstopButton, zoomParams);
+			}
+			{
+			final RelativeLayout.LayoutParams zoomParams = new RelativeLayout.LayoutParams(
+					android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
+					android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
+			zoomParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+			zoomParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+			refButton = new Button(this);
+			refButton.setBackgroundResource(R.drawable.ic_menu_refresh);
+//			zoomParams.addRule(RelativeLayout.LEFT_OF, busstopButton.getId());
+			refButton.setVisibility(View.GONE);
+			rl.addView(refButton, zoomParams);
 //			rl.addView(popup);
+		
+			}
 		}
 
 		// Recorded Trace Overlay
@@ -658,9 +675,10 @@ public class SatNavActivity extends Activity implements
 
 	@Override
 	public boolean onCreateOptionsMenu(final Menu pMenu) {
-		pMenu.add(0, R.id.search, 0, R.string.stops_on_map)
-    	.setIcon(android.R.drawable.ic_search_category_default)
-    	.setAlphabeticShortcut(SearchManager.MENU_KEY);
+		
+//		pMenu.add(0, R.id.search, 0, R.string.stops_on_map)
+//    	.setIcon(android.R.drawable.ic_search_category_default)
+//    	.setAlphabeticShortcut(SearchManager.MENU_KEY);
 		
 //		MenuItem transMenuItem = pMenu.add(0, MENU_TRANS_TOGGLE,
 //				Menu.NONE, R.string.get_trans);
@@ -705,14 +723,14 @@ public class SatNavActivity extends Activity implements
 	@Override
 	public boolean onMenuItemSelected(int featureId, MenuItem item) {
 		switch (item.getItemId()) {
-		case R.id.search:
+//		case R.id.search:
 //			onSearchRequested();
 //			Toast.makeText(this, "onSearchRequested", Toast.LENGTH_LONG).show();
 //			return true;
-		case R.id.titlebar_btn_search_map:
-		case MENU_TRANS_TOGGLE:
-			onSearchOnMap();
-			return true;
+//		case R.id.titlebar_btn_search_map:
+//		case MENU_TRANS_TOGGLE:
+//			onSearchOnMap();
+//			return true;
 //		case MENU_DIRECTIONS_TOGGLE:
 //			if (!this.isOnline()){
 //				Toast.makeText(this, this.getResources().getText(
@@ -837,10 +855,10 @@ public class SatNavActivity extends Activity implements
 		if (toText.length() != 0) {
 			backgroundThreadComplete = false;
 
-			progress = ProgressDialog.show(
-					SatNavActivity.this, this.getResources().getText(
-							R.string.please_wait), this.getResources().getText(
-							R.string.searching), true, true);
+//			progress = ProgressDialog.show(
+//					SatNavActivity.this, this.getResources().getText(
+//							R.string.please_wait), this.getResources().getText(
+//							R.string.searching), true, true);
 
 			bbox= this.mOsmv.getBoundingBox().getLonWestE6() / 1E6
 			+ "," + this.mOsmv.getBoundingBox().getLatSouthE6() / 1E6
@@ -906,6 +924,7 @@ public class SatNavActivity extends Activity implements
 								
 							}
 							SatNavActivity.this.mOsmv.invalidate();
+							SatNavActivity.this.showRefreshSpinner(false); 
 						}
 					} 
 //					else {
@@ -1611,4 +1630,8 @@ public class SatNavActivity extends Activity implements
 		}
 	}
 
+	private void showRefreshSpinner(boolean isRefreshing) {
+		busstopButton.setVisibility(isRefreshing ? View.GONE : View.VISIBLE);
+		refButton.setVisibility(isRefreshing ? View.VISIBLE : View.GONE);
+	}
 }

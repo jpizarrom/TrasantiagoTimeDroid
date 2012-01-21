@@ -32,11 +32,11 @@ public class HomeActivity extends Activity {
 		((TextView) findViewById(R.id.title_text)).setText("Home");
 //		 TitleBar Search
 //		android.R.color.tertiary_text_light
-		findViewById(R.id.titlebar_btn_search).setOnClickListener(new View.OnClickListener() {
-		    public void onClick(View v) {
-		    	onSearchRequested();
-		    }
-		});
+//		findViewById(R.id.titlebar_btn_search).setOnClickListener(new View.OnClickListener() {
+//		    public void onClick(View v) {
+//		    	onSearchRequested();
+//		    }
+//		});
 		
 		findViewById(R.id.titlebar_btn_share).setOnClickListener(new View.OnClickListener() {
 		    public void onClick(View v) {

@@ -16,10 +16,22 @@
         <TextView style="@style/TitleBarText" />
         
 		<ImageView style="@style/TitleBarSeparator" />
+		
+		<ImageButton android:id="@+id/title_btn_refresh"
+        	style="@style/TitleBarAction"
+            android:contentDescription="String"
+            android:src="@drawable/ic_title_refresh" />
+        <ProgressBar android:id="@+id/title_refresh_progress" 
+			style="@style/TitleBarProgressIndicator"
+            android:visibility="gone" />
 
-<!-- 		<ImageButton android:id="@+id/home_titlebar_btn_search" -->
-<!-- 		style="@style/TitleBarAction" -->
-<!-- 		android:src="@android:drawable/ic_search_category_default" /> -->
+        <ImageView style="@style/TitleBarSeparator" />
+        
+        <ImageButton android:id="@+id/title_btn_map" 
+        	style="@style/TitleBarAction"
+            android:contentDescription="String"
+            android:src="@drawable/mapa_32" />
+            
 	</LinearLayout>
   <ListView android:id="@android:id/list" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="2"></ListView>
   <LinearLayout android:layout_weight="0" android:layout_width="fill_parent" android:id="@+id/linearLayout1" android:layout_height="100dip">

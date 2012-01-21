@@ -14,10 +14,10 @@
         
 <!-- 		<View style="@style/TitleBarSpring" /> -->
 
-		<ImageView style="@style/TitleBarSeparator" />
-		<ImageButton android:id="@+id/titlebar_btn_search_map"
-		style="@style/TitleBarAction"
-		android:src="@android:drawable/ic_menu_search" />
+<!-- 		<ImageView style="@style/TitleBarSeparator" /> -->
+<!-- 		<ImageButton android:id="@+id/titlebar_btn_search_map" -->
+<!-- 		style="@style/TitleBarAction" -->
+<!-- 		android:src="@android:drawable/ic_menu_search" /> -->
 		
 		<ImageView style="@style/TitleBarSeparator" />
 		<ImageButton android:id="@+id/titlebar_btn_mylocation"
