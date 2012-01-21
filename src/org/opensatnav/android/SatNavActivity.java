@@ -355,7 +355,7 @@ public class SatNavActivity extends Activity implements
 						) {
 //					SatNavActivity.this.autoFollowing = false;
 //					SatNavActivity.this.displayToast(R.string.planning_mode_on);
-//						SatNavActivity.this.mMyLocationOverlay.disableMyLocation();
+						mMyLocationOverlay.disableMyLocation();
 						mMyLocationOverlay.disableFollowLocation();
 				}
 //				updateZoomButtons();
@@ -924,7 +924,6 @@ public class SatNavActivity extends Activity implements
 								
 							}
 							SatNavActivity.this.mOsmv.invalidate();
-							SatNavActivity.this.showRefreshSpinner(false); 
 						}
 					} 
 //					else {
@@ -980,6 +979,7 @@ public class SatNavActivity extends Activity implements
 //									R.string.could_not_find_poi
 									R.string.error_no_server_conn).toString(),
 								Toast.LENGTH_LONG).show();
+					SatNavActivity.this.showRefreshSpinner(false);
 				}
 			};
 			new Thread(new Runnable() {
