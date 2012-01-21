@@ -137,7 +137,7 @@ public class SatNavActivity extends Activity implements
 	private MyLocationOverlay mMyLocationOverlay;
 //	private SimpleLocationOverlay mMyLocationOverlay;
 	private ScaleBarOverlay mScaleBarOverlay;
-	private ItemizedOverlayWithFocus<OverlayItem> mItemizedOverlay;
+	private ItemizedIconOverlay<OverlayItem> mItemizedOverlay;
 	private ResourceProxy mResourceProxy;
 	private PopupControls popup;
 	
@@ -402,7 +402,8 @@ public class SatNavActivity extends Activity implements
 		{
 			final ArrayList<OverlayItem> items = new ArrayList<OverlayItem>();
 			/* OnTapListener for the Markers, shows a simple Toast. */
-			this.mItemizedOverlay = new ItemizedOverlayWithFocus<OverlayItem>(items,
+			this.mItemizedOverlay = new ItemizedIconOverlay<OverlayItem>(items,
+					this.getResources().getDrawable(R.drawable.blue_pin_hi_48),
 					new ItemizedIconOverlay.OnItemGestureListener<OverlayItem>() {
 						@Override
 						public boolean onItemSingleTapUp(final int index, final OverlayItem item) {
