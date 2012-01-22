@@ -14,6 +14,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.opensatnav.android.SatNavActivity;
 import cl.droid.transantiago.R;
+import cl.droid.transantiago.service.TransantiagoGeoCoder;
 import cl.droid.utils.Changelog;
 import cl.droid.utils.PreferenceHelper;
 import cl.droid.utils.Utils;
@@ -264,7 +265,7 @@ public class HomeActivity extends Activity {
 			
 			// post the data
 			HttpClient client = new DefaultHttpClient();
-			HttpPost post = new HttpPost("http://192.168.43.85:5000/transdroid/v1/stats/send");
+			HttpPost post = new HttpPost(TransantiagoGeoCoder.urlbase+"/stats/send");
 			post.setHeader("Content-Type", "application/x-www-form-urlencoded");
 	
 			List<NameValuePair> pairs = new ArrayList<NameValuePair>();

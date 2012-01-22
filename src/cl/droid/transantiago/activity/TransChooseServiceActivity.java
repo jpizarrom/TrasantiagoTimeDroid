@@ -101,10 +101,10 @@ public class TransChooseServiceActivity extends ListActivity {
 		mPreferenceHelper = new PreferenceHelper(mContext);
 		mPreferenceHelper.setLoadstop();
 		
-		Toast.makeText(
-				TransChooseServiceActivity.this,
-				"SatNavActivity onCreate"
-				, Toast.LENGTH_LONG).show();
+//		Toast.makeText(
+//				TransChooseServiceActivity.this,
+//				"TransChooseServiceActivity onCreate"
+//				, Toast.LENGTH_LONG).show();
 		
 		ads = (ImageView)this.findViewById(R.id.ads);
 		// Refresh title button
