@@ -16,10 +16,9 @@
  * You should have received a copy of the GNU General Public License
  * along with contactos-cl.  If not, see <http://www.gnu.org/licenses/>.
  */
-package cl.droid.misc;
+package cl.droid.utils;
 
 import cl.droid.transantiago.R;
-import cl.droid.utils.Utils;
 
 import android.app.Activity;
 import android.app.AlertDialog;

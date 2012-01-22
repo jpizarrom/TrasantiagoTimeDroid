@@ -33,12 +33,12 @@
 		<provider android:name=".MySuggestionProvider"
               android:authorities="cl.droid.transantiago.MySuggestionProvider" />
               
-		<activity android:name="org.opensatnav.android.GetDirectionsActivity" />
-		<activity android:name="org.opensatnav.android.ChooseLocationActivity" android:configChanges="orientation"/>
+<!-- 		<activity android:name="org.opensatnav.android.GetDirectionsActivity" /> -->
+<!-- 		<activity android:name="org.opensatnav.android.ChooseLocationActivity" android:configChanges="orientation"/> -->
 		<activity android:name="org.openintents.about.About" />
 		<activity android:name="org.opensatnav.android.ConfigurationActivity" />
-		<activity android:name="org.opensatnav.android.ContributeActivity"
-			android:finishOnTaskLaunch="true" />
+<!-- 		<activity android:name="org.opensatnav.android.ContributeActivity" -->
+<!-- 			android:finishOnTaskLaunch="true" /> -->
 
 
 <!-- 		<service android:name="org.opensatnav.android.contribute.services.TrackRecordingService" /> -->
@@ -81,7 +81,7 @@
 <!-- 		<service android:icon="@drawable/icon" android:label="@string/app_name" -->
 <!-- 			android:name="org.opensatnav.android.services.routing.RouteInstructionsService" /> -->
 			
-		<activity android:name=".TransChooseLocationServiceActivity" android:launchMode="singleTop">
+		<activity android:name=".activity.TransChooseLocationServiceActivity" android:launchMode="singleTop">
 		    <!-- Receives the search request. -->
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
@@ -93,9 +93,9 @@
                     android:resource="@xml/searchable"/>
 		</activity>
 		
-		<activity android:name="cl.droid.transantiago.TransChooseServiceActivity" android:configChanges="orientation"></activity>
+		<activity android:name=".activity.TransChooseServiceActivity" android:configChanges="orientation"></activity>
 		
-		<activity android:name="cl.droid.transantiago.ServiceActivity"
+		<activity android:name=".activity.ServiceActivity"
 		android:theme="@android:style/Theme.Black"
 		></activity>
 		
@@ -106,7 +106,7 @@
             </intent-filter>
 		</activity>
 		<meta-data android:name="android.app.default_searchable"
-                   android:value=".TransChooseLocationServiceActivity" />      
+                   android:value=".activity.TransChooseLocationServiceActivity" />      
 	</application>
 
 	<uses-sdk android:minSdkVersion="3" android:targetSdkVersion="7"/>

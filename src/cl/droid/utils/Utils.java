@@ -30,7 +30,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
-import cl.droid.misc.Log;
 import cl.droid.transantiago.R;
 
 import android.app.Activity;

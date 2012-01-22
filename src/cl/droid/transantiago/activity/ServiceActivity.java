@@ -1,6 +1,11 @@
-package cl.droid.transantiago;
+package cl.droid.transantiago.activity;
 
 import org.opensatnav.android.OpenSatNavConstants;
+
+import cl.droid.transantiago.R;
+import cl.droid.transantiago.R.id;
+import cl.droid.transantiago.R.layout;
+import cl.droid.transantiago.R.string;
 
 import android.app.Activity;
 import android.os.Bundle;

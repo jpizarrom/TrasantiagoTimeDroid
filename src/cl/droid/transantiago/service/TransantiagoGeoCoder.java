@@ -1,4 +1,4 @@
-package cl.droid.transantiago.services;
+package cl.droid.transantiago.service;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

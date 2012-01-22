@@ -41,9 +41,9 @@ import org.osmdroid.views.overlay.SimpleLocationOverlay;
 
 import cl.droid.transantiago.MySuggestionProvider;
 import cl.droid.transantiago.R;
-import cl.droid.transantiago.TransChooseLocationServiceActivity;
 import cl.droid.transantiago.activity.HomeActivity;
-import cl.droid.transantiago.services.TransantiagoGeoCoder;
+import cl.droid.transantiago.activity.TransChooseLocationServiceActivity;
+import cl.droid.transantiago.service.TransantiagoGeoCoder;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -834,7 +834,7 @@ public class SatNavActivity extends Activity implements
 
 	public void launch(final String paradero) {
 		Intent intent = new Intent(SatNavActivity.this,
-				cl.droid.transantiago.TransChooseServiceActivity.class);
+				cl.droid.transantiago.activity.TransChooseServiceActivity.class);
 		intent.putExtra("fromLocation", from.toDoubleString());
 		//intent.putExtra("locations", locations);
 		intent.putExtra("paradero", paradero);
@@ -889,7 +889,7 @@ public class SatNavActivity extends Activity implements
 //						}else{ 
 							intent = new Intent(SatNavActivity.this,
 //									org.opensatnav.android.ChooseLocationActivity.class);
-									cl.droid.transantiago.TransChooseLocationServiceActivity.class);
+									cl.droid.transantiago.activity.TransChooseLocationServiceActivity.class);
 //									org.opensatnav.android.ChooseServiceActivity.class);
 //						}
 						intent.putExtra("fromLocation", from.toDoubleString());

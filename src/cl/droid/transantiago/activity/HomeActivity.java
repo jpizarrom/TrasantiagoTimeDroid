@@ -2,8 +2,8 @@ package cl.droid.transantiago.activity;
 
 import org.opensatnav.android.SatNavActivity;
 
-import cl.droid.misc.Changelog;
 import cl.droid.transantiago.R;
+import cl.droid.utils.Changelog;
 import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Context;
