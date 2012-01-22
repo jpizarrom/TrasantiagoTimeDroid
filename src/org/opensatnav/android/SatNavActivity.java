@@ -44,6 +44,7 @@ import cl.droid.transantiago.R;
 import cl.droid.transantiago.activity.HomeActivity;
 import cl.droid.transantiago.activity.TransChooseLocationServiceActivity;
 import cl.droid.transantiago.service.TransantiagoGeoCoder;
+import cl.droid.utils.PreferenceHelper;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -154,6 +155,8 @@ public class SatNavActivity extends Activity implements
 	protected SharedPreferences prefs;
 
 	private RelativeLayout layout;
+	private Context mContext;
+	private PreferenceHelper mPreferenceHelper;
 
 	// ===========================================================
 	// Constructors
@@ -209,6 +212,9 @@ public class SatNavActivity extends Activity implements
 	public void onCreate(Bundle savedInstanceState) {
 		BugReportExceptionHandler.register(this);
 		super.onCreate(savedInstanceState);
+		
+		mContext = getBaseContext();
+		mPreferenceHelper = new PreferenceHelper(mContext);
 		
 		setContentView(R.layout.map);
 
@@ -411,6 +417,8 @@ public class SatNavActivity extends Activity implements
 	}
 
 	private void onSearchOnMap(){
+		mPreferenceHelper.setLoadstops();
+		
 		from = (GeoPoint) this.mOsmv.getMapCenter();
 		if (!this.isOnline()){
 			Toast.makeText(this, this.getResources().getText(

@@ -22,7 +22,8 @@ import android.util.Log;
 import android.widget.Toast;
 
 public class TransantiagoGeoCoder implements GeoCoder {
-	private String urlbase = "http://dev.planotur.cl/transdroid/v1";
+//	private String urlbase = "http://dev.planotur.cl/transdroid/v1";
+	private String urlbase = "http://192.168.43.85:5000/transdroid/v1";
 //	private String urlbase = "http://50.56.31.19:5001";
 //	private String urlbase = "http://192.168.16.101:5000";
 	private ArrayList<String> locationNames;

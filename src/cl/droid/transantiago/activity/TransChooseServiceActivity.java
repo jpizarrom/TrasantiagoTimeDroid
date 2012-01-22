@@ -51,9 +51,11 @@ import cl.droid.transantiago.R.id;
 import cl.droid.transantiago.R.layout;
 import cl.droid.transantiago.R.string;
 import cl.droid.transantiago.service.TransantiagoGeoCoder;
+import cl.droid.utils.PreferenceHelper;
 
 import android.app.ListActivity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -87,11 +89,17 @@ public class TransChooseServiceActivity extends ListActivity {
 	LocationAdapter la;
 	String paradero;
 	private ListView mListView;
+	private Context mContext;
+	private PreferenceHelper mPreferenceHelper;
 	
 	@Override
 	public void onCreate(android.os.Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.services_list);
+		
+		mContext = getBaseContext();
+		mPreferenceHelper = new PreferenceHelper(mContext);
+		mPreferenceHelper.setLoadstop();
 		
 		Toast.makeText(
 				TransChooseServiceActivity.this,
