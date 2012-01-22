@@ -258,7 +258,9 @@ public class HomeActivity extends Activity {
 //			String home_function = mPreferenceHelper.defaultLaunchActivity();
 //			String welcome_message = String.valueOf(mPreferenceHelper.isWelcomeQuoteEnabled());
 			String loadstops = String.valueOf(mPreferenceHelper.getLoadstops());
+			mPreferenceHelper.resetLoadstops();
 			String loadstop = String.valueOf(mPreferenceHelper.getLoadstop());
+			mPreferenceHelper.resetLoadstop();
 			
 			// post the data
 			HttpClient client = new DefaultHttpClient();
