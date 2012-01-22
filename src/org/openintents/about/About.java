@@ -626,9 +626,9 @@ public class About extends TabActivity {
 	 * If not, display "no information available".
 	 */
 	void checkCreditsAvailable() {
-		if (mAuthorsLabel.getVisibility() == View.GONE
+		if (mLeadersLabel.getVisibility() == View.GONE
 				&& mAuthorsLabel.getVisibility() == View.GONE
-				&& mAuthorsLabel.getVisibility() == View.GONE
+				&& mArtistsLabel.getVisibility() == View.GONE
 				&& mAuthorsLabel.getVisibility() == View.GONE ) {
 			mNoInformationText.setVisibility(View.VISIBLE);
 		} else {

@@ -23,6 +23,7 @@
 		<!--
 			Add your name here if you helped out
 		-->
+		<item>Juan Pizarro (jpizarrom@gmail.com)</item>
     </string-array>
     <string-array name="about_authors"><!-- Add your name here if you helped out -->
 		<!--
@@ -37,9 +38,10 @@
     </string-array>
     
     <string-array name="about_artists"><!-- Add your name here if you helped out -->
+    	<item>Ignacio Valdés</item>
     </string-array>
     
-     <string-array name="about_others"><!-- Add your name here if you helped out -->
+    <string-array name="about_others"><!-- Add your name here if you helped out -->
      <!-- can't make this a nice link, fix it if you know :) -->
     </string-array>
     

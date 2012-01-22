@@ -45,18 +45,20 @@
 <!-- 		<service android:name="org.opensatnav.android.TripStatisticsService" /> -->
 
 		<!-- values used in the About screen -->
-<!-- 		<meta-data android:name="org.openintents.metadata.COMMENTS" -->
-<!-- 			android:value="@string/app_desc" /> -->
-<!-- 		<meta-data android:name="org.openintents.metadata.LEADERS" -->
-<!-- 			android:resource="@array/about_leaders" /> -->
-<!-- 		<meta-data android:name="org.openintents.metadata.AUTHORS" -->
-<!-- 			android:resource="@array/about_authors" /> -->
-<!-- 		<meta-data android:name="org.openintents.metadata.TRANSLATORS" -->
-<!-- 			android:resource="@array/about_translators" /> -->
-<!-- 		<meta-data android:name="org.openintents.metadata.ARTISTS" -->
-<!-- 			android:resource="@array/about_artists" /> -->
-<!-- 		<meta-data android:name="org.openintents.metadata.DOCUMENTERS" -->
-<!-- 			android:resource="@array/about_documenters" /> -->
+		<meta-data android:name="org.openintents.metadata.COMMENTS"
+			android:value="@string/app_desc" />
+		<meta-data android:name="org.openintents.metadata.LEADERS"
+			android:resource="@array/about_leaders" />
+		<meta-data android:name="org.openintents.metadata.AUTHORS"
+			android:resource="@array/about_authors" />
+		<meta-data android:name="org.openintents.metadata.TRANSLATORS"
+			android:resource="@array/about_translators" />
+		<meta-data android:name="org.openintents.metadata.ARTISTS"
+			android:resource="@array/about_artists" />
+		<meta-data android:name="org.openintents.metadata.DOCUMENTERS"
+			android:resource="@array/about_documenters" />
+		<meta-data android:name="org.openintents.metadata.OTHERS"
+			android:resource="@array/about_others" />
 		<meta-data android:name="org.openintents.metadata.WEBSITE_LABEL"
 			android:value="@string/about_website_label" />
 		<meta-data android:name="org.openintents.metadata.WEBSITE_URL"
