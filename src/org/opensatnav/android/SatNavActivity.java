@@ -696,9 +696,9 @@ public class SatNavActivity extends Activity implements
 //				R.string.menu_show_trip_stats);
 //		tripStatsMenuItem.setIcon(android.R.drawable.ic_menu_recent_history);
 		
-//		MenuItem prefsMenuItem = pMenu.add(0, MENU_PREFERENCES, Menu.NONE,
-//				R.string.preferences);
-//		prefsMenuItem.setIcon(android.R.drawable.ic_menu_preferences);
+		MenuItem prefsMenuItem = pMenu.add(0, MENU_PREFERENCES, Menu.NONE,
+				R.string.preferences);
+		prefsMenuItem.setIcon(android.R.drawable.ic_menu_preferences);
 		
 		// Put overlay items next
 		this.mOsmv.getOverlayManager().onCreateOptionsMenu(pMenu, MENU_LAST_ID, mOsmv);
