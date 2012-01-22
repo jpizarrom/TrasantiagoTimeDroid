@@ -1,4 +1,5 @@
-This application is based on OpenSatNav (OpenSatNav.org)
+This application is based on OpenSatNav licensed under the GPL 
+http://OpenSatNav.org
 
 This application uses :
 
@@ -19,17 +20,17 @@ This application uses :
 
 * * * * *
 
-Copyright (C) 2010 opensatnav.org
+Copyright (C) 2011 droid.cl
 
-OpenSatNav is free software: you can redistribute it and/or modify
+TransDroid is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
 
-OpenSatNav is distributed in the hope that it will be useful,
+TransDroid is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with OpenSatNav.  If not, see <http://www.gnu.org/licenses/>.
+along with TransDroid.  If not, see <http://www.gnu.org/licenses/>.

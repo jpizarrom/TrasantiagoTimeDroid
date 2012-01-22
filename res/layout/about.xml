@@ -58,9 +58,9 @@
 		<TextSwitcher android:id="@+id/t_program_name_and_version" android:layout_width="fill_parent"
 			android:layout_height="wrap_content" android:paddingBottom="15sp">
 			<TextView android:layout_width="fill_parent" android:gravity="center" android:autoLink="all"
-				android:layout_height="wrap_content" android:textSize="28sp" android:textColor="@android:color/white" android:textStyle="bold"/>
+				android:layout_height="wrap_content" android:textSize="28sp" android:textColor="@android:color/black" android:textStyle="bold"/>
 			<TextView android:layout_width="fill_parent" android:gravity="center" android:autoLink="all"
-				android:layout_height="wrap_content" android:textSize="28sp" android:textColor="@android:color/white" android:textStyle="bold"/>
+				android:layout_height="wrap_content" android:textSize="28sp" android:textColor="@android:color/black" android:textStyle="bold"/>
 		</TextSwitcher>
 
 		<TextSwitcher android:id="@+id/t_comments" android:layout_width="fill_parent"
