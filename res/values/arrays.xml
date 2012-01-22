@@ -23,41 +23,24 @@
 		<!--
 			Add your name here if you helped out
 		-->
-		<item>Chris Andrew (chris_debian)</item>
-
     </string-array>
     <string-array name="about_authors"><!-- Add your name here if you helped out -->
 		<!--
 			Add your name here if you helped out
 		-->
-		<item>Kieran Fleming (Kizza)</item>
-		<item>Guillaume Rosaire (ZeroG)</item>
-		<item>Stephen Brown (evolvedlight)</item>
-		<item>Julien Dodokal (Murphy)</item>
     </string-array>
     
     <string-array name="about_documenters"><!-- Add your name here if you helped out -->
     </string-array>
     
     <string-array name="about_translators"><!-- Add your name here if you helped out, but only in the arrays.xml for the localization that you helped to translate into! -->
-        <item>Guillaume Rosaire (French)</item>
-        <item>Julien Dodokal (French)</item>
-        <item>Alvaro Lara Cano (Spanish)</item>
-        <item>Christian Soltenborn (German)</item>
-        <item>Dmitry Pristromov (Russian)</item>
-        <item>Lei Jiang (Chinese)</item>
-        <item>Zbigniew Czernik (Polish)</item>
-        <item>Gerrit A. Abma (Dutch)</item>
-        <item>Ivan Peevski (Bulgarian)</item>
     </string-array>
     
     <string-array name="about_artists"><!-- Add your name here if you helped out -->
-        <item>Kizza</item>
     </string-array>
     
      <string-array name="about_others"><!-- Add your name here if you helped out -->
      <!-- can't make this a nice link, fix it if you know :) -->
-        <item>Everyone that helped on Launchpad, viewable at https://launchpad.net/opensatnav/+topcontributors</item>
     </string-array>
     
     <!--

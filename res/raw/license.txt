@@ -1,3 +1,4 @@
+This application is based on OpenSatNav (OpenSatNav.org)
 
 This application uses :
 
