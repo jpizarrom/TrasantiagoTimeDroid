@@ -123,7 +123,7 @@
 	<string name="no_information_available">No information available.</string>
 	<!-- / -->
 	<string name="error_email_message">Dear All,\n\nI encountered the following issue
-		while using OpenSatNav, could you please have a look at it?\n\n
+		while using TransDroid, could you please have a look at it?\n\n
 	</string>
 	<string name="error_email_chooser_title">Send Mail via:</string>
 	<string name="bug_report_mail_address">bug-reports@droid.cl</string>
