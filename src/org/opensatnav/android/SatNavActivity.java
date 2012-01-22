@@ -81,6 +81,7 @@ import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -399,19 +400,22 @@ public class SatNavActivity extends Activity implements
 	// ===========================================================
 
 	@Override
-	public boolean onCreateOptionsMenu(final Menu pMenu) {
+	public boolean onCreateOptionsMenu(final Menu menu) {
 		
-		MenuItem prefsMenuItem = pMenu.add(0, MENU_PREFERENCES, Menu.NONE,
-				R.string.preferences);
-		prefsMenuItem.setIcon(android.R.drawable.ic_menu_preferences);
+//		MenuItem prefsMenuItem = pMenu.add(0, MENU_PREFERENCES, Menu.NONE,
+//				R.string.preferences);
+//		prefsMenuItem.setIcon(android.R.drawable.ic_menu_preferences);
 		
 		// Put overlay items next
-		this.mOsmv.getOverlayManager().onCreateOptionsMenu(pMenu, MENU_LAST_ID, mOsmv);
+		this.mOsmv.getOverlayManager().onCreateOptionsMenu(menu, MENU_LAST_ID, mOsmv);
 //		this.mMyLocationOverlay.onCreateOptionsMenu(pMenu, MENU_LAST_ID, mOsmv);
 		
-		MenuItem aboutMenuItem = pMenu.add(0, MENU_ABOUT, Menu.NONE,
-				R.string.about);
-		aboutMenuItem.setIcon(android.R.drawable.ic_menu_info_details);
+//		MenuItem aboutMenuItem = pMenu.add(0, MENU_ABOUT, Menu.NONE,
+//				R.string.about);
+//		aboutMenuItem.setIcon(android.R.drawable.ic_menu_info_details);
+		
+		MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.options_menu, menu);
 		
 		return true;
 	}
@@ -435,15 +439,15 @@ public class SatNavActivity extends Activity implements
 			this.mOsmv.invalidate();
 			return true;
 
-		case MENU_PREFERENCES:
+		case R.id.menu_preferences:
 			Intent intent = new Intent(this,
 					org.opensatnav.android.ConfigurationActivity.class);
-			startActivityForResult(intent, MENU_PREFERENCES);
+			startActivity(intent);
 
 			return true;
-		case MENU_ABOUT:
+		case R.id.menu_about:
 			Intent intent1 = new Intent(this, org.openintents.about.About.class);
-			startActivityForResult(intent1, MENU_ABOUT);
+			startActivity(intent1);
 
 			return true;
 

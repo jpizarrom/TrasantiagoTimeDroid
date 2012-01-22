@@ -124,18 +124,22 @@ public class HomeActivity extends Activity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-			case R.id.search:
-					onSearchRequested();
-//				Toast.makeText(HomeActivity.this, "onSearchRequested", Toast.LENGTH_LONG).show();
-				return true;
+//			case R.id.search:
+//					onSearchRequested();
+////				Toast.makeText(HomeActivity.this, "onSearchRequested", Toast.LENGTH_LONG).show();
+//				return true;
 			case R.id.menu_about:
 				Intent intent1 = new Intent(this, org.openintents.about.About.class);
 //				startActivityForResult(intent1, R.id.menu_about);
 				startActivity(intent1);
 				return true;
+			case R.id.menu_preferences:
+				Intent intent = new Intent(this,
+						org.opensatnav.android.ConfigurationActivity.class);
+				startActivity(intent);
+				return true;
 		}
-//		return super.onOptionsItemSelected(item);
-		return false;
+		return super.onOptionsItemSelected(item);
 	}
 	
 //    @Override
@@ -159,7 +163,7 @@ public class HomeActivity extends Activity {
      * Check last time stats were sent, and send again if time greater than a week
      */
 	private void checkStats() {	
-//		if (mPreferenceHelper.isSendStatsEnabled()) 
+		if (mPreferenceHelper.isSendStatsEnabled()) 
 		{
 			long statsTimestamp = mPreferenceHelper.getStatsTimestamp();
 	        long timeDiff = Utils.dateDiff(statsTimestamp);

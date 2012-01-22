@@ -326,5 +326,6 @@
 <string name="place_found">&quot;Could find \&quot;%1$s\&quot; \&quot;%2$s\&quot;&quot;</string>
 <string name="recommendation_subject">recommendation_subject</string>
 <string name="recommendation_body">recommendation_body</string>
+<string name="pref_stats_send">Send Usage Stats</string>
 </resources>
 

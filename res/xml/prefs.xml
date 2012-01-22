@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<CheckBoxPreference android:key="sendUsageStats"
+		android:title="@string/pref_stats_send" 
+		android:defaultValue="false" />
+		
 <!-- 	<PreferenceCategory android:title="@string/prefs_general"> -->
 <!-- 		<org.opensatnav.android.ui.MapTypePreference -->
 <!-- 			android:title="@string/prefs_map_style" android:key="map_style" -->
