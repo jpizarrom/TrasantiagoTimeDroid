@@ -351,6 +351,7 @@ public class SatNavActivity extends Activity implements
 
 		/* Fetch busstop buttom */
 		{
+			{
 			busstopButton = (ImageButton) findViewById(R.id.busstop_btn);
 //			busstopButton = new Button(this);
 //			busstopButton.setBackgroundResource(R.drawable.parada_cercana_64);
@@ -360,21 +361,21 @@ public class SatNavActivity extends Activity implements
 			    	onSearchOnMap();
 			    }
 			});
-			{
-			final RelativeLayout.LayoutParams zoomParams = new RelativeLayout.LayoutParams(
-					android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
-					android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
-			zoomParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
-			zoomParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+		
+//			final RelativeLayout.LayoutParams zoomParams = new RelativeLayout.LayoutParams(
+//					android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
+//					android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
+//			zoomParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+//			zoomParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
 //			rl.addView(busstopButton, zoomParams);
 			}
 			
 			{
-			final RelativeLayout.LayoutParams zoomParams = new RelativeLayout.LayoutParams(
-					android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
-					android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
-			zoomParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
-			zoomParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+//			final RelativeLayout.LayoutParams zoomParams = new RelativeLayout.LayoutParams(
+//					android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
+//					android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
+//			zoomParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+//			zoomParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
 			refButton = (ProgressBar) findViewById(R.id.busstop_refresh_progress);
 //			refButton = new Button(this);
 //			refButton.setBackgroundResource(R.drawable.ic_menu_refresh);
