@@ -88,6 +88,7 @@ public class TransChooseServiceActivity extends ListActivity {
 	BitmapFactory.Options bmOptions;
 	LocationAdapter la;
 	String paradero;
+	String description;
 	private ListView mListView;
 	private Context mContext;
 	private PreferenceHelper mPreferenceHelper;
@@ -110,7 +111,7 @@ public class TransChooseServiceActivity extends ListActivity {
 		// Refresh title button
 		findViewById(R.id.title_btn_refresh).setOnClickListener(new View.OnClickListener() {
 		    public void onClick(View v) {
-		    	TransChooseServiceActivity.this.launch(paradero);
+		    	TransChooseServiceActivity.this.launch(paradero, description);
 		    }
 		});	
 		
@@ -139,18 +140,19 @@ public class TransChooseServiceActivity extends ListActivity {
 		// Set the title
 		((TextView) findViewById(R.id.title_text)).setText(paradero);
 		if (getIntent().hasExtra("description")){
-			String description = getIntent().getStringExtra("description");
+			description = getIntent().getStringExtra("description");
 			((TextView) findViewById(R.id.description)).setText(description);
 		}
-//		else
+		else{
+			description="";
 //			((TextView) findViewById(R.id.description)).setText("N/A");
-		
+		}
 		la = new LocationAdapter(from);
 		mListView = getListView();
 //		mListView.setVisibility(View.GONE);
 //		setListAdapter(la);
 		
-		this.launch(paradero);
+		this.launch(paradero, description);
 //		getListView().setTextFilterEnabled(true);
 //		getListView().setOnItemClickListener();
 				
@@ -498,11 +500,11 @@ public class TransChooseServiceActivity extends ListActivity {
 		  }
 
 	   protected Bundle locations;
-	   public void launch(final String paradero) {
+	   public void launch(final String paradero, final String description) {
 		   //			final String paradero = item.mTitle;
 		   SearchRecentSuggestions suggestions = new SearchRecentSuggestions(TransChooseServiceActivity.this,
 				   MySuggestionProvider.AUTHORITY, MySuggestionProvider.MODE);
-		   suggestions.saveRecentQuery(paradero, null);
+		   suggestions.saveRecentQuery(paradero, description);
 
 //		   final ProgressDialog progress = ProgressDialog.show(
 //				   TransChooseServiceActivity.this, TransChooseServiceActivity.this.getResources().getText(
