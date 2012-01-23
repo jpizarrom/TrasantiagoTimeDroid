@@ -520,7 +520,6 @@ public class TransChooseServiceActivity extends ListActivity {
 							
 							if (locations.containsKey("ads"))
 								loadImage(locations.getString("ads"), bmOptions);
-							showRefreshSpinner(false);
 //						   Intent intent = new Intent(SatNavActivity.this,
 //								   //								org.opensatnav.android.ServiceActivity.class);
 //								   cl.droid.transantiago.TransChooseServiceActivity.class);
@@ -557,6 +556,7 @@ public class TransChooseServiceActivity extends ListActivity {
 										   Toast.LENGTH_LONG).show();
 
 					   //					TransChooseLocationServiceActivity.this.finish();
+					   showRefreshSpinner(false);
 			   }
 		   };
 		   new Thread(new Runnable() {

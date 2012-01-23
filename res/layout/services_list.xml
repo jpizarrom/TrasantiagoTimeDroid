@@ -25,12 +25,12 @@
 			style="@style/TitleBarProgressIndicator"
             android:visibility="gone" />
 
-        <ImageView style="@style/TitleBarSeparator" />
+<!--         <ImageView style="@style/TitleBarSeparator" /> -->
         
-        <ImageButton android:id="@+id/title_btn_map" 
-        	style="@style/TitleBarAction"
-            android:contentDescription="String"
-            android:src="@drawable/mapa_32" />
+<!--         <ImageButton android:id="@+id/title_btn_map"  -->
+<!--         	style="@style/TitleBarAction" -->
+<!--             android:contentDescription="String" -->
+<!--             android:src="@drawable/mapa_32" /> -->
             
 	</LinearLayout>
   <ListView android:id="@android:id/list" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="2"></ListView>

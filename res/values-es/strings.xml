@@ -135,4 +135,5 @@
   <string name="l_how_to_use">Como usar</string>
   <string name="changelog_filename">changelog-es.html</string>
   <string name="place_found">Se pudo encontrar \&quot;%1$s\&quot; \&quot;%2$s\&quot;</string>
+  <string name="pref_stats_send">Envio de estadísticas de uso</string>
 </resources>

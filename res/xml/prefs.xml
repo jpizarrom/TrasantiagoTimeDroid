@@ -2,7 +2,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 	<CheckBoxPreference android:key="sendUsageStats"
 		android:title="@string/pref_stats_send" 
-		android:defaultValue="false" />
+		android:defaultValue="true" />
 		
 <!-- 	<PreferenceCategory android:title="@string/prefs_general"> -->
 <!-- 		<org.opensatnav.android.ui.MapTypePreference -->

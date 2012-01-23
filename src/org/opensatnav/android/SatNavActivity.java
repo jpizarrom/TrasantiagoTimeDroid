@@ -427,6 +427,7 @@ public class SatNavActivity extends Activity implements
 		if (!this.isOnline()){
 			Toast.makeText(this, this.getResources().getText(
 				R.string.error_no_inet_conn), Toast.LENGTH_LONG).show();
+			SatNavActivity.this.showRefreshSpinner(false);
 		} else
 			getLocations(" ");
 	}

@@ -144,11 +144,11 @@ public class HomeActivity extends Activity {
 	
 //    @Override
     public boolean onSearchRequested() {
-    	if (!this.isOnline()){
-			Toast.makeText(this, this.getResources().getText(
-				R.string.error_no_inet_conn), Toast.LENGTH_LONG).show();
-			return false;
-		}else
+//    	if (!this.isOnline()){
+//			Toast.makeText(this, this.getResources().getText(
+//				R.string.error_no_inet_conn), Toast.LENGTH_LONG).show();
+//			return false;
+//		}else
 			return super.onSearchRequested();
     }
 	public boolean isOnline() {

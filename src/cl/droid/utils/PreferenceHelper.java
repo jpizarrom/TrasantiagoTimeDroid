@@ -9,7 +9,7 @@ public class PreferenceHelper {
 	private static final String KEY_STATS_TIMESTAMP = "stats_timestamp";
 	
 	public static final String KEY_SEND_STATS = "sendUsageStats";
-	public static final boolean KEY_SEND_STATS_DEFAULT_VALUE = false;
+	public static final boolean KEY_SEND_STATS_DEFAULT_VALUE = true;
 	
 	public static final String KEY_LOAD_STOPS = "loadstops";
 	public static final String KEY_LOAD_STOP = "loadstop";
