@@ -40,7 +40,7 @@
 			android:layout_alignParentTop="true"
 			android:layout_alignParentRight="true"
 			>	
-			<ImageButton android:id="@+id/busstop_btn" style="@style/TitleBarAction"
+			<ImageButton android:id="@+id/busstop_btn"
 				android:layout_height="wrap_content" 
 				android:layout_width="wrap_content"
 				android:src="@drawable/parada_cercana_64" 

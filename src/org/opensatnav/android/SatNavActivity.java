@@ -170,7 +170,7 @@ public class SatNavActivity extends Activity implements
 //	@Widget
 	public class PopupControls extends LinearLayout {
 		private final Button mClose;
-	    private final Button mLaunch;
+	    private final ImageButton mLaunch;
 	    public final TextView title;
 	    public final TextView description;
 	    public OverlayItem item;
@@ -189,7 +189,7 @@ public class SatNavActivity extends Activity implements
 	                true);
 	        
 	        mClose = (Button) findViewById(R.id.btn_close);
-	        mLaunch = (Button) findViewById(R.id.btn_launch);
+	        mLaunch = (ImageButton) findViewById(R.id.btn_launch);
 	        title = (TextView) findViewById(R.id.title);
 	        description = (TextView) findViewById(R.id.description);
 	        

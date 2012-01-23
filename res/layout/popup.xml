@@ -40,10 +40,10 @@
 		        	android:scrollbars="vertical">
 		        </TextView>
 
-		        <Button  
+		        <ImageButton  
 			        android:id="@+id/btn_launch" style="@style/PopupButton"
-			        android:drawableTop="@drawable/parada_48"
+			        android:src="@drawable/parada_48"
 			        android:text="Recorridos">
-			    </Button>
+			    </ImageButton>
 	    </LinearLayout>
   </LinearLayout>
