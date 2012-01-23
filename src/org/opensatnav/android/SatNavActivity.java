@@ -92,7 +92,9 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.Toast;
@@ -142,8 +144,8 @@ public class SatNavActivity extends Activity implements
 	private ItemizedIconOverlay<OverlayItem> mItemizedOverlay;
 	private ResourceProxy mResourceProxy;
 	private PopupControls popup;
-	Button busstopButton;
-	Button refButton;
+	ImageButton busstopButton;
+	ProgressBar refButton;
 
 	/**
 	 * Singleton instance
@@ -349,9 +351,9 @@ public class SatNavActivity extends Activity implements
 
 		/* Fetch busstop buttom */
 		{
-			busstopButton = new Button(this);
-//			busstopButton.setText("Para");
-			busstopButton.setBackgroundResource(R.drawable.parada_cercana_64);
+			busstopButton = (ImageButton) findViewById(R.id.busstop_btn);
+//			busstopButton = new Button(this);
+//			busstopButton.setBackgroundResource(R.drawable.parada_cercana_64);
 			busstopButton.setOnClickListener(new View.OnClickListener() {
 			    public void onClick(View v) {
 			    	SatNavActivity.this.showRefreshSpinner(true);
@@ -364,19 +366,21 @@ public class SatNavActivity extends Activity implements
 					android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 			zoomParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
 			zoomParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-			rl.addView(busstopButton, zoomParams);
+//			rl.addView(busstopButton, zoomParams);
 			}
+			
 			{
 			final RelativeLayout.LayoutParams zoomParams = new RelativeLayout.LayoutParams(
 					android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
 					android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 			zoomParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
 			zoomParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-			refButton = new Button(this);
-			refButton.setBackgroundResource(R.drawable.ic_menu_refresh);
+			refButton = (ProgressBar) findViewById(R.id.busstop_refresh_progress);
+//			refButton = new Button(this);
+//			refButton.setBackgroundResource(R.drawable.ic_menu_refresh);
 //			zoomParams.addRule(RelativeLayout.LEFT_OF, busstopButton.getId());
-			refButton.setVisibility(View.GONE);
-			rl.addView(refButton, zoomParams);
+//			refButton.setVisibility(View.GONE);
+//			rl.addView(refButton, zoomParams);
 //			rl.addView(popup);
 		
 			}
@@ -532,20 +536,20 @@ public class SatNavActivity extends Activity implements
 						
 						if (locations.getInt("size")>0){
 							int size = locations.getInt("size");
-							Toast
-							.makeText(
-									SatNavActivity.this,
-									String.format(
-											SatNavActivity.this
-												.getResources()
-												.getText(
-//													R.string.could_not_find_poi
-													R.string.place_found).toString(),
-											size,
-											"paradero")
-//											+ " " + size
-											,
-									Toast.LENGTH_LONG).show();
+//							Toast
+//							.makeText(
+//									SatNavActivity.this,
+//									String.format(
+//											SatNavActivity.this
+//												.getResources()
+//												.getText(
+////													R.string.could_not_find_poi
+//													R.string.place_found).toString(),
+//											size,
+//											"paradero")
+////											+ " " + size
+//											,
+//									Toast.LENGTH_LONG).show();
 							String[] locationInfo = locations.getStringArray("info");
 							String[] locationNames = locations.getStringArray("names");
 							final int[] locationLats = locations.getIntArray("latitudes");

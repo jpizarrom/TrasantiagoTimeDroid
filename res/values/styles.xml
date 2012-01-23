@@ -58,6 +58,14 @@
         <item name="android:layout_marginTop">12dip</item>
         <item name="android:indeterminate">true</item> 
     </style>
+    <style name="ProgressIndicator.Large" parent="@android:style/Widget.ProgressBar.Large">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+<!--         <item name="android:layout_marginLeft">12dip</item> -->
+<!--         <item name="android:layout_marginRight">12dip</item> -->
+<!--         <item name="android:layout_marginTop">12dip</item> -->
+        <item name="android:indeterminate">true</item> 
+    </style>
 
     <style name="TitleBarProgressIndicatorInverse" parent="@android:style/Widget.ProgressBar.Small.Inverse">
         <item name="android:layout_width">wrap_content</item>
