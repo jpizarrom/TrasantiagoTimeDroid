@@ -204,7 +204,8 @@ public class SatNavActivity extends Activity implements
 			});
 	        mLaunch.setOnClickListener(new View.OnClickListener() {
 			    public void onClick(View v) {
-					SatNavActivity.this.launch(title.getText().toString());
+					SatNavActivity.this.launch(title.getText().toString(), 
+							description.getText().toString());
 			    }
 			});
 	    }
@@ -471,12 +472,13 @@ public class SatNavActivity extends Activity implements
 	    return false;
 	}
 
-	public void launch(final String paradero) {
+	public void launch(final String paradero, final String description) {
 		Intent intent = new Intent(SatNavActivity.this,
 				cl.droid.transantiago.activity.TransChooseServiceActivity.class);
 		intent.putExtra("fromLocation", from.toDoubleString());
 		//intent.putExtra("locations", locations);
 		intent.putExtra("paradero", paradero);
+		intent.putExtra("description", description);
 		//
 		String urlstring = "http://m.ibus.cl/index.jsp?paradero="+paradero+"&servicio=&boton.x=0&boton.y=0";
 		////						Log.i(OpenSatNavConstants.LOG_TAG, urlstring);

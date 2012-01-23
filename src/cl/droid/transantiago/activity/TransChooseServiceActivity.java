@@ -138,6 +138,12 @@ public class TransChooseServiceActivity extends ListActivity {
 //				);
 		// Set the title
 		((TextView) findViewById(R.id.title_text)).setText(paradero);
+		if (getIntent().hasExtra("description")){
+			String description = getIntent().getStringExtra("description");
+			((TextView) findViewById(R.id.description)).setText(description);
+		}
+//		else
+//			((TextView) findViewById(R.id.description)).setText("N/A");
 		
 		la = new LocationAdapter(from);
 		mListView = getListView();
