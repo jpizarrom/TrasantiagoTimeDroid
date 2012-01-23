@@ -171,8 +171,8 @@ public class HomeActivity extends Activity {
 //	        if (LOGV) Log.v(TAG, "Lasts stats date was " + timeDiff + "ms ago" );
 			
 			// Only once a week
-//			if (timeDiff > 604800000) {
-//	        if (timeDiff > 60*60*24*7*1000) {
+//			if (timeDiff > 604800000)
+	        if (timeDiff > 60*60*24*7*1000)
 //	        if (timeDiff > 60*3*1000) 
 	        {
 				new Thread() {
