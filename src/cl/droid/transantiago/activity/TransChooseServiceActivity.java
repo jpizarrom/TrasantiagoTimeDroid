@@ -504,7 +504,7 @@ public class TransChooseServiceActivity extends ListActivity {
 		   //			final String paradero = item.mTitle;
 		   SearchRecentSuggestions suggestions = new SearchRecentSuggestions(TransChooseServiceActivity.this,
 				   MySuggestionProvider.AUTHORITY, MySuggestionProvider.MODE);
-		   suggestions.saveRecentQuery(paradero, description);
+		   suggestions.saveRecentQuery(paradero, null);
 
 //		   final ProgressDialog progress = ProgressDialog.show(
 //				   TransChooseServiceActivity.this, TransChooseServiceActivity.this.getResources().getText(
