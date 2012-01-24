@@ -12,22 +12,22 @@
 <!-- 			android:title="@string/prefs_units" android:key="unit_system" -->
 <!-- 			android:defaultValue="metric" /> -->
 <!-- 	</PreferenceCategory> -->
-	<PreferenceCategory android:title="@string/prefs_cache_section">
+<!-- 	<PreferenceCategory android:title="@string/prefs_cache_section"> -->
 		<!-- The sd card size to be used for caching wil be stored in shared preferences 
 			under key 'maxSdCardUsageMb' (in Mb) Default values will be replaced by real 
 			sd card size (max) at start -->
-		<org.opensatnav.android.ui.SDCardUsagePreference
-			android:title="@string/prefs_cache_sdcard" android:summary="@string/prefs_cache_sdcard_summary"
-			android:persistent="true" android:dialogMessage="@string/prefs_cache_sdcard_dialog"
-			android:text="@string/megabytes_abbreviation" android:max="512"
-			android:defaultValue="32" android:dialogTitle="@string/prefs_cache_sdcard_title"
-			android:key="maxSdCardUsageMb" />
-		<org.opensatnav.android.ui.SDCardClearPreference
-			android:title="@string/prefs_cache_clear" android:summary="@string/prefs_cache_clear_summary"
-			android:dialogMessage="@string/prefs_cache_clear_confirm"
-			android:key="clear_cache" android:persistent="true" />
+<!-- 		<org.opensatnav.android.ui.SDCardUsagePreference -->
+<!-- 			android:title="@string/prefs_cache_sdcard" android:summary="@string/prefs_cache_sdcard_summary" -->
+<!-- 			android:persistent="true" android:dialogMessage="@string/prefs_cache_sdcard_dialog" -->
+<!-- 			android:text="@string/megabytes_abbreviation" android:max="512" -->
+<!-- 			android:defaultValue="32" android:dialogTitle="@string/prefs_cache_sdcard_title" -->
+<!-- 			android:key="maxSdCardUsageMb" /> -->
+<!-- 		<org.opensatnav.android.ui.SDCardClearPreference -->
+<!-- 			android:title="@string/prefs_cache_clear" android:summary="@string/prefs_cache_clear_summary" -->
+<!-- 			android:dialogMessage="@string/prefs_cache_clear_confirm" -->
+<!-- 			android:key="clear_cache" android:persistent="true" /> -->
 
-		</PreferenceCategory>
+<!-- 		</PreferenceCategory> -->
 <!-- 		<PreferenceCategory android:title="@string/prefs_contribute_section"> -->
 		<!-- <EditTextPreference android:dialogTitle="@string/prefs_contribute_osm_username" 
 			android:summary="@string/prefs_contribute_osm_username_summary" android:title="@string/prefs_contribute_osm_username" 
