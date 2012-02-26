@@ -44,22 +44,25 @@ public class HomeActivity extends Activity {
 	private PreferenceHelper mPreferenceHelper;
 	private Context mContext;
 	
-	GoogleAnalyticsTracker tracker;
+	private GoogleAnalyticsTracker tracker;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		Log.d("HomeActivity", "onCreate");
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		
-	    tracker = GoogleAnalyticsTracker.getInstance();
-	    tracker.startNewSession("UA-29423878-1", this);
-	    tracker.trackPageView("/HomeActivity");
-        tracker.dispatch();
-	    
+		   
 		setContentView(R.layout.home);
 		
 		mContext = getBaseContext();
 		mPreferenceHelper = new PreferenceHelper(mContext);
+		
+		if (mPreferenceHelper.isSendStatsEnabled()) {
+		    tracker = GoogleAnalyticsTracker.getInstance();
+		    tracker.startNewSession("UA-29423878-1", this);
+		    tracker.trackPageView("/HomeActivity");
+	        tracker.dispatch();
+		}
 		
 		boolean appUnchanged = Changelog.show(this);
 		((TextView) findViewById(R.id.title_text)).setText("Home");
@@ -122,11 +125,10 @@ public class HomeActivity extends Activity {
 
 	@Override
 	protected void onDestroy() {
-		// TODO Auto-generated method stub
-		super.onDestroy();
-		
 		// Stop the tracker when it is no longer needed.
-	    tracker.stopSession();
+//	    tracker.stopSession();
+	    
+		super.onDestroy();
 	}
 
 	@Override

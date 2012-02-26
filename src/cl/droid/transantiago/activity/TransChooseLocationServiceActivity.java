@@ -22,6 +22,8 @@ import org.opensatnav.android.services.GeoCoder;
 import org.opensatnav.android.util.FormatHelper;
 import org.osmdroid.util.GeoPoint;
 
+import com.google.android.apps.analytics.GoogleAnalyticsTracker;
+
 import cl.droid.transantiago.MySuggestionProvider;
 import cl.droid.transantiago.R;
 import cl.droid.transantiago.R.layout;
@@ -57,9 +59,18 @@ public class TransChooseLocationServiceActivity extends ListActivity {
 	protected ProgressDialog progress;
 	
 	private ListView mListView;
+	
+	private GoogleAnalyticsTracker tracker;
+	
 	@Override
 	public void onCreate(android.os.Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		tracker = GoogleAnalyticsTracker.getInstance();
+	    tracker.startNewSession("UA-29423878-1", this);
+	    tracker.trackPageView("/TransChooseLocationServiceActivity");
+        tracker.dispatch();
+        
 		setContentView(R.layout.stops_list);
 		Intent intent = getIntent();
 //		Toast.makeText(TransChooseLocationServiceActivity.this, "onCreate", Toast.LENGTH_LONG).show();

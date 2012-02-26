@@ -39,6 +39,8 @@ import org.osmdroid.views.overlay.OverlayItem;
 import org.osmdroid.views.overlay.ScaleBarOverlay;
 import org.osmdroid.views.overlay.SimpleLocationOverlay;
 
+import com.google.android.apps.analytics.GoogleAnalyticsTracker;
+
 import cl.droid.transantiago.MySuggestionProvider;
 import cl.droid.transantiago.R;
 import cl.droid.transantiago.activity.HomeActivity;
@@ -160,6 +162,8 @@ public class SatNavActivity extends Activity implements
 	private RelativeLayout layout;
 	private Context mContext;
 	private PreferenceHelper mPreferenceHelper;
+	
+	private GoogleAnalyticsTracker tracker;
 
 	// ===========================================================
 	// Constructors
@@ -219,6 +223,12 @@ public class SatNavActivity extends Activity implements
 		
 		mContext = getBaseContext();
 		mPreferenceHelper = new PreferenceHelper(mContext);
+		if (mPreferenceHelper.isSendStatsEnabled()) {
+		    tracker = GoogleAnalyticsTracker.getInstance();
+		    tracker.startNewSession("UA-29423878-1", this);
+		    tracker.trackPageView("/SatNavActivity");
+	        tracker.dispatch();
+		}
 		
 		setContentView(R.layout.map);
 
