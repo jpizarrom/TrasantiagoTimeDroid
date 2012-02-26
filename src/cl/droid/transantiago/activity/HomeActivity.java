@@ -13,6 +13,9 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.opensatnav.android.SatNavActivity;
+
+import com.google.android.apps.analytics.GoogleAnalyticsTracker;
+
 import cl.droid.transantiago.R;
 import cl.droid.transantiago.service.TransantiagoGeoCoder;
 import cl.droid.utils.Changelog;
@@ -40,11 +43,19 @@ public class HomeActivity extends Activity {
 	private static final int MENU_SEARCH = 0;
 	private PreferenceHelper mPreferenceHelper;
 	private Context mContext;
+	
+	GoogleAnalyticsTracker tracker;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+		
+	    tracker = GoogleAnalyticsTracker.getInstance();
+	    tracker.startNewSession("UA-29423878-1", this);
+	    tracker.trackPageView("/HomeActivity");
+        tracker.dispatch();
+	    
 		setContentView(R.layout.home);
 		
 		mContext = getBaseContext();
@@ -107,6 +118,15 @@ public class HomeActivity extends Activity {
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
+	}
+
+	@Override
+	protected void onDestroy() {
+		// TODO Auto-generated method stub
+		super.onDestroy();
+		
+		// Stop the tracker when it is no longer needed.
+	    tracker.stopSession();
 	}
 
 	@Override

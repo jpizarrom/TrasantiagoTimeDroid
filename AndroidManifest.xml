@@ -77,7 +77,12 @@
 <!-- 			<meta-data android:name="android.appwidget.provider" -->
 <!-- 				android:resource="@xml/widget" /> -->
 <!-- 		</receiver> -->
-
+<!-- Used for install referrer tracking -->
+		<receiver android:name="com.google.android.apps.analytics.AnalyticsReceiver" android:exported="true">
+		  <intent-filter>
+		    <action android:name="com.android.vending.INSTALL_REFERRER" />
+		  </intent-filter>
+		</receiver>
 <!-- 		<service android:icon="@drawable/icon" android:label="@string/app_name" -->
 <!-- 			android:name="org.opensatnav.android.services.routing.RouteInstructionsService" /> -->
 			
