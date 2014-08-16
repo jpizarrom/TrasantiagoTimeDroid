@@ -8,5 +8,4 @@
        
 	android:searchSuggestAuthority="cl.droid.transantiago.MySuggestionProvider"
 	android:searchSuggestSelection=" ?">
-<!--  	android:searchSuggestIntentAction="android.intent.action.VIEW"> -->
 </searchable>

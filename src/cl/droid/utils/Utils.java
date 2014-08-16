@@ -30,10 +30,22 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.TimeZone;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+
 import cl.droid.transantiago.R;
+import cl.droid.transantiago.activity.HomeActivity;
+import cl.droid.transantiago.service.TransantiagoGeoCoder;
 
 import android.app.Activity;
 import android.content.Context;
@@ -42,6 +54,8 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
 import android.os.Environment;
+import android.telephony.TelephonyManager;
+import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
 
@@ -211,4 +225,129 @@ public class Utils {
         md5hash = md.digest();
         return convertToHex(md5hash);
     }
+    
+    public static void uploadStats(Activity activity, PreferenceHelper mPreferenceHelper) {
+		Log.d("Testing", "Sending app statistics");
+
+		// gather all of the device info
+		String app_version = "";
+		try {
+			try {
+				PackageInfo pi = activity.getPackageManager().getPackageInfo(activity.getPackageName(), 0);
+				app_version = pi.versionName;
+			} 
+			catch (NameNotFoundException e) {
+				app_version = "N/A";
+			}
+
+			TelephonyManager tm = (TelephonyManager) activity.getSystemService(Context.TELEPHONY_SERVICE);
+			String device_uuid = tm.getDeviceId();
+			String device_id = "00000000000000000000000000000000";
+			if (device_uuid != null) {
+				device_id = Utils.MD5(device_uuid);
+			}
+			
+			String mobile_country_code = tm.getNetworkCountryIso();
+			String mobile_network_number = tm.getNetworkOperator();
+			int network_type = tm.getNetworkType();
+	
+			// get the network type string
+			String mobile_network_type = "N/A";
+			switch (network_type) {
+			case 0:
+				mobile_network_type = "TYPE_UNKNOWN";
+				break;
+			case 1:
+				mobile_network_type = "GPRS";
+				break;
+			case 2:
+				mobile_network_type = "EDGE";
+				break;
+			case 3:
+				mobile_network_type = "UMTS";
+				break;
+			case 4:
+				mobile_network_type = "CDMA";
+				break;
+			case 5:
+				mobile_network_type = "EVDO_0";
+				break;
+			case 6:
+				mobile_network_type = "EVDO_A";
+				break;
+			case 7:
+				mobile_network_type = "1xRTT";
+				break;
+			case 8:
+				mobile_network_type = "HSDPA";
+				break;
+			case 9:
+				mobile_network_type = "HSUPA";
+				break;
+			case 10:
+				mobile_network_type = "HSPA";
+				break;
+			}
+	
+			String device_version = android.os.Build.VERSION.RELEASE;
+	
+			if (device_version == null) {
+				device_version = "N/A";
+			}
+			
+			String device_model = android.os.Build.MODEL;
+			
+			if (device_model == null) {
+				device_model = "N/A";
+			}
+
+			String device_language = activity.getResources().getConfiguration().locale.getLanguage();
+//			String home_function = mPreferenceHelper.defaultLaunchActivity();
+//			String welcome_message = String.valueOf(mPreferenceHelper.isWelcomeQuoteEnabled());
+			String loadstops = String.valueOf(mPreferenceHelper.getLoadstops());
+			mPreferenceHelper.resetLoadstops();
+			String loadstop = String.valueOf(mPreferenceHelper.getLoadstop());
+			mPreferenceHelper.resetLoadstop();
+			
+			// post the data
+			HttpClient client = new DefaultHttpClient();
+			HttpPost post = new HttpPost(TransantiagoGeoCoder.urlbase+"/stats/send");
+			post.setHeader("Content-Type", "application/x-www-form-urlencoded");
+	
+			List<NameValuePair> pairs = new ArrayList<NameValuePair>();
+			pairs.add(new BasicNameValuePair("device_id", device_id));
+			pairs.add(new BasicNameValuePair("app_version", app_version));
+//			pairs.add(new BasicNameValuePair("home_function", home_function));
+//			pairs.add(new BasicNameValuePair("welcome_message", welcome_message));
+			pairs.add(new BasicNameValuePair("device_model", device_model));
+			pairs.add(new BasicNameValuePair("device_version", device_version));
+			pairs.add(new BasicNameValuePair("device_language", device_language));
+			pairs.add(new BasicNameValuePair("mobile_country_code", mobile_country_code));
+			pairs.add(new BasicNameValuePair("mobile_network_number", mobile_network_number));
+			pairs.add(new BasicNameValuePair("mobile_network_type",	mobile_network_type));
+
+			pairs.add(new BasicNameValuePair("transdroid_loadstops", loadstops));
+			pairs.add(new BasicNameValuePair("transdroid_loadstop", loadstop));
+
+			try {
+				post.setEntity(new UrlEncodedFormEntity(pairs));
+			} 
+			catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+
+			try {
+				HttpResponse response = client.execute(post);
+				response.getStatusLine().getStatusCode();
+			}
+			catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		} 
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
 }

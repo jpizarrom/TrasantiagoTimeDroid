@@ -16,8 +16,6 @@ This file is part of OpenSatNav.
  */
 package cl.droid.transantiago.activity;
 
-import org.opensatnav.android.OpenSatNavConstants;
-import org.opensatnav.android.SatNavActivity;
 import org.opensatnav.android.services.GeoCoder;
 import org.opensatnav.android.util.FormatHelper;
 import org.osmdroid.util.GeoPoint;
@@ -106,19 +104,6 @@ public class TransChooseLocationServiceActivity extends ListActivity {
 				
 				to = la.getLocation((int) position).toString();
 				launchServices(paradero);
-				
-//				Intent intent = new Intent(ChooseLocationActivity.this,
-//						org.opensatnav.android.ChooseServiceActivity.class);
-//				intent.putExtra("location", la.getLocation((int) position).toString());
-//				
-//				intent.putExtra("fromLocation", getIntent().getStringExtra("fromLocation"));
-//				intent.putExtra("locations", getIntent().getBundleExtra("locations"));
-//				startActivity(intent);
-				
-//				Intent data = getIntent();
-//				data.putExtra("location", la.getLocation((int) position).toString());
-//				setResult(RESULT_OK, data);
-//				finish();
 
 			}
 
@@ -144,84 +129,6 @@ public class TransChooseLocationServiceActivity extends ListActivity {
 		intent.putExtra("url", urlstring);
 		startActivity(intent);
 		finish();
-		
-//		Toast.makeText(TransChooseLocationServiceActivity.this, "launchServices", Toast.LENGTH_LONG).show();
-//		progress = ProgressDialog.show(
-//				TransChooseLocationServiceActivity.this, TransChooseLocationServiceActivity.this.getResources().getText(
-//						R.string.please_wait), TransChooseLocationServiceActivity.this.getResources().getText(
-//						R.string.searching), true, true);
-//		
-//		final Handler handler = new Handler() {
-//			@Override
-//			public void handleMessage(Message msg) {
-//				if (progress != null && progress.isShowing())
-//					try {
-//						progress.dismiss();
-////						backgroundThreadComplete = true;
-//					} catch (IllegalArgumentException e) {
-//						// if orientation change, thread continue but the dialog cannot be dismissed without exception
-//					}
-//				if (locations != null && locations.containsKey("names") && locations.getStringArray("names").length > 0) {
-//					Intent intent = new Intent(TransChooseLocationServiceActivity.this,
-////							org.opensatnav.android.ServiceActivity.class);
-//							cl.droid.transantiago.TransChooseServiceActivity.class);
-//					intent.putExtra("fromLocation", from.toDoubleString());
-//					intent.putExtra("locations", locations);
-//					intent.putExtra("paradero", paradero);
-//					
-//					String urlstring = "http://m.ibus.cl/index.jsp?paradero="+paradero+"&servicio=&boton.x=0&boton.y=0";
-//					Log.i(OpenSatNavConstants.LOG_TAG, urlstring);
-//					intent.putExtra("url", urlstring);
-//					startActivityForResult(intent,0);
-//					
-//				} else if (locations != null && locations.containsKey("names") && locations.getStringArray("names").length == 0)
-//					Toast
-//					.makeText(
-//							TransChooseLocationServiceActivity.this,
-//							String.format(
-//									TransChooseLocationServiceActivity.this
-//										.getResources()
-//										.getText(
-////											R.string.could_not_find_poi
-//											R.string.place_not_found).toString(),
-//									"paradero")
-////									+ " " + stringValue
-//									,
-//							Toast.LENGTH_LONG).show();
-//				if (locations == null)
-//					Toast.makeText(TransChooseLocationServiceActivity.this,
-//							TransChooseLocationServiceActivity.this
-//							.getResources()
-//							.getText(
-////								R.string.could_not_find_poi
-//								R.string.error_no_server_conn).toString(),
-//							Toast.LENGTH_LONG).show();
-//				
-//				TransChooseLocationServiceActivity.this.finish();
-//			}
-//		};
-//		new Thread(new Runnable() {
-//			public void run() {
-//				// put long running operations here
-//				TransantiagoGeoCoder geoCoder = null;
-//
-//				
-//				geoCoder = new TransantiagoGeoCoder();
-//					
-//				
-////				if (selectedPoi == -1) { // text search, rank results within an area
-//					locations = geoCoder.queryService(paradero, from, GeoCoder.IN_AREA, 25,
-//							TransChooseLocationServiceActivity.this);
-////				}
-////				else {  //POI search, just find the nearest matching POI
-////				locations = geoCoder.queryService("", from, GeoCoder.FROM_POINT, 25,
-////						TransChooseLocationServiceActivity.this);
-////				}
-//				// ok, we are done
-//				handler.sendEmptyMessage(0);
-//				
-//			}
-//		}).start();
 		
 	}
 	protected class LocationAdapter extends BaseAdapter {

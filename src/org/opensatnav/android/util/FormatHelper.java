@@ -21,24 +21,6 @@ public class FormatHelper {
 				.getString("unit_system", "metric");
 	}
 
-	public String formatDistance(int metres) {
-		distanceFormat = (DecimalFormat) NumberFormat.getInstance();
-		distanceFormat.applyPattern("###,###.#");
-
-		if (unitSystem.compareTo("metric") == 0) {
-			return distanceFormat.format(metres / 1000)
-					+ r.getString(R.string.kilometres_abbreviation);
-		}
-
-		if (unitSystem.compareTo("imperial") == 0) {
-			int yards = (int) (metres * 1.0936133);
-			return distanceFormat.format(yards / 1760)
-					+ r.getString(R.string.miles_abbreviation);
-
-		} else
-			return null;
-	}
-
 	public String formatDistanceFuzzy(int metres) {
 		distanceFormat = (DecimalFormat) NumberFormat.getInstance();
 		distanceFormat.applyPattern("###,###.#");

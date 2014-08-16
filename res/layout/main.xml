@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parent_container"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    >
+
+	<RelativeLayout 
+    android:id="@+id/map_container"
+	android:layout_height="fill_parent" 
+	android:layout_width="fill_parent">
+	
+		<fragment
+        android:id="@+id/map"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        class="com.google.android.gms.maps.SupportMapFragment" />
+		
+		<RelativeLayout
+			android:layout_height="wrap_content" 
+			android:layout_width="wrap_content"
+			android:layout_alignParentTop="true"
+			android:layout_alignParentRight="true"
+			>	
+			<ImageButton android:id="@+id/busstop_btn"
+				android:layout_height="wrap_content" 
+				android:layout_width="wrap_content"
+				android:src="@drawable/parada_cercana_64" 
+				/>
+			<ProgressBar android:id="@+id/busstop_refresh_progress" 
+				style="@style/ProgressIndicator.Large"
+            	android:visibility="gone" 
+            	/>
+		</RelativeLayout>
+		
+	</RelativeLayout>
+
+</LinearLayout>

@@ -1,4 +1,4 @@
-package org.opensatnav.android;
+package cl.droid.transantiago.activity;
 
 import cl.droid.transantiago.R;
 import android.os.Bundle;

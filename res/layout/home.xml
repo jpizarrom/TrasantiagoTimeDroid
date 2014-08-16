@@ -3,31 +3,6 @@
 	android:orientation="vertical" android:layout_width="fill_parent"
 	android:layout_height="fill_parent" android:id="@+id/home">
 
-	<LinearLayout style="@style/TitleBar">
-		<ImageView style="@style/TitleBarLogo"
-			android:contentDescription="@string/app_name" android:src="@drawable/title_logo" />
-
-<!-- 		<View style="@style/TitleBarSpring" /> -->
-		<ImageView style="@style/TitleBarSeparator" />
-
-		<TextView style="@style/TitleBarText" />
-		
-		<!-- <ImageView style="@style/TitleBarSeparator" /> -->
-		<!-- <ImageButton style="@style/TitleBarAction" -->
-		<!-- android:id="@+id/btn_title_refresh" -->
-		<!-- android:contentDescription="string/description_refresh" -->
-		<!-- android:src="@drawable/ic_menu_refresh"/> -->
-		<!-- android:onClick="onActionBarButtonClick" /> -->
-		<!-- <ProgressBar style="@style/TitleBarProgressIndicator" -->
-		<!-- android:id="@+id/title_refresh_progress" -->
-		<!-- android:visibility="gone" /> -->
-
-		<ImageView style="@style/TitleBarSeparator" />
-		<ImageButton android:id="@+id/titlebar_btn_share"
-			style="@style/TitleBarAction" android:src="@android:drawable/ic_menu_share" />
-
-	</LinearLayout>
-
 	<LinearLayout android:orientation="vertical"
 		android:layout_width="fill_parent" 
 		android:layout_height="fill_parent"
