@@ -116,6 +116,7 @@ public class HomeActivity extends ActionBarActivity {
       return super.onCreateOptionsMenu(menu);
 
 	}
+	
 	private Intent getDefaultIntent() {
 	    Intent intent = new Intent(Intent.ACTION_SEND);
 	    intent.setType("text/plain");

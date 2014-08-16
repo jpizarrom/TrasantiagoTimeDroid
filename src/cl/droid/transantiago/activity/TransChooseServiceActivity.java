@@ -25,6 +25,8 @@ import java.net.URLConnection;
 import org.opensatnav.android.services.GeoCoder;
 import org.osmdroid.util.GeoPoint;
 
+import com.google.android.gms.maps.SupportMapFragment;
+
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -34,6 +36,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.SearchRecentSuggestions;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.ListFragment;
+import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -47,7 +54,7 @@ import cl.droid.transantiago.R;
 import cl.droid.transantiago.service.TransantiagoGeoCoder;
 import cl.droid.utils.PreferenceHelper;
 
-public class TransChooseServiceActivity extends ListActivity {
+public class TransChooseServiceActivity extends ActionBarActivity {
 
 	protected ProgressDialog progress;
 	Bundle b;
@@ -62,6 +69,8 @@ public class TransChooseServiceActivity extends ListActivity {
 	private ListView mListView;
 	private Context mContext;
 	private PreferenceHelper mPreferenceHelper;
+	private ListFragment l;
+	private ListFragment listFragment;
 
 	@Override
 	public void onCreate(android.os.Bundle savedInstanceState) {
@@ -99,11 +108,28 @@ public class TransChooseServiceActivity extends ListActivity {
 			description = "";
 		}
 		la = new LocationAdapter(from);
-		mListView = getListView();
+//		mListView = getListView();
+		
+		FragmentManager fm = this.getSupportFragmentManager();
+
+		listFragment = (ListFragment) getSupportFragmentManager()
+				.findFragmentById(R.id.list);
+//		listFragment.setListAdapter(la);
+//		l = new ListFragment();
+		
 
 		this.launch(paradero, description);
 
 	}
+	
+//	@Override
+//	public boolean onCreateOptionsMenu(Menu menu) {
+//		 MenuInflater inflater = getMenuInflater();
+//	        inflater.inflate(R.menu.map_activity_actions ,menu);
+//
+//      return super.onCreateOptionsMenu(menu);
+//
+//	}
 
 	protected class LocationAdapter extends BaseAdapter {
 
@@ -240,7 +266,7 @@ public class TransChooseServiceActivity extends ListActivity {
 						&& locations.getStringArray("names").length > 0) {
 					locationInfo = locations.getStringArray("info");
 					locationNames = locations.getStringArray("names");
-					setListAdapter(la);
+					listFragment.setListAdapter(la);
 
 					if (locations.containsKey("ads"))
 						loadImage(locations.getString("ads"), bmOptions);

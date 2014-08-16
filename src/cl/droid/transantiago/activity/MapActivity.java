@@ -10,7 +10,14 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.ShareActionProvider;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -29,18 +36,22 @@ import com.google.android.maps.ItemizedOverlay;
 import com.google.android.maps.Overlay;
 import com.google.android.maps.OverlayItem;
 
-public class MapActivity extends FragmentActivity {
+public class MapActivity extends ActionBarActivity {
 	private static final String MAP_FRAGMENT_TAG = "org.osmdroid.MAP_FRAGMENT_TAG";
 	private ItemizedOverlay<OverlayItem> mItemizedOverlay;
 	private SupportMapFragment mapFragment;
 	private GoogleMap mMap;
 	private List<Overlay> mapOverlays;
-	private ImageButton busstopButton;
-	private ProgressBar refButton;
+	private MenuItem busstopButton;
+//	private ProgressBar refButton;
 
 	@Override
 	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+        supportRequestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+//        requestWindowFeature(Window.FEATURE_PROGRESS);
+
 
 		this.setContentView(R.layout.main);
 
@@ -55,26 +66,6 @@ public class MapActivity extends FragmentActivity {
 		mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
 		mMap.animateCamera(CameraUpdateFactory.zoomTo(13));
 
-		/* Fetch busstop buttom */
-		{
-			{
-				busstopButton = (ImageButton) findViewById(R.id.busstop_btn);
-
-				busstopButton.setOnClickListener(new View.OnClickListener() {
-					public void onClick(View v) {
-						MapActivity.this.showRefreshSpinner(true);
-						onSearchOnMap();
-					}
-				});
-
-			}
-
-			{
-				refButton = (ProgressBar) findViewById(R.id.busstop_refresh_progress);
-
-			}
-		}
-
 		mMap.setOnInfoWindowClickListener(new OnInfoWindowClickListener() {
 
 			@Override
@@ -83,12 +74,36 @@ public class MapActivity extends FragmentActivity {
 						marker.getPosition());
 			}
 		});
+		
+//		busstopButton = (ImageButton) findViewById(R.id.menu_refresh);
+
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		 MenuInflater inflater = getMenuInflater();
+	        inflater.inflate(R.menu.map_activity_actions ,menu);
+
+      return super.onCreateOptionsMenu(menu);
 
 	}
 
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+			case R.id.menu_refresh:
+				busstopButton = item;
+				showRefreshSpinner(true);
+				onSearchOnMap();
+//				Toast.makeText(HomeActivity.this, "onSearchRequested", Toast.LENGTH_LONG).show();
+				return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+	
 	private void showRefreshSpinner(boolean isRefreshing) {
-		busstopButton.setVisibility(isRefreshing ? View.GONE : View.VISIBLE);
-		refButton.setVisibility(isRefreshing ? View.VISIBLE : View.GONE);
+		busstopButton.setVisible(!isRefreshing);
+		setSupportProgressBarIndeterminateVisibility(isRefreshing);
 	}
 
 	private void onSearchOnMap() {
