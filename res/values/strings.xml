@@ -27,5 +27,6 @@
     <string name="yards_abbreviation"> yd</string>
     <string name="kmh_abbreviation"> km/h</string>
     <string name="mph_abbreviation"> mph</string>
+    <string name="share">Share</string>
 
 </resources>

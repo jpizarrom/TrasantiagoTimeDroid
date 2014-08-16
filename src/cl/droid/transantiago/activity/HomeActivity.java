@@ -26,6 +26,9 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.ShareActionProvider;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.Menu;
@@ -35,10 +38,11 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class HomeActivity extends Activity {
+public class HomeActivity extends ActionBarActivity {
 	private static final int MENU_SEARCH = 0;
 	private PreferenceHelper mPreferenceHelper;
 	private Context mContext;
+	private ShareActionProvider mShareActionProvider;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -98,14 +102,26 @@ public class HomeActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-//		super.onCreateOptionsMenu(menu);
 		 MenuInflater inflater = getMenuInflater();
 	        inflater.inflate(R.menu.options_menu, menu);
 //        menu.add(0, R.id.search, 0, android.R.string.search_go)
 //    	.setIcon(android.R.drawable.ic_dialog_map)
 //    	.setAlphabeticShortcut(SearchManager.MENU_KEY);
-		
-        return true;
+	        
+	  MenuItem menuItem = menu.findItem(R.id.menu_share);
+	  mShareActionProvider = (ShareActionProvider)
+	            MenuItemCompat.getActionProvider(menuItem);
+	    mShareActionProvider.setShareIntent(getDefaultIntent());
+
+      return super.onCreateOptionsMenu(menu);
+
+	}
+	private Intent getDefaultIntent() {
+	    Intent intent = new Intent(Intent.ACTION_SEND);
+	    intent.setType("text/plain");
+	    intent.putExtra(Intent.EXTRA_SUBJECT, "TransDroid");
+	    intent.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=cl.droid.transantiago");
+	    return intent;
 	}
 
 	@Override
@@ -128,7 +144,7 @@ public class HomeActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	
+		
 //    @Override
     public boolean onSearchRequested() {
 //    	if (!this.isOnline()){
