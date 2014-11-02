@@ -5,10 +5,10 @@
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="src" path="gen"/>
-	<classpathentry kind="lib" path="lib/osmdroid-android-3.0.5.jar"/>
-	<classpathentry kind="lib" path="lib/slf4j-android-1.5.8.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/osmdroid-android-3.0.5.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/slf4j-android-1.5.8.jar"/>
 	<classpathentry kind="lib" path="lib/apache-mime4j-0.6.jar"/>
 	<classpathentry kind="lib" path="lib/httpmime-4.0.1.jar"/>
-	<classpathentry kind="lib" path="libs/libGoogleAnalytics.jar"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry exported="true" kind="lib" path="libs/libGoogleAnalytics.jar"/>
+	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
