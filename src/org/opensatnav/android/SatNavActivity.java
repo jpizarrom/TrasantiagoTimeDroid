@@ -19,8 +19,6 @@ package org.opensatnav.android;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import net.wigle.wigleandroid.ZoomButtonsController;
-
 import org.opensatnav.android.services.GeoCoder;
 import org.opensatnav.android.util.BugReportExceptionHandler;
 import org.osmdroid.ResourceProxy;
@@ -291,8 +289,8 @@ public class SatNavActivity extends Activity implements
 			this.mOsmv.getOverlays().add(mScaleBarOverlay);
 			// Scale bar tries to draw as 1-inch, so to put it in the top center, set x offset to
 			// half screen width, minus half an inch.
-			this.mScaleBarOverlay.setScaleBarOffset(getResources().getDisplayMetrics().widthPixels
-					/ 2 - getResources().getDisplayMetrics().xdpi / 2, 10);
+//			this.mScaleBarOverlay.setScaleBarOffset(getResources().getDisplayMetrics().widthPixels
+//					/ 2 - getResources().getDisplayMetrics().xdpi / 2, 10);
 		}
 		
 		/* SingleLocation-Overlay */
@@ -323,8 +321,8 @@ public class SatNavActivity extends Activity implements
 //									SatNavActivity.this,
 //									"Item '" + item.mTitle + "' (index=" + index
 //											+ ") got single tapped up", Toast.LENGTH_LONG).show();
-							popup.title.setText(item.mTitle);
-							popup.description.setText(item.mDescription);
+							popup.title.setText(item.getTitle());
+							popup.description.setText(item.getSnippet());
 							popup.setVisibility(View.VISIBLE);
 							return true; // We 'handled' this event.
 						}
